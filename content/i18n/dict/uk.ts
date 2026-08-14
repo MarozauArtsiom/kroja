@@ -3,7 +3,7 @@ import type { Dictionary } from '@/types/i18n';
 
 export const uk: Dictionary = {
   brand: {
-    name: 'KROJA',
+    name: 'Naked Skin',
     tagline: 'Шкіряні обкладинки для блокнотів ручної роботи',
     city: 'Краків',
   },

@@ -2,9 +2,9 @@
 
 export const copy = {
   brand: {
-    name: 'KROJA',
-    tagline: 'Handmade leather notebooks',
-    city: 'Kraków, Poland',
+    name: 'Naked Skin',
+    tagline: 'Handmade refillable leather notebooks',
+    city: 'Kraków',
   },
 
   nav: {

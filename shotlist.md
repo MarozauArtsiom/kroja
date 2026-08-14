@@ -1,4 +1,4 @@
-# KROJA — Shot list
+# Naked Skin — Shot list
 
 Generated 2026-08-14. **44 shots total** — 33 product, 11 story.
 

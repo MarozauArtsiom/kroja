@@ -91,7 +91,7 @@ export function toMarkdown(): string {
   const date = new Date().toISOString().slice(0, 10);
 
   const lines: string[] = [
-    '# KROJA — Shot list',
+    '# Naked Skin — Shot list',
     '',
     `Generated ${date}. **${counts.total} shots total** — ${counts.product} product, ${counts.story} story.`,
     '',

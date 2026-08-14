@@ -7,12 +7,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   for (const lang of SUPPORTED_LOCALES) {
     routes.push({
-      url: `https://kroja.example/${lang}`,
+      url: `https://nakedskin.vercel.app/${lang}`,
       priority: 1,
       lastModified: new Date(),
     });
     routes.push({
-      url: `https://kroja.example/${lang}/configurator`,
+      url: `https://nakedskin.vercel.app/${lang}/configurator`,
       priority: 0.8,
       lastModified: new Date(),
     });

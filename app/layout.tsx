@@ -23,17 +23,17 @@ const mono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://kroja.example'),
+  metadataBase: new URL('https://nakedskin.vercel.app'),
   title: {
-    default: 'KROJA — Handmade leather notebook covers',
-    template: '%s — KROJA',
+    default: 'Naked Skin — Handmade leather notebook covers',
+    template: '%s — Naked Skin',
   },
   description:
     'Refillable full-grain leather notebook covers, hand-stitched in Kraków. Choose size, leather, colour and engraving. Ships across the EU.',
   openGraph: {
     type: 'website',
-    siteName: 'KROJA',
-    title: 'KROJA — Handmade leather notebook covers',
+    siteName: 'Naked Skin',
+    title: 'Naked Skin — Handmade leather notebook covers',
     description: 'Hand-stitched in Kraków. Built to your specification.',
     images: ['/illustrations/hero.svg'],
   },

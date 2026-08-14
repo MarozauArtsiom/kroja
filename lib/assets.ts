@@ -37,6 +37,6 @@ export function getPreview(config: Configuration, angle: Angle): PreviewSource {
   return {
     kind: 'photo',
     src: `/previews/${filename}`,
-    alt: `KROJA notebook cover, ${config.leather} leather, ${config.color}, ${angle} view`,
+    alt: `Naked Skin notebook cover, ${config.leather} leather, ${config.color}, ${angle} view`,
   };
 }

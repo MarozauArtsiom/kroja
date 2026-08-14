@@ -40,7 +40,7 @@ export async function POST(request: Request) {
   const data = parsed.data;
 
   // Until an email provider is connected, log it. Vercel keeps function logs.
-  console.log('[KROJA reserve]', JSON.stringify(data));
+  console.log('[Naked Skin reserve]', JSON.stringify(data));
 
   const apiKey = process.env.RESEND_API_KEY;
   const to = process.env.RESERVE_NOTIFY_EMAIL;
@@ -54,7 +54,7 @@ export async function POST(request: Request) {
           Authorization: `Bearer ${apiKey}`,
         },
         body: JSON.stringify({
-          from: 'KROJA <onboarding@resend.dev>',
+          from: 'Naked Skin <onboarding@resend.dev>',
           to,
           subject:
             data.kind === 'reservation'
@@ -64,7 +64,7 @@ export async function POST(request: Request) {
         }),
       });
     } catch (error) {
-      console.error('[KROJA reserve] email failed', error);
+      console.error('[Naked Skin reserve] email failed', error);
       // Do not fail the user's request because email failed.
     }
   }

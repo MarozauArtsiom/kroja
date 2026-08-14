@@ -5,8 +5,8 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: ['/shotlist', '/api/'],
+      disallow: ['/shotlist', '/*/shotlist', '/api/'],
     },
-    sitemap: 'https://kroja.example/sitemap.xml',
+    sitemap: 'https://nakedskin.vercel.app/sitemap.xml',
   };
 }
