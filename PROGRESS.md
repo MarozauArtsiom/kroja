@@ -52,5 +52,6 @@
 | T-071 | ✅ | 2026-08-14 | 96efe3e | CartDrawer |
 | T-073 | ✅ | 2026-08-14 | c49f42f | ReserveBlock |
 | T-074 | ✅ | 2026-08-14 | cbc3bbf | API route /api/reserve |
+| T-075 | ✅ | 2026-08-14 | c56f59f | CartButton |
 
-**Следующая задача: T-075**
+**Следующая задача: T-080**
