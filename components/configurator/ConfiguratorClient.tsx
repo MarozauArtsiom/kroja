@@ -6,6 +6,7 @@ import { copy } from '@/lib/data';
 import { formatPrice } from '@/lib/format';
 import { useConfigurator } from './useConfigurator';
 import Preview from './Preview';
+import SizeSelector from './SizeSelector';
 
 function Inner() {
   const { config, priced, warnings, update } = useConfigurator();
@@ -29,7 +30,7 @@ function Inner() {
 
           {/* Right: options. Each SLOT is filled by a later task. */}
           <div className="flex flex-col gap-10">
-            {/* SLOT: SizeSelector */}
+            <SizeSelector config={config} onChange={update} />
             {/* SLOT: LeatherSelector */}
             {/* SLOT: ColorSelector */}
             {/* SLOT: DetailsSelector */}
