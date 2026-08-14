@@ -1,6 +1,8 @@
 // components/configurator/ConfiguratorClient.tsx
 'use client';
 
+import { useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 import { ToastProvider } from '@/components/ui/Toast';
 import { copy } from '@/lib/data';
 import { useConfigurator } from './useConfigurator';
@@ -12,14 +14,24 @@ import DetailsSelector from './DetailsSelector';
 import EngravingInput from './EngravingInput';
 import InsertsSelector from './InsertsSelector';
 import StickyBar from './StickyBar';
+import RestoreBanner, { saveConfig } from './RestoreBanner';
 
 function Inner() {
+  const searchParams = useSearchParams();
   const { config, priced, warnings, update } = useConfigurator();
+
+  useEffect(() => {
+    saveConfig(config);
+  }, [config]);
+
+  const isFreshVisit = searchParams.toString() === '';
 
   return (
     <>
       <main className="container-content pb-32 pt-8">
         <h1 className="mb-8 text-3xl md:text-4xl">{copy.configurator.title}</h1>
+
+        <RestoreBanner isFreshVisit={isFreshVisit} onRestore={(c) => update(c)} />
 
         {warnings.length > 0 && (
           <div className="mb-6 rounded-sm border border-line bg-paper-2 p-4 text-sm text-ink-soft">
