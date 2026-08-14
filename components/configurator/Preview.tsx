@@ -5,12 +5,13 @@ import { useState } from 'react';
 import clsx from 'clsx';
 import type { Configuration, Angle } from '@/types/config';
 import { angleList } from '@/content/shots';
-import { copy } from '@/content/copy';
+import { useI18n } from '@/components/i18n/I18nProvider';
 import { getPreview, SHOW_SCHEMATIC_NOTES } from '@/lib/assets';
 import SchematicCover from '@/components/schematic/SchematicCover';
 import SizeDiagram from '@/components/schematic/SizeDiagram';
 
 export default function Preview({ config }: { config: Configuration }) {
+  const { dict } = useI18n();
   const [angle, setAngle] = useState<Angle>('front');
   const source = getPreview(config, angle);
 
@@ -41,20 +42,17 @@ export default function Preview({ config }: { config: Configuration }) {
                 : 'border-line text-muted hover:border-ink-soft',
             )}
           >
-            {a.name}
+            {dict.angles[a.angle] || a.name}
           </button>
         ))}
       </div>
 
       {SHOW_SCHEMATIC_NOTES && (
-        <p className="text-xs leading-relaxed text-muted">{copy.configurator.schematicNote}</p>
+        <p className="text-xs leading-relaxed text-muted">{dict.leather.schematicNote}</p>
       )}
 
       <div className="rounded-sm border border-line p-4">
         <SizeDiagram active={config.size} mode="single" />
-        {SHOW_SCHEMATIC_NOTES && (
-          <p className="mt-2 text-xs leading-relaxed text-muted">{copy.configurator.sizeNote}</p>
-        )}
       </div>
     </div>
   );

@@ -3,9 +3,10 @@
 
 import { useEffect, useState } from 'react';
 import { useCartStore } from '@/store/cart';
-import { copy } from '@/content/copy';
+import { useI18n } from '@/components/i18n/I18nProvider';
 
 export default function CartButton() {
+  const { dict } = useI18n();
   const [mounted, setMounted] = useState(false);
   const open = useCartStore((s) => s.open);
   const count = useCartStore((s) => s.items.reduce((sum, i) => sum + i.qty, 0));
@@ -17,10 +18,10 @@ export default function CartButton() {
     <button
       type="button"
       onClick={open}
-      aria-label={`${copy.nav.cart}${mounted && count > 0 ? `, ${count} items` : ''}`}
+      aria-label={`${dict.nav.cart}${mounted && count > 0 ? `, ${count}` : ''}`}
       className="flex h-11 items-center gap-1.5 px-2 text-sm text-ink"
     >
-      {copy.nav.cart}
+      {dict.nav.cart}
       {mounted && count > 0 && (
         <span className="flex h-5 min-w-5 items-center justify-center rounded-full bg-accent px-1 text-[11px] text-paper">
           {count}
