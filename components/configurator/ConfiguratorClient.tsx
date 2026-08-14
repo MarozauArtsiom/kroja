@@ -3,7 +3,6 @@
 
 import { ToastProvider } from '@/components/ui/Toast';
 import { copy } from '@/lib/data';
-import { formatPrice } from '@/lib/format';
 import { useConfigurator } from './useConfigurator';
 import Preview from './Preview';
 import SizeSelector from './SizeSelector';
@@ -12,6 +11,7 @@ import ColorSelector from './ColorSelector';
 import DetailsSelector from './DetailsSelector';
 import EngravingInput from './EngravingInput';
 import InsertsSelector from './InsertsSelector';
+import StickyBar from './StickyBar';
 
 function Inner() {
   const { config, priced, warnings, update } = useConfigurator();
@@ -33,7 +33,7 @@ function Inner() {
             <Preview config={config} />
           </div>
 
-          {/* Right: options. Each SLOT is filled by a later task. */}
+          {/* Right: options */}
           <div className="flex flex-col gap-10">
             <SizeSelector config={config} onChange={update} />
             <LeatherSelector config={config} onChange={update} />
@@ -45,14 +45,7 @@ function Inner() {
         </div>
       </main>
 
-      {/* Temporary price bar. Replaced by StickyBar in T-058. */}
-      <div className="fixed inset-x-0 bottom-0 z-30 border-t border-line bg-paper/95 backdrop-blur">
-        <div className="container-content flex h-[72px] items-center">
-          <p className="text-lg font-medium">{formatPrice(priced.totalMinor)}</p>
-        </div>
-      </div>
-
-      {/* SLOT: StickyBar */}
+      <StickyBar priced={priced} />
     </>
   );
 }
