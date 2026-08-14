@@ -25,5 +25,6 @@
 | T-030 | ✅ | 2026-08-14 | b7a30ea | Button |
 | T-031 | ✅ | 2026-08-14 | 02c3b57 | Swatch и SwatchGroup |
 | T-032 | ✅ | 2026-08-14 | 0dfcd99 | OptionCard и OptionCardGroup |
+| T-033 | ✅ | 2026-08-14 | 3c22cd4 | Accordion |
 
-**Следующая задача: T-033**
+**Следующая задача: T-034**
