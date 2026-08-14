@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300" width="400" height="300" role="img" aria-label="Technical drawing of a leather notebook cover, opened flat">
+  <!--
+    KROJA schematic, OPEN view (ratio 4:3).
+    Shows how many inserts are selected. Hide #insert-1 to #insert-4
+    that are not part of the current configuration.
+  -->
+  <defs>
+    <pattern id="hatch-fine" width="4" height="4" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <line x1="0" y1="0" x2="0" y2="4" stroke="var(--hatch-stroke, #1C1917)" stroke-width="0.5" opacity="0.35"/>
+    </pattern>
+    <pattern id="hatch-coarse" width="9" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <line x1="0" y1="0" x2="0" y2="9" stroke="var(--hatch-stroke, #1C1917)" stroke-width="1.4" opacity="0.4"/>
+    </pattern>
+    <pattern id="hatch-cross" width="7" height="7" patternUnits="userSpaceOnUse">
+      <line x1="0" y1="0" x2="7" y2="7" stroke="var(--hatch-stroke, #1C1917)" stroke-width="0.7" opacity="0.32"/>
+      <line x1="7" y1="0" x2="0" y2="7" stroke="var(--hatch-stroke, #1C1917)" stroke-width="0.7" opacity="0.32"/>
+    </pattern>
+  </defs>
+
+  <rect x="8" y="8" width="384" height="284" fill="none" stroke="#DED5C7" stroke-width="1" stroke-dasharray="6 4"/>
+
+  <!-- opened cover: one wide panel -->
+  <rect id="cover-body" x="60" y="52" width="280" height="180" rx="6"
+        fill="var(--cover-fill, #8B4A2B)" stroke="#1C1917" stroke-width="1.5"/>
+  <rect id="cover-hatch" x="60" y="52" width="280" height="180" rx="6" fill="url(#hatch-fine)"/>
+
+  <!-- spine fold -->
+  <line x1="200" y1="52" x2="200" y2="232" stroke="#1C1917" stroke-width="1" stroke-dasharray="5 4"/>
+
+  <!-- paper inserts, stacked with offset -->
+  <g id="inserts">
+    <rect id="insert-1" x="212" y="64" width="112" height="156" rx="2" fill="#FAF7F2" stroke="#1C1917" stroke-width="0.9"/>
+    <rect id="insert-2" x="218" y="68" width="112" height="156" rx="2" fill="#FAF7F2" stroke="#1C1917" stroke-width="0.9"/>
+    <rect id="insert-3" x="224" y="72" width="112" height="156" rx="2" fill="#FAF7F2" stroke="#1C1917" stroke-width="0.9"/>
+    <rect id="insert-4" x="230" y="76" width="112" height="156" rx="2" fill="#FAF7F2" stroke="#1C1917" stroke-width="0.9"/>
+  </g>
+
+  <!-- elastic retention over the fold -->
+  <line id="elastic" x1="200" y1="46" x2="200" y2="238" stroke="var(--stitch-stroke, #C9B79A)" stroke-width="2.5"/>
+
+  <!-- stitch around the panel -->
+  <rect x="72" y="64" width="256" height="156" rx="3" fill="none"
+        stroke="var(--stitch-stroke, #C9B79A)" stroke-width="1.3" stroke-dasharray="4 4"/>
+
+  <rect id="colour-chip" x="20" y="20" width="14" height="14" fill="var(--cover-fill, #8B4A2B)" stroke="#1C1917" stroke-width="0.8"/>
+  <text id="colour-name" x="42" y="31" font-size="11" fill="#1C1917" font-family="system-ui, sans-serif">Cognac</text>
+
+  <text x="20" y="256" font-size="9.5" fill="#8A7F72" font-family="system-ui, sans-serif">→ must show: how inserts attach · inner side of the leather</text>
+  <text x="20" y="278" font-size="9.5" font-weight="600" fill="#A63D2F" font-family="system-ui, sans-serif">NOT IN FRAME: cord, engraving, props</text>
+</svg>
