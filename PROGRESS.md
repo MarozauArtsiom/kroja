@@ -42,5 +42,6 @@
 | T-052 | ✅ | 2026-08-14 | bafb5dc | SizeSelector |
 | T-053 | ✅ | 2026-08-14 | a53cf53 | LeatherSelector |
 | T-054 | ✅ | 2026-08-14 | 43c8317 | ColorSelector |
+| T-055 | ✅ | 2026-08-14 | 8e95a8f | DetailsSelector |
 
-**Следующая задача: T-055**
+**Следующая задача: T-056**
