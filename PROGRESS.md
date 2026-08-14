@@ -51,5 +51,6 @@
 | T-061 | ✅ | 2026-08-14 | 43c8317 | NotifyStockForm |
 | T-071 | ✅ | 2026-08-14 | 96efe3e | CartDrawer |
 | T-073 | ✅ | 2026-08-14 | c49f42f | ReserveBlock |
+| T-074 | ✅ | 2026-08-14 | cbc3bbf | API route /api/reserve |
 
-**Следующая задача: T-074**
+**Следующая задача: T-075**
