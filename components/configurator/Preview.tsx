@@ -1,0 +1,61 @@
+// components/configurator/Preview.tsx
+'use client';
+
+import { useState } from 'react';
+import clsx from 'clsx';
+import type { Configuration, Angle } from '@/types/config';
+import { angleList } from '@/content/shots';
+import { copy } from '@/content/copy';
+import { getPreview, SHOW_SCHEMATIC_NOTES } from '@/lib/assets';
+import SchematicCover from '@/components/schematic/SchematicCover';
+import SizeDiagram from '@/components/schematic/SizeDiagram';
+
+export default function Preview({ config }: { config: Configuration }) {
+  const [angle, setAngle] = useState<Angle>('front');
+  const source = getPreview(config, angle);
+
+  return (
+    <div className="flex flex-col gap-4">
+      <div className="rounded-sm border border-line bg-paper-2 p-4 md:p-6">
+        {source.kind === 'schematic' ? (
+          <SchematicCover config={config} angle={angle} />
+        ) : (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img src={source.src} alt={source.alt} className="w-full" />
+        )}
+      </div>
+
+      {/* Angle thumbnails */}
+      <div className="flex gap-2" role="tablist" aria-label="Preview angle">
+        {angleList.map((a) => (
+          <button
+            key={a.angle}
+            type="button"
+            role="tab"
+            aria-selected={angle === a.angle}
+            onClick={() => setAngle(a.angle)}
+            className={clsx(
+              'flex-1 rounded-sm border px-3 py-2 text-xs transition-colors duration-150',
+              angle === a.angle
+                ? 'border-ink bg-paper-2 text-ink'
+                : 'border-line text-muted hover:border-ink-soft',
+            )}
+          >
+            {a.name}
+          </button>
+        ))}
+      </div>
+
+      {SHOW_SCHEMATIC_NOTES && (
+        <p className="text-xs leading-relaxed text-muted">{copy.configurator.schematicNote}</p>
+      )}
+
+      <div className="rounded-sm border border-line p-4">
+        <SizeDiagram active={config.size} mode="single" />
+        {SHOW_SCHEMATIC_NOTES && (
+          <p className="mt-2 text-xs leading-relaxed text-muted">{copy.configurator.sizeNote}</p>
+        )}
+      </div>
+    </div>
+  );
+}
