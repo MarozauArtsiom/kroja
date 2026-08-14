@@ -13,9 +13,21 @@ import FinalCta from '@/components/landing/FinalCta';
 import StickyCta from '@/components/landing/StickyCta';
 import CartDrawer from '@/components/cart/CartDrawer';
 
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'KROJA',
+  description: 'Handmade leather notebook covers',
+  address: { '@type': 'PostalAddress', addressLocality: 'Kraków', addressCountry: 'PL' },
+};
+
 export default function Home() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <Header />
       <main>
         <Hero />

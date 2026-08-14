@@ -23,9 +23,21 @@ const mono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'KROJA — Handmade leather notebooks',
+  metadataBase: new URL('https://kroja.example'),
+  title: {
+    default: 'KROJA — Handmade leather notebook covers',
+    template: '%s — KROJA',
+  },
   description:
-    'Refillable leather notebook covers, hand-stitched in Kraków. Choose your size, leather and colour.',
+    'Refillable full-grain leather notebook covers, hand-stitched in Kraków. Choose size, leather, colour and engraving. Ships across the EU.',
+  openGraph: {
+    type: 'website',
+    siteName: 'KROJA',
+    title: 'KROJA — Handmade leather notebook covers',
+    description: 'Hand-stitched in Kraków. Built to your specification.',
+    images: ['/illustrations/hero.svg'],
+  },
+  robots: { index: true, follow: true },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
