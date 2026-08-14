@@ -53,5 +53,6 @@
 | T-073 | ✅ | 2026-08-14 | c49f42f | ReserveBlock |
 | T-074 | ✅ | 2026-08-14 | cbc3bbf | API route /api/reserve |
 | T-075 | ✅ | 2026-08-14 | c56f59f | CartButton |
+| T-080 | ✅ | 2026-08-14 | 69fdaeb | Header и Footer |
 
-**Следующая задача: T-080**
+**Следующая задача: T-081**
