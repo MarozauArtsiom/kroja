@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450" width="600" height="450" role="img" aria-label="Illustration: a leather cover with paper inserts and an elastic cord">
+  <!-- KROJA landing — HERO. Editorial line illustration, no photography. -->
+  <defs>
+    <pattern id="grain" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <line x1="0" y1="0" x2="0" y2="5" stroke="#1C1917" stroke-width="0.5" opacity="0.22"/>
+    </pattern>
+  </defs>
+
+  <!-- back cover, opened -->
+  <path d="M 120 90 L 480 70 L 480 370 L 120 390 Z" fill="#8B4A2B" stroke="#1C1917" stroke-width="1.6"/>
+  <path d="M 120 90 L 480 70 L 480 370 L 120 390 Z" fill="url(#grain)"/>
+
+  <!-- inserts -->
+  <path d="M 312 96 L 462 88 L 462 352 L 312 362 Z" fill="#FAF7F2" stroke="#1C1917" stroke-width="1"/>
+  <path d="M 306 104 L 456 96 L 456 360 L 306 370 Z" fill="#FAF7F2" stroke="#1C1917" stroke-width="1"/>
+  <path d="M 300 112 L 450 104 L 450 368 L 300 378 Z" fill="#FAF7F2" stroke="#1C1917" stroke-width="1"/>
+
+  <!-- ruled lines on the top insert -->
+  <g stroke="#DED5C7" stroke-width="0.9">
+    <line x1="316" y1="150" x2="436" y2="143"/>
+    <line x1="316" y1="176" x2="436" y2="169"/>
+    <line x1="316" y1="202" x2="436" y2="195"/>
+    <line x1="316" y1="228" x2="436" y2="221"/>
+    <line x1="316" y1="254" x2="436" y2="247"/>
+  </g>
+
+  <!-- spine fold -->
+  <line x1="300" y1="80" x2="300" y2="380" stroke="#1C1917" stroke-width="1.1" stroke-dasharray="6 5" opacity="0.6"/>
+
+  <!-- saddle stitch along the left panel -->
+  <path d="M 136 106 L 288 98 M 136 374 L 288 366 M 136 106 L 136 374"
+        fill="none" stroke="#C9B79A" stroke-width="1.6" stroke-dasharray="5 5"/>
+
+  <!-- elastic cord -->
+  <path d="M 300 74 C 250 40, 180 60, 172 120" fill="none" stroke="#1C1917" stroke-width="2.4" stroke-linecap="round"/>
+  <circle cx="172" cy="120" r="4" fill="#1C1917"/>
+
+  <!-- shadow line -->
+  <path d="M 120 390 L 480 370" stroke="#1C1917" stroke-width="0.8" opacity="0.25"/>
+</svg>
