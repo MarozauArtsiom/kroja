@@ -3,7 +3,7 @@
 
 import type { Configuration, InsertType } from '@/types/config';
 import { sizes } from '@/content/sizes';
-import { copy } from '@/content/copy';
+import { useI18n } from '@/components/i18n/I18nProvider';
 import { insertNames, insertPriceMinor, GIFT_BOX_MINOR } from '@/content/pricing';
 import { formatDelta } from '@/lib/format';
 
@@ -15,6 +15,7 @@ interface Props {
 const TYPES: InsertType[] = ['plain', 'ruled', 'dot'];
 
 export default function InsertsSelector({ config, onChange }: Props) {
+  const { dict } = useI18n();
   const capacity = sizes[config.size].insertCapacity;
   const totalQty = config.inserts.reduce((s, i) => s + i.qty, 0);
 
@@ -29,9 +30,9 @@ export default function InsertsSelector({ config, onChange }: Props) {
   return (
     <section className="space-y-6">
       <div>
-        <h2 className="label mb-1">{copy.configurator.steps.inserts}</h2>
+        <h2 className="label mb-1">{dict.configurator.steps.inserts}</h2>
         <p className="mb-3 text-xs text-muted">
-          Up to {capacity} in this size. {totalQty} selected.
+          Up to {capacity} {dict.sizes.inserts} in this size. {totalQty} selected.
         </p>
 
         <div className="space-y-2">
@@ -46,7 +47,7 @@ export default function InsertsSelector({ config, onChange }: Props) {
                 <div>
                   <span className="text-sm text-ink">{insertNames[type]}</span>
                   <span className="ml-2 text-xs text-accent">
-                    {formatDelta(insertPriceMinor[type])} each
+                    {formatDelta(insertPriceMinor[type])}
                   </span>
                 </div>
                 <div className="flex items-center gap-1">
@@ -80,7 +81,7 @@ export default function InsertsSelector({ config, onChange }: Props) {
 
       <label className="flex cursor-pointer items-center justify-between rounded-sm border border-line p-3">
         <span className="text-sm text-ink">
-          {copy.configurator.giftBoxLabel}
+          {dict.configurator.giftBoxLabel}
           <span className="ml-2 text-xs text-accent">{formatDelta(GIFT_BOX_MINOR)}</span>
         </span>
         <input

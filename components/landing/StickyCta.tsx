@@ -4,9 +4,10 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import clsx from 'clsx';
-import { copy } from '@/content/copy';
+import { useI18n } from '@/components/i18n/I18nProvider';
 
 export default function StickyCta() {
+  const { dict, getLocalizedPath } = useI18n();
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -27,10 +28,10 @@ export default function StickyCta() {
       style={{ paddingBottom: 'calc(0.75rem + env(safe-area-inset-bottom))' }}
     >
       <Link
-        href="/configurator"
+        href={getLocalizedPath('/configurator')}
         className="flex h-12 w-full items-center justify-center rounded-sm bg-accent text-sm font-medium text-paper"
       >
-        {copy.hero.cta}
+        {dict.hero.cta}
       </Link>
     </div>
   );

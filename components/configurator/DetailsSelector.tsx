@@ -4,7 +4,7 @@
 import type { Configuration, ThreadCode, CordCode } from '@/types/config';
 import { threadList } from '@/content/threads';
 import { cordList } from '@/content/cords';
-import { copy } from '@/content/copy';
+import { useI18n } from '@/components/i18n/I18nProvider';
 import SwatchGroup from '@/components/ui/SwatchGroup';
 
 interface Props {
@@ -13,17 +13,19 @@ interface Props {
 }
 
 export default function DetailsSelector({ config, onChange }: Props) {
+  const { dict } = useI18n();
+
   return (
     <section className="space-y-6">
       <div>
-        <h2 className="label mb-3">{copy.configurator.thread}</h2>
+        <h2 className="label mb-3">{dict.configurator.thread}</h2>
         <SwatchGroup
           label="Thread"
           value={config.thread}
           onChange={(v) => onChange({ thread: v as ThreadCode })}
           items={threadList.map((t) => ({
             value: t.code,
-            label: t.name,
+            label: dict.threads[t.code] || t.name,
             hex: t.hex,
             state: 'available' as const,
           }))}
@@ -31,22 +33,18 @@ export default function DetailsSelector({ config, onChange }: Props) {
       </div>
 
       <div>
-        <h2 className="label mb-3">{copy.configurator.cord}</h2>
+        <h2 className="label mb-3">{dict.configurator.cord}</h2>
         <SwatchGroup
           label="Elastic cord"
           value={config.cord}
           onChange={(v) => onChange({ cord: v as CordCode })}
           items={cordList.map((c) => ({
             value: c.code,
-            label: c.name,
+            label: dict.cords[c.code] || c.name,
             hex: c.hex,
             state: 'available' as const,
           }))}
         />
-        <p className="mt-2 text-xs text-muted">
-          The cord is composited onto the photograph, which is why it is not drawn on the
-          technical drawing and must not appear in the shot.
-        </p>
       </div>
     </section>
   );

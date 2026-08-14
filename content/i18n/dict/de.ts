@@ -1,0 +1,325 @@
+// content/i18n/dict/de.ts
+import type { Dictionary } from '@/types/i18n';
+
+export const de: Dictionary = {
+  brand: {
+    name: 'KROJA',
+    tagline: 'Handgefertigte nachfüllbare Leder-Notizbuchhüllen',
+    city: 'Krakau',
+  },
+  nav: {
+    materials: 'Materialien',
+    craft: 'Handwerk',
+    faq: 'FAQ',
+    shotlist: 'Shotlist',
+    build: 'Jetzt gestalten',
+    cart: 'Warenkorb',
+    backToHome: '← Zurück zur Startseite',
+  },
+  hero: {
+    title: 'Ein Notizbuch, das seine Seiten überdauert',
+    subtitle:
+      'Vollnarbenleder-Hülle, von Hand genäht in Krakau. Ersetzen Sie das Papier, wenn es voll ist. Behalten Sie das Leder für Jahrzehnte.',
+    cta: 'Jetzt gestalten',
+    ctaSecondary: 'Über das Leder erfahren',
+    trust: 'Handarbeit aus Krakau · Vollnarbenleder · Kostenloser EU-Versand',
+  },
+  reasons: {
+    title: 'Warum eine Hülle fürs Leben Sinn ergibt',
+    items: [
+      {
+        title: 'Von Hand sattelgenäht',
+        body: 'Zwei Nadeln, ein Faden, der von beiden Seiten durch jedes Loch geführt wird. Selbst wenn ein Stich reißt, halten alle anderen.',
+      },
+      {
+        title: 'Standardmäßige Hefteinlagen',
+        body: 'Hält 2 bis 4 Hefte mit Gummizug. Wenn ein Heft voll ist, einfach austauschen. Nie wieder ein komplettes Notizbuch kaufen.',
+      },
+      {
+        title: 'Nur echtes Vollnarbenleder',
+        body: 'Die widerstandsfähigste, oberste Schicht der Haut. Weder geschliffen noch plastikbeschichtet. Es nimmt Hautöle auf und entwickelt Patina.',
+      },
+    ],
+  },
+  sizes: {
+    title: 'Vier Formate. Passend zu Ihrem Alltag.',
+    subtitle:
+      'Jede Größe wird aus 2,0 mm starkem Vollnarbenleder mit traditioneller Sattelnaht und austauschbaren Bändern gefertigt.',
+    capacity: 'Fasst',
+    inserts: 'Hefte',
+    build: 'Diese Größe wählen →',
+    weight: 'Gewicht',
+    useCases: {
+      pocket: 'Taschenformat für schnelle Notizen unterwegs. Passt in Jacken- und Hosentaschen.',
+      passport: 'Reiseformat. Fasst Reisepass, Bordkarte und zwei Notizhefte.',
+      regular: 'Das klassische Traveler’s-Format. Schlank und hoch, ideal für Tagesplanung.',
+      a5: 'Das Schreibtischformat. Für Standard-A5-Hefte, ausführliche Gedanken und Skizzen.',
+    },
+  },
+  leather: {
+    title: 'Drei Lederarten. Keine sieht aus wie Plastik.',
+    subtitle:
+      'Wir verarbeiten ausschließlich Vollnarbenleder aus europäischen Gerbereien. Jede Haut besitzt eine einzigartige Narbenstruktur und feine Farbnuancen.',
+    origin: 'Herkunft',
+    tanning: 'Gerbung',
+    thickness: 'Stärke',
+    scratchResistance: 'Kratzfestigkeit',
+    patinaSpeed: 'Patina-Entwicklung',
+    softness: 'Geschmeidigkeit',
+    ageingTitle: 'Wie dieses Leder altert',
+    m6: 'Nach 6 Monaten',
+    m12: 'Nach 12 Monaten',
+    m36: 'Nach 3 Jahren',
+    build: 'Mit diesem Leder gestalten →',
+    notDefect: {
+      title: 'Das ist kein Mangel',
+      body: 'Vollnarbenleder stammt von der obersten Hautschicht. Insektenstiche, kleine verheilte Narben und Mastfalten gehören zur Natur des Leders. Wir schleifen sie nicht ab und versiegeln sie nicht mit Kunststoff.',
+    },
+    careTitle: 'Pflegehinweise',
+    careBody:
+      'Ein- bis zweimal jährlich mit Lederbalsam auf Bienenwachsbasis pflegen. Vor direkten Hitzequellen schützen. Bei Nässe bei Raumtemperatur trocknen lassen.',
+    schematicNote: 'Technische Skizze, keine fotografische Narbendarstellung.',
+    descriptions: {
+      'veg-tan': {
+        description:
+          'Pflanzlich gegerbt in der Toskana mit Kastanien- und Mimosengerbstoffen. Zunächst fest, wird es mit der Zeit weicher und patiniert am schnellsten.',
+        character: 'Kräftig, fester Stand, dunkelt bei Berührung schnell nach',
+        origin: 'Toskana, Italien',
+        tanning: '100% Pflanzlich gegerbt',
+        ageing: {
+          m6: 'Sichtbares Nachdunkeln an Kanten und Rücken durch Hautkontakt.',
+          m12: 'Tiefes Karamell, seidiger Glanz an beanspruchten Stellen.',
+          m36: 'Edle, dunkle Patina – einzigartig durch Ihre Nutzung.',
+        },
+      },
+      'crazy-horse': {
+        description:
+          'Rindsvollnarbenleder mit hohem Wachsanteil. Erhält leicht Spuren, die sich mit dem Daumen verreiben lassen. Charaktervoller Vintage-Look ab Tag eins.',
+        character: 'Matt, wachsig im Griff, markanter Pull-up-Effekt',
+        origin: 'Polen',
+        tanning: 'Chromgerbung mit Wachsfinish',
+        ageing: {
+          m6: 'Überzogen mit samtigen Mikrokratzern, die Tiefe erzeugen.',
+          m12: 'Gleichmäßiges Nachdunkeln, glattere Haptik an Griffflächen.',
+          m36: 'Eine lebendige Landkarte aller gemeinsamen Reisen.',
+        },
+      },
+      'pull-up': {
+        description:
+          'Mit Ölen und Wachsen heiß gesättigtes Vollnarbenleder. Beim Biegen hellt sich das Leder an den Knickstellen faszinierend auf.',
+        character: 'Geschmeidig, seidiger Glanz, lebendiges Farbspiel',
+        origin: 'Italien',
+        tanning: 'Kombinationsgerbung mit Heißölen',
+        ageing: {
+          m6: 'Dynamisches Farbspiel entlang der Biegekanten.',
+          m12: 'Tiefer, satter Glanz über die gesamte Fläche.',
+          m36: 'Edler, polierter Charakter mit feinen Nuancen.',
+        },
+      },
+    },
+  },
+  process: {
+    title: 'Wie Ihre Hülle entsteht',
+    subtitle: 'Ein Handwerker. Eine Werkbank. Vier Stunden pro Hülle.',
+    steps: [
+      { title: 'Zuschnitt', body: 'Die Haut wird auf Naturmerkmale geprüft und von Hand präzise zugeschnitten.' },
+      { title: 'Schärfen', body: 'Die Kanten werden ausgedünnt, damit Kanten flach und elegant anliegen.' },
+      { title: 'Lochen', body: 'Die Nahtlöcher werden mit einem Diamant-Meißel von Hand ausgestochen.' },
+      { title: 'Sattelnaht', body: 'Zwei Nadeln und gewachster Faden kreuzen sich in jedem Loch.' },
+      { title: 'Kantenfinish', body: 'Kanten werden geschliffen, gefärbt und auf Hochglanz poliert.' },
+      { title: 'Veredelung', body: 'Balsampflege, Ösensetzen und gründliche Qualitätsprüfung.' },
+    ],
+    madeByHand: 'Handgefertigt in Krakau, Polen',
+  },
+  included: {
+    title: 'Lieferumfang',
+    items: [
+      'Die handgenähte und veredelte Lederhülle',
+      'Papierhefte nach Ihrer Wahl',
+      'Elastikband in Ihrer Wunschfarbe',
+      'Pflegeanleitung',
+      'Schlichte Box, vollkommen plastikfrei',
+    ],
+    compatibilityTitle: 'Kompatibilität',
+    compatibility:
+      'Die Hülle passt auch perfekt für Standardhefte von Moleskine Cahier, Leuchtturm1917 und Traveler’s Notebook in der passenden Größe.',
+    timeTitle: 'Fertigungszeit',
+    timeBody:
+      'Jede Hülle wird nach Bestellung gefertigt. Lagernde Lederarten versenden wir in ca. 5 Werktagen. Sonderanfertigungen dauern bis zu 14 Werktage.',
+    footerNote: 'Von Hand zugeschnitten, genäht und veredelt.',
+  },
+  faq: {
+    title: 'Häufig gestellte Fragen',
+    items: [
+      {
+        q: 'Warum kostet diese Hülle mehr als ein herkömmliches Notizbuch?',
+        a: 'Weil Sie kein Papier kaufen, sondern eine langlebige Lederhülle, die in vier Stunden Handarbeit aus bestem europäischem Vollnarbenleder entsteht. Das Papier innen lässt sich für wenige Euro beliebig austauschen.',
+      },
+      {
+        q: 'Riecht das Leder?',
+        a: 'Ja, anfangs nach natürlichem, echtem Leder. Pflanzlich gegerbtes Leder duftet am stärksten. Der Duft verfliegt über die ersten Wochen zu einer sanften Note.',
+      },
+      {
+        q: 'Bekommt das Leder Kratzer?',
+        a: 'Ja. Bei Crazy Horse lassen sich die meisten Spuren einfach mit dem Daumen wegpolieren. Pflanzliches Leder bewahrt Spuren und macht Ihre Hülle zu einem Unikat.',
+      },
+      {
+        q: 'Was passiert, wenn die Seiten vollgeschrieben sind?',
+        a: 'Sie setzen einfach neue Hefte ein – von uns oder jedem anderen Hersteller in Standardmaßen.',
+      },
+      {
+        q: 'Passen Hefte anderer Hersteller hinein?',
+        a: 'Ja. Moleskine Cahier, Leuchtturm1917 und Traveler’s Notebook Hefte passen in den jeweiligen Größenformaten exakt.',
+      },
+      {
+        q: 'Wie lange dauert der Versand innerhalb der EU?',
+        a: 'Zunächst die Handfertigung: ca. 5 Werktage für Lagerleder, bis zu 14 Werktage für Sonderleder. Der Paketversand dauert 2–5 Werktage.',
+      },
+      {
+        q: 'Kann ich die Hülle zurückgeben?',
+        a: 'Mit Gravur individualisierte Hüllen sind vom Umtausch ausgeschlossen. Ungravierte Hüllen können gemäß unseren Rückgaberichtlinien retourniert werden.',
+      },
+      {
+        q: 'Woher stammt das Leder?',
+        a: 'Pflanzlich gegerbtes aus der Toskana, Crazy Horse aus Polen, Pull-up aus Italien. Alle stammen aus Gerbereien, die Nebenprodukte der Landwirtschaft veredeln.',
+      },
+      {
+        q: 'Eignet sich die Hülle als Geschenk?',
+        a: 'Das ist der häufigste Anlass. Fügen Sie eine Gravur und die Geschenkbox hinzu, und die Hülle kommt übergabefertig bei Ihnen an.',
+      },
+    ],
+  },
+  finalCta: {
+    title: 'Gestalten Sie das Notizbuch, das Sie wirklich nutzen',
+    body: 'Format, Leder, Farbe, Garn, Gravur. Zwei Minuten im Konfigurator.',
+    cta: 'Jetzt gestalten',
+  },
+  configurator: {
+    title: 'Notizbuch konfigurieren',
+    steps: {
+      size: 'Format',
+      leather: 'Leder',
+      color: 'Farbe',
+      details: 'Garn & Band',
+      engraving: 'Gravur',
+      inserts: 'Hefte',
+      giftBox: 'Geschenkbox',
+    },
+    thread: 'Garn',
+    cord: 'Elastikband',
+    engravingPlaceholder: 'Name oder Initialen',
+    engravingHint: 'Bis zu 20 Zeichen. Buchstaben, Ziffern, Leerzeichen, Punkte und Bindestriche.',
+    engravingPositionLabel: 'Position',
+    engravingFontLabel: 'Schriftart',
+    engravingPositions: {
+      'bottom-right': 'Unten rechts',
+      spine: 'Buchrücken',
+    },
+    engravingFonts: {
+      serif: 'Serif',
+      sans: 'Sans',
+    },
+    giftBoxLabel: 'Geschenkbox & Grußkarte hinzufügen',
+    addToCart: 'In den Warenkorb',
+    readyIn: 'Fertig in',
+    workingDays: 'Werktagen',
+    madeToOrder: 'Auf Bestellung',
+    inStock: 'Auf Lager',
+    conflictBanner: 'Ihre Auswahl wurde an die aktuelle Materialverfügbarkeit angepasst.',
+    conflictResolved: 'Farbe an gewählte Lederart angepasst',
+    capacityLimit: 'Maximal 4 Hefte für dieses Format',
+    restorePrompt: 'Es wurde eine gespeicherte Konfiguration gefunden.',
+    restoreAction: 'Wiederherstellen',
+    notifyTitle: 'In dieser Farbe aktuell vergriffen',
+    notifySubtitle: 'Hinterlassen Sie Ihre E-Mail und wir benachrichtigen Sie, sobald das Leder wieder in der Werkstatt ist.',
+    notifySuccess: 'Vielen Dank. Wir melden uns, sobald diese Farbe wieder verfügbar ist.',
+    notifyPlaceholder: 'ihre@email.de',
+    notifySubmit: 'Benachrichtigen',
+    engravingConfirmTitle: 'Gravur überprüfen',
+    engravingConfirmBody:
+      'Gravierte Unikate können nicht zurückgegeben werden. Bitte prüfen Sie Rechtschreibung und Zeichensetzung sorgfältig:',
+    engravingConfirmEdit: 'Text bearbeiten',
+    engravingConfirmOk: 'Ja, alles korrekt',
+  },
+  cart: {
+    title: 'Warenkorb',
+    empty: 'Ihr Warenkorb ist leer',
+    emptySubtitle: 'Wählen Sie zuerst ein Format und Leder im Konfigurator aus.',
+    buildFirst: 'Notizbuch konfigurieren',
+    size: 'Format',
+    leather: 'Leder',
+    color: 'Farbe',
+    thread: 'Garn',
+    cord: 'Band',
+    engraving: 'Gravur',
+    inserts: 'Hefte',
+    giftBox: 'Inklusive Geschenkbox',
+    qty: 'Menge',
+    remove: 'Entfernen',
+    edit: 'Bearbeiten',
+    total: 'Gesamt',
+    reserve: 'Aus nächster Serie reservieren',
+    reserveTitle: 'Notizbuch reservieren',
+    reserveBody:
+      'Wir fertigen in kleinen Serien. Tragen Sie Ihre E-Mail ein, um Ihr Exemplar aus der nächsten Werkstattserie ohne Vorkasse zu reservieren.',
+    reserveEmailPlaceholder: 'ihre@email.de',
+    reserveSubmit: 'Reservierung bestätigen',
+    reserveSuccess: 'Reservierung erfolgreich!',
+    reserveSuccessBody: 'Wir haben Ihre Bestellung vermerkt und schreiben Ihnen, sobald die Fertigung beginnt.',
+  },
+  shotlist: {
+    title: 'Werkstatt-Shotlist',
+    subtitle: 'Exakte Produkt- und Stimmungsaufnahmen für den Katalog.',
+    totalLabel: 'Aufnahmen gesamt',
+    generated: 'Erstellt am',
+    productShots: 'Produktmatrix',
+    storyShots: 'Stimmungsaufnahmen',
+    rulesTitle: 'Regeln für jede Produktaufnahme',
+    hatchLegendTitle: 'Schraffur-Legende (Schematische Darstellung)',
+    print: 'A4 drucken',
+    exportMd: 'Markdown exportieren',
+    exportCsv: 'CSV exportieren',
+    mustShow: 'Erforderlich',
+    shotsCount: 'Aufnahmen',
+    viewLabel: 'Ansicht',
+  },
+  footer: {
+    line: 'Handgefertigte nachfüllbare Lederhüllen. Krakau, Polen.',
+    rights: 'Alle Rechte vorbehalten.',
+  },
+  notFound: {
+    title: 'Diese Seite existiert nicht',
+    body: 'Möglicherweise wurde sie verschoben oder die Adresse ist fehlerhaft.',
+    back: 'Zur Startseite',
+  },
+  colors: {
+    natural: 'Natur',
+    cognac: 'Cognac',
+    chestnut: 'Kastanie',
+    olive: 'Oliv',
+    black: 'Schwarz',
+    navy: 'Navyblau',
+    burgundy: 'Bordeaux',
+  },
+  threads: {
+    natural: 'Naturleinen',
+    black: 'Schwarzes Garn',
+    brown: 'Braunes Garn',
+  },
+  cords: {
+    black: 'Schwarzes Band',
+    brown: 'Braunes Band',
+    olive: 'Olives Band',
+    orange: 'Oranges Band',
+  },
+  leatherNames: {
+    'veg-tan': 'Pflanzlich gegerbt',
+    'crazy-horse': 'Crazy Horse',
+    'pull-up': 'Pull-up',
+  },
+  angles: {
+    front: 'Vorderseite',
+    open: 'Aufgeklappt',
+    detail: 'Detail',
+  },
+};

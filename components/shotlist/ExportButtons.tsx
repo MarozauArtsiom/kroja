@@ -1,7 +1,7 @@
 // components/shotlist/ExportButtons.tsx
 'use client';
 
-import { copy } from '@/content/copy';
+import { useI18n } from '@/components/i18n/I18nProvider';
 import { toMarkdown, toCsv } from '@/lib/shotlist';
 import Button from '@/components/ui/Button';
 
@@ -16,22 +16,24 @@ function download(filename: string, content: string, mime: string) {
 }
 
 export default function ExportButtons() {
+  const { dict } = useI18n();
+
   return (
     <div className="flex flex-wrap gap-2">
       <Button variant="secondary" onClick={() => window.print()}>
-        {copy.shotlist.print}
+        {dict.shotlist.print}
       </Button>
       <Button
         variant="secondary"
         onClick={() => download('shotlist.md', toMarkdown(), 'text/markdown')}
       >
-        {copy.shotlist.exportMd}
+        {dict.shotlist.exportMd}
       </Button>
       <Button
         variant="secondary"
         onClick={() => download('shotlist.csv', toCsv(), 'text/csv')}
       >
-        {copy.shotlist.exportCsv}
+        {dict.shotlist.exportCsv}
       </Button>
     </div>
   );

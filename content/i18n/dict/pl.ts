@@ -1,0 +1,325 @@
+// content/i18n/dict/pl.ts
+import type { Dictionary } from '@/types/i18n';
+
+export const pl: Dictionary = {
+  brand: {
+    name: 'KROJA',
+    tagline: 'Ręcznie szyte skórzane okładki na notesy',
+    city: 'Kraków',
+  },
+  nav: {
+    materials: 'Materiały',
+    craft: 'Rzemiosło',
+    faq: 'FAQ',
+    shotlist: 'Lista ujęć',
+    build: 'Stwórz swój',
+    cart: 'Koszyk',
+    backToHome: '← Powrót do strony głównej',
+  },
+  hero: {
+    title: 'Okładka na notes, która przetrwa pokolenia',
+    subtitle:
+      'Okładka z naturalnej skóry licowej, ręcznie szyta w Krakowie. Wymieniaj wkłady, gdy się zapełnią. Skóra służy przez dekady.',
+    cta: 'Stwórz swój',
+    ctaSecondary: 'Dowiedz się o skórze',
+    trust: 'Rękodzieło z Krakowa · Skóra licowa · Darmowa wysyłka w UE',
+  },
+  reasons: {
+    title: 'Dlaczego jedna okładka na całe życie to dobry wybór',
+    items: [
+      {
+        title: 'Ręczny szew siodłowy',
+        body: 'Dwie igły, jedna nić przeplatana przez każdy otwór z obu stron. Nawet jeśli jeden ścieg pęknie, pozostałe trzymają nienaruszone.',
+      },
+      {
+        title: 'Standardowe wymienne wkłady',
+        body: 'Mieści od 2 do 4 wkładów na elastycznych gumkach. Gdy wkład się skończy, po prostu wkładasz nowy. Już nigdy nie kupisz całego notesu.',
+      },
+      {
+        title: 'Wyłącznie skóra pełnoziarnista (full-grain)',
+        body: 'Najmocniejsza, zewnętrzna warstwa skóry. Bez szlifowania, bez sztucznych powłok. Z czasem ciemnieje i nabiera szlachetnej patyny.',
+      },
+    ],
+  },
+  sizes: {
+    title: 'Cztery formaty. Wybierz według sposobu noszenia.',
+    subtitle:
+      'Każdy rozmiar powstaje z tej samej 2-milimetrowej skóry licowej z ręcznym szyciem i wymiennymi gumkami.',
+    capacity: 'Mieści',
+    inserts: 'wkładów',
+    build: 'Wybierz ten rozmiar →',
+    weight: 'Waga',
+    useCases: {
+      pocket: 'Kieszonkowy format do szybkich notatek w drodze. Mieści się w kieszeni kurtki.',
+      passport: 'Format podróżny. Mieści paszport, kartę pokładową i dwa wkłady.',
+      regular: 'Klasyczny format Traveler’s. Smukły i wysoki, doskonały do codziennego planowania.',
+      a5: 'Format na biurko. Pasuje do standardowych wkładów A5 do długiego pisania i szkicowania.',
+    },
+  },
+  leather: {
+    title: 'Trzy rodzaje skóry. Żadna nie przypomina plastiku.',
+    subtitle:
+      'Kupujemy wyłącznie skórę licową z europejskich garbarni. Każdy błam ma unikalną strukturę lica, fałdy i subtelne różnice odcienia.',
+    origin: 'Pochodzenie',
+    tanning: 'Garbowanie',
+    thickness: 'Grubość',
+    scratchResistance: 'Odporność na zarysowania',
+    patinaSpeed: 'Szybkość patynowania',
+    softness: 'Miękkość',
+    ageingTitle: 'Jak starzeje się ta skóra',
+    m6: 'Po 6 miesiącach',
+    m12: 'Po 12 miesiącach',
+    m36: 'Po 3 latach',
+    build: 'Stwórz z tej skóry →',
+    notDefect: {
+      title: 'To nie jest wada',
+      body: 'Skóra licowa pochodzi z wierzchniej warstwy błamu. Drobne ślady, zagojone zadrapania i naturalne zagięcia to historia skóry. Nie szlifujemy ich ani nie zalewamy plastikiem.',
+    },
+    careTitle: 'Instrukcja pielęgnacji',
+    careBody:
+      'Raz lub dwa razy w roku nałóż balsam do skóry z woskiem pszczelim. Trzymaj z dala od grzejników. W razie zamoczenia susz w temperaturze pokojowej.',
+    schematicNote: 'Schemat techniczny, a nie fotografia struktury.',
+    descriptions: {
+      'veg-tan': {
+        description:
+          'Garbowana roślinnie w Toskanii przy użyciu tanin z kasztanowca i mimozy. Początkowo sztywna, z czasem mięknie i patynuje najszybciej.',
+        character: 'Gęsta, sztywna struktura, szybko ciemnieje w dotyku',
+        origin: 'Toskania, Włochy',
+        tanning: '100% garbowanie roślinne',
+        ageing: {
+          m6: 'Widoczne przyciemnienie na krawędziach i grzbiecie.',
+          m12: 'Głęboki karmelowy odcień, naturalny połysk na zgięciach.',
+          m36: 'Głęboka, szlachetna patyna będąca zapisem Twoich podróży.',
+        },
+      },
+      'crazy-horse': {
+        description:
+          'Bydlęca skóra licowa nasycona woskiem. Łatwo łapie rysy, które można rozetrzeć ciepłym kciukiem. Wygląd vintage od pierwszego dnia.',
+        character: 'Matowa, woskowata w dotyku, efekt pull-up',
+        origin: 'Polska',
+        tanning: 'Garbowanie chromowe z wykończeniem woskowym',
+        ageing: {
+          m6: 'Pokrywa się aksamitną siecią mikrorys tworzącą głębię.',
+          m12: 'Równomiernie ciemnieje, miejsca częstego dotyku zyskują gładkość.',
+          m36: 'Niepowtarzalna mapa Twoich codziennych zapisków.',
+        },
+      },
+      'pull-up': {
+        description:
+          'Skóra licowa nasycona olejami i woskami. Zgięcie powoduje chwilowe rozjaśnienie koloru w miejscu przemieszczenia oleju.',
+        character: 'Miękka, z lekkim połyskiem, gra odcieni przy zginaniu',
+        origin: 'Włochy',
+        tanning: 'Garbowanie kombinowane z gorącymi olejami',
+        ageing: {
+          m6: 'Dynamiczne rozświetlenia na zagięciach i krawędziach.',
+          m12: 'Głęboki połysk na całej powierzchni.',
+          m36: 'Elegancki, wypolerowany wygląd z subtelnymi tonami.',
+        },
+      },
+    },
+  },
+  process: {
+    title: 'Jak powstaje Twoja okładka',
+    subtitle: 'Jeden rzemieślnik. Jeden warsztat. Cztery godziny pracy nad sztuką.',
+    steps: [
+      { title: 'Krojenie', body: 'Błam jest sprawdzany pod kątem naturalnych cech i ręcznie wykrawany.' },
+      { title: 'Ścienianie', body: 'Krawędzie są ścieniane, aby złożenia leżały płasko.' },
+      { title: 'Wybijanie otworów', body: 'Otwory pod szew są ręcznie wybijane wybijakiem diamentowym.' },
+      { title: 'Szew siodłowy', body: 'Dwie igły i woskowana nić przeciągane naprzemiennie przez każdy otwór.' },
+      { title: 'Wykończenie krawędzi', body: 'Krawędzie są szlifowane, barwione i polerowane na gładko.' },
+      { title: 'Finał', body: 'Cienka warstwa balsamu, montaż okuć i kontrola jakości.' },
+    ],
+    madeByHand: 'Wykonano ręcznie w Krakowie, Polska',
+  },
+  included: {
+    title: 'Co znajduje się w zestawie',
+    items: [
+      'Ręcznie uszyta i wykończona skórzana okładka',
+      'Wybrane wkłady papierowe',
+      'Elastyczna gumka w wybranym kolorze',
+      'Karta pielęgnacji',
+      'Ekologiczne pudełko bez plastiku',
+    ],
+    compatibilityTitle: 'Kompatybilność',
+    compatibility:
+      'Okładka pasuje również do standardowych wkładów Moleskine Cahier, Leuchtturm1917 i Traveler’s Notebook w odpowiednim rozmiarze.',
+    timeTitle: 'Czas realizacji',
+    timeBody:
+      'Każda okładka jest krojona i szyta na zamówienie. Skóry dostępne od ręki wysyłamy w ok. 5 dni roboczych. Na zamówienie — do 14 dni.',
+    footerNote: 'Ręcznie krojona, ręcznie szyta, personalizowana dla Ciebie.',
+  },
+  faq: {
+    title: 'Często zadawane pytania',
+    items: [
+      {
+        q: 'Dlaczego ta okładka kosztuje więcej niż zwykły notes?',
+        a: 'Ponieważ nie kupujesz papieru, lecz trwałą okładkę ze skóry najwyższej klasy, którą rzemieślnik wykonuje ręcznie przez 4 godziny. Papier w środku kosztuje niewiele i jest przeznaczony do regularnej wymiany.',
+      },
+      {
+        q: 'Czy skóra ma zapach?',
+        a: 'Tak, ma intensywny, naturalny zapach skóry. Skóra garbowana roślinnie pachnie najmocniej. Zapach łagodnieje w ciągu kilku tygodni.',
+      },
+      {
+        q: 'Czy skóra będzie się rysować?',
+        a: 'Tak. Crazy Horse najlepiej radzi sobie z rysami — większość znika po potarciu kciukiem. Skóra roślinna zachowuje ślady, co stanowi o jej unikalnym charakterze.',
+      },
+      {
+        q: 'Co zrobić, gdy skończy się papier?',
+        a: 'Wkładasz nowy wkład — od nas lub dowolnego innego producenta w standardowym rozmiarze.',
+      },
+      {
+        q: 'Czy pasują wkłady innych marek?',
+        a: 'Tak. Wkłady Moleskine Cahier, Leuchtturm1917 i Traveler’s Notebook idealnie pasują w odpowiednim rozmiarze.',
+      },
+      {
+        q: 'Ile trwa dostawa w Unii Europejskiej?',
+        a: 'Czas produkcji wynosi 5 dni roboczych dla skór z magazynu lub do 14 dni na zamówienie. Wysyłka kurierska trwa zazwyczaj 2–5 dni roboczych.',
+      },
+      {
+        q: 'Czy mogę zwrócić produkt?',
+        a: 'Okładki personalizowane grawerem są wykonywane na indywidualne zamówienie i nie podlegają zwrotowi. Okładki bez graweru można zwrócić zgodnie z regulaminem.',
+      },
+      {
+        q: 'Skąd pochodzi skóra?',
+        a: 'Skóra roślinna z Toskanii, Crazy Horse z polskiej garbarni, Pull-up z Włoch. Wszystkie pochodzą z garbarni wykorzystujących surowiec uboczny przemysłu spożywczego.',
+      },
+      {
+        q: 'Czy to dobry pomysł na prezent?',
+        a: 'To najczęstszy powód zakupu. Dodaj personalizowany grawer oraz pudełko prezentowe, a produkt dotrze gotowy do wręczenia.',
+      },
+    ],
+  },
+  finalCta: {
+    title: 'Stwórz notes, z którego naprawdę będziesz korzystać',
+    body: 'Rozmiar, skóra, kolor, nić, grawer. Dwie minuty w konfiguratorze.',
+    cta: 'Stwórz swój',
+  },
+  configurator: {
+    title: 'Skomponuj swój notes',
+    steps: {
+      size: 'Rozmiar',
+      leather: 'Skóra',
+      color: 'Kolor',
+      details: 'Nić i gumka',
+      engraving: 'Grawer',
+      inserts: 'Wkłady',
+      giftBox: 'Opakowanie prezentowe',
+    },
+    thread: 'Nić',
+    cord: 'Elastyczna gumka',
+    engravingPlaceholder: 'Imię, nazwisko lub inicjały',
+    engravingHint: 'Do 20 znaków. Litery, cyfry, spacje, kropki i myślniki.',
+    engravingPositionLabel: 'Pozycja',
+    engravingFontLabel: 'Krój pisma',
+    engravingPositions: {
+      'bottom-right': 'Prawy dolny róg',
+      spine: 'Grzbiet',
+    },
+    engravingFonts: {
+      serif: 'Szeryfowy',
+      sans: 'Bezszeryfowy',
+    },
+    giftBoxLabel: 'Dodaj pudełko prezentowe i kartę',
+    addToCart: 'Dodaj do koszyka',
+    readyIn: 'Czas wykonania:',
+    workingDays: 'dni roboczych',
+    madeToOrder: 'Na zamówienie',
+    inStock: 'W magazynie',
+    conflictBanner: 'Poprzedni wybór został dopasowany do dostępności materiału.',
+    conflictResolved: 'Kolor dopasowany do wybranego rodzaju skóry',
+    capacityLimit: 'Maksymalnie 4 wkłady dla tego rozmiaru',
+    restorePrompt: 'Masz zapisaną konfigurację z poprzedniej wizyty.',
+    restoreAction: 'Przywróć',
+    notifyTitle: 'Brak koloru w magazynie',
+    notifySubtitle: 'Zostaw swój email, a powiadomimy Cię, gdy ta skóra wróci do warsztatu.',
+    notifySuccess: 'Dziękujemy. Powiadomimy Cię, gdy tylko ten kolor będzie dostępny.',
+    notifyPlaceholder: 'twoj@email.pl',
+    notifySubmit: 'Powiadom mnie',
+    engravingConfirmTitle: 'Sprawdź treść graweru',
+    engravingConfirmBody:
+      'Okładki z indywidualnym grawerem nie podlegają zwrotowi. Prosimy o dokładne sprawdzenie pisowni, wielkości liter i interpunkcji:',
+    engravingConfirmEdit: 'Popraw tekst',
+    engravingConfirmOk: 'Tak, wszystko się zgadza',
+  },
+  cart: {
+    title: 'Koszyk',
+    empty: 'Twój koszyk jest pusty',
+    emptySubtitle: 'Zacznij od wyboru formatu i skóry w konfiguratorze.',
+    buildFirst: 'Skomponuj notes',
+    size: 'Rozmiar',
+    leather: 'Skóra',
+    color: 'Kolor',
+    thread: 'Nić',
+    cord: 'Gumka',
+    engraving: 'Grawer',
+    inserts: 'Wkłady',
+    giftBox: 'Pudełko prezentowe',
+    qty: 'Ilość',
+    remove: 'Usuń',
+    edit: 'Edytuj',
+    total: 'Razem',
+    reserve: 'Zarezerwuj w kolejnej partii',
+    reserveTitle: 'Zarezerwuj swój notes',
+    reserveBody:
+      'Każdą partię szyjemy na zamówienie. Podaj swój email, aby zarezerwować egzemplarz w najbliższej serii produkcyjnej. Bez przedpłaty.',
+    reserveEmailPlaceholder: 'twoj@email.pl',
+    reserveSubmit: 'Potwierdź rezerwację',
+    reserveSuccess: 'Rezerwacja potwierdzona!',
+    reserveSuccessBody: 'Zapisaliśmy Twoje zamówienie. Napiszemy do Ciebie, gdy tylko rozpoczniemy pracę nad partią.',
+  },
+  shotlist: {
+    title: 'Warsztatowa lista ujęć',
+    subtitle: 'Wymagane kadry produktowe i wizerunkowe do katalogu.',
+    totalLabel: 'ujęć łącznie',
+    generated: 'Wygenerowano',
+    productShots: 'Matryca produktowa',
+    storyShots: 'Kadry wizerunkowe',
+    rulesTitle: 'Zasady dla każdego ujęcia produktowego',
+    hatchLegendTitle: 'Legenda szrafury (odwzorowanie schematyczne)',
+    print: 'Drukuj A4',
+    exportMd: 'Eksportuj Markdown',
+    exportCsv: 'Eksportuj CSV',
+    mustShow: 'Musi pokazać',
+    shotsCount: 'ujęć',
+    viewLabel: 'Widok',
+  },
+  footer: {
+    line: 'Ręcznie szyte okładki na notesy. Kraków, Polska.',
+    rights: 'Wszelkie prawa zastrzeżone.',
+  },
+  notFound: {
+    title: 'Strona nie została znaleziona',
+    body: 'Mogła zostać przeniesiona lub podany adres jest nieprawidłowy.',
+    back: 'Powrót do strony głównej',
+  },
+  colors: {
+    natural: 'Naturalny',
+    cognac: 'Koniak',
+    chestnut: 'Kasztan',
+    olive: 'Oliwka',
+    black: 'Czarny',
+    navy: 'Granat',
+    burgundy: 'Bordowy',
+  },
+  threads: {
+    natural: 'Naturalny len',
+    black: 'Czarna nić',
+    brown: 'Brązowa nić',
+  },
+  cords: {
+    black: 'Czarna gumka',
+    brown: 'Brązowa gumka',
+    olive: 'Oliwkowa gumka',
+    orange: 'Pomarańczowa gumka',
+  },
+  leatherNames: {
+    'veg-tan': 'Garbowana roślinnie',
+    'crazy-horse': 'Crazy Horse',
+    'pull-up': 'Pull-up',
+  },
+  angles: {
+    front: 'Przód',
+    open: 'Rozłożona',
+    detail: 'Detal',
+  },
+};

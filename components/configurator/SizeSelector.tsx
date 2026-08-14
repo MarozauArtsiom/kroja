@@ -3,7 +3,7 @@
 
 import type { Configuration, SizeCode } from '@/types/config';
 import { sizeList } from '@/content/sizes';
-import { copy } from '@/content/copy';
+import { useI18n } from '@/components/i18n/I18nProvider';
 import { formatDimensions, formatPrice } from '@/lib/format';
 import OptionCardGroup from '@/components/ui/OptionCardGroup';
 
@@ -13,9 +13,11 @@ interface Props {
 }
 
 export default function SizeSelector({ config, onChange }: Props) {
+  const { dict } = useI18n();
+
   return (
     <section>
-      <h2 className="label mb-3">{copy.configurator.steps.size}</h2>
+      <h2 className="label mb-3">{dict.configurator.steps.size}</h2>
       <OptionCardGroup
         label="Size"
         columns="grid-cols-2"
@@ -24,7 +26,7 @@ export default function SizeSelector({ config, onChange }: Props) {
         items={sizeList.map((s) => ({
           value: s.code,
           title: s.name,
-          meta: `${formatDimensions(s.coverMm)} · ${s.insertCapacity} inserts`,
+          meta: `${formatDimensions(s.coverMm)} · ${s.insertCapacity} ${dict.sizes.inserts}`,
           delta: formatPrice(s.basePriceMinor),
         }))}
       />

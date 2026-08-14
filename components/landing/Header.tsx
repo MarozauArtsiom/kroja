@@ -2,31 +2,43 @@
 'use client';
 
 import Link from 'next/link';
-import { copy } from '@/content/copy';
+import { useI18n } from '@/components/i18n/I18nProvider';
 import CartButton from '@/components/cart/CartButton';
+import LanguageSwitcher from '@/components/ui/LanguageSwitcher';
 
 export default function Header() {
+  const { dict, getLocalizedPath } = useI18n();
+
   return (
     <header className="sticky top-0 z-30 border-b border-line bg-paper/95 backdrop-blur">
       <div className="container-content flex h-16 items-center justify-between gap-4">
-        <Link href="/" className="font-display text-xl tracking-wide text-ink">
-          {copy.brand.name}
+        <Link href={getLocalizedPath('/')} className="font-display text-xl tracking-wide text-ink">
+          {dict.brand.name}
         </Link>
 
         <nav className="hidden items-center gap-6 text-sm text-ink-soft md:flex">
-          <Link href="/#leather" className="hover:text-ink">{copy.nav.materials}</Link>
-          <Link href="/#craft" className="hover:text-ink">{copy.nav.craft}</Link>
-          <Link href="/#faq" className="hover:text-ink">{copy.nav.faq}</Link>
-          <Link href="/shotlist" className="hover:text-ink">{copy.nav.shotlist}</Link>
+          <Link href={getLocalizedPath('/#leather')} className="hover:text-ink">
+            {dict.nav.materials}
+          </Link>
+          <Link href={getLocalizedPath('/#craft')} className="hover:text-ink">
+            {dict.nav.craft}
+          </Link>
+          <Link href={getLocalizedPath('/#faq')} className="hover:text-ink">
+            {dict.nav.faq}
+          </Link>
+          <Link href={getLocalizedPath('/shotlist')} className="hover:text-ink">
+            {dict.nav.shotlist}
+          </Link>
         </nav>
 
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 sm:gap-3">
+          <LanguageSwitcher />
           <CartButton />
           <Link
-            href="/configurator"
-            className="inline-flex h-11 items-center rounded-sm bg-accent px-5 text-sm font-medium text-paper transition-colors hover:bg-accent-dark"
+            href={getLocalizedPath('/configurator')}
+            className="inline-flex h-10 items-center rounded-sm bg-accent px-4 text-xs sm:text-sm font-medium text-paper transition-colors hover:bg-accent-dark"
           >
-            {copy.nav.build}
+            {dict.nav.build}
           </Link>
         </div>
       </div>

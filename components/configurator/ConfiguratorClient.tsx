@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { ToastProvider } from '@/components/ui/Toast';
-import { copy } from '@/lib/data';
+import { useI18n } from '@/components/i18n/I18nProvider';
 import { useConfigurator } from './useConfigurator';
 import Preview from './Preview';
 import SizeSelector from './SizeSelector';
@@ -19,6 +19,7 @@ import RestoreBanner, { saveConfig } from './RestoreBanner';
 
 function Inner() {
   const searchParams = useSearchParams();
+  const { dict, getLocalizedPath } = useI18n();
   const { config, priced, warnings, update } = useConfigurator();
 
   useEffect(() => {
@@ -31,18 +32,18 @@ function Inner() {
     <>
       <main className="container-content pb-32 pt-8">
         <Link
-          href="/"
+          href={getLocalizedPath('/')}
           className="mb-4 inline-flex items-center gap-1 text-sm text-muted transition-colors hover:text-ink"
         >
-          ← Back to home
+          {dict.nav.backToHome}
         </Link>
-        <h1 className="mb-8 text-3xl md:text-4xl">{copy.configurator.title}</h1>
+        <h1 className="mb-8 text-3xl md:text-4xl">{dict.configurator.title}</h1>
 
         <RestoreBanner isFreshVisit={isFreshVisit} onRestore={(c) => update(c)} />
 
         {warnings.length > 0 && (
           <div className="mb-6 rounded-sm border border-line bg-paper-2 p-4 text-sm text-ink-soft">
-            {copy.configurator.conflictBanner}
+            {dict.configurator.conflictBanner}
           </div>
         )}
 

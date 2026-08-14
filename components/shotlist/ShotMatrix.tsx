@@ -1,27 +1,37 @@
 // components/shotlist/ShotMatrix.tsx
-import type { Configuration, Angle } from '@/types/config';
+'use client';
+
+import type { Configuration } from '@/types/config';
 import { angleList, globalShotRules } from '@/content/shots';
 import { leatherList } from '@/content/leathers';
 import { getProductShots, type ProductShot } from '@/lib/shotlist';
+import { useI18n } from '@/components/i18n/I18nProvider';
 import SchematicCover from '@/components/schematic/SchematicCover';
 import HatchDefs, { hatchUrl } from '@/components/schematic/HatchDefs';
 
 function HatchLegend() {
+  const { dict } = useI18n();
+
   return (
     <div className="mb-10 rounded-sm border border-line bg-paper-2 p-5">
       <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-muted">
-        Leather Hatch Legend (Schematic Representation)
+        {dict.shotlist.hatchLegendTitle}
       </h3>
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
         {leatherList.map((l) => (
           <div key={l.code} className="flex items-center gap-3">
-            <svg viewBox="0 0 48 24" className="h-6 w-12 shrink-0 rounded-sm border border-line bg-paper">
+            <svg
+              viewBox="0 0 48 24"
+              className="h-6 w-12 shrink-0 rounded-sm border border-line bg-paper"
+            >
               <HatchDefs />
               <rect x="0" y="0" width="48" height="24" fill={hatchUrl(l.schematicHatch)} />
             </svg>
             <div>
-              <p className="text-xs font-medium text-ink">{l.name}</p>
-              <p className="text-[11px] text-muted">{l.character}</p>
+              <p className="text-xs font-medium text-ink">{dict.leatherNames[l.code] || l.name}</p>
+              <p className="text-[11px] text-muted">
+                {dict.leather.descriptions[l.code]?.character || l.character}
+              </p>
             </div>
           </div>
         ))}
@@ -31,6 +41,7 @@ function HatchLegend() {
 }
 
 export default function ShotMatrix() {
+  const { dict } = useI18n();
   const allShots = getProductShots();
 
   return (
@@ -38,7 +49,7 @@ export default function ShotMatrix() {
       {/* Global rules */}
       <div className="rounded-sm border border-line bg-paper-2 p-5 text-sm">
         <h3 className="mb-3 text-xs font-semibold uppercase tracking-wider text-muted">
-          Global Rules for Every Product Shot
+          {dict.shotlist.rulesTitle}
         </h3>
         <ul className="space-y-1.5 text-xs text-ink-soft">
           {globalShotRules.map((r) => (
@@ -55,19 +66,22 @@ export default function ShotMatrix() {
       {/* Angle groups */}
       {angleList.map((a) => {
         const groupShots = allShots.filter((s) => s.angle === a.angle);
+        const localizedAngleName = dict.angles[a.angle] || a.name;
 
         return (
           <section key={a.angle} data-shot-group className="space-y-4">
             <div className="border-b border-line pb-3">
               <div className="flex flex-wrap items-baseline justify-between gap-2">
                 <h3 className="text-xl font-medium text-ink">
-                  {a.name} View{' '}
+                  {localizedAngleName} {dict.shotlist.viewLabel}{' '}
                   <span className="text-sm font-normal text-muted">({a.ratio})</span>
                 </h3>
-                <span className="text-xs text-muted">{groupShots.length} shots</span>
+                <span className="text-xs text-muted">
+                  {groupShots.length} {dict.shotlist.shotsCount}
+                </span>
               </div>
               <p className="mt-1 text-xs text-muted">
-                Must show: {a.mustShow.join(' · ')}
+                {dict.shotlist.mustShow}: {a.mustShow.join(' · ')}
               </p>
             </div>
 
@@ -94,8 +108,12 @@ export default function ShotMatrix() {
                       <div className="mx-auto mb-3 max-w-[140px]">
                         <SchematicCover config={config} angle={shot.angle} compact />
                       </div>
-                      <p className="text-sm font-medium text-ink">{shot.colorName}</p>
-                      <p className="text-xs text-muted">{shot.leatherName}</p>
+                      <p className="text-sm font-medium text-ink">
+                        {dict.colors[shot.color] || shot.colorName}
+                      </p>
+                      <p className="text-xs text-muted">
+                        {dict.leatherNames[shot.leather] || shot.leatherName}
+                      </p>
                     </div>
 
                     <div className="flex items-center justify-between border-t border-line pt-3">

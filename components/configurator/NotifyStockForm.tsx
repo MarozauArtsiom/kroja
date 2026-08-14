@@ -5,6 +5,7 @@ import { useState } from 'react';
 import type { LeatherCode, ColorCode } from '@/types/config';
 import { leathers } from '@/content/leathers';
 import { colors } from '@/content/colors';
+import { useI18n } from '@/components/i18n/I18nProvider';
 import Modal from '@/components/ui/Modal';
 import Button from '@/components/ui/Button';
 
@@ -15,8 +16,12 @@ interface Props {
 }
 
 export default function NotifyStockForm({ leather, color, onClose }: Props) {
+  const { dict } = useI18n();
   const [email, setEmail] = useState('');
   const [sent, setSent] = useState(false);
+
+  const colorName = dict.colors[color] || colors[color].name;
+  const leatherName = dict.leatherNames[leather] || leathers[leather].name;
 
   async function submit() {
     if (!email.includes('@')) return;
@@ -31,32 +36,31 @@ export default function NotifyStockForm({ leather, color, onClose }: Props) {
   return (
     <Modal
       open
-      title={`${colors[color].name} in ${leathers[leather].name}`}
+      title={`${colorName} (${leatherName})`}
       onClose={onClose}
       footer={
         sent ? (
-          <Button onClick={onClose}>Close</Button>
+          <Button onClick={onClose}>✕</Button>
         ) : (
           <>
-            <Button variant="secondary" onClick={onClose}>Cancel</Button>
-            <Button onClick={submit}>Notify me</Button>
+            <Button variant="secondary" onClick={onClose}>
+              ✕
+            </Button>
+            <Button onClick={submit}>{dict.configurator.notifySubmit}</Button>
           </>
         )
       }
     >
       {sent ? (
-        <p>We will write to you as soon as this combination is back.</p>
+        <p>{dict.configurator.notifySuccess}</p>
       ) : (
         <>
-          <p className="mb-3">
-            This combination is out of stock. Leave your email and we will tell you when it is
-            back.
-          </p>
+          <p className="mb-3">{dict.configurator.notifySubtitle}</p>
           <input
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="your@email.com"
+            placeholder={dict.configurator.notifyPlaceholder}
             className="h-11 w-full rounded-sm border border-line bg-paper px-3 text-base"
           />
         </>

@@ -4,7 +4,7 @@
 import { useEffect, useState } from 'react';
 import clsx from 'clsx';
 import type { Configuration, EngravingFont, EngravingPosition } from '@/types/config';
-import { copy } from '@/content/copy';
+import { useI18n } from '@/components/i18n/I18nProvider';
 import { ENGRAVING_MINOR, MAX_ENGRAVING_LENGTH } from '@/content/pricing';
 import { sanitizeEngraving } from '@/lib/config-schema';
 import { formatDelta } from '@/lib/format';
@@ -17,6 +17,7 @@ interface Props {
 const DEBOUNCE_MS = 120;
 
 export default function EngravingInput({ config, onChange }: Props) {
+  const { dict } = useI18n();
   const [text, setText] = useState(config.engraving?.text ?? '');
 
   // Keep local state in sync when config changes from outside (e.g. URL restore)
@@ -52,7 +53,7 @@ export default function EngravingInput({ config, onChange }: Props) {
   return (
     <section>
       <h2 className="label mb-3">
-        {copy.configurator.steps.engraving}
+        {dict.configurator.steps.engraving}
         <span className="ml-2 normal-case tracking-normal text-accent">
           {formatDelta(ENGRAVING_MINOR)}
         </span>
@@ -62,7 +63,7 @@ export default function EngravingInput({ config, onChange }: Props) {
         type="text"
         value={text}
         onChange={(e) => setText(sanitizeEngraving(e.target.value))}
-        placeholder={copy.configurator.engravingPlaceholder}
+        placeholder={dict.configurator.engravingPlaceholder}
         maxLength={MAX_ENGRAVING_LENGTH}
         aria-describedby="engraving-hint"
         className="h-11 w-full rounded-sm border border-line bg-paper px-3 text-base text-ink placeholder:text-muted focus:border-ink"
@@ -70,9 +71,11 @@ export default function EngravingInput({ config, onChange }: Props) {
 
       <div className="mt-1.5 flex items-start justify-between gap-4">
         <p id="engraving-hint" className="text-xs text-muted">
-          {copy.configurator.engravingHint}
+          {dict.configurator.engravingHint}
         </p>
-        <span className={clsx('shrink-0 font-mono text-xs', nearLimit ? 'text-alert' : 'text-muted')}>
+        <span
+          className={clsx('shrink-0 font-mono text-xs', nearLimit ? 'text-alert' : 'text-muted')}
+        >
           {count} / {MAX_ENGRAVING_LENGTH}
         </span>
       </div>
@@ -80,7 +83,7 @@ export default function EngravingInput({ config, onChange }: Props) {
       {text.trim().length > 0 && (
         <div className="mt-4 grid grid-cols-2 gap-4">
           <div>
-            <span className="label mb-2 block">{copy.configurator.engravingFontLabel}</span>
+            <span className="label mb-2 block">{dict.configurator.engravingFontLabel}</span>
             <div className="flex gap-2">
               {(['serif', 'sans'] as EngravingFont[]).map((f) => (
                 <button
@@ -100,14 +103,14 @@ export default function EngravingInput({ config, onChange }: Props) {
                     config.engraving?.font === f ? 'border-ink bg-paper-2' : 'border-line',
                   )}
                 >
-                  {copy.configurator.engravingFonts[f]}
+                  {dict.configurator.engravingFonts[f]}
                 </button>
               ))}
             </div>
           </div>
 
           <div>
-            <span className="label mb-2 block">{copy.configurator.engravingPositionLabel}</span>
+            <span className="label mb-2 block">{dict.configurator.engravingPositionLabel}</span>
             <div className="flex gap-2">
               {(['bottom-right', 'spine'] as EngravingPosition[]).map((p) => (
                 <button
@@ -127,7 +130,7 @@ export default function EngravingInput({ config, onChange }: Props) {
                     config.engraving?.position === p ? 'border-ink bg-paper-2' : 'border-line',
                   )}
                 >
-                  {copy.configurator.engravingPositions[p]}
+                  {dict.configurator.engravingPositions[p]}
                 </button>
               ))}
             </div>

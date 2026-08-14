@@ -10,7 +10,7 @@ import { colors } from '@/content/colors';
 import { threads } from '@/content/threads';
 import { cords } from '@/content/cords';
 import { insertNames } from '@/content/pricing';
-import { copy } from '@/content/copy';
+import { useI18n } from '@/components/i18n/I18nProvider';
 import { formatPrice } from '@/lib/format';
 import { configToQueryString } from '@/lib/config-url';
 import { useCartStore } from '@/store/cart';
@@ -19,17 +19,23 @@ import ReserveBlock from './ReserveBlock';
 
 function ItemRow({ item }: { item: CartItem }) {
   const c = item.config;
+  const { dict, getLocalizedPath } = useI18n();
   const removeItem = useCartStore((s) => s.removeItem);
 
+  const leatherName = dict.leatherNames[c.leather] || leathers[c.leather].name;
+  const colorName = dict.colors[c.color] || colors[c.color].name;
+  const threadName = dict.threads[c.thread] || threads[c.thread].name;
+  const cordName = dict.cords[c.cord] || cords[c.cord].name;
+
   const lines = [
-    `${sizes[c.size].name} · ${leathers[c.leather].name} · ${colors[c.color].name}`,
-    `Thread: ${threads[c.thread].name} · Cord: ${cords[c.cord].name}`,
-    c.engraving ? `Engraving: “${c.engraving.text}” (${c.engraving.position})` : null,
+    `${sizes[c.size].name} · ${leatherName} · ${colorName}`,
+    `${dict.configurator.thread}: ${threadName} · ${dict.configurator.cord}: ${cordName}`,
+    c.engraving ? `${dict.cart.engraving}: “${c.engraving.text}” (${dict.configurator.engravingPositions[c.engraving.position]})` : null,
     c.inserts.filter((i) => i.qty > 0).length > 0
-      ? `Inserts: ${c.inserts.filter((i) => i.qty > 0).map((i) => `${i.qty} × ${insertNames[i.type]}`).join(', ')}`
+      ? `${dict.cart.inserts}: ${c.inserts.filter((i) => i.qty > 0).map((i) => `${i.qty} × ${insertNames[i.type]}`).join(', ')}`
       : null,
-    c.giftBox ? 'Gift box included' : null,
-    `Ready in ${c.productionDays} working days`,
+    c.giftBox ? dict.cart.giftBox : null,
+    `${dict.configurator.readyIn} ${c.productionDays} ${dict.configurator.workingDays}`,
   ].filter(Boolean) as string[];
 
   return (
@@ -55,17 +61,17 @@ function ItemRow({ item }: { item: CartItem }) {
 
         <div className="mt-2 flex gap-3 text-xs">
           <Link
-            href={`/configurator${configToQueryString(c)}`}
+            href={getLocalizedPath(`/configurator${configToQueryString(c)}`)}
             className="text-accent underline underline-offset-2"
           >
-            {copy.cart.edit}
+            {dict.cart.edit}
           </Link>
           <button
             type="button"
             onClick={() => removeItem(item.id)}
             className="text-muted underline underline-offset-2"
           >
-            {copy.cart.remove}
+            {dict.cart.remove}
           </button>
         </div>
       </div>
@@ -74,11 +80,14 @@ function ItemRow({ item }: { item: CartItem }) {
 }
 
 export default function CartDrawer() {
+  const { dict } = useI18n();
   const { items, isOpen, close, totalMinor } = useCartStore();
 
   useEffect(() => {
     document.body.style.overflow = isOpen ? 'hidden' : '';
-    return () => { document.body.style.overflow = ''; };
+    return () => {
+      document.body.style.overflow = '';
+    };
   }, [isOpen]);
 
   useEffect(() => {
@@ -98,19 +107,24 @@ export default function CartDrawer() {
       <aside
         role="dialog"
         aria-modal="true"
-        aria-label={copy.cart.title}
+        aria-label={dict.cart.title}
         className="absolute inset-y-0 right-0 flex w-full max-w-md flex-col bg-paper shadow-xl"
       >
         <header className="flex items-center justify-between border-b border-line px-5 py-4">
-          <h2 className="text-xl">{copy.cart.title}</h2>
-          <button type="button" onClick={close} aria-label="Close" className="h-11 w-11 text-2xl leading-none">
+          <h2 className="text-xl">{dict.cart.title}</h2>
+          <button
+            type="button"
+            onClick={close}
+            aria-label="Close"
+            className="h-11 w-11 text-2xl leading-none"
+          >
             ×
           </button>
         </header>
 
         <div className="flex-1 overflow-y-auto px-5">
           {items.length === 0 ? (
-            <p className="py-10 text-sm text-muted">{copy.cart.empty}</p>
+            <p className="py-10 text-sm text-muted">{dict.cart.empty}</p>
           ) : (
             <ul>
               {items.map((item) => (
@@ -123,7 +137,7 @@ export default function CartDrawer() {
         {items.length > 0 && (
           <footer className="border-t border-line px-5 py-4">
             <div className="mb-4 flex items-center justify-between">
-              <span className="text-sm text-muted">{copy.cart.total}</span>
+              <span className="text-sm text-muted">{dict.cart.total}</span>
               <span className="text-lg font-medium text-ink">{formatPrice(totalMinor())}</span>
             </div>
             <ReserveBlock />

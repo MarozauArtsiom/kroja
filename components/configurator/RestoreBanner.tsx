@@ -3,7 +3,7 @@
 
 import { useEffect, useState } from 'react';
 import type { Configuration } from '@/types/config';
-import { copy } from '@/content/copy';
+import { useI18n } from '@/components/i18n/I18nProvider';
 import { parseConfig } from '@/lib/config-schema';
 import Button from '@/components/ui/Button';
 
@@ -24,6 +24,7 @@ interface Props {
 }
 
 export default function RestoreBanner({ isFreshVisit, onRestore }: Props) {
+  const { dict } = useI18n();
   const [saved, setSaved] = useState<Configuration | null>(null);
 
   useEffect(() => {
@@ -40,13 +41,19 @@ export default function RestoreBanner({ isFreshVisit, onRestore }: Props) {
 
   return (
     <div className="mb-6 flex flex-wrap items-center justify-between gap-3 rounded-sm border border-line bg-paper-2 p-4">
-      <p className="text-sm text-ink">{copy.configurator.restoreTitle}</p>
+      <p className="text-sm text-ink">{dict.configurator.restorePrompt}</p>
       <div className="flex gap-2">
         <Button size="sm" variant="secondary" onClick={() => setSaved(null)}>
-          {copy.configurator.restoreNo}
+          ✕
         </Button>
-        <Button size="sm" onClick={() => { onRestore(saved); setSaved(null); }}>
-          {copy.configurator.restoreYes}
+        <Button
+          size="sm"
+          onClick={() => {
+            onRestore(saved);
+            setSaved(null);
+          }}
+        >
+          {dict.configurator.restoreAction}
         </Button>
       </div>
     </div>

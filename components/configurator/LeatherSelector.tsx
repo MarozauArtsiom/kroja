@@ -3,7 +3,7 @@
 
 import type { Configuration, LeatherCode } from '@/types/config';
 import { leatherList } from '@/content/leathers';
-import { copy } from '@/content/copy';
+import { useI18n } from '@/components/i18n/I18nProvider';
 import { formatDelta, formatThickness } from '@/lib/format';
 import { getLeatherState } from '@/lib/availability';
 import OptionCardGroup from '@/components/ui/OptionCardGroup';
@@ -19,15 +19,25 @@ function HatchChip({ pattern }: { pattern: Parameters<typeof hatchUrl>[0] }) {
   return (
     <svg viewBox="0 0 60 24" className="h-6 w-full">
       <HatchDefs />
-      <rect x="0" y="0" width="60" height="24" fill={hatchUrl(pattern)} stroke="#DED5C7" strokeWidth="0.8" />
+      <rect
+        x="0"
+        y="0"
+        width="60"
+        height="24"
+        fill={hatchUrl(pattern)}
+        stroke="#DED5C7"
+        strokeWidth="0.8"
+      />
     </svg>
   );
 }
 
 export default function LeatherSelector({ config, onChange }: Props) {
+  const { dict } = useI18n();
+
   return (
     <section>
-      <h2 className="label mb-3">{copy.configurator.steps.leather}</h2>
+      <h2 className="label mb-3">{dict.configurator.steps.leather}</h2>
       <OptionCardGroup
         label="Leather"
         columns="grid-cols-1 sm:grid-cols-3"
@@ -36,10 +46,11 @@ export default function LeatherSelector({ config, onChange }: Props) {
         items={leatherList.map((l) => {
           const state = getLeatherState(l.code, config.size);
           const disabled = state.kind !== 'available';
+          const localizedDesc = dict.leather.descriptions[l.code];
           return {
             value: l.code,
-            title: l.name,
-            meta: `${formatThickness(l.thicknessMm)} · ${l.character}`,
+            title: dict.leatherNames[l.code] || l.name,
+            meta: `${formatThickness(l.thicknessMm)} · ${localizedDesc?.character || l.character}`,
             delta: formatDelta(l.priceDeltaMinor),
             visual: <HatchChip pattern={l.schematicHatch} />,
             disabled,

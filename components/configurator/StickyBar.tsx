@@ -4,13 +4,14 @@
 import { useEffect, useState } from 'react';
 import clsx from 'clsx';
 import type { PricedConfiguration } from '@/types/config';
-import { copy } from '@/content/copy';
+import { useI18n } from '@/components/i18n/I18nProvider';
 import { formatPrice } from '@/lib/format';
 import Button from '@/components/ui/Button';
 import { useCartStore } from '@/store/cart';
 import EngravingConfirmModal from './EngravingConfirmModal';
 
 export default function StickyBar({ priced }: { priced: PricedConfiguration }) {
+  const { dict } = useI18n();
   const [highlight, setHighlight] = useState(false);
   const [confirmOpen, setConfirmOpen] = useState(false);
   const addItem = useCartStore((s) => s.addItem);
@@ -54,13 +55,13 @@ export default function StickyBar({ priced }: { priced: PricedConfiguration }) {
               {formatPrice(priced.totalMinor)}
             </p>
             <p className="text-xs text-muted">
-              {priced.stock === 'made_to_order' && `${copy.configurator.madeToOrder} · `}
-              {copy.configurator.readyIn} {priced.productionDays} {copy.configurator.workingDays}
+              {priced.stock === 'made_to_order' && `${dict.configurator.madeToOrder} · `}
+              {dict.configurator.readyIn} {priced.productionDays} {dict.configurator.workingDays}
             </p>
           </div>
 
           <Button size="lg" onClick={handleAdd}>
-            {copy.configurator.addToCart}
+            {dict.configurator.addToCart}
           </Button>
         </div>
       </div>

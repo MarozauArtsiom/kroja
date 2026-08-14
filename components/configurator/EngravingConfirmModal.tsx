@@ -2,7 +2,7 @@
 'use client';
 
 import type { EngravingFont } from '@/types/config';
-import { copy } from '@/content/copy';
+import { useI18n } from '@/components/i18n/I18nProvider';
 import Modal from '@/components/ui/Modal';
 import Button from '@/components/ui/Button';
 
@@ -14,18 +14,26 @@ interface Props {
   onConfirm: () => void;
 }
 
-export default function EngravingConfirmModal({ open, text, font, onEdit, onConfirm }: Props) {
+export default function EngravingConfirmModal({
+  open,
+  text,
+  font,
+  onEdit,
+  onConfirm,
+}: Props) {
+  const { dict } = useI18n();
+
   return (
     <Modal
       open={open}
-      title={copy.cart.engravingConfirmTitle}
+      title={dict.configurator.engravingConfirmTitle}
       onClose={onEdit}
       footer={
         <>
           <Button variant="secondary" onClick={onEdit}>
-            {copy.cart.engravingConfirmEdit}
+            {dict.configurator.engravingConfirmEdit}
           </Button>
-          <Button onClick={onConfirm}>{copy.cart.engravingConfirmOk}</Button>
+          <Button onClick={onConfirm}>{dict.configurator.engravingConfirmOk}</Button>
         </>
       }
     >
@@ -36,7 +44,7 @@ export default function EngravingConfirmModal({ open, text, font, onEdit, onConf
       >
         {text}
       </p>
-      <p>{copy.cart.engravingConfirmBody}</p>
+      <p>{dict.configurator.engravingConfirmBody}</p>
     </Modal>
   );
 }

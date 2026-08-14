@@ -1,0 +1,325 @@
+// content/i18n/dict/en.ts
+import type { Dictionary } from '@/types/i18n';
+
+export const en: Dictionary = {
+  brand: {
+    name: 'KROJA',
+    tagline: 'Handmade refillable leather notebooks',
+    city: 'Kraków',
+  },
+  nav: {
+    materials: 'Materials',
+    craft: 'Craft',
+    faq: 'FAQ',
+    shotlist: 'Shot list',
+    build: 'Build yours',
+    cart: 'Cart',
+    backToHome: '← Back to home',
+  },
+  hero: {
+    title: 'A notebook that outlives its pages',
+    subtitle:
+      'Full-grain leather cover, hand-stitched in Kraków. Replace the paper when full. Keep the leather for decades.',
+    cta: 'Build yours',
+    ctaSecondary: 'Read about the leather',
+    trust: 'Handmade in Kraków · Full-grain leather · Free EU shipping',
+  },
+  reasons: {
+    title: 'Why one cover for life makes sense',
+    items: [
+      {
+        title: 'Saddle-stitched by hand',
+        body: 'Two needles, one thread, pulled through each hole from opposite sides. If one stitch ever breaks, the rest hold.',
+      },
+      {
+        title: 'Standard refillable inserts',
+        body: 'Holds two to four inserts with elastic cord. When an insert is full, slide it out and put a new one in. Never buy a whole notebook again.',
+      },
+      {
+        title: 'Full-grain leather only',
+        body: 'The strongest, outermost layer of the hide. Not sanded, not corrected, not plastic-coated. It absorbs oils from your hands and darkens with age.',
+      },
+    ],
+  },
+  sizes: {
+    title: 'Four sizes. Choose by how you carry it.',
+    subtitle:
+      'Every size uses the same 2.0 mm full-grain leather, hand saddle-stitching and replaceable cord system.',
+    capacity: 'Holds',
+    inserts: 'inserts',
+    build: 'Build this size →',
+    weight: 'Weight',
+    useCases: {
+      pocket: 'Pocket notebook for quick notes on the move. Fits in any jacket or back pocket.',
+      passport: 'Travel size. Holds passport, boarding pass and two notebook inserts.',
+      regular: 'The classic Traveler’s format. Narrow, tall, ideal for daily planning and lists.',
+      a5: 'The workspace size. Takes standard A5 inserts for long-form writing and sketching.',
+    },
+  },
+  leather: {
+    title: 'Three hides. None of them look like plastic.',
+    subtitle:
+      'We only buy full-grain leather from European tanneries. Every hide has individual grain, fat wrinkles and slight variations in shade.',
+    origin: 'Origin',
+    tanning: 'Tanning',
+    thickness: 'Thickness',
+    scratchResistance: 'Scratch resistance',
+    patinaSpeed: 'Patina speed',
+    softness: 'Softness',
+    ageingTitle: 'How this leather ages',
+    m6: 'At 6 months',
+    m12: 'At 12 months',
+    m36: 'At 3 years',
+    build: 'Build with this leather →',
+    notDefect: {
+      title: 'This is not a defect',
+      body: 'Full-grain leather comes from the outermost layer of the hide. Insect bites, small healed scars and fat wrinkles are part of the hide’s history. We do not sand them down or coat them with polyurethane paint to make the surface look synthetic.',
+    },
+    careTitle: 'Care instructions',
+    careBody:
+      'Condition once or twice a year with leather balm containing beeswax. Keep away from direct heat sources. If soaked, let it dry naturally at room temperature.',
+    schematicNote: 'Schematic hatch, not a photograph of the actual grain.',
+    descriptions: {
+      'veg-tan': {
+        description:
+          'Vegetable-tanned in Tuscany using chestnut and mimosa tannins. Stiff when new, softens and develops a rich patina faster than any other leather.',
+        character: 'Dense, firm temper, rapidly darkens with use',
+        origin: 'Tuscany, Italy',
+        tanning: '100% Vegetable tanned',
+        ageing: {
+          m6: 'Noticeable darkening on edges and spine where fingers touch it most.',
+          m12: 'Deep caramel tone, high sheen on high-wear spots, fully supple.',
+          m36: 'Rich dark patina unique to how you carried it. Irreplaceable.',
+        },
+      },
+      'crazy-horse': {
+        description:
+          'Full-grain bovine leather treated with a high wax content. Scratches easily, but most rubs out with a warm thumb. Gives the classic worn-in look from day one.',
+        character: 'Matte, waxy touch, dramatic pull-up effect',
+        origin: 'Poland',
+        tanning: 'Chrome tanned with wax finish',
+        ageing: {
+          m6: 'Covered in light surface scuffs that blend into an even, velvety depth.',
+          m12: 'Darkens slightly overall, high-friction areas become smooth and lustrous.',
+          m36: 'A rugged, vintage map of everywhere it went with you.',
+        },
+      },
+      'pull-up': {
+        description:
+          'Full-grain leather saturated with oils and waxes. Bending or stretching the leather temporarily lightens the color where the oils move away.',
+        character: 'Supple, glossy, subtle colour shifts when folded',
+        origin: 'Italy',
+        tanning: 'Combination tanned with hot-stuff oils',
+        ageing: {
+          m6: 'Dynamic shifting of highlights along folds and edges.',
+          m12: 'Deep luster throughout, rich gloss finish.',
+          m36: 'Polished character with subtle tonal highlights across the grain.',
+        },
+      },
+    },
+  },
+  process: {
+    title: 'How your cover is made',
+    subtitle: 'One maker. One bench. Four hours per cover.',
+    steps: [
+      { title: 'Cutting', body: 'The hide is read for scars and stretch, then cut by hand around them.' },
+      { title: 'Skiving', body: 'Edges are thinned so folds sit flat instead of bulking up.' },
+      { title: 'Pricking', body: 'Holes are marked and punched by hand with a diamond pricking iron.' },
+      { title: 'Saddle stitch', body: 'Two needles, one waxed thread, pulled through each hole from opposite sides.' },
+      { title: 'Edge finishing', body: 'Edges are sanded, dyed and burnished until they are smooth.' },
+      { title: 'Finish', body: 'A light coat of balm, hardware set, final inspection.' },
+    ],
+    madeByHand: 'Made by hand in Kraków, Poland',
+  },
+  included: {
+    title: 'What arrives in the box',
+    items: [
+      'The leather cover, hand-stitched and finished',
+      'Paper inserts of your choice',
+      'Elastic cord in your chosen colour',
+      'A care card',
+      'A plain box, no plastic',
+    ],
+    compatibilityTitle: 'Compatibility',
+    compatibility:
+      'The cover also fits standard inserts from Moleskine Cahier, Leuchtturm1917 and Traveler’s Notebook, in the matching size.',
+    timeTitle: 'Production time',
+    timeBody:
+      'Every cover is cut and stitched after you order it. In-stock leather ships in about 5 working days. Made-to-order leather takes up to 14.',
+    footerNote: 'Hand-cut, hand-stitched, finished to order.',
+  },
+  faq: {
+    title: 'Frequently asked questions',
+    items: [
+      {
+        q: 'Why does this cost more than a notebook from a shop?',
+        a: 'Because you are not buying paper. You are buying the cover, and it is made by one person in about four hours from a hide that costs more per square metre than most finished notebooks. The paper inside costs a few złoty and is meant to be replaced.',
+      },
+      {
+        q: 'Will the leather smell?',
+        a: 'Yes, of leather, strongly at first. Vegetable-tanned leather smells the most. It settles over a few weeks.',
+      },
+      {
+        q: 'Will it scratch?',
+        a: 'Yes. Crazy Horse hides scratches best — most rub out with a thumb. Vegetable-tanned keeps them, which is the point: the surface becomes a record of use.',
+      },
+      {
+        q: 'What happens when the paper runs out?',
+        a: 'You buy new inserts, from us or from anyone else. The cover holds standard sizes.',
+      },
+      {
+        q: 'Do inserts from other brands fit?',
+        a: 'Yes. Moleskine Cahier, Leuchtturm1917 and Traveler’s Notebook inserts all fit in the matching size.',
+      },
+      {
+        q: 'How long does delivery take within the EU?',
+        a: 'Production first: 5 working days for in-stock leather, up to 14 for made-to-order. Shipping then takes 2–5 working days depending on the country.',
+      },
+      {
+        q: 'Can I return it?',
+        a: 'Return terms are being finalised before the first batch opens. Engraved covers are made for one person and cannot be resold, so they are treated differently from plain ones. Exact terms will be published before any order is taken.',
+      },
+      {
+        q: 'Where does the leather come from?',
+        a: 'Vegetable-tanned from Tuscany, Crazy Horse from a Polish tannery, Pull-up from Italy. All full-grain, all from tanneries that work with the food industry’s by-product.',
+      },
+      {
+        q: 'Is this a good gift?',
+        a: 'It is the most common reason people buy it. Add engraving, add the gift box, and it arrives ready to hand over.',
+      },
+    ],
+  },
+  finalCta: {
+    title: 'Build the one you would actually use',
+    body: 'Size, leather, colour, thread, engraving. Two minutes.',
+    cta: 'Build yours',
+  },
+  configurator: {
+    title: 'Build your notebook',
+    steps: {
+      size: 'Size',
+      leather: 'Leather',
+      color: 'Colour',
+      details: 'Thread and cord',
+      engraving: 'Engraving',
+      inserts: 'Inserts',
+      giftBox: 'Gift box',
+    },
+    thread: 'Thread',
+    cord: 'Elastic cord',
+    engravingPlaceholder: 'Your name or initials',
+    engravingHint: 'Up to 20 characters. Letters, numbers, spaces, full stops and hyphens.',
+    engravingPositionLabel: 'Position',
+    engravingFontLabel: 'Style',
+    engravingPositions: {
+      'bottom-right': 'Bottom right',
+      spine: 'Spine',
+    },
+    engravingFonts: {
+      serif: 'Serif',
+      sans: 'Sans',
+    },
+    giftBoxLabel: 'Add a gift box and card',
+    addToCart: 'Add to cart',
+    readyIn: 'Ready in',
+    workingDays: 'working days',
+    madeToOrder: 'Made to order',
+    inStock: 'In stock',
+    conflictBanner: 'Your previous selection was adjusted to match availability.',
+    conflictResolved: 'Colour adjusted to match selected leather',
+    capacityLimit: 'Maximum 4 inserts total for this size',
+    restorePrompt: 'You have a saved configuration from a previous visit.',
+    restoreAction: 'Restore',
+    notifyTitle: 'Out of stock in this colour',
+    notifySubtitle: 'Leave your email and we will notify you when this leather is back in the workshop.',
+    notifySuccess: 'Thank you. We will let you know as soon as this colour is back in stock.',
+    notifyPlaceholder: 'your@email.com',
+    notifySubmit: 'Notify me',
+    engravingConfirmTitle: 'Check your engraving',
+    engravingConfirmBody:
+      'Custom engraved covers cannot be returned or exchanged. Please double-check spelling, capitalization and punctuation:',
+    engravingConfirmEdit: 'Edit text',
+    engravingConfirmOk: 'Yes, it is correct',
+  },
+  cart: {
+    title: 'Cart',
+    empty: 'Your cart is empty',
+    emptySubtitle: 'Start by choosing a size and leather in the configurator.',
+    buildFirst: 'Build a notebook',
+    size: 'Size',
+    leather: 'Leather',
+    color: 'Colour',
+    thread: 'Thread',
+    cord: 'Cord',
+    engraving: 'Engraving',
+    inserts: 'Inserts',
+    giftBox: 'Gift box included',
+    qty: 'Qty',
+    remove: 'Remove',
+    edit: 'Edit',
+    total: 'Total',
+    reserve: 'Reserve from next batch',
+    reserveTitle: 'Reserve your notebook',
+    reserveBody:
+      'We make every cover in batches. Enter your email to reserve your build from the next workshop run. No advance payment required.',
+    reserveEmailPlaceholder: 'your@email.com',
+    reserveSubmit: 'Confirm reservation',
+    reserveSuccess: 'Reservation confirmed!',
+    reserveSuccessBody: 'We have logged your order and will email you as soon as your batch is scheduled on the bench.',
+  },
+  shotlist: {
+    title: 'Workshop shot list',
+    subtitle: 'Exact product and landing frames required for the catalog.',
+    totalLabel: 'shots total',
+    generated: 'Generated',
+    productShots: 'Product matrix',
+    storyShots: 'Story shots',
+    rulesTitle: 'Global Rules for Every Product Shot',
+    hatchLegendTitle: 'Leather Hatch Legend (Schematic Representation)',
+    print: 'Print A4',
+    exportMd: 'Export Markdown',
+    exportCsv: 'Export CSV',
+    mustShow: 'Must show',
+    shotsCount: 'shots',
+    viewLabel: 'View',
+  },
+  footer: {
+    line: 'Handmade refillable leather notebook covers. Kraków, Poland.',
+    rights: 'All rights reserved.',
+  },
+  notFound: {
+    title: 'This page does not exist',
+    body: 'It may have moved, or the link may be wrong.',
+    back: 'Back to the start',
+  },
+  colors: {
+    natural: 'Natural',
+    cognac: 'Cognac',
+    chestnut: 'Chestnut',
+    olive: 'Olive',
+    black: 'Black',
+    navy: 'Navy',
+    burgundy: 'Burgundy',
+  },
+  threads: {
+    natural: 'Natural linen',
+    black: 'Black thread',
+    brown: 'Brown thread',
+  },
+  cords: {
+    black: 'Black cord',
+    brown: 'Brown cord',
+    olive: 'Olive cord',
+    orange: 'Orange cord',
+  },
+  leatherNames: {
+    'veg-tan': 'Vegetable-tanned',
+    'crazy-horse': 'Crazy Horse',
+    'pull-up': 'Pull-up',
+  },
+  angles: {
+    front: 'Front',
+    open: 'Open',
+    detail: 'Detail',
+  },
+};

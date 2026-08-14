@@ -4,7 +4,7 @@
 import { useState } from 'react';
 import type { Configuration, ColorCode } from '@/types/config';
 import { colorList } from '@/content/colors';
-import { copy } from '@/content/copy';
+import { useI18n } from '@/components/i18n/I18nProvider';
 import { getColorState } from '@/lib/availability';
 import SwatchGroup from '@/components/ui/SwatchGroup';
 import NotifyStockForm from './NotifyStockForm';
@@ -15,21 +15,23 @@ interface Props {
 }
 
 export default function ColorSelector({ config, onChange }: Props) {
+  const { dict } = useI18n();
   const [notifyColor, setNotifyColor] = useState<ColorCode | null>(null);
 
   const items = colorList.map((c) => {
     const state = getColorState(config.leather, c.code);
+    const localizedColorName = dict.colors[c.code] || c.name;
     if (state.kind === 'available') {
       return {
         value: c.code,
-        label: c.name,
+        label: localizedColorName,
         hex: c.hex,
         state: state.status === 'made_to_order' ? ('made-to-order' as const) : ('available' as const),
       };
     }
     return {
       value: c.code,
-      label: c.name,
+      label: localizedColorName,
       hex: c.hex,
       state: 'disabled' as const,
       note: state.reason,
@@ -50,7 +52,7 @@ export default function ColorSelector({ config, onChange }: Props) {
 
   return (
     <section>
-      <h2 className="label mb-3">{copy.configurator.steps.color}</h2>
+      <h2 className="label mb-3">{dict.configurator.steps.color}</h2>
       <SwatchGroup label="Colour" items={items} value={config.color} onChange={handleChange} />
       {notifyColor && (
         <NotifyStockForm

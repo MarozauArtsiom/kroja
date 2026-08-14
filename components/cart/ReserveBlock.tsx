@@ -2,13 +2,14 @@
 'use client';
 
 import { useState } from 'react';
-import { copy } from '@/content/copy';
+import { useI18n } from '@/components/i18n/I18nProvider';
 import { useCartStore } from '@/store/cart';
 import Button from '@/components/ui/Button';
 
 type Status = 'idle' | 'sending' | 'done' | 'error';
 
 export default function ReserveBlock() {
+  const { dict } = useI18n();
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState<Status>('idle');
   const items = useCartStore((s) => s.items);
@@ -38,31 +39,34 @@ export default function ReserveBlock() {
   if (status === 'done') {
     return (
       <div className="rounded-sm border border-line bg-paper-2 p-4 text-sm text-ink">
-        {copy.reserve.success}
+        <p className="font-medium text-ink">{dict.cart.reserveSuccess}</p>
+        <p className="mt-1 text-xs text-ink-soft">{dict.cart.reserveSuccessBody}</p>
       </div>
     );
   }
 
   return (
     <div className="rounded-sm border border-line bg-paper-2 p-4">
-      <p className="mb-1 text-sm font-medium text-ink">{copy.reserve.title}</p>
-      <p className="mb-3 text-xs leading-relaxed text-ink-soft">{copy.reserve.body}</p>
+      <p className="mb-1 text-sm font-medium text-ink">{dict.cart.reserveTitle}</p>
+      <p className="mb-3 text-xs leading-relaxed text-ink-soft">{dict.cart.reserveBody}</p>
 
       <div className="flex gap-2">
         <input
           type="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          placeholder={copy.reserve.placeholder}
+          placeholder={dict.cart.reserveEmailPlaceholder}
           aria-label="Email"
           className="h-11 min-w-0 flex-1 rounded-sm border border-line bg-paper px-3 text-base"
         />
         <Button onClick={submit} disabled={status === 'sending'}>
-          {copy.reserve.button}
+          {dict.cart.reserveSubmit}
         </Button>
       </div>
 
-      {status === 'error' && <p className="mt-2 text-xs text-alert">{copy.reserve.error}</p>}
+      {status === 'error' && (
+        <p className="mt-2 text-xs text-alert">Error processing reservation. Please try again.</p>
+      )}
     </div>
   );
 }
