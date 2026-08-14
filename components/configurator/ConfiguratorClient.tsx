@@ -3,6 +3,7 @@
 
 import { useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
+import Link from 'next/link';
 import { ToastProvider } from '@/components/ui/Toast';
 import { copy } from '@/lib/data';
 import { useConfigurator } from './useConfigurator';
@@ -29,6 +30,12 @@ function Inner() {
   return (
     <>
       <main className="container-content pb-32 pt-8">
+        <Link
+          href="/"
+          className="mb-4 inline-flex items-center gap-1 text-sm text-muted transition-colors hover:text-ink"
+        >
+          ← Back to home
+        </Link>
         <h1 className="mb-8 text-3xl md:text-4xl">{copy.configurator.title}</h1>
 
         <RestoreBanner isFreshVisit={isFreshVisit} onRestore={(c) => update(c)} />

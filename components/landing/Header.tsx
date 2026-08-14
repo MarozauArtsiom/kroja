@@ -14,9 +14,9 @@ export default function Header() {
         </Link>
 
         <nav className="hidden items-center gap-6 text-sm text-ink-soft md:flex">
-          <a href="#leather" className="hover:text-ink">{copy.nav.materials}</a>
-          <a href="#craft" className="hover:text-ink">{copy.nav.craft}</a>
-          <a href="#faq" className="hover:text-ink">{copy.nav.faq}</a>
+          <Link href="/#leather" className="hover:text-ink">{copy.nav.materials}</Link>
+          <Link href="/#craft" className="hover:text-ink">{copy.nav.craft}</Link>
+          <Link href="/#faq" className="hover:text-ink">{copy.nav.faq}</Link>
           <Link href="/shotlist" className="hover:text-ink">{copy.nav.shotlist}</Link>
         </nav>
 

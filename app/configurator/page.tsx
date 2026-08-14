@@ -1,4 +1,7 @@
 import { Suspense } from 'react';
+import Header from '@/components/landing/Header';
+import Footer from '@/components/landing/Footer';
+import CartDrawer from '@/components/cart/CartDrawer';
 import ConfiguratorClient from '@/components/configurator/ConfiguratorClient';
 
 export const metadata = {
@@ -8,8 +11,13 @@ export const metadata = {
 
 export default function ConfiguratorPage() {
   return (
-    <Suspense fallback={<div className="container-content section">Loading…</div>}>
-      <ConfiguratorClient />
-    </Suspense>
+    <>
+      <Header />
+      <Suspense fallback={<div className="container-content section">Loading…</div>}>
+        <ConfiguratorClient />
+      </Suspense>
+      <Footer />
+      <CartDrawer />
+    </>
   );
 }
