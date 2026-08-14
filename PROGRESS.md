@@ -27,5 +27,6 @@
 | T-032 | ✅ | 2026-08-14 | 0dfcd99 | OptionCard и OptionCardGroup |
 | T-033 | ✅ | 2026-08-14 | 3c22cd4 | Accordion |
 | T-034 | ✅ | 2026-08-14 | 78757a4 | Modal |
+| T-035 | ✅ | 2026-08-14 | bdb8ba0 | Toast и ToastProvider |
 
-**Следующая задача: T-035**
+**Следующая задача: T-036**
