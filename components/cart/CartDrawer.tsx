@@ -15,6 +15,7 @@ import { formatPrice } from '@/lib/format';
 import { configToQueryString } from '@/lib/config-url';
 import { useCartStore } from '@/store/cart';
 import SchematicCover from '@/components/schematic/SchematicCover';
+import ReserveBlock from './ReserveBlock';
 
 function ItemRow({ item }: { item: CartItem }) {
   const c = item.config;
@@ -125,7 +126,7 @@ export default function CartDrawer() {
               <span className="text-sm text-muted">{copy.cart.total}</span>
               <span className="text-lg font-medium text-ink">{formatPrice(totalMinor())}</span>
             </div>
-            {/* SLOT: ReserveBlock — filled in T-073 */}
+            <ReserveBlock />
           </footer>
         )}
       </aside>
