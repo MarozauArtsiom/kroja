@@ -47,3 +47,56 @@
     scroll-behavior: auto !important;
   }
 }
+
+@media print {
+  @page {
+    size: A4 portrait;
+    margin: 15mm;
+  }
+
+  html, body {
+    background: #fff !important;
+    color: #000 !important;
+    font-size: 10pt;
+  }
+
+  /* Hide everything that is not the list */
+  header.sticky,
+  nav,
+  .print\:hidden,
+  [data-print-hide] {
+    display: none !important;
+  }
+
+  /* Schematics: pure black lines, no fills that eat toner */
+  svg {
+    max-width: 100%;
+  }
+
+  /* Keep a shot card whole on one page */
+  [data-shot-card] {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Start each angle group on a new page */
+  [data-shot-group] {
+    break-before: page;
+    page-break-before: always;
+  }
+  [data-shot-group]:first-of-type {
+    break-before: auto;
+    page-break-before: auto;
+  }
+
+  /* Checkboxes large enough to tick with a pen */
+  [data-shot-checkbox] {
+    width: 5mm !important;
+    height: 5mm !important;
+    border: 0.4mm solid #000 !important;
+  }
+
+  a[href]::after {
+    content: '';
+  }
+}
