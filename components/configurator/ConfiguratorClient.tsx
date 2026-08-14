@@ -10,6 +10,7 @@ import SizeSelector from './SizeSelector';
 import LeatherSelector from './LeatherSelector';
 import ColorSelector from './ColorSelector';
 import DetailsSelector from './DetailsSelector';
+import EngravingInput from './EngravingInput';
 
 function Inner() {
   const { config, priced, warnings, update } = useConfigurator();
@@ -37,7 +38,7 @@ function Inner() {
             <LeatherSelector config={config} onChange={update} />
             <ColorSelector config={config} onChange={update} />
             <DetailsSelector config={config} onChange={update} />
-            {/* SLOT: EngravingInput */}
+            <EngravingInput config={config} onChange={update} />
             {/* SLOT: InsertsSelector */}
           </div>
         </div>
