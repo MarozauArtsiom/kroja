@@ -5,6 +5,7 @@ import type { Configuration, InsertType } from '@/types/config';
 import { sizes, insertPriceMinor, GIFT_BOX_MINOR } from '@/lib/data';
 import { useI18n } from '@/components/i18n/I18nProvider';
 import { fill, formatDelta } from '@/lib/format';
+import QuantityStepper from '@/components/ui/QuantityStepper';
 
 interface Props {
   config: Configuration;
@@ -37,8 +38,9 @@ export default function InsertsSelector({ config, onChange }: Props) {
         <div className="space-y-2">
           {TYPES.map((type) => {
             const current = config.inserts.find((i) => i.type === type)?.qty ?? 0;
-            const canAdd = totalQty < capacity;
             const name = dict.insertTypes[type];
+            // This type may grow by whatever the other types have left unused.
+            const maxForType = current + (capacity - totalQty);
             return (
               <div
                 key={type}
@@ -50,29 +52,12 @@ export default function InsertsSelector({ config, onChange }: Props) {
                     {formatDelta(insertPriceMinor[type])}
                   </span>
                 </div>
-                <div className="flex items-center gap-1">
-                  <button
-                    type="button"
-                    aria-label={fill(dict.configurator.removeOne, { name })}
-                    disabled={current === 0}
-                    onClick={() => setQty(type, current - 1)}
-                    className="h-11 w-11 rounded-sm border border-line text-lg disabled:opacity-30"
-                  >
-                    −
-                  </button>
-                  <span className="w-8 text-center font-mono text-sm" aria-live="polite">
-                    {current}
-                  </span>
-                  <button
-                    type="button"
-                    aria-label={fill(dict.configurator.addOne, { name })}
-                    disabled={!canAdd}
-                    onClick={() => setQty(type, current + 1)}
-                    className="h-11 w-11 rounded-sm border border-line text-lg disabled:opacity-30"
-                  >
-                    +
-                  </button>
-                </div>
+                <QuantityStepper
+                  value={current}
+                  max={maxForType}
+                  name={name}
+                  onChange={(next) => setQty(type, next)}
+                />
               </div>
             );
           })}

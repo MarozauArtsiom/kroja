@@ -5,6 +5,7 @@ import type { Configuration } from '@/types/config';
 import { sizes, CARD_SLOTS_MINOR } from '@/lib/data';
 import { useI18n } from '@/components/i18n/I18nProvider';
 import { fill, formatDelta } from '@/lib/format';
+import QuantityStepper from '@/components/ui/QuantityStepper';
 
 interface Props {
   config: Configuration;
@@ -30,29 +31,12 @@ export default function CardSlotsSelector({ config, onChange }: Props) {
 
       <div className="flex items-center justify-between rounded-sm border border-line p-3">
         <span className="text-sm text-ink">{dict.configurator.cardSlotsInside}</span>
-        <div className="flex items-center gap-1">
-          <button
-            type="button"
-            aria-label={fill(dict.configurator.removeOne, { name })}
-            disabled={count === 0}
-            onClick={() => onChange({ cardSlots: count - 1 })}
-            className="h-11 w-11 rounded-sm border border-line text-lg disabled:opacity-30"
-          >
-            −
-          </button>
-          <span className="w-8 text-center font-mono text-sm" aria-live="polite">
-            {count}
-          </span>
-          <button
-            type="button"
-            aria-label={fill(dict.configurator.addOne, { name })}
-            disabled={count >= max}
-            onClick={() => onChange({ cardSlots: count + 1 })}
-            className="h-11 w-11 rounded-sm border border-line text-lg disabled:opacity-30"
-          >
-            +
-          </button>
-        </div>
+        <QuantityStepper
+          value={count}
+          max={max}
+          name={name}
+          onChange={(next) => onChange({ cardSlots: next })}
+        />
       </div>
     </section>
   );
