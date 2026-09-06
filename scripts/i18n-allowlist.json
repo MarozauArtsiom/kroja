@@ -1,0 +1,32 @@
+{
+  "_comment": "Строки, которые check-i18n.mjs не считает пропущенным переводом. Каждая запись — только то, чего пользователь не читает как текст: имена шрифтов, коды, технические идентификаторы. Если сомневаешься, видит ли это пользователь, — не добавляй сюда, а заводи ключ в словаре.",
+  "strings": [
+    "Inter, system-ui, sans-serif",
+    "Georgia, serif",
+    "Naked Skin",
+    "Naked Skin <onboarding@resend.dev>",
+    "application/ld+json",
+    "PostalAddress",
+    "Organization",
+    "text/markdown",
+    "text/csv",
+    "Content-Type",
+    "invalid json",
+    "invalid payload",
+    "Kraków",
+    "your@email.com"
+  ],
+  "_files_comment": "content/*.ts — английские значения по умолчанию в данных о продукте. Их перекрывают Record-ключи словаря (dict.colors, dict.leatherNames, dict.threads, dict.elasticColors, dict.sizes.names), а полноту этих Record проверяет TypeScript: добавил цвет — пять словарей не компилируются, пока не переведёшь. Поэтому здесь детектор молчит. content/shots.ts в список НЕ входит: у его строк Record-перекрытия нет.",
+  "files": [
+    "app/api/",
+    "app/robots.ts",
+    "app/sitemap.ts",
+    "content/colors.ts",
+    "content/leathers.ts",
+    "content/threads.ts",
+    "content/elastic.ts",
+    "content/closures.ts",
+    "content/pen-holders.ts",
+    "content/sizes.ts"
+  ]
+}
