@@ -2,7 +2,9 @@
 // Values and fragments shared by all four schematic views.
 // Geometry lives in the views; anything derived from the configuration lives here.
 import type { Configuration } from '@/types/config';
-import { leathers, colors, threadHex, elasticColors, penHolders, SCHEMATIC_NOTE } from '@/lib/data';
+import { leathers, colors, threadHex, elasticColors, penHolders } from '@/lib/data';
+import type { Dictionary } from '@/types/i18n';
+import { fill } from '@/lib/format';
 import { INK, MUTED, ALERT, PAPER } from '@/lib/schematic-tokens';
 import { hatchUrl } from './HatchDefs';
 
@@ -31,14 +33,14 @@ export interface SchematicParts {
 }
 
 /** Everything the drawings need, derived from the configuration in one place. */
-export function schematicParts(config: Configuration): SchematicParts {
+export function schematicParts(config: Configuration, dict: Dictionary): SchematicParts {
   const leather = leathers[config.leather];
   const color = colors[config.color];
   const penDef = penHolders[config.penHolder];
 
   return {
-    leatherName: leather.name,
-    colorName: color.name,
+    leatherName: dict.leatherNames[config.leather],
+    colorName: dict.colors[config.color],
     fill: color.hex,
     hatch: hatchUrl(leather.schematicHatch),
     stitch: threadHex(config.thread, color.hex),
@@ -49,8 +51,8 @@ export function schematicParts(config: Configuration): SchematicParts {
     penR: config.penHolder === 'wide' ? PEN_RADIUS.wide : PEN_RADIUS.slim,
     penLabel:
       config.penHolder === 'wide'
-        ? `pen loop Ø ${penDef.minMm}–${penDef.maxMm} mm`
-        : `pen loop Ø up to ${penDef.maxMm} mm`,
+        ? fill(dict.schematic.penLoopWide, { min: penDef.minMm, max: penDef.maxMm })
+        : fill(dict.schematic.penLoopSlim, { max: penDef.maxMm }),
     embossFont:
       config.embossing?.font === 'sans' ? 'Inter, system-ui, sans-serif' : 'Georgia, serif',
     insertCount: Math.min(4, Math.max(1, config.inserts.reduce((sum, i) => sum + i.qty, 0))),
@@ -61,6 +63,7 @@ export interface ViewProps {
   config: Configuration;
   compact: boolean;
   parts: SchematicParts;
+  dict: Dictionary;
 }
 
 /** Colour chip and material names, top-left corner of every view. */
@@ -75,7 +78,7 @@ export function Labels({ parts }: { parts: SchematicParts }) {
 }
 
 /** Callout lines plus the schematic warning, for the 400 × 500 views. Max three lines. */
-export function Notes({ lines }: { lines: string[] }) {
+export function Notes({ lines, note }: { lines: string[]; note: string }) {
   return (
     <>
       {lines.slice(0, 3).map((line, i) => (
@@ -83,7 +86,7 @@ export function Notes({ lines }: { lines: string[] }) {
           → {line}
         </text>
       ))}
-      <text x="20" y="470" fontSize="9.5" fontWeight="600" fill={ALERT}>{SCHEMATIC_NOTE}</text>
+      <text x="20" y="470" fontSize="9.5" fontWeight="600" fill={ALERT}>{note}</text>
     </>
   );
 }

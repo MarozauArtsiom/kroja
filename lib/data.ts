@@ -45,7 +45,6 @@ export {
   angleList,
   schematicAngleList,
   globalShotRules,
-  SCHEMATIC_NOTE,
 } from '@/content/shots';
 export type { AngleSpec } from '@/content/shots';
 

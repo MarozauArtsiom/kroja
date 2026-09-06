@@ -259,6 +259,35 @@ export interface Dictionary {
     colorOutOfStock: string;
     leatherNotInSize: string;
   };
+  /** Text drawn inside the technical drawings and read out by screen readers. */
+  schematic: {
+    note: string;
+    /** {leather}, {color} */
+    frontAria: string;
+    backAria: string;
+    openAria: string;
+    /** {leather} */
+    detailAria: string;
+    elasticFront: string;
+    buckleFront: string;
+    elasticKnot: string;
+    elasticHoles: string;
+    buckleBack: string;
+    noClosure: string;
+    /** {max} */
+    penLoopSlim: string;
+    /** {min}, {max} */
+    penLoopWide: string;
+    /** {count} */
+    cardSlots: string;
+    burnishedEdge: string;
+    /** {mm} */
+    threadDetail: string;
+    /** {name}, {dimensions} */
+    sizeDiagramSingle: string;
+    sizeDiagramCompare: string;
+    phone: string;
+  };
   colors: Record<ColorCode, string>;
   threads: Record<ThreadCode, string>;
   elasticColors: Record<ElasticColorCode, string>;

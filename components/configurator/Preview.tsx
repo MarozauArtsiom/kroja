@@ -52,7 +52,14 @@ export default function Preview({ config }: { config: Configuration }) {
       )}
 
       <div className="rounded-sm border border-line p-4">
-        <SizeDiagram active={config.size} mode="single" names={dict.sizes.names} mmUnit={dict.units.mm} />
+        <SizeDiagram
+          active={config.size}
+          mode="single"
+          names={dict.sizes.names}
+          mmUnit={dict.units.mm}
+          aria={{ single: dict.schematic.sizeDiagramSingle, compare: dict.schematic.sizeDiagramCompare }}
+          phoneLabel={dict.schematic.phone}
+        />
       </div>
     </div>
   );

@@ -1,28 +1,29 @@
 // components/schematic/views/BackView.tsx
+import { fill } from '@/lib/format';
 import { INK, LINE, PAPER } from '@/lib/schematic-tokens';
 import HatchDefs from '../HatchDefs';
 import { Labels, Notes, PenLoop, type ViewProps } from '../schematic-parts';
 
-export default function BackView({ compact, parts }: ViewProps) {
-  const { fill, hatch, stitch, elastic, hasElastic, hasBuckle, hasPen } = parts;
+export default function BackView({ compact, parts, dict }: ViewProps) {
+  const { fill: leatherFill, hatch, stitch, elastic, hasElastic, hasBuckle, hasPen } = parts;
 
   const notes: string[] = [];
   if (hasElastic) {
-    notes.push('elastic knot on the outside — visible on the finished cover');
-    notes.push('two holes stay even if the band is ever removed');
+    notes.push(dict.schematic.elasticKnot);
+    notes.push(dict.schematic.elasticHoles);
   }
-  if (hasBuckle) notes.push('strap anchored here, wraps around the fore-edge');
+  if (hasBuckle) notes.push(dict.schematic.buckleBack);
   if (hasPen) notes.push(parts.penLabel);
-  if (notes.length === 0) notes.push('no closure — no holes, no hardware');
+  if (notes.length === 0) notes.push(dict.schematic.noClosure);
 
   return (
     <svg viewBox="0 0 400 500" className="block h-auto w-full" role="img"
-         aria-label={`Technical drawing: ${parts.leatherName} cover in ${parts.colorName}, back view`}>
+         aria-label={fill(dict.schematic.backAria, { leather: parts.leatherName, color: parts.colorName })}>
       <HatchDefs />
       <rect x="8" y="8" width="384" height="484" fill="none" stroke={LINE}
             strokeWidth="1" strokeDasharray="6 4" />
       {/* cover — mirrored: spine on the right */}
-      <rect x="102" y="110" width="196" height="280" rx="6" fill={fill}
+      <rect x="102" y="110" width="196" height="280" rx="6" fill={leatherFill}
             stroke={INK} strokeWidth="1.5" />
       <rect x="102" y="110" width="196" height="280" rx="6" fill={hatch} />
       <line x1="272" y1="110" x2="272" y2="390" stroke={INK} strokeWidth="0.8"
@@ -51,7 +52,7 @@ export default function BackView({ compact, parts }: ViewProps) {
       {/* buckle: strap root, box-stitched near the spine, running to the fore-edge (left) */}
       {hasBuckle && (
         <g>
-          <rect x="102" y="238" width="150" height="24" rx="3" fill={fill}
+          <rect x="102" y="238" width="150" height="24" rx="3" fill={leatherFill}
                 stroke={INK} strokeWidth="1.2" />
           <rect x="102" y="238" width="150" height="24" rx="3" fill={hatch} />
           <line x1="108" y1="244" x2="230" y2="244" stroke={stitch} strokeWidth="1"
@@ -66,7 +67,7 @@ export default function BackView({ compact, parts }: ViewProps) {
       {hasPen && <PenLoop parts={parts} cx={285} />}
 
       {!compact && <Labels parts={parts} />}
-      {!compact && <Notes lines={notes} />}
+      {!compact && <Notes lines={notes} note={dict.schematic.note} />}
     </svg>
   );
 }

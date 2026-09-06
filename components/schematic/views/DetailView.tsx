@@ -1,19 +1,20 @@
 // components/schematic/views/DetailView.tsx
-import { SCHEMATIC_NOTE } from '@/lib/data';
+import { THREAD_THICKNESS_MM } from '@/lib/data';
+import { fill } from '@/lib/format';
 import { INK, LINE, MUTED, ALERT } from '@/lib/schematic-tokens';
 import HatchDefs from '../HatchDefs';
 import { Labels, type ViewProps } from '../schematic-parts';
 
-export default function DetailView({ compact, parts }: ViewProps) {
-  const { fill, hatch, stitch } = parts;
+export default function DetailView({ compact, parts, dict }: ViewProps) {
+  const { fill: leatherFill, hatch, stitch } = parts;
 
   return (
     <svg viewBox="0 0 400 400" className="block h-auto w-full" role="img"
-         aria-label={`Macro technical drawing: ${parts.leatherName} stitched corner`}>
+         aria-label={fill(dict.schematic.detailAria, { leather: parts.leatherName })}>
       <HatchDefs scale={2} />
       <rect x="8" y="8" width="384" height="384" fill="none" stroke={LINE}
             strokeWidth="1" strokeDasharray="6 4" />
-      <rect x="96" y="96" width="400" height="400" rx="14" fill={fill}
+      <rect x="96" y="96" width="400" height="400" rx="14" fill={leatherFill}
             stroke={INK} strokeWidth="2" />
       <rect x="96" y="96" width="400" height="400" rx="14" fill={hatch} />
       <path d="M 96 400 L 96 110 Q 96 96 110 96 L 400 96" fill="none"
@@ -27,10 +28,12 @@ export default function DetailView({ compact, parts }: ViewProps) {
       {!compact && (
         <>
           <line x1="40" y1="300" x2="92" y2="300" stroke={MUTED} strokeWidth="0.9" />
-          <text x="20" y="292" fontSize="9.5" fill={MUTED}>burnished edge</text>
+          <text x="20" y="292" fontSize="9.5" fill={MUTED}>{dict.schematic.burnishedEdge}</text>
           <line x1="40" y1="236" x2="132" y2="236" stroke={MUTED} strokeWidth="0.9" />
-          <text x="20" y="228" fontSize="9.5" fill={MUTED}>0.5 mm thread, saddle stitch</text>
-          <text x="20" y="372" fontSize="9.5" fontWeight="600" fill={ALERT}>{SCHEMATIC_NOTE}</text>
+          <text x="20" y="228" fontSize="9.5" fill={MUTED}>
+            {fill(dict.schematic.threadDetail, { mm: THREAD_THICKNESS_MM })}
+          </text>
+          <text x="20" y="372" fontSize="9.5" fontWeight="600" fill={ALERT}>{dict.schematic.note}</text>
         </>
       )}
       {!compact && <Labels parts={parts} />}

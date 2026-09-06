@@ -1,6 +1,9 @@
 // components/schematic/SchematicCover.tsx
+'use client';
+
 import type { Configuration, Angle } from '@/types/config';
 import { previewFilename } from '@/lib/assets';
+import { useI18n } from '@/components/i18n/I18nProvider';
 import { schematicParts } from './schematic-parts';
 import FrontView from './views/FrontView';
 import BackView from './views/BackView';
@@ -22,12 +25,13 @@ const views = {
 } as const;
 
 export default function SchematicCover({ config, angle, compact = false }: Props) {
+  const { dict } = useI18n();
   const View = views[angle];
-  const parts = schematicParts(config);
+  const parts = schematicParts(config, dict);
 
   return (
     <div className="w-full">
-      <View config={config} compact={compact} parts={parts} />
+      <View config={config} compact={compact} parts={parts} dict={dict} />
 
       {/* 'back' has no photo counterpart, so it has no file name either. */}
       {!compact && angle !== 'back' && (

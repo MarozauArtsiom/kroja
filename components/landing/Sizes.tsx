@@ -17,7 +17,14 @@ export default function Sizes() {
         <p className="mb-10 max-w-prose text-ink-soft">{dict.sizes.subtitle}</p>
 
         <div className="mb-12 rounded-sm border border-line p-6">
-          <SizeDiagram active="a5" mode="compare" names={dict.sizes.names} mmUnit={dict.units.mm} />
+          <SizeDiagram
+            active="a5"
+            mode="compare"
+            names={dict.sizes.names}
+            mmUnit={dict.units.mm}
+            aria={{ single: dict.schematic.sizeDiagramSingle, compare: dict.schematic.sizeDiagramCompare }}
+            phoneLabel={dict.schematic.phone}
+          />
         </div>
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">

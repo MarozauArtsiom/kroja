@@ -1,5 +1,6 @@
 // components/schematic/views/OpenView.tsx
-import { angleSpecs, SCHEMATIC_NOTE } from '@/lib/data';
+import { angleSpecs } from '@/lib/data';
+import { fill } from '@/lib/format';
 import { INK, LINE, MUTED, ALERT, PAPER } from '@/lib/schematic-tokens';
 import HatchDefs from '../HatchDefs';
 import { Labels, type ViewProps } from '../schematic-parts';
@@ -11,17 +12,17 @@ const SLOT_STEP = 16;
 const SLOT_X = 80;
 const SLOT_BOTTOM = 220;
 
-export default function OpenView({ config, compact, parts }: ViewProps) {
-  const { fill, hatch, stitch, elastic, insertCount } = parts;
+export default function OpenView({ config, compact, parts, dict }: ViewProps) {
+  const { fill: leatherFill, hatch, stitch, elastic, insertCount } = parts;
   const slotTop = SLOT_BOTTOM - SLOT_H - (config.cardSlots - 1) * SLOT_STEP;
 
   return (
     <svg viewBox="0 0 400 300" className="block h-auto w-full" role="img"
-         aria-label={`Technical drawing: ${parts.leatherName} cover in ${parts.colorName}, opened flat`}>
+         aria-label={fill(dict.schematic.openAria, { leather: parts.leatherName, color: parts.colorName })}>
       <HatchDefs />
       <rect x="8" y="8" width="384" height="284" fill="none" stroke={LINE}
             strokeWidth="1" strokeDasharray="6 4" />
-      <rect x="60" y="52" width="280" height="180" rx="6" fill={fill}
+      <rect x="60" y="52" width="280" height="180" rx="6" fill={leatherFill}
             stroke={INK} strokeWidth="1.5" />
       <rect x="60" y="52" width="280" height="180" rx="6" fill={hatch} />
       <line x1="200" y1="52" x2="200" y2="232" stroke={INK} strokeWidth="1" strokeDasharray="5 4" />
@@ -32,7 +33,7 @@ export default function OpenView({ config, compact, parts }: ViewProps) {
           const y = slotTop + i * SLOT_STEP;
           return (
             <g key={i}>
-              <rect x={SLOT_X} y={y} width={SLOT_W} height={SLOT_H} rx="3" fill={fill}
+              <rect x={SLOT_X} y={y} width={SLOT_W} height={SLOT_H} rx="3" fill={leatherFill}
                     stroke={INK} strokeWidth="1" />
               <rect x={SLOT_X} y={y} width={SLOT_W} height={SLOT_H} rx="3" fill={hatch} />
               <line x1={SLOT_X + 3} y1={y + 3} x2={SLOT_X + SLOT_W - 3} y2={y + 3}
@@ -59,10 +60,10 @@ export default function OpenView({ config, compact, parts }: ViewProps) {
           </text>
           {config.cardSlots > 0 && (
             <text x="20" y="266" fontSize="9.5" fill={MUTED}>
-              → card slots × {config.cardSlots}, inside the front cover
+              → {fill(dict.schematic.cardSlots, { count: config.cardSlots })}
             </text>
           )}
-          <text x="20" y="286" fontSize="9.5" fontWeight="600" fill={ALERT}>{SCHEMATIC_NOTE}</text>
+          <text x="20" y="286" fontSize="9.5" fontWeight="600" fill={ALERT}>{dict.schematic.note}</text>
         </>
       )}
     </svg>

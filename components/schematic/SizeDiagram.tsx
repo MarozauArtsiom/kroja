@@ -1,7 +1,7 @@
 // components/schematic/SizeDiagram.tsx
 import type { SizeCode } from '@/types/config';
 import { sizes, sizeList } from '@/lib/data';
-import { formatDimensions } from '@/lib/format';
+import { formatDimensions, fill } from '@/lib/format';
 import { INK, LINE, MUTED } from '@/lib/schematic-tokens';
 
 interface Props {
@@ -13,11 +13,15 @@ interface Props {
   names: Record<SizeCode, string>;
   /** Localised millimetre unit. */
   mmUnit: string;
+  /** Localised aria-label texts: { single, compare } */
+  aria: { single: string; compare: string };
+  /** Localised word for the phone silhouette. */
+  phoneLabel: string;
 }
 
 const PHONE_MM: [number, number] = [70, 150];
 
-export default function SizeDiagram({ active, mode = 'single', names, mmUnit }: Props) {
+export default function SizeDiagram({ active, mode = 'single', names, mmUnit, aria, phoneLabel }: Props) {
   const shown = mode === 'compare' ? sizeList : [sizes[active]];
 
   // Scale: fit the tallest object (phone or largest cover) into 200 units of height
@@ -39,8 +43,11 @@ export default function SizeDiagram({ active, mode = 'single', names, mmUnit }: 
       role="img"
       aria-label={
         mode === 'compare'
-          ? 'Size comparison of all four notebook formats, drawn to scale next to a phone'
-          : `Size diagram: ${names[active]}, ${formatDimensions(sizes[active].coverMm, mmUnit)}`
+          ? aria.compare
+          : fill(aria.single, {
+              name: names[active],
+              dimensions: formatDimensions(sizes[active].coverMm, mmUnit),
+            })
       }
     >
       {shown.map((s) => {
@@ -84,7 +91,7 @@ export default function SizeDiagram({ active, mode = 'single', names, mmUnit }: 
           fill="none" stroke={MUTED} strokeWidth="1" strokeDasharray="4 3"
         />
         <text x={cursor + phoneW / 2} y={218} textAnchor="middle" fontSize="9" fill={MUTED}>
-          Phone
+          {phoneLabel}
         </text>
       </g>
     </svg>

@@ -74,6 +74,3 @@ export const globalShotRules: string[] = [
   'Shoot one size only — size is shown on the site by a diagram, not by photography',
   'Deliver original files, not messenger-compressed images',
 ];
-
-/** Text shown on every schematic so it cannot be misread as a finished photo */
-export const SCHEMATIC_NOTE = 'SCHEMATIC DRAWING — not a photograph. Colours are approximate.';
