@@ -91,6 +91,12 @@ export default function ShotMatrix() {
                   ...DEFAULT_CONFIG,
                   leather: shot.leather,
                   color: shot.color,
+                  // Hardware is composited by the site and must not appear in the
+                  // reference drawing — the shot rules above say exactly that.
+                  closure: 'none',
+                  penHolder: 'none',
+                  cardSlots: 0,
+                  embossing: null,
                   inserts: [{ type: 'dot', qty: 2 }],
                 };
 
