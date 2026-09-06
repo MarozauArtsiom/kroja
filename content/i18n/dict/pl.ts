@@ -360,6 +360,12 @@ export const pl: Dictionary = {
     stitch: 'Jak ręczny szew siodłowy blokuje się samoczynnie',
     refill: 'Jedna okładka, wiele papierowych wkładów',
   },
+  meta: {
+    siteDescription:
+      'Wymienne skórzane okładki na notesy z naturalnej skóry licowej, ręcznie szyte w Krakowie. Wybierz rozmiar, skórę, kolor, zamknięcie i tłoczenie. Wysyłka do całej UE.',
+    ogDescription: 'Ręcznie szyte w Krakowie. Tworzone według Twojej specyfikacji.',
+    shotlistTitle: 'Lista ujęć',
+  },
   units: { mm: 'mm', g: 'g' },
   conflicts: {
     leatherChanged: "Skóra zmieniona na {to} — {from} nie jest wykonywana w tym rozmiarze",

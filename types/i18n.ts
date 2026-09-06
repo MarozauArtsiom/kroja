@@ -245,6 +245,12 @@ export interface Dictionary {
     stitch: string;
     refill: string;
   };
+  /** Page metadata: search results and link previews. */
+  meta: {
+    siteDescription: string;
+    ogDescription: string;
+    shotlistTitle: string;
+  };
   /** Measurement units. Latin for en/pl/de, Cyrillic for by/uk. */
   units: {
     mm: string;

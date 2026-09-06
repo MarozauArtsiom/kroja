@@ -360,6 +360,12 @@ export const de: Dictionary = {
     stitch: 'Wie sich eine handgenähte Sattlernaht selbst verriegelt',
     refill: 'Eine Hülle, viele Papiereinlagen',
   },
+  meta: {
+    siteDescription:
+      'Wiederbefüllbare Notizbuchhüllen aus vollnarbigem Leder, handgenäht in Krakau. Wählen Sie Größe, Leder, Farbe, Verschluss und Prägung. EU-weiter Versand.',
+    ogDescription: 'Handgenäht in Krakau. Gefertigt nach Ihren Wünschen.',
+    shotlistTitle: 'Aufnahmeliste',
+  },
   units: { mm: 'mm', g: 'g' },
   conflicts: {
     leatherChanged: "Leder auf {to} geändert — {from} wird in dieser Größe nicht gefertigt",

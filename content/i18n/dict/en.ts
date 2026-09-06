@@ -360,6 +360,12 @@ export const en: Dictionary = {
     stitch: 'How a hand saddle stitch locks against itself',
     refill: 'One cover, many paper refills',
   },
+  meta: {
+    siteDescription:
+      'Refillable full-grain leather notebook covers, hand-stitched in Kraków. Choose size, leather, colour, closure and embossing. Ships across the EU.',
+    ogDescription: 'Hand-stitched in Kraków. Built to your specification.',
+    shotlistTitle: 'Shot list',
+  },
   units: { mm: 'mm', g: 'g' },
   conflicts: {
     leatherChanged: 'Leather changed to {to} — {from} is not made in this size',

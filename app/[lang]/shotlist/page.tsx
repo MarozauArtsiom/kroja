@@ -7,10 +7,17 @@ import { getShotCounts } from '@/lib/shotlist';
 import { getDictionary } from '@/content/i18n';
 import type { Metadata } from 'next';
 
-export const metadata: Metadata = {
-  title: 'Shot list',
-  robots: { index: false, follow: false },
-};
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ lang: string }>;
+}): Promise<Metadata> {
+  const { lang } = await params;
+  return {
+    title: getDictionary(lang).meta.shotlistTitle,
+    robots: { index: false, follow: false },
+  };
+}
 
 export default async function LocalizedShotlistPage({
   params,
