@@ -4,7 +4,6 @@
 import { useEffect } from 'react';
 import Link from 'next/link';
 import type { CartItem } from '@/types/config';
-import { sizes } from '@/lib/data';
 import { useI18n } from '@/components/i18n/I18nProvider';
 import { formatPrice } from '@/lib/format';
 import { configToQueryString } from '@/lib/config-url';
@@ -23,7 +22,7 @@ function ItemRow({ item }: { item: CartItem }) {
       : dict.options.closures[c.closure].title;
 
   const lines = [
-    `${sizes[c.size].name} · ${dict.leatherNames[c.leather]} · ${dict.colors[c.color]}`,
+    `${dict.sizes.names[c.size]} · ${dict.leatherNames[c.leather]} · ${dict.colors[c.color]}`,
     `${dict.cart.thread}: ${dict.threads[c.thread]}`,
     `${dict.cart.closure}: ${closureName}`,
     c.penHolder !== 'none'
@@ -52,7 +51,7 @@ function ItemRow({ item }: { item: CartItem }) {
       <div className="min-w-0 flex-1">
         <div className="mb-1 flex items-start justify-between gap-3">
           <p className="text-sm font-medium text-ink">
-            {sizes[c.size].name}
+            {dict.sizes.names[c.size]}
             {item.qty > 1 && <span className="ml-2 text-muted">× {item.qty}</span>}
           </p>
           <p className="shrink-0 text-sm text-ink">{formatPrice(c.totalMinor * item.qty)}</p>

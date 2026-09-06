@@ -57,6 +57,12 @@ export const pl: Dictionary = {
       standard: "Klasyczny format podróżny. Wąski i wysoki, doskonały do codziennego planowania i list.",
       a5: "Format do pracy przy biurku. Pasuje do standardowych wkładów A5 do długich tekstów i szkiców.",
     },
+    names: {
+      a6: "A6 Kieszonkowy",
+      b6: "B6 Kompaktowy",
+      standard: "Standard",
+      a5: "A5 Duży",
+    },
   },
   leather: {
     title: "Trzy rodzaje skóry. Gładka, tłoczona w krokodyla, zamsz.",

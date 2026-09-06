@@ -17,7 +17,7 @@ export default function Sizes() {
         <p className="mb-10 max-w-prose text-ink-soft">{dict.sizes.subtitle}</p>
 
         <div className="mb-12 rounded-sm border border-line p-6">
-          <SizeDiagram active="a5" mode="compare" />
+          <SizeDiagram active="a5" mode="compare" names={dict.sizes.names} />
         </div>
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -27,7 +27,7 @@ export default function Sizes() {
               href={getLocalizedPath(`/configurator?size=${s.code}`)}
               className="group flex flex-col rounded-sm border border-line p-5 transition-colors hover:border-ink"
             >
-              <h3 className="mb-1 text-lg">{s.name}</h3>
+              <h3 className="mb-1 text-lg">{dict.sizes.names[s.code]}</h3>
               <p className="mb-3 text-sm text-muted">{formatDimensions(s.coverMm)}</p>
               <p className="mb-4 flex-1 text-sm text-ink-soft">
                 {dict.sizes.useCases[s.code] || s.useCase}

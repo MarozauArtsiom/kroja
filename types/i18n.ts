@@ -66,6 +66,7 @@ export interface Dictionary {
     cardSlots: string;
     upTo: string;
     useCases: Record<SizeCode, string>;
+    names: Record<SizeCode, string>;
   };
   leather: {
     title: string;

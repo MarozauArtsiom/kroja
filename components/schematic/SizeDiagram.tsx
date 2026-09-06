@@ -9,11 +9,13 @@ interface Props {
   active: SizeCode;
   /** Show all four outlines for comparison (landing) or just the active one (configurator) */
   mode?: 'single' | 'compare';
+  /** Localised size names, keyed by size code. */
+  names: Record<SizeCode, string>;
 }
 
 const PHONE_MM: [number, number] = [70, 150];
 
-export default function SizeDiagram({ active, mode = 'single' }: Props) {
+export default function SizeDiagram({ active, mode = 'single', names }: Props) {
   const shown = mode === 'compare' ? sizeList : [sizes[active]];
 
   // Scale: fit the tallest object (phone or largest cover) into 200 units of height
@@ -36,7 +38,7 @@ export default function SizeDiagram({ active, mode = 'single' }: Props) {
       aria-label={
         mode === 'compare'
           ? 'Size comparison of all four notebook formats, drawn to scale next to a phone'
-          : `Size diagram: ${sizes[active].name}, ${formatDimensions(sizes[active].coverMm)}`
+          : `Size diagram: ${names[active]}, ${formatDimensions(sizes[active].coverMm)}`
       }
     >
       {shown.map((s) => {
@@ -60,7 +62,7 @@ export default function SizeDiagram({ active, mode = 'single' }: Props) {
               textAnchor="middle" fontSize="9"
               fill={isActive ? INK : MUTED}
             >
-              {s.name}
+              {names[s.code]}
             </text>
             <text
               x={x + w / 2} y={230}

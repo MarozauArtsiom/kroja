@@ -57,6 +57,12 @@ export const de: Dictionary = {
       standard: "Das klassische Reise-Notizbuchformat. Schmal, hoch, ideal für Tagesplanung und Listen.",
       a5: "Das Schreibtischformat. Fasst Standard-A5-Einlagen für langes Schreiben und Skizzieren.",
     },
+    names: {
+      a6: "A6 Taschenformat",
+      b6: "B6 Kompakt",
+      standard: "Standard",
+      a5: "A5 Groß",
+    },
   },
   leather: {
     title: "Drei Lederarten. Glattleder, Kroko-Prägung, Veloursleder.",

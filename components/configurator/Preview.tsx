@@ -52,7 +52,7 @@ export default function Preview({ config }: { config: Configuration }) {
       )}
 
       <div className="rounded-sm border border-line p-4">
-        <SizeDiagram active={config.size} mode="single" />
+        <SizeDiagram active={config.size} mode="single" names={dict.sizes.names} />
       </div>
     </div>
   );

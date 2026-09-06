@@ -57,6 +57,12 @@ export const en: Dictionary = {
       standard: 'The classic travel-notebook format. Narrow, tall, ideal for daily planning and lists.',
       a5: 'The workspace size. Takes standard A5 inserts for long-form writing and sketching.',
     },
+    names: {
+      a6: 'A6 Pocket',
+      b6: 'B6 Compact',
+      standard: 'Standard',
+      a5: 'A5 Large',
+    },
   },
   leather: {
     title: 'Three leathers. Smooth, croc-embossed, suede.',
