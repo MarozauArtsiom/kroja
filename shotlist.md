@@ -1,8 +1,8 @@
-# Naked Skin — Shot list
+# Naked Skin — Workshop shot list
 
-Generated 2026-09-06. **92 shots total** — 81 product, 11 story.
+Generated 2026-09-06. **92 shots total** — 81 + 11.
 
-## Rules for every product shot
+## Global Rules for Every Product Shot
 
 - No elastic band, no embossing, no pen loop, no card slots and no buckle in frame — all are drawn by the site
 - Identical angle, light, distance and background within one angle group
@@ -25,15 +25,15 @@ Generated 2026-09-06. **92 shots total** — 81 product, 11 story.
 | 7 | `smooth_burgundy_front.webp` | Smooth leather | Burgundy | Front | ☐ |
 | 8 | `smooth_sand_front.webp` | Smooth leather | Sand | Front | ☐ |
 | 9 | `smooth_graphite_front.webp` | Smooth leather | Graphite | Front | ☐ |
-| 10 | `croc_natural_front.webp` | Croc-embossed leather | Natural | Front | ☐ |
-| 11 | `croc_cognac_front.webp` | Croc-embossed leather | Cognac | Front | ☐ |
-| 12 | `croc_chestnut_front.webp` | Croc-embossed leather | Chestnut | Front | ☐ |
-| 13 | `croc_olive_front.webp` | Croc-embossed leather | Olive | Front | ☐ |
-| 14 | `croc_black_front.webp` | Croc-embossed leather | Black | Front | ☐ |
-| 15 | `croc_navy_front.webp` | Croc-embossed leather | Navy | Front | ☐ |
-| 16 | `croc_burgundy_front.webp` | Croc-embossed leather | Burgundy | Front | ☐ |
-| 17 | `croc_sand_front.webp` | Croc-embossed leather | Sand | Front | ☐ |
-| 18 | `croc_graphite_front.webp` | Croc-embossed leather | Graphite | Front | ☐ |
+| 10 | `croc_natural_front.webp` | Croc-embossed | Natural | Front | ☐ |
+| 11 | `croc_cognac_front.webp` | Croc-embossed | Cognac | Front | ☐ |
+| 12 | `croc_chestnut_front.webp` | Croc-embossed | Chestnut | Front | ☐ |
+| 13 | `croc_olive_front.webp` | Croc-embossed | Olive | Front | ☐ |
+| 14 | `croc_black_front.webp` | Croc-embossed | Black | Front | ☐ |
+| 15 | `croc_navy_front.webp` | Croc-embossed | Navy | Front | ☐ |
+| 16 | `croc_burgundy_front.webp` | Croc-embossed | Burgundy | Front | ☐ |
+| 17 | `croc_sand_front.webp` | Croc-embossed | Sand | Front | ☐ |
+| 18 | `croc_graphite_front.webp` | Croc-embossed | Graphite | Front | ☐ |
 | 19 | `suede_natural_front.webp` | Suede | Natural | Front | ☐ |
 | 20 | `suede_cognac_front.webp` | Suede | Cognac | Front | ☐ |
 | 21 | `suede_chestnut_front.webp` | Suede | Chestnut | Front | ☐ |
@@ -52,15 +52,15 @@ Generated 2026-09-06. **92 shots total** — 81 product, 11 story.
 | 34 | `smooth_burgundy_open.webp` | Smooth leather | Burgundy | Open | ☐ |
 | 35 | `smooth_sand_open.webp` | Smooth leather | Sand | Open | ☐ |
 | 36 | `smooth_graphite_open.webp` | Smooth leather | Graphite | Open | ☐ |
-| 37 | `croc_natural_open.webp` | Croc-embossed leather | Natural | Open | ☐ |
-| 38 | `croc_cognac_open.webp` | Croc-embossed leather | Cognac | Open | ☐ |
-| 39 | `croc_chestnut_open.webp` | Croc-embossed leather | Chestnut | Open | ☐ |
-| 40 | `croc_olive_open.webp` | Croc-embossed leather | Olive | Open | ☐ |
-| 41 | `croc_black_open.webp` | Croc-embossed leather | Black | Open | ☐ |
-| 42 | `croc_navy_open.webp` | Croc-embossed leather | Navy | Open | ☐ |
-| 43 | `croc_burgundy_open.webp` | Croc-embossed leather | Burgundy | Open | ☐ |
-| 44 | `croc_sand_open.webp` | Croc-embossed leather | Sand | Open | ☐ |
-| 45 | `croc_graphite_open.webp` | Croc-embossed leather | Graphite | Open | ☐ |
+| 37 | `croc_natural_open.webp` | Croc-embossed | Natural | Open | ☐ |
+| 38 | `croc_cognac_open.webp` | Croc-embossed | Cognac | Open | ☐ |
+| 39 | `croc_chestnut_open.webp` | Croc-embossed | Chestnut | Open | ☐ |
+| 40 | `croc_olive_open.webp` | Croc-embossed | Olive | Open | ☐ |
+| 41 | `croc_black_open.webp` | Croc-embossed | Black | Open | ☐ |
+| 42 | `croc_navy_open.webp` | Croc-embossed | Navy | Open | ☐ |
+| 43 | `croc_burgundy_open.webp` | Croc-embossed | Burgundy | Open | ☐ |
+| 44 | `croc_sand_open.webp` | Croc-embossed | Sand | Open | ☐ |
+| 45 | `croc_graphite_open.webp` | Croc-embossed | Graphite | Open | ☐ |
 | 46 | `suede_natural_open.webp` | Suede | Natural | Open | ☐ |
 | 47 | `suede_cognac_open.webp` | Suede | Cognac | Open | ☐ |
 | 48 | `suede_chestnut_open.webp` | Suede | Chestnut | Open | ☐ |
@@ -79,15 +79,15 @@ Generated 2026-09-06. **92 shots total** — 81 product, 11 story.
 | 61 | `smooth_burgundy_detail.webp` | Smooth leather | Burgundy | Detail | ☐ |
 | 62 | `smooth_sand_detail.webp` | Smooth leather | Sand | Detail | ☐ |
 | 63 | `smooth_graphite_detail.webp` | Smooth leather | Graphite | Detail | ☐ |
-| 64 | `croc_natural_detail.webp` | Croc-embossed leather | Natural | Detail | ☐ |
-| 65 | `croc_cognac_detail.webp` | Croc-embossed leather | Cognac | Detail | ☐ |
-| 66 | `croc_chestnut_detail.webp` | Croc-embossed leather | Chestnut | Detail | ☐ |
-| 67 | `croc_olive_detail.webp` | Croc-embossed leather | Olive | Detail | ☐ |
-| 68 | `croc_black_detail.webp` | Croc-embossed leather | Black | Detail | ☐ |
-| 69 | `croc_navy_detail.webp` | Croc-embossed leather | Navy | Detail | ☐ |
-| 70 | `croc_burgundy_detail.webp` | Croc-embossed leather | Burgundy | Detail | ☐ |
-| 71 | `croc_sand_detail.webp` | Croc-embossed leather | Sand | Detail | ☐ |
-| 72 | `croc_graphite_detail.webp` | Croc-embossed leather | Graphite | Detail | ☐ |
+| 64 | `croc_natural_detail.webp` | Croc-embossed | Natural | Detail | ☐ |
+| 65 | `croc_cognac_detail.webp` | Croc-embossed | Cognac | Detail | ☐ |
+| 66 | `croc_chestnut_detail.webp` | Croc-embossed | Chestnut | Detail | ☐ |
+| 67 | `croc_olive_detail.webp` | Croc-embossed | Olive | Detail | ☐ |
+| 68 | `croc_black_detail.webp` | Croc-embossed | Black | Detail | ☐ |
+| 69 | `croc_navy_detail.webp` | Croc-embossed | Navy | Detail | ☐ |
+| 70 | `croc_burgundy_detail.webp` | Croc-embossed | Burgundy | Detail | ☐ |
+| 71 | `croc_sand_detail.webp` | Croc-embossed | Sand | Detail | ☐ |
+| 72 | `croc_graphite_detail.webp` | Croc-embossed | Graphite | Detail | ☐ |
 | 73 | `suede_natural_detail.webp` | Suede | Natural | Detail | ☐ |
 | 74 | `suede_cognac_detail.webp` | Suede | Cognac | Detail | ☐ |
 | 75 | `suede_chestnut_detail.webp` | Suede | Chestnut | Detail | ☐ |

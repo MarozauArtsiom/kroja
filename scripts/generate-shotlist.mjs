@@ -43,7 +43,8 @@ try {
   fixAliases(outDir);
 
   const shotlistModule = await import(`file://${outDir}/lib/shotlist.js`);
-  const md = shotlistModule.toMarkdown();
+  const enModule = await import(`file://${outDir}/content/i18n/dict/en.js`);
+  const md = shotlistModule.toMarkdown(enModule.en);
   writeFileSync(path.resolve(rootDir, 'shotlist.md'), md, 'utf8');
   console.log('Done: shotlist.md generated successfully.');
 } catch (err) {

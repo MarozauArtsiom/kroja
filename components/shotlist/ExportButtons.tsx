@@ -25,13 +25,13 @@ export default function ExportButtons() {
       </Button>
       <Button
         variant="secondary"
-        onClick={() => download('shotlist.md', toMarkdown(), 'text/markdown')}
+        onClick={() => download('shotlist.md', toMarkdown(dict), 'text/markdown')}
       >
         {dict.shotlist.exportMd}
       </Button>
       <Button
         variant="secondary"
-        onClick={() => download('shotlist.csv', toCsv(), 'text/csv')}
+        onClick={() => download('shotlist.csv', toCsv(dict), 'text/csv')}
       >
         {dict.shotlist.exportCsv}
       </Button>

@@ -1,5 +1,6 @@
 // lib/shotlist.ts
 import type { LeatherCode, ColorCode, Angle } from '@/types/config';
+import type { Dictionary } from '@/types/i18n';
 import { leatherList } from '@/content/leathers';
 import { angleList } from '@/content/shots';
 import { getStock } from '@/lib/availability';
@@ -72,41 +73,48 @@ export function getShotCounts() {
 }
 
 /** Markdown export, used both by the page and by the npm script. */
-export function toMarkdown(): string {
+export function toMarkdown(dict: Dictionary): string {
   const product = getProductShots();
   const counts = getShotCounts();
   const date = new Date().toISOString().slice(0, 10);
 
   const lines: string[] = [
-    '# Naked Skin — Shot list',
+    `# ${dict.brand.name} — ${dict.shotlist.title}`,
     '',
-    `Generated ${date}. **${counts.total} shots total** — ${counts.product} product, ${counts.story} story.`,
+    `${dict.shotlist.generated} ${date}. **${counts.total} ${dict.shotlist.totalLabel}** — ${counts.product} + ${counts.story}.`,
     '',
-    '## Rules for every product shot',
+    `## ${dict.shotlist.rulesTitle}`,
     '',
   ];
 
-  lines.push('', '## Product matrix', '');
+  for (const rule of dict.shotlist.rules) lines.push(`- ${rule}`);
+
+  lines.push('', `## ${dict.shotlist.productShots}`, '');
   lines.push('| # | File | Leather | Colour | Angle | Done |');
   lines.push('|---|---|---|---|---|---|');
   for (const s of product) {
-    lines.push(`| ${s.index} | \`${s.filename}\` | ${s.leather} | ${s.color} | ${s.angle} | ☐ |`);
+    lines.push(
+      `| ${s.index} | \`${s.filename}\` | ${dict.leatherNames[s.leather]} | ${dict.colors[s.color]} | ${dict.angles[s.angle]} | ☐ |`,
+    );
   }
 
-  lines.push('', '## Story shots', '');
+  lines.push('', `## ${dict.shotlist.storyShots}`, '');
   lines.push('| # | Id | Subject | Requirement | Done |');
   lines.push('|---|---|---|---|---|');
   for (const s of storyShots) {
-    lines.push(`| ${s.index} | \`${s.id}\` | ${s.id} | ${s.id} | ☐ |`);
+    const copy = dict.shotlist.stories[s.id];
+    lines.push(`| ${s.index} | \`${s.id}\` | ${copy.subject} | ${copy.requirement} | ☐ |`);
   }
 
   return lines.join('\n');
 }
 
-export function toCsv(): string {
+export function toCsv(dict: Dictionary): string {
   const rows: string[] = ['index,type,file,leather,colour,angle,ratio'];
   for (const s of getProductShots()) {
-    rows.push(`${s.index},product,${s.filename},${s.leather},${s.color},${s.angle},"${s.ratio}"`);
+    rows.push(
+      `${s.index},product,${s.filename},${dict.leatherNames[s.leather]},${dict.colors[s.color]},${dict.angles[s.angle]},"${s.ratio}"`,
+    );
   }
   for (const s of storyShots) {
     rows.push(`${s.index},story,${s.id},,,,"${s.ratio}"`);

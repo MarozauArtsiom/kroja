@@ -31,10 +31,10 @@
 | T-178 | Метаданные по локали | 3 | ✅ | Antigravity | 2026-09-06 | `b941bbc` | Добавлен dict.meta в 5 словарей, generateMetadata в app/[lang]/layout.tsx и shotlist/page.tsx |
 | T-179 | Список кадров: правила и ракурсы | 21 | ✅ | Antigravity | 2026-09-06 | `1db844e` | rules и angleMustShow вынесены в 5 словарей, shots.ts очищен, ShotMatrix/FrontView/OpenView переведены |
 | T-180 | Список кадров: сюжетные кадры | 34 | ✅ | Antigravity | 2026-09-06 | `4733fc6` | stories и shotNumber вынесены в 5 словарей, StoryShot очищен, StorySlots.tsx локализован |
-| T-181 | Экспорт списка кадров на языке страницы | — | ⬜ | | | | |
+| T-181 | Экспорт списка кадров на языке страницы | — | ✅ | Antigravity | 2026-09-06 | | toMarkdown и toCsv принимают dict, ExportButtons передает dict, generate-shotlist.mjs использует en |
 | T-182 | Мёртвый код и приёмка эпика | — | ⬜ | | | | |
 
-**Следующая задача: T-181**
+**Следующая задача: T-182**
 
 ### Расхождения с требованиями — эпик 11
 
