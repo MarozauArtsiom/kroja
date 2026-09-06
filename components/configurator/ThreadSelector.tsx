@@ -31,6 +31,8 @@ export default function ThreadSelector({ config, onChange }: Props) {
           label: dict.threads[t.code],
           // 'tonal' has no hex of its own: it shows the current leather colour.
           hex: t.hex ?? leatherHex,
+          // 'tonal' has no colour of its own — mark it so it is not read as a fixed colour.
+          dashed: t.hex === null,
           state: 'available' as const,
         }))}
       />

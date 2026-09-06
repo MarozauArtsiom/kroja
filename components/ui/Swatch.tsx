@@ -12,11 +12,13 @@ export interface SwatchProps {
   state: 'available' | 'made-to-order' | 'disabled';
   /** Shown under the label when state is 'disabled' or 'made-to-order' */
   note?: string;
+  /** Dashed outline: this swatch has no colour of its own, it follows another axis. */
+  dashed?: boolean;
   onSelect: (value: string) => void;
 }
 
 export default function Swatch({
-  value, label, hex, selected, state, note, onSelect,
+  value, label, hex, selected, state, note, dashed, onSelect,
 }: SwatchProps) {
   const disabled = state === 'disabled';
 
@@ -41,6 +43,7 @@ export default function Swatch({
           'relative block h-11 w-11 rounded-full border transition-all duration-150',
           selected ? 'border-ink ring-2 ring-ink ring-offset-2 ring-offset-paper' : 'border-line',
           !disabled && !selected && 'group-hover:border-ink',
+          dashed && 'border-2 border-dashed border-ink-soft',
         )}
         style={{ backgroundColor: hex }}
       >
