@@ -254,8 +254,8 @@ export const pl: Dictionary = {
     elasticColor: "Kolor gumki",
     penHolders: {
       none: { title: "Bez uchwytu", meta: "" },
-      slim: { title: "Cienki długopis", meta: "Ø do 10 mm" },
-      wide: { title: "Gruby długopis", meta: "Ø 10–13 mm" },
+      slim: { title: "Cienki długopis", meta: "Ø do {max} mm" },
+      wide: { title: "Gruby długopis", meta: "Ø {min}–{max} mm" },
     },
     penHolderHelp:
       "Długopis kulkowy, żelowy lub cienki ołówek — cienki. Metalowy korpus, pióro wieczne lub gruby marker — gruby. Nie masz pewności? Zmierz najgrubsze miejsce korpusu i porównaj z kółkami.",

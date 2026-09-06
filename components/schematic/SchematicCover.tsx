@@ -5,6 +5,7 @@ import {
   colors,
   threadHex,
   elasticColors,
+  penHolders,
   angleSpecs,
   SCHEMATIC_NOTE,
   BRASS_HEX,
@@ -42,7 +43,11 @@ export default function SchematicCover({ config, angle, compact = false }: Props
   const hasBuckle = config.closure === 'buckle';
   const hasPen = config.penHolder !== 'none';
   const penR = config.penHolder === 'wide' ? PEN_RADIUS.wide : PEN_RADIUS.slim;
-  const penLabel = config.penHolder === 'wide' ? 'pen loop Ø 10–13 mm' : 'pen loop Ø up to 10 mm';
+  const penDef = penHolders[config.penHolder];
+  const penLabel =
+    config.penHolder === 'wide'
+      ? `pen loop Ø ${penDef.minMm}–${penDef.maxMm} mm`
+      : `pen loop Ø up to ${penDef.maxMm} mm`;
   const embossFont =
     config.embossing?.font === 'sans' ? 'Inter, system-ui, sans-serif' : 'Georgia, serif';
   const insertCount = Math.min(

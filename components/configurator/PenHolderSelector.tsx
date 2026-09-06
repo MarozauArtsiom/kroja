@@ -4,7 +4,7 @@
 import type { Configuration, PenHolderCode } from '@/types/config';
 import { penHolderList, PEN_HOLDER_MINOR } from '@/lib/data';
 import { useI18n } from '@/components/i18n/I18nProvider';
-import { formatDelta } from '@/lib/format';
+import { fill, formatDelta } from '@/lib/format';
 import OptionCardGroup from '@/components/ui/OptionCardGroup';
 import PenSizeGuide from '@/components/schematic/PenSizeGuide';
 import { INK, LINE } from '@/lib/schematic-tokens';
@@ -45,7 +45,9 @@ export default function PenHolderSelector({ config, onChange }: Props) {
           items={penHolderList.map((p) => ({
             value: p.code,
             title: dict.configurator.penHolders[p.code].title,
-            meta: dict.configurator.penHolders[p.code].meta || undefined,
+            meta: dict.configurator.penHolders[p.code].meta
+              ? fill(dict.configurator.penHolders[p.code].meta, { min: p.minMm, max: p.maxMm })
+              : undefined,
             delta: p.code === 'none' ? undefined : formatDelta(PEN_HOLDER_MINOR),
             visual: <PenIcon code={p.code} />,
           }))}

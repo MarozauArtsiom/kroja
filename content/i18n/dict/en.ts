@@ -254,8 +254,8 @@ export const en: Dictionary = {
     elasticColor: 'Band colour',
     penHolders: {
       none: { title: 'No pen loop', meta: '' },
-      slim: { title: 'Slim pen', meta: 'Ø up to 10 mm' },
-      wide: { title: 'Wide pen', meta: 'Ø 10–13 mm' },
+      slim: { title: 'Slim pen', meta: 'Ø up to {max} mm' },
+      wide: { title: 'Wide pen', meta: 'Ø {min}–{max} mm' },
     },
     penHolderHelp:
       'Ballpoint, gel pen or a thin pencil — slim. Metal body, fountain pen or thick marker — wide. Not sure? Measure the widest part of the barrel and compare with the circles.',

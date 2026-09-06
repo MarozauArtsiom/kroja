@@ -254,8 +254,8 @@ export const de: Dictionary = {
     elasticColor: "Bandfarbe",
     penHolders: {
       none: { title: "Keine Stiftschlaufe", meta: "" },
-      slim: { title: "Schlanker Stift", meta: "Ø bis 10 mm" },
-      wide: { title: "Breiter Stift", meta: "Ø 10–13 mm" },
+      slim: { title: "Schlanker Stift", meta: "Ø bis {max} mm" },
+      wide: { title: "Breiter Stift", meta: "Ø {min}–{max} mm" },
     },
     penHolderHelp:
       "Kugelschreiber, Gelschreiber oder Bleistift – schlank. Metallgehäuse, Füllfederhalter oder dicker Marker – breit. Unsicher? Dickste Stelle des Schafts messen und mit den Kreisen abgleichen.",
