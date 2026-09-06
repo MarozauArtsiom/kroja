@@ -28,7 +28,7 @@
 | T-175 | Подписи на чертеже | 20 | ✅ | Antigravity | 2026-09-06 | `05c1794` | Добавлен dict.schematic в 5 словарей, выноски и aria-label видов и SizeDiagram локализованы |
 | T-176 | Alt-тексты иллюстраций | 3 | ✅ | Antigravity | 2026-09-06 | `9e700ac` | Добавлен dict.illustrations в 5 словарей, alt в Illustration.tsx берется из словаря |
 | T-177 | Страница 404 на языке пользователя | 3 | ✅ | Antigravity | 2026-09-06 | `f03bb0f` | Создан app/[lang]/not-found.tsx с useI18n, неиспользованных ключей стало 0 |
-| T-178 | Метаданные по локали | 3 | ✅ | Antigravity | 2026-09-06 | | Добавлен dict.meta в 5 словарей, generateMetadata в app/[lang]/layout.tsx и shotlist/page.tsx |
+| T-178 | Метаданные по локали | 3 | ✅ | Antigravity | 2026-09-06 | `b941bbc` | Добавлен dict.meta в 5 словарей, generateMetadata в app/[lang]/layout.tsx и shotlist/page.tsx |
 | T-179 | Список кадров: правила и ракурсы | 21 | ⬜ | | | | |
 | T-180 | Список кадров: сюжетные кадры | 34 | ⬜ | | | | |
 | T-181 | Экспорт списка кадров на языке страницы | — | ⬜ | | | | |
