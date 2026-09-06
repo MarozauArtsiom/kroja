@@ -2,7 +2,7 @@
 'use client';
 
 import type { Configuration } from '@/types/config';
-import { angleList, globalShotRules, leatherList } from '@/lib/data';
+import { angleList, leatherList } from '@/lib/data';
 import { DEFAULT_CONFIG } from '@/lib/config-schema';
 import { getProductShots, type ProductShot } from '@/lib/shotlist';
 import { useI18n } from '@/components/i18n/I18nProvider';
@@ -52,7 +52,7 @@ export default function ShotMatrix() {
           {dict.shotlist.rulesTitle}
         </h3>
         <ul className="space-y-1.5 text-xs text-ink-soft">
-          {globalShotRules.map((r) => (
+          {dict.shotlist.rules.map((r) => (
             <li key={r} className="flex items-start gap-2">
               <span className="mt-1 h-1 w-1 shrink-0 rounded-full bg-ink" />
               <span>{r}</span>
@@ -66,14 +66,13 @@ export default function ShotMatrix() {
       {/* Angle groups */}
       {angleList.map((a) => {
         const groupShots = allShots.filter((s) => s.angle === a.angle);
-        const localizedAngleName = dict.angles[a.angle] || a.name;
 
         return (
           <section key={a.angle} data-shot-group className="space-y-4">
             <div className="border-b border-line pb-3">
               <div className="flex flex-wrap items-baseline justify-between gap-2">
                 <h3 className="text-xl font-medium text-ink">
-                  {localizedAngleName} {dict.shotlist.viewLabel}{' '}
+                  {dict.angles[a.angle]} {dict.shotlist.viewLabel}{' '}
                   <span className="text-sm font-normal text-muted">({a.ratio})</span>
                 </h3>
                 <span className="text-xs text-muted">
@@ -81,7 +80,7 @@ export default function ShotMatrix() {
                 </span>
               </div>
               <p className="mt-1 text-xs text-muted">
-                {dict.shotlist.mustShow}: {a.mustShow.join(' · ')}
+                {dict.shotlist.mustShow}: {dict.shotlist.angleMustShow[a.angle].join(' · ')}
               </p>
             </div>
 
@@ -110,12 +109,8 @@ export default function ShotMatrix() {
                       <div className="mx-auto mb-3 max-w-[140px]">
                         <SchematicCover config={config} angle={shot.angle} compact />
                       </div>
-                      <p className="text-sm font-medium text-ink">
-                        {dict.colors[shot.color] || shot.colorName}
-                      </p>
-                      <p className="text-xs text-muted">
-                        {dict.leatherNames[shot.leather] || shot.leatherName}
-                      </p>
+                      <p className="text-sm font-medium text-ink">{dict.colors[shot.color]}</p>
+                      <p className="text-xs text-muted">{dict.leatherNames[shot.leather]}</p>
                     </div>
 
                     <div className="flex items-center justify-between border-t border-line pt-3">

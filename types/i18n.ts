@@ -218,6 +218,10 @@ export interface Dictionary {
     mustShow: string;
     shotsCount: string;
     viewLabel: string;
+    /** Rules that apply to every product shot. */
+    rules: string[];
+    /** What each angle must show. */
+    angleMustShow: Record<Angle, string[]>;
   };
   footer: {
     line: string;

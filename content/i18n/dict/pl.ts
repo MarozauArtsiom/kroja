@@ -335,6 +335,21 @@ export const pl: Dictionary = {
     mustShow: "Musi pokazać",
     shotsCount: "ujęć",
     viewLabel: "Widok",
+    rules: [
+      'Bez gumki, bez tłoczenia, bez uchwytu na długopis, bez kieszonek na karty i bez klamry w kadrze — wszystko to rysuje strona',
+      'Identyczny kąt, światło, odległość i tło w ramach jednej grupy ujęć',
+      'Jedno neutralne tło dla całej matrycy ujęć',
+      'Co najmniej 2400 px na dłuższym boku przed kompresją',
+      'Zakaz retuszowania faktury skóry',
+      'Fotografować tylko jeden rozmiar — rozmiar jest pokazywany na stronie za pomocą schematu, a nie fotografii',
+      'Dostarczać pliki oryginalne, a nie zdjęcia skompresowane przez komunikatory',
+    ],
+    angleMustShow: {
+      front: ['Faktura skóry', 'Linia szwu', 'Polerowana krawędź', 'Ogólna sylwetka'],
+      back: ['Węzeł gumki i dwa otwory', 'Mocowanie paska przy wybranej klamrze', 'Uchwyt na długopis na grzbiecie'],
+      open: ['Mocowanie wkładów', 'Wewnętrzna strona skóry', 'Kieszonki na karty, jeśli wybrano'],
+      detail: ['Gęstość szwu', 'Wykończenie krawędzi', 'Zbliżenie faktury'],
+    },
   },
   footer: {
     line: "Ręcznie szyte skórzane okładki na notesy. Kraków, Polska.",

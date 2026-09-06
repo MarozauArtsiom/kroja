@@ -1,5 +1,4 @@
 // components/schematic/views/OpenView.tsx
-import { angleSpecs } from '@/lib/data';
 import { fill } from '@/lib/format';
 import { INK, LINE, MUTED, ALERT, PAPER } from '@/lib/schematic-tokens';
 import HatchDefs from '../HatchDefs';
@@ -56,7 +55,7 @@ export default function OpenView({ config, compact, parts, dict }: ViewProps) {
       {!compact && (
         <>
           <text x="20" y="252" fontSize="9.5" fill={MUTED}>
-            → {angleSpecs.open.mustShow.join(' · ')}
+            → {dict.shotlist.angleMustShow.open.join(' · ')}
           </text>
           {config.cardSlots > 0 && (
             <text x="20" y="266" fontSize="9.5" fill={MUTED}>

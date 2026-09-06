@@ -335,6 +335,21 @@ export const en: Dictionary = {
     mustShow: 'Must show',
     shotsCount: 'shots',
     viewLabel: 'View',
+    rules: [
+      'No elastic band, no embossing, no pen loop, no card slots and no buckle in frame — all are drawn by the site',
+      'Identical angle, light, distance and background within one angle group',
+      'One neutral background across the whole matrix',
+      'At least 2400 px on the long side before compression',
+      'No retouching of the leather texture',
+      'Shoot one size only — size is shown on the site by a diagram, not by photography',
+      'Deliver original files, not messenger-compressed images',
+    ],
+    angleMustShow: {
+      front: ['Leather grain', 'Stitch line', 'Burnished edge', 'Overall silhouette'],
+      back: ['Elastic knot and two holes', 'Strap anchor when a buckle is chosen', 'Pen loop on the spine'],
+      open: ['How inserts attach', 'Inner side of the leather', 'Card slots when chosen'],
+      detail: ['Stitch density', 'Edge finish', 'Close grain'],
+    },
   },
   footer: {
     line: 'Handmade refillable leather notebook covers. Kraków, Poland.',

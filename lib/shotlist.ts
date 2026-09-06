@@ -1,23 +1,17 @@
 // lib/shotlist.ts
 import type { LeatherCode, ColorCode, Angle } from '@/types/config';
 import { leatherList } from '@/content/leathers';
-import { colors } from '@/content/colors';
 import { angleList } from '@/content/shots';
 import { getStock } from '@/lib/availability';
 import { previewFilename } from '@/lib/assets';
-import { globalShotRules } from '@/content/shots';
 
 export interface ProductShot {
   index: number;
   leather: LeatherCode;
-  leatherName: string;
   color: ColorCode;
-  colorName: string;
   angle: Angle;
-  angleName: string;
   ratio: string;
   filename: string;
-  mustShow: string[];
 }
 
 export interface StoryShot {
@@ -48,14 +42,10 @@ export function getProductShots(): ProductShot[] {
         shots.push({
           index,
           leather: leather.code,
-          leatherName: leather.name,
           color: colorCode,
-          colorName: colors[colorCode].name,
           angle: angle.angle,
-          angleName: angle.name,
           ratio: angle.ratio,
           filename: previewFilename(leather.code, colorCode, angle.angle),
-          mustShow: angle.mustShow,
         });
       }
     }
@@ -99,13 +89,11 @@ export function toMarkdown(): string {
     '',
   ];
 
-  for (const rule of globalShotRules) lines.push(`- ${rule}`);
-
   lines.push('', '## Product matrix', '');
   lines.push('| # | File | Leather | Colour | Angle | Done |');
   lines.push('|---|---|---|---|---|---|');
   for (const s of product) {
-    lines.push(`| ${s.index} | \`${s.filename}\` | ${s.leatherName} | ${s.colorName} | ${s.angleName} | ☐ |`);
+    lines.push(`| ${s.index} | \`${s.filename}\` | ${s.leather} | ${s.color} | ${s.angle} | ☐ |`);
   }
 
   lines.push('', '## Story shots', '');
@@ -121,7 +109,7 @@ export function toMarkdown(): string {
 export function toCsv(): string {
   const rows: string[] = ['index,type,file,leather,colour,angle,ratio'];
   for (const s of getProductShots()) {
-    rows.push(`${s.index},product,${s.filename},${s.leatherName},${s.colorName},${s.angleName},"${s.ratio}"`);
+    rows.push(`${s.index},product,${s.filename},${s.leather},${s.color},${s.angle},"${s.ratio}"`);
   }
   for (const s of storyShots) {
     rows.push(`${s.index},story,${s.id},,,,"${s.ratio}"`);

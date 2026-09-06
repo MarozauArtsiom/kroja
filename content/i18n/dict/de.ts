@@ -335,6 +335,21 @@ export const de: Dictionary = {
     mustShow: "Muss zeigen",
     shotsCount: "Aufnahmen",
     viewLabel: "Ansicht",
+    rules: [
+      'Kein Gummiband, keine Prägung, keine Stiftschlaufe, keine Kartenfächer und keine Schnalle im Bild — all dies wird von der Website gezeichnet',
+      'Identischer Winkel, Licht, Abstand und Hintergrund innerhalb einer Ansichtsgruppe',
+      'Ein neutraler Hintergrund für die gesamte Aufnahmematrix',
+      'Mindestens 2400 px an der langen Kante vor der Komprimierung',
+      'Keine Retusche der Lederstruktur',
+      'Nur eine Größe fotografieren — die Größe wird auf der Website durch ein Diagramm dargestellt, nicht durch Fotografie',
+      'Originaldateien liefern, keine durch Messenger komprimierten Bilder',
+    ],
+    angleMustShow: {
+      front: ['Lederstruktur', 'Nahtlinie', 'Polierte Kante', 'Gesamtsilhouette'],
+      back: ['Gummibandknoten und zwei Löcher', 'Riemenbefestigung bei gewählter Schnalle', 'Stiftschlaufe am Rücken'],
+      open: ['Befestigung der Einlagen', 'Innenseite des Leders', 'Kartenfächer, falls gewählt'],
+      detail: ['Nahtdichte', 'Kantenfinish', 'Detailaufnahme der Narbung'],
+    },
   },
   footer: {
     line: "Handgefertigte nachfüllbare Leder-Notizbuchhüllen. Krakau, Polen.",

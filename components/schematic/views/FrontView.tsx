@@ -1,5 +1,5 @@
 // components/schematic/views/FrontView.tsx
-import { angleSpecs, BRASS_HEX } from '@/lib/data';
+import { BRASS_HEX } from '@/lib/data';
 import { fill } from '@/lib/format';
 import { INK, LINE, MUTED } from '@/lib/schematic-tokens';
 import HatchDefs from '../HatchDefs';
@@ -12,7 +12,7 @@ export default function FrontView({ config, compact, parts, dict }: ViewProps) {
   if (hasElastic) notes.push(dict.schematic.elasticFront);
   if (hasBuckle) notes.push(dict.schematic.buckleFront);
   if (hasPen) notes.push(parts.penLabel);
-  if (notes.length === 0) notes.push(...angleSpecs.front.mustShow.slice(0, 3));
+  if (notes.length === 0) notes.push(...dict.shotlist.angleMustShow.front.slice(0, 3));
 
   return (
     <svg viewBox="0 0 400 500" className="block h-auto w-full" role="img"
