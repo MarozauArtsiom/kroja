@@ -3,7 +3,7 @@ import Image from 'next/image';
 import clsx from 'clsx';
 
 const sources = {
-  hero: { src: '/illustrations/hero.svg', w: 600, h: 450, alt: 'A leather cover with paper inserts and an elastic cord' },
+  hero: { src: '/illustrations/hero.svg', w: 600, h: 450, alt: 'A leather cover with paper inserts and an elastic band' },
   stitch: { src: '/illustrations/stitch.svg', w: 400, h: 320, alt: 'How a hand saddle stitch locks against itself' },
   refill: { src: '/illustrations/refill.svg', w: 400, h: 300, alt: 'One cover, many paper refills' },
 } as const;

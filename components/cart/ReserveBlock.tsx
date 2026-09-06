@@ -65,7 +65,7 @@ export default function ReserveBlock() {
       </div>
 
       {status === 'error' && (
-        <p className="mt-2 text-xs text-alert">Error processing reservation. Please try again.</p>
+        <p className="mt-2 text-xs text-alert">{dict.cart.reserveError}</p>
       )}
     </div>
   );

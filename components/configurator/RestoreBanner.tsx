@@ -7,7 +7,7 @@ import { useI18n } from '@/components/i18n/I18nProvider';
 import { parseConfig } from '@/lib/config-schema';
 import Button from '@/components/ui/Button';
 
-const KEY = 'kroja:last-config';
+const KEY = 'nakedskin:last-config';
 
 export function saveConfig(config: Configuration) {
   try {

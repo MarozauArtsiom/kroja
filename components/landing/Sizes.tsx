@@ -2,7 +2,7 @@
 'use client';
 
 import Link from 'next/link';
-import { sizeList } from '@/content/sizes';
+import { sizeList } from '@/lib/data';
 import { useI18n } from '@/components/i18n/I18nProvider';
 import { formatDimensions, formatPrice, formatWeight } from '@/lib/format';
 import SizeDiagram from '@/components/schematic/SizeDiagram';
@@ -42,6 +42,12 @@ export default function Sizes() {
                 <div className="flex justify-between">
                   <dt>{dict.sizes.weight}</dt>
                   <dd>{formatWeight(s.weightG)}</dd>
+                </div>
+                <div className="flex justify-between">
+                  <dt>{dict.sizes.cardSlots}</dt>
+                  <dd>
+                    {dict.sizes.upTo} {s.cardSlotsMax}
+                  </dd>
                 </div>
               </dl>
               <p className="text-sm text-ink">

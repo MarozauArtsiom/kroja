@@ -11,9 +11,12 @@ import Preview from './Preview';
 import SizeSelector from './SizeSelector';
 import LeatherSelector from './LeatherSelector';
 import ColorSelector from './ColorSelector';
-import DetailsSelector from './DetailsSelector';
-import EngravingInput from './EngravingInput';
+import ThreadSelector from './ThreadSelector';
+import ClosureSelector from './ClosureSelector';
+import PenHolderSelector from './PenHolderSelector';
+import CardSlotsSelector from './CardSlotsSelector';
 import InsertsSelector from './InsertsSelector';
+import EmbossingInput from './EmbossingInput';
 import StickyBar from './StickyBar';
 import RestoreBanner, { saveConfig } from './RestoreBanner';
 
@@ -53,14 +56,17 @@ function Inner() {
             <Preview config={config} />
           </div>
 
-          {/* Right: options */}
+          {/* Right: options, from "what object" to "what is written on it" */}
           <div className="flex flex-col gap-10">
             <SizeSelector config={config} onChange={update} />
             <LeatherSelector config={config} onChange={update} />
             <ColorSelector config={config} onChange={update} />
-            <DetailsSelector config={config} onChange={update} />
-            <EngravingInput config={config} onChange={update} />
+            <ThreadSelector config={config} onChange={update} />
+            <ClosureSelector config={config} onChange={update} />
+            <PenHolderSelector config={config} onChange={update} />
+            <CardSlotsSelector config={config} onChange={update} />
             <InsertsSelector config={config} onChange={update} />
+            <EmbossingInput config={config} onChange={update} />
           </div>
         </div>
       </main>

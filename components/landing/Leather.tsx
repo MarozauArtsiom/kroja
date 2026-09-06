@@ -30,9 +30,9 @@ function Scale({ value, label }: { value: number; label: string }) {
 
 export default function Leather() {
   const { dict, getLocalizedPath } = useI18n();
-  const [active, setActive] = useState<LeatherCode>('veg-tan');
+  const [active, setActive] = useState<LeatherCode>('smooth');
   const l = leathers[active];
-  const localizedDesc = dict.leather.descriptions[active] || l;
+  const localizedDesc = dict.leather.descriptions[active];
 
   return (
     <section id="leather" className="section">

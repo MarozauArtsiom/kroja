@@ -4,12 +4,7 @@
 import { useEffect } from 'react';
 import Link from 'next/link';
 import type { CartItem } from '@/types/config';
-import { sizes } from '@/content/sizes';
-import { leathers } from '@/content/leathers';
-import { colors } from '@/content/colors';
-import { threads } from '@/content/threads';
-import { cords } from '@/content/cords';
-import { insertNames } from '@/content/pricing';
+import { sizes } from '@/lib/data';
 import { useI18n } from '@/components/i18n/I18nProvider';
 import { formatPrice } from '@/lib/format';
 import { configToQueryString } from '@/lib/config-url';
@@ -22,17 +17,27 @@ function ItemRow({ item }: { item: CartItem }) {
   const { dict, getLocalizedPath } = useI18n();
   const removeItem = useCartStore((s) => s.removeItem);
 
-  const leatherName = dict.leatherNames[c.leather] || leathers[c.leather].name;
-  const colorName = dict.colors[c.color] || colors[c.color].name;
-  const threadName = dict.threads[c.thread] || threads[c.thread].name;
-  const cordName = dict.cords[c.cord] || cords[c.cord].name;
+  const closureName =
+    c.closure === 'elastic'
+      ? `${dict.configurator.closures.elastic.title} · ${dict.elasticColors[c.elasticColor]}`
+      : dict.configurator.closures[c.closure].title;
 
   const lines = [
-    `${sizes[c.size].name} · ${leatherName} · ${colorName}`,
-    `${dict.configurator.thread}: ${threadName} · ${dict.configurator.cord}: ${cordName}`,
-    c.engraving ? `${dict.cart.engraving}: “${c.engraving.text}” (${dict.configurator.engravingPositions[c.engraving.position]})` : null,
+    `${sizes[c.size].name} · ${dict.leatherNames[c.leather]} · ${dict.colors[c.color]}`,
+    `${dict.cart.thread}: ${dict.threads[c.thread]}`,
+    `${dict.cart.closure}: ${closureName}`,
+    c.penHolder !== 'none'
+      ? `${dict.cart.penHolder}: ${dict.configurator.penHolders[c.penHolder].title} (${dict.configurator.penHolders[c.penHolder].meta})`
+      : null,
+    c.cardSlots > 0 ? `${dict.cart.cardSlots}: ${c.cardSlots}` : null,
+    c.embossing
+      ? `${dict.cart.embossing}: “${c.embossing.text}” (${dict.configurator.embossingPositions[c.embossing.position]})`
+      : null,
     c.inserts.filter((i) => i.qty > 0).length > 0
-      ? `${dict.cart.inserts}: ${c.inserts.filter((i) => i.qty > 0).map((i) => `${i.qty} × ${insertNames[i.type]}`).join(', ')}`
+      ? `${dict.cart.inserts}: ${c.inserts
+          .filter((i) => i.qty > 0)
+          .map((i) => `${i.qty} × ${dict.insertTypes[i.type]}`)
+          .join(', ')}`
       : null,
     c.giftBox ? dict.cart.giftBox : null,
     `${dict.configurator.readyIn} ${c.productionDays} ${dict.configurator.workingDays}`,
@@ -58,6 +63,10 @@ function ItemRow({ item }: { item: CartItem }) {
             <li key={line}>{line}</li>
           ))}
         </ul>
+
+        {c.closure === 'elastic' && (
+          <p className="mt-1 text-[11px] leading-snug text-muted">{dict.cart.elasticNote}</p>
+        )}
 
         <div className="mt-2 flex gap-3 text-xs">
           <Link

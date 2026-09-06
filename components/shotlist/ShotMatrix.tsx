@@ -2,8 +2,8 @@
 'use client';
 
 import type { Configuration } from '@/types/config';
-import { angleList, globalShotRules } from '@/content/shots';
-import { leatherList } from '@/content/leathers';
+import { angleList, globalShotRules, leatherList } from '@/lib/data';
+import { DEFAULT_CONFIG } from '@/lib/config-schema';
 import { getProductShots, type ProductShot } from '@/lib/shotlist';
 import { useI18n } from '@/components/i18n/I18nProvider';
 import SchematicCover from '@/components/schematic/SchematicCover';
@@ -88,14 +88,10 @@ export default function ShotMatrix() {
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
               {groupShots.map((shot: ProductShot) => {
                 const config: Configuration = {
-                  size: 'a5',
+                  ...DEFAULT_CONFIG,
                   leather: shot.leather,
                   color: shot.color,
-                  thread: 'natural',
-                  cord: 'black',
-                  engraving: null,
                   inserts: [{ type: 'dot', qty: 2 }],
-                  giftBox: false,
                 };
 
                 return (

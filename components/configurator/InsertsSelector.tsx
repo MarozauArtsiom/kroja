@@ -2,10 +2,9 @@
 'use client';
 
 import type { Configuration, InsertType } from '@/types/config';
-import { sizes } from '@/content/sizes';
+import { sizes, insertPriceMinor, GIFT_BOX_MINOR } from '@/lib/data';
 import { useI18n } from '@/components/i18n/I18nProvider';
-import { insertNames, insertPriceMinor, GIFT_BOX_MINOR } from '@/content/pricing';
-import { formatDelta } from '@/lib/format';
+import { fill, formatDelta } from '@/lib/format';
 
 interface Props {
   config: Configuration;
@@ -32,20 +31,21 @@ export default function InsertsSelector({ config, onChange }: Props) {
       <div>
         <h2 className="label mb-1">{dict.configurator.steps.inserts}</h2>
         <p className="mb-3 text-xs text-muted">
-          Up to {capacity} {dict.sizes.inserts} in this size. {totalQty} selected.
+          {fill(dict.configurator.insertsHint, { max: capacity, count: totalQty })}
         </p>
 
         <div className="space-y-2">
           {TYPES.map((type) => {
             const current = config.inserts.find((i) => i.type === type)?.qty ?? 0;
             const canAdd = totalQty < capacity;
+            const name = dict.insertTypes[type];
             return (
               <div
                 key={type}
                 className="flex items-center justify-between rounded-sm border border-line p-3"
               >
                 <div>
-                  <span className="text-sm text-ink">{insertNames[type]}</span>
+                  <span className="text-sm text-ink">{name}</span>
                   <span className="ml-2 text-xs text-accent">
                     {formatDelta(insertPriceMinor[type])}
                   </span>
@@ -53,7 +53,7 @@ export default function InsertsSelector({ config, onChange }: Props) {
                 <div className="flex items-center gap-1">
                   <button
                     type="button"
-                    aria-label={`Remove one ${insertNames[type]} insert`}
+                    aria-label={fill(dict.configurator.removeOne, { name })}
                     disabled={current === 0}
                     onClick={() => setQty(type, current - 1)}
                     className="h-11 w-11 rounded-sm border border-line text-lg disabled:opacity-30"
@@ -65,7 +65,7 @@ export default function InsertsSelector({ config, onChange }: Props) {
                   </span>
                   <button
                     type="button"
-                    aria-label={`Add one ${insertNames[type]} insert`}
+                    aria-label={fill(dict.configurator.addOne, { name })}
                     disabled={!canAdd}
                     onClick={() => setQty(type, current + 1)}
                     className="h-11 w-11 rounded-sm border border-line text-lg disabled:opacity-30"

@@ -4,7 +4,7 @@
 import { useState } from 'react';
 import clsx from 'clsx';
 import type { Configuration, Angle } from '@/types/config';
-import { angleList } from '@/content/shots';
+import { schematicAngleList } from '@/lib/data';
 import { useI18n } from '@/components/i18n/I18nProvider';
 import { getPreview, SHOW_SCHEMATIC_NOTES } from '@/lib/assets';
 import SchematicCover from '@/components/schematic/SchematicCover';
@@ -26,9 +26,9 @@ export default function Preview({ config }: { config: Configuration }) {
         )}
       </div>
 
-      {/* Angle thumbnails */}
+      {/* Angle tabs */}
       <div className="flex gap-2" role="tablist" aria-label="Preview angle">
-        {angleList.map((a) => (
+        {schematicAngleList.map((a) => (
           <button
             key={a.angle}
             type="button"
@@ -42,7 +42,7 @@ export default function Preview({ config }: { config: Configuration }) {
                 : 'border-line text-muted hover:border-ink-soft',
             )}
           >
-            {dict.angles[a.angle] || a.name}
+            {dict.angles[a.angle]}
           </button>
         ))}
       </div>

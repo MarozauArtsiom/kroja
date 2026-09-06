@@ -8,7 +8,7 @@ import { useI18n } from '@/components/i18n/I18nProvider';
 import { formatPrice } from '@/lib/format';
 import Button from '@/components/ui/Button';
 import { useCartStore } from '@/store/cart';
-import EngravingConfirmModal from './EngravingConfirmModal';
+import EmbossingConfirmModal from './EmbossingConfirmModal';
 
 export default function StickyBar({ priced }: { priced: PricedConfiguration }) {
   const { dict } = useI18n();
@@ -23,10 +23,10 @@ export default function StickyBar({ priced }: { priced: PricedConfiguration }) {
     return () => clearTimeout(timer);
   }, [priced.totalMinor]);
 
-  const hasEngraving = !!priced.engraving && priced.engraving.text.trim().length > 0;
+  const hasEmbossing = !!priced.embossing && priced.embossing.text.trim().length > 0;
 
   function handleAdd() {
-    if (hasEngraving) {
+    if (hasEmbossing) {
       setConfirmOpen(true);
       return;
     }
@@ -66,10 +66,10 @@ export default function StickyBar({ priced }: { priced: PricedConfiguration }) {
         </div>
       </div>
 
-      <EngravingConfirmModal
+      <EmbossingConfirmModal
         open={confirmOpen}
-        text={priced.engraving?.text ?? ''}
-        font={priced.engraving?.font ?? 'serif'}
+        text={priced.embossing?.text ?? ''}
+        font={priced.embossing?.font ?? 'serif'}
         onEdit={() => setConfirmOpen(false)}
         onConfirm={confirmAdd}
       />
