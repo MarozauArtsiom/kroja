@@ -239,6 +239,12 @@ export interface Dictionary {
     colorGroup: string;
     leatherTabs: string;
   };
+  /** Alt text of the landing illustrations. */
+  illustrations: {
+    hero: string;
+    stitch: string;
+    refill: string;
+  };
   /** Measurement units. Latin for en/pl/de, Cyrillic for by/uk. */
   units: {
     mm: string;

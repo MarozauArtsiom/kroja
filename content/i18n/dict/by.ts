@@ -373,6 +373,11 @@ export const by: Dictionary = {
     colorGroup: "Колер",
     leatherTabs: "Віды скуры",
   },
+  illustrations: {
+    hero: 'Скураная вокладка з папяровымі ўкладкамі і гумкай',
+    stitch: 'Як ручны сядзельны шво замыкаецца сам на сябе',
+    refill: 'Адна вокладка, шмат папяровых укладак',
+  },
   units: { mm: "мм", g: "г" },
   conflicts: {
     leatherChanged: "Скура зменена на {to} — {from} не робіцца ў гэтым памеры",

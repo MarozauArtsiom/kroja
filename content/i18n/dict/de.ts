@@ -355,6 +355,11 @@ export const de: Dictionary = {
     colorGroup: "Farbe",
     leatherTabs: "Lederarten",
   },
+  illustrations: {
+    hero: 'Lederhülle mit Papiereinlagen und Gummiband',
+    stitch: 'Wie sich eine handgenähte Sattlernaht selbst verriegelt',
+    refill: 'Eine Hülle, viele Papiereinlagen',
+  },
   units: { mm: 'mm', g: 'g' },
   conflicts: {
     leatherChanged: "Leder auf {to} geändert — {from} wird in dieser Größe nicht gefertigt",

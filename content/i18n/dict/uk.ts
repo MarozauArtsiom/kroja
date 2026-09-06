@@ -373,6 +373,11 @@ export const uk: Dictionary = {
     colorGroup: "Колір",
     leatherTabs: "Види шкіри",
   },
+  illustrations: {
+    hero: 'Шкіряна обкладинка з паперовими вкладками та гумкою',
+    stitch: 'Як ручний сідельний шов фіксується сам у собі',
+    refill: 'Одна обкладинка, багато паперових вкладок',
+  },
   units: { mm: "мм", g: "г" },
   conflicts: {
     leatherChanged: "Шкіру змінено на {to} — {from} не виготовляється в цьому розмірі",

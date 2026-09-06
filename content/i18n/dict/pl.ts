@@ -355,6 +355,11 @@ export const pl: Dictionary = {
     colorGroup: "Kolor",
     leatherTabs: "Rodzaje skóry",
   },
+  illustrations: {
+    hero: 'Skórzana okładka z papierowymi wkładami i elastyczną gumką',
+    stitch: 'Jak ręczny szew siodłowy blokuje się samoczynnie',
+    refill: 'Jedna okładka, wiele papierowych wkładów',
+  },
   units: { mm: 'mm', g: 'g' },
   conflicts: {
     leatherChanged: "Skóra zmieniona na {to} — {from} nie jest wykonywana w tym rozmiarze",

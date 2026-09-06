@@ -355,6 +355,11 @@ export const en: Dictionary = {
     colorGroup: 'Colour',
     leatherTabs: 'Leather types',
   },
+  illustrations: {
+    hero: 'A leather cover with paper inserts and an elastic band',
+    stitch: 'How a hand saddle stitch locks against itself',
+    refill: 'One cover, many paper refills',
+  },
   units: { mm: 'mm', g: 'g' },
   conflicts: {
     leatherChanged: 'Leather changed to {to} — {from} is not made in this size',
