@@ -8,7 +8,7 @@ import { getDictionary } from '@/content/i18n';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Shot list — Naked Skin',
+  title: 'Shot list',
   robots: { index: false, follow: false },
 };
 

@@ -25,7 +25,7 @@ export async function generateMetadata({
   const dict = getDictionary(lang);
 
   return {
-    title: `${dict.brand.name} — ${dict.hero.title}`,
+    title: { absolute: `${dict.brand.name} — ${dict.hero.title}` },
     description: dict.hero.subtitle,
     openGraph: {
       title: `${dict.brand.name} — ${dict.hero.title}`,
