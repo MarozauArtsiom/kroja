@@ -246,12 +246,7 @@ export default function SchematicCover({ config, angle, compact = false }: Props
                 </g>
               );
             })}
-          {config.cardSlots > 0 && !compact && (
-            <text x={SLOT_X} y={SLOT_BOTTOM - SLOT_H - (config.cardSlots - 1) * SLOT_STEP - 6}
-                  fontSize="9" fill={MUTED}>
-              card slots × {config.cardSlots}
-            </text>
-          )}
+
 
           {/* inserts on the right half */}
           {Array.from({ length: insertCount }).map((_, i) => (
@@ -265,10 +260,15 @@ export default function SchematicCover({ config, angle, compact = false }: Props
           {labels}
           {!compact && (
             <>
-              <text x="20" y="256" fontSize="9.5" fill={MUTED}>
+              <text x="20" y="252" fontSize="9.5" fill={MUTED}>
                 → {spec.mustShow.join(' · ')}
               </text>
-              <text x="20" y="278" fontSize="9.5" fontWeight="600" fill={ALERT}>{SCHEMATIC_NOTE}</text>
+              {config.cardSlots > 0 && (
+                <text x="20" y="266" fontSize="9.5" fill={MUTED}>
+                  → card slots × {config.cardSlots}, inside the front cover
+                </text>
+              )}
+              <text x="20" y="286" fontSize="9.5" fontWeight="600" fill={ALERT}>{SCHEMATIC_NOTE}</text>
             </>
           )}
         </svg>
