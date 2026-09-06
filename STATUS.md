@@ -18,7 +18,7 @@
 
 | ID | Задача | Замечание | Статус | Агент | Дата | Коммит | Заметки |
 |---|---|---|---|---|---|---|---|
-| T-149 | Разложить эпик 9 на коммиты | R-14, R-15 | ⬜ | | | | |
+| T-149 | Разложить эпик 9 на коммиты | R-14, R-15 | ✅ | Antigravity | 2026-09-06 | | Эпик 9 разложен на 3 коммита по волнам, расхождения записаны |
 | T-150 | Токены чертежей одним файлом | R-08 | ⬜ | | | | |
 | T-151 | Пять импортов на фасад данных | R-12 | ⬜ | | | | |
 | T-152 | Ракурс `back` всегда схематический | R-04 | ⬜ | | | | |
@@ -33,7 +33,7 @@
 | T-161 | Общие названия вариантов в `dict.options` | R-11 | ⬜ | | | | |
 | T-162 | Приёмка эпика | — | ⬜ | | | | |
 
-**Следующая задача: T-149**
+**Следующая задача: T-150**
 
 ### Замечание, которое сознательно не чиним
 
@@ -96,31 +96,31 @@ npx tsc --noEmit --pretty false 2>&1 | grep "<путь/к/файлу/задач�
 
 | ID | Задача | Волна | Статус | Агент | Дата | Коммит | Заметки |
 |---|---|---|---|---|---|---|---|
-| T-120 | Типы конфигурации | A | ✅ | Antigravity | 2026-09-06 | | Заменены типы: LeatherCode, ThreadCode, ClosureCode, ElasticColorCode, PenHolderCode, Embossing |
-| T-121 | Данные: размеры, цвета, кожи | A | ✅ | Antigravity | 2026-09-06 | | cardSlotsMax в sizes, sand/graphite в colors, smooth/croc/suede в leathers |
-| T-122 | Данные: нить, резинка, застёжка, держатель, цены | A | ✅ | Antigravity | 2026-09-06 | | threads (tonal), elastic (4 цвета), closures (elastic/buckle/none), pen-holders (slim/wide), pricing (embossing/cards/pen/buckle), cords.ts удалён |
-| T-123 | Данные: наличие и ракурсы | A | ✅ | Antigravity | 2026-09-06 | | stock (27 пар in_stock), shots (back в angleSpecs и schematicAngleList, SCHEMATIC_NOTE) |
-| T-124 | Фасад данных и `fill()` | A | ✅ | Antigravity | 2026-09-06 | | lib/data.ts обновлён, fill() добавлен в lib/format.ts, copy.ts удалён |
-| T-125 | Расчёт цены | A | ✅ | Antigravity | 2026-09-06 | | calculatePrice c thread, closure, penHolder, cardSlots, embossing |
-| T-126 | Zod-схема и санитайзер тиснения | A | ✅ | Antigravity | 2026-09-06 | | sanitizeEmbossing (A-Z + PL + Cyrillic), configSchema с новыми осями |
-| T-127 | Совместимость и разрешение конфликтов | A | ✅ | Antigravity | 2026-09-06 | | resolveConfiguration с clampInserts и cardSlotsMax |
-| T-128 | Состояние в URL | A | ✅ | Antigravity | 2026-09-06 | | configFromSearchParams и configToSearchParams с новыми параметрами |
-| T-129 | Стор корзины | A | ✅ | Antigravity | 2026-09-06 | | nakedskin:cart v2, configHash с closure, penHolder, cards, embossing |
-| T-130 | Словарь: тип и английский | A | ✅ | Antigravity | 2026-09-06 | | Dictionary интерфейс с новыми осями и плейсхолдерами, en.ts |
-| T-131 | Словари: pl, de, by, uk | A | ✅ | Antigravity | 2026-09-06 | | Словари pl, de, by, uk приведены к интерфейсу Dictionary, новая терминология |
-| T-132 | Штриховки и чертёж: четыре ракурса | B | ✅ | Antigravity | 2026-09-06 | | HatchDefs и SchematicCover с 4 ракурсами (front/back/open/detail) и всеми осями |
-| T-133 | Превью с четырьмя ракурсами и линейка ручки | B | ✅ | Antigravity | 2026-09-06 | | Preview с 4 ракурсами, PenSizeGuide с размерами в мм |
-| T-134 | Селектор нити | B | ✅ | Antigravity | 2026-09-06 | | ThreadSelector с 6 свотчами, tonal в цвет кожи, толщина 0.5 мм |
-| T-135 | Селектор застёжки | B | ✅ | Antigravity | 2026-09-06 | | ClosureSelector с 3 карточками (elastic/buckle/none), пиктограммами и свотчами резинки |
-| T-136 | Селектор держателя ручки | B | ✅ | Antigravity | 2026-09-06 | | PenHolderSelector с карточками none/slim/wide (+20 zł), PenIcon и PenSizeGuide |
-| T-137 | Селектор карманов, вкладыши без хардкода | B | ✅ | Antigravity | 2026-09-06 | | CardSlotsSelector с лимитом cardSlotsMax, InsertsSelector без хардкодных строк |
-| T-138 | Поле тиснения и модалка | B | ✅ | Antigravity | 2026-09-06 | | EmbossingInput с санитайзером и EmbossingConfirmModal созданы, Engraving* удалены |
-| T-139 | Sticky-панель | B | ✅ | Antigravity | 2026-09-06 | | StickyBar с EmbossingConfirmModal и новой ценой |
-| T-140 | Корзина: строки позиции | B | ✅ | Antigravity | 2026-09-06 | | CartDrawer ItemRow с новыми осями (closure/penHolder/cardSlots/embossing), ReserveBlock dict.cart.reserveError |
-| T-141 | Лендинг и метаданные | B | ✅ | Antigravity | 2026-09-06 | | Leather smooth дефолт, Sizes cardSlotsMax, layout closure/embossing, shotlist Naked Skin и postponedNote |
-| T-142 | Список кадров: согласованность | B | ✅ | Antigravity | 2026-09-06 | | S4-leather кадры в lib/shotlist.ts, DEFAULT_CONFIG в ShotMatrix.tsx |
-| T-143 | Сборка конструктора | C | ✅ | Antigravity | 2026-09-06 | | ConfiguratorClient с 9 осями, RestoreBanner nakedskin key, DetailsSelector удалён, npm run build зелёная |
-| T-144 | Чистка и приёмка эпика | C | ✅ | Antigravity | 2026-09-06 | | Все 5 grep чистые, npm run lint и build зелёные, shotlist.md пересобран, приемка пройдена |
+| T-120 | Типы конфигурации | A | ✅ | Antigravity | 2026-09-06 | `dfb00da` | Заменены типы: LeatherCode, ThreadCode, ClosureCode, ElasticColorCode, PenHolderCode, Embossing |
+| T-121 | Данные: размеры, цвета, кожи | A | ✅ | Antigravity | 2026-09-06 | `dfb00da` | cardSlotsMax в sizes, sand/graphite в colors, smooth/croc/suede в leathers |
+| T-122 | Данные: нить, резинка, застёжка, держатель, цены | A | ✅ | Antigravity | 2026-09-06 | `dfb00da` | threads (tonal), elastic (4 цвета), closures (elastic/buckle/none), pen-holders (slim/wide), pricing (embossing/cards/pen/buckle), cords.ts удалён |
+| T-123 | Данные: наличие и ракурсы | A | ✅ | Antigravity | 2026-09-06 | `dfb00da` | stock (27 пар in_stock), shots (back в angleSpecs и schematicAngleList, SCHEMATIC_NOTE) |
+| T-124 | Фасад данных и `fill()` | A | ✅ | Antigravity | 2026-09-06 | `dfb00da` | lib/data.ts обновлён, fill() добавлен в lib/format.ts, copy.ts удалён |
+| T-125 | Расчёт цены | A | ✅ | Antigravity | 2026-09-06 | `dfb00da` | calculatePrice c thread, closure, penHolder, cardSlots, embossing |
+| T-126 | Zod-схема и санитайзер тиснения | A | ✅ | Antigravity | 2026-09-06 | `dfb00da` | sanitizeEmbossing (A-Z + PL + Cyrillic), configSchema с новыми осями |
+| T-127 | Совместимость и разрешение конфликтов | A | ✅ | Antigravity | 2026-09-06 | `dfb00da` | resolveConfiguration с clampInserts и cardSlotsMax |
+| T-128 | Состояние в URL | A | ✅ | Antigravity | 2026-09-06 | `dfb00da` | configFromSearchParams и configToSearchParams с новыми параметрами |
+| T-129 | Стор корзины | A | ✅ | Antigravity | 2026-09-06 | `dfb00da` | nakedskin:cart v2, configHash с closure, penHolder, cards, embossing |
+| T-130 | Словарь: тип и английский | A | ✅ | Antigravity | 2026-09-06 | `dfb00da` | Dictionary интерфейс с новыми осями и плейсхолдерами, en.ts |
+| T-131 | Словари: pl, de, by, uk | A | ✅ | Antigravity | 2026-09-06 | `dfb00da` | Словари pl, de, by, uk приведены к интерфейсу Dictionary, новая терминология |
+| T-132 | Штриховки и чертёж: четыре ракурса | B | ✅ | Antigravity | 2026-09-06 | `7a3c857` | HatchDefs и SchematicCover с 4 ракурсами (front/back/open/detail) и всеми осями |
+| T-133 | Превью с четырьмя ракурсами и линейка ручки | B | ✅ | Antigravity | 2026-09-06 | `7a3c857` | Preview с 4 ракурсами, PenSizeGuide с размерами в мм |
+| T-134 | Селектор нити | B | ✅ | Antigravity | 2026-09-06 | `7a3c857` | ThreadSelector с 6 свотчами, tonal в цвет кожи, толщина 0.5 мм |
+| T-135 | Селектор застёжки | B | ✅ | Antigravity | 2026-09-06 | `7a3c857` | ClosureSelector с 3 карточками (elastic/buckle/none), пиктограммами и свотчами резинки |
+| T-136 | Селектор держателя ручки | B | ✅ | Antigravity | 2026-09-06 | `7a3c857` | PenHolderSelector с карточками none/slim/wide (+20 zł), PenIcon и PenSizeGuide |
+| T-137 | Селектор карманов, вкладыши без хардкода | B | ✅ | Antigravity | 2026-09-06 | `7a3c857` | CardSlotsSelector с лимитом cardSlotsMax, InsertsSelector без хардкодных строк |
+| T-138 | Поле тиснения и модалка | B | ✅ | Antigravity | 2026-09-06 | `7a3c857` | EmbossingInput с санитайзером и EmbossingConfirmModal созданы, Engraving* удалены |
+| T-139 | Sticky-панель | B | ✅ | Antigravity | 2026-09-06 | `7a3c857` | StickyBar с EmbossingConfirmModal и новой ценой |
+| T-140 | Корзина: строки позиции | B | ✅ | Antigravity | 2026-09-06 | `7a3c857` | CartDrawer ItemRow с новыми осями (closure/penHolder/cardSlots/embossing), ReserveBlock dict.cart.reserveError |
+| T-141 | Лендинг и метаданные | B | ✅ | Antigravity | 2026-09-06 | `7a3c857` | Leather smooth дефолт, Sizes cardSlotsMax, layout closure/embossing, shotlist Naked Skin и postponedNote |
+| T-142 | Список кадров: согласованность | B | ✅ | Antigravity | 2026-09-06 | `7a3c857` | S4-leather кадры в lib/shotlist.ts, DEFAULT_CONFIG в ShotMatrix.tsx |
+| T-143 | Сборка конструктора | C | ✅ | Antigravity | 2026-09-06 | `8537dcd` | ConfiguratorClient с 9 осями, RestoreBanner nakedskin key, DetailsSelector удалён, npm run build зелёная |
+| T-144 | Чистка и приёмка эпика | C | ✅ | Antigravity | 2026-09-06 | `8537dcd` | Все 5 grep чистые, npm run lint и build зелёные, shotlist.md пересобран, приемка пройдена |
 
 **Следующая задача: все задачи выполнены (эпик 9 завершён)**
 
@@ -128,7 +128,10 @@ npx tsc --noEmit --pretty false 2>&1 | grep "<путь/к/файлу/задач�
 
 ## Расхождения с требованиями
 
-Расхождений нет. Все требования спецификации выполнены в точности.
+| Дата | Задача | Требование | Что сделано иначе | Почему | Кто решил |
+|---|---|---|---|---|---|
+| 2026-09-06 | все | AGENT.md, «одна задача = один коммит» | Эпик выполнен без коммитов, разложен задним числом на 3 коммита по волнам в T-149 | Коммиты не делались по ходу работы | ревью 06.09.2026 |
+| 2026-09-06 | T-141 | Список Files задачи | Изменён `components/landing/Illustration.tsx` — в alt-тексте «elastic cord» → «elastic band» | Файла не было в списке; правка верная и соответствует переименованию оси | ревью 06.09.2026 |
 
 ---
 
