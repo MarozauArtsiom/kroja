@@ -37,6 +37,7 @@ export {
   MAX_INSERTS_PER_TYPE,
   MAX_EMBOSSING_LENGTH,
   MAX_CARD_SLOTS,
+  cardSlotsPriceMinor,
 } from '@/content/pricing';
 
 export {

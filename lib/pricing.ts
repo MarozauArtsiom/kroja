@@ -4,11 +4,11 @@ import { sizes } from '@/content/sizes';
 import { leathers } from '@/content/leathers';
 import { threads } from '@/content/threads';
 import { closures } from '@/content/closures';
+import { penHolders } from '@/content/pen-holders';
 import {
   EMBOSSING_MINOR,
   GIFT_BOX_MINOR,
-  CARD_SLOTS_MINOR,
-  PEN_HOLDER_MINOR,
+  cardSlotsPriceMinor,
   insertPriceMinor,
 } from '@/content/pricing';
 
@@ -34,8 +34,8 @@ export function calculatePrice(config: Configuration): PriceBreakdown {
   const leatherMinor = leathers[config.leather].priceDeltaMinor;
   const threadMinor = threads[config.thread].priceMinor;
   const closureMinor = closures[config.closure].priceMinor;
-  const penHolderMinor = config.penHolder === 'none' ? 0 : PEN_HOLDER_MINOR;
-  const cardSlotsMinor = config.cardSlots > 0 ? CARD_SLOTS_MINOR : 0;
+  const penHolderMinor = penHolders[config.penHolder].priceMinor;
+  const cardSlotsMinor = cardSlotsPriceMinor(config.cardSlots);
   const embossingMinor = hasEmbossing(config) ? EMBOSSING_MINOR : 0;
 
   const insertsMinor = config.inserts.reduce(

@@ -48,7 +48,7 @@ export default function PenHolderSelector({ config, onChange }: Props) {
             meta: dict.configurator.penHolders[p.code].meta
               ? fill(dict.configurator.penHolders[p.code].meta, { min: p.minMm, max: p.maxMm })
               : undefined,
-            delta: p.code === 'none' ? undefined : formatDelta(PEN_HOLDER_MINOR),
+            delta: p.priceMinor === 0 ? undefined : formatDelta(p.priceMinor),
             visual: <PenIcon code={p.code} />,
           }))}
         />

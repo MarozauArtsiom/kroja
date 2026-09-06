@@ -29,3 +29,11 @@ export const MAX_INSERTS_PER_TYPE = 4;
 export const MAX_EMBOSSING_LENGTH = 2;
 /** Absolute upper bound for the URL parser. The per-size limit is sizes[size].cardSlotsMax. */
 export const MAX_CARD_SLOTS = 4;
+
+/**
+ * Card slots are charged once, whatever the count and the notebook size.
+ * Kept as a function so the rule lives next to the price, not inside calculatePrice.
+ */
+export function cardSlotsPriceMinor(count: number): number {
+  return count > 0 ? CARD_SLOTS_MINOR : 0;
+}
