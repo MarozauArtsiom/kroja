@@ -19,6 +19,9 @@ export const colors: Record<ColorCode, ColorDef> = {
   navy:     { code: 'navy',     name: 'Navy',     hex: '#2A3345', order: 5 },
   burgundy: { code: 'burgundy', name: 'Burgundy', hex: '#5A222B', order: 6 },
   black:    { code: 'black',    name: 'Black',    hex: '#1C1917', order: 7 },
+  // TEMPORARY — placeholders until the maker confirms the real palette.
+  sand:     { code: 'sand',     name: 'Sand',     hex: '#D9C7A7', order: 8 },
+  graphite: { code: 'graphite', name: 'Graphite', hex: '#3B3A38', order: 9 },
 };
 
 export const colorList: ColorDef[] = Object.values(colors).sort((a, b) => a.order - b.order);

@@ -1,7 +1,8 @@
 // lib/availability.ts
 import type {
-  LeatherCode, ColorCode, SizeCode, StockStatus, Configuration,
+  LeatherCode, ColorCode, SizeCode, StockStatus, Configuration, InsertSelection,
 } from '@/types/config';
+import { sizes } from '@/content/sizes';
 import { leathers } from '@/content/leathers';
 import { colors, colorList } from '@/content/colors';
 import { stock, stockKey, productionDays } from '@/content/availability';
@@ -74,6 +75,18 @@ export function findClosestColor(leather: LeatherCode): ColorCode | null {
   return candidates[0]?.code ?? null;
 }
 
+/** Reduces insert quantities, last items first, until the total fits the capacity. */
+function clampInserts(inserts: InsertSelection[], capacity: number): InsertSelection[] {
+  let remaining = capacity;
+  return inserts
+    .map((item) => {
+      const qty = Math.max(0, Math.min(item.qty, remaining));
+      remaining -= qty;
+      return { ...item, qty };
+    })
+    .filter((item) => item.qty > 0);
+}
+
 export interface ResolveResult {
   config: Configuration;
   /** Human-readable messages about what was changed and why. Empty if nothing changed. */
@@ -86,7 +99,8 @@ export interface ResolveResult {
  */
 export function resolveConfiguration(input: Configuration): ResolveResult {
   const changes: string[] = [];
-  let { leather, color, size } = input;
+  let { leather, color, inserts, cardSlots } = input;
+  const { size } = input;
 
   // Rule 1: size wins over leather.
   // If the leather cannot be made in this size, switch to a leather that can.
@@ -113,5 +127,20 @@ export function resolveConfiguration(input: Configuration): ResolveResult {
     }
   }
 
-  return { config: { ...input, leather, color, size }, changes };
+  // Rule 3: paper inserts cannot exceed what the size holds.
+  const capacity = sizes[size].insertCapacity;
+  const totalInserts = inserts.reduce((sum, i) => sum + i.qty, 0);
+  if (totalInserts > capacity) {
+    inserts = clampInserts(inserts, capacity);
+    changes.push(`Inserts reduced to ${capacity} — ${sizes[size].name} holds no more`);
+  }
+
+  // Rule 4: card slots cannot exceed what the size holds.
+  const maxSlots = sizes[size].cardSlotsMax;
+  if (cardSlots > maxSlots) {
+    changes.push(`Card slots reduced to ${maxSlots} — ${sizes[size].name} holds no more`);
+    cardSlots = maxSlots;
+  }
+
+  return { config: { ...input, leather, color, inserts, cardSlots }, changes };
 }

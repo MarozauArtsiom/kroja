@@ -44,17 +44,21 @@ export function configFromSearchParams(
     return params[key] ?? null;
   };
 
-  const engravingText = get('engraving');
+  const embossText = get('emboss');
+  const cardsRaw = get('cards');
 
   const raw = {
     size: get('size') ?? undefined,
     leather: get('leather') ?? undefined,
     color: get('color') ?? undefined,
     thread: get('thread') ?? undefined,
-    cord: get('cord') ?? undefined,
-    engraving: engravingText
+    closure: get('closure') ?? undefined,
+    elasticColor: get('elastic') ?? undefined,
+    penHolder: get('pen') ?? undefined,
+    cardSlots: cardsRaw ? Number.parseInt(cardsRaw, 10) : undefined,
+    embossing: embossText
       ? {
-          text: engravingText,
+          text: embossText,
           font: get('font') ?? undefined,
           position: get('pos') ?? undefined,
         }
@@ -81,12 +85,17 @@ export function configToSearchParams(config: Configuration): URLSearchParams {
   p.set('color', config.color);
 
   if (config.thread !== DEFAULT_CONFIG.thread) p.set('thread', config.thread);
-  if (config.cord !== DEFAULT_CONFIG.cord) p.set('cord', config.cord);
+  if (config.closure !== DEFAULT_CONFIG.closure) p.set('closure', config.closure);
+  if (config.closure === 'elastic' && config.elasticColor !== DEFAULT_CONFIG.elasticColor) {
+    p.set('elastic', config.elasticColor);
+  }
+  if (config.penHolder !== 'none') p.set('pen', config.penHolder);
+  if (config.cardSlots > 0) p.set('cards', String(config.cardSlots));
 
-  if (config.engraving && config.engraving.text.trim()) {
-    p.set('engraving', config.engraving.text);
-    p.set('font', config.engraving.font);
-    p.set('pos', config.engraving.position);
+  if (config.embossing && config.embossing.text.trim()) {
+    p.set('emboss', config.embossing.text);
+    p.set('font', config.embossing.font);
+    p.set('pos', config.embossing.position);
   }
 
   const inserts = serialiseInserts(config.inserts);

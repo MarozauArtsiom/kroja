@@ -5,7 +5,7 @@ import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import type { CartItem, PricedConfiguration, Configuration } from '@/types/config';
 
-/** Deterministic key for a configuration. Order of inserts and stray spaces must not matter. */
+/** Deterministic key for a configuration. Order of inserts must not matter. */
 export function configHash(config: Configuration): string {
   const inserts = [...config.inserts]
     .filter((i) => i.qty > 0)
@@ -13,17 +13,22 @@ export function configHash(config: Configuration): string {
     .map((i) => `${i.type}:${i.qty}`)
     .join(',');
 
-  const engraving = config.engraving?.text.trim()
-    ? `${config.engraving.text.trim()}|${config.engraving.font}|${config.engraving.position}`
+  const embossing = config.embossing?.text.trim()
+    ? `${config.embossing.text.trim()}|${config.embossing.font}|${config.embossing.position}`
     : '';
+
+  // Band colour only matters when the band is actually there.
+  const closure = config.closure === 'elastic' ? `elastic:${config.elasticColor}` : config.closure;
 
   return [
     config.size,
     config.leather,
     config.color,
     config.thread,
-    config.cord,
-    engraving,
+    closure,
+    config.penHolder,
+    `cards:${config.cardSlots}`,
+    embossing,
     inserts,
     config.giftBox ? 'box' : '',
   ].join('__');
@@ -86,7 +91,10 @@ export const useCartStore = create<CartState>()(
       totalCount: () => get().items.reduce((sum, i) => sum + i.qty, 0),
     }),
     {
-      name: 'kroja:cart',
+      name: 'nakedskin:cart',
+      // Version 1 stored configurations with leathers that no longer exist. Drop them.
+      version: 2,
+      migrate: () => ({ items: [] }) as unknown as CartState,
       // Do not persist UI state
       partialize: (state) => ({ items: state.items }) as CartState,
     },

@@ -1,4 +1,18 @@
 // types/i18n.ts
+import type {
+  Angle,
+  ClosureCode,
+  ColorCode,
+  ElasticColorCode,
+  EmbossingFont,
+  EmbossingPosition,
+  InsertType,
+  LeatherCode,
+  PenHolderCode,
+  SizeCode,
+  ThreadCode,
+} from '@/types/config';
+
 export type SupportedLocale = 'en' | 'pl' | 'de' | 'by' | 'uk';
 
 export interface LocaleInfo {
@@ -6,6 +20,14 @@ export interface LocaleInfo {
   name: string;
   nativeName: string;
   flagId: string;
+}
+
+export interface LeatherCopy {
+  description: string;
+  character: string;
+  origin: string;
+  tanning: string;
+  ageing: { m6: string; m12: string; m36: string };
 }
 
 export interface Dictionary {
@@ -32,10 +54,7 @@ export interface Dictionary {
   };
   reasons: {
     title: string;
-    items: Array<{
-      title: string;
-      body: string;
-    }>;
+    items: Array<{ title: string; body: string }>;
   };
   sizes: {
     title: string;
@@ -44,7 +63,9 @@ export interface Dictionary {
     inserts: string;
     build: string;
     weight: string;
-    useCases: Record<string, string>;
+    cardSlots: string;
+    upTo: string;
+    useCases: Record<SizeCode, string>;
   };
   leather: {
     title: string;
@@ -60,22 +81,16 @@ export interface Dictionary {
     m12: string;
     m36: string;
     build: string;
-    notDefect: {
-      title: string;
-      body: string;
-    };
+    notDefect: { title: string; body: string };
     careTitle: string;
     careBody: string;
     schematicNote: string;
-    descriptions: Record<string, { description: string; character: string; origin: string; tanning: string; ageing: { m6: string; m12: string; m36: string } }>;
+    descriptions: Record<LeatherCode, LeatherCopy>;
   };
   process: {
     title: string;
     subtitle: string;
-    steps: Array<{
-      title: string;
-      body: string;
-    }>;
+    steps: Array<{ title: string; body: string }>;
     madeByHand: string;
   };
   included: {
@@ -89,10 +104,7 @@ export interface Dictionary {
   };
   faq: {
     title: string;
-    items: Array<{
-      q: string;
-      a: string;
-    }>;
+    items: Array<{ q: string; a: string }>;
   };
   finalCta: {
     title: string;
@@ -105,25 +117,43 @@ export interface Dictionary {
       size: string;
       leather: string;
       color: string;
-      details: string;
-      engraving: string;
+      thread: string;
+      closure: string;
+      penHolder: string;
+      cardSlots: string;
+      embossing: string;
       inserts: string;
       giftBox: string;
     };
-    thread: string;
-    cord: string;
-    engravingPlaceholder: string;
-    engravingHint: string;
-    engravingPositionLabel: string;
-    engravingFontLabel: string;
-    engravingPositions: {
-      'bottom-right': string;
-      spine: string;
-    };
-    engravingFonts: {
-      serif: string;
-      sans: string;
-    };
+    /** Uses {mm} */
+    threadThickness: string;
+    embossingPlaceholder: string;
+    /** Uses {max} */
+    embossingHint: string;
+    embossingNote: string;
+    embossingPositionLabel: string;
+    embossingFontLabel: string;
+    embossingPositions: Record<EmbossingPosition, string>;
+    embossingFonts: Record<EmbossingFont, string>;
+    embossingConfirmTitle: string;
+    embossingConfirmBody: string;
+    embossingConfirmEdit: string;
+    embossingConfirmOk: string;
+    closures: Record<ClosureCode, { title: string; note: string }>;
+    elasticColor: string;
+    penHolders: Record<PenHolderCode, { title: string; meta: string }>;
+    penHolderHelp: string;
+    penHolderGuideLabel: string;
+    /** Uses {max} and {count} */
+    cardSlotsHint: string;
+    cardSlotsMeta: string;
+    cardSlotsInside: string;
+    /** Uses {max} and {count} */
+    insertsHint: string;
+    /** Uses {name} */
+    addOne: string;
+    /** Uses {name} */
+    removeOne: string;
     giftBoxLabel: string;
     addToCart: string;
     readyIn: string;
@@ -131,8 +161,6 @@ export interface Dictionary {
     madeToOrder: string;
     inStock: string;
     conflictBanner: string;
-    conflictResolved: string;
-    capacityLimit: string;
     restorePrompt: string;
     restoreAction: string;
     notifyTitle: string;
@@ -140,10 +168,6 @@ export interface Dictionary {
     notifySuccess: string;
     notifyPlaceholder: string;
     notifySubmit: string;
-    engravingConfirmTitle: string;
-    engravingConfirmBody: string;
-    engravingConfirmEdit: string;
-    engravingConfirmOk: string;
   };
   cart: {
     title: string;
@@ -154,10 +178,13 @@ export interface Dictionary {
     leather: string;
     color: string;
     thread: string;
-    cord: string;
-    engraving: string;
+    closure: string;
+    penHolder: string;
+    cardSlots: string;
+    embossing: string;
     inserts: string;
     giftBox: string;
+    elasticNote: string;
     qty: string;
     remove: string;
     edit: string;
@@ -169,10 +196,12 @@ export interface Dictionary {
     reserveSubmit: string;
     reserveSuccess: string;
     reserveSuccessBody: string;
+    reserveError: string;
   };
   shotlist: {
     title: string;
     subtitle: string;
+    postponedNote: string;
     totalLabel: string;
     generated: string;
     productShots: string;
@@ -195,9 +224,10 @@ export interface Dictionary {
     body: string;
     back: string;
   };
-  colors: Record<string, string>;
-  threads: Record<string, string>;
-  cords: Record<string, string>;
-  leatherNames: Record<string, string>;
-  angles: Record<string, string>;
+  colors: Record<ColorCode, string>;
+  threads: Record<ThreadCode, string>;
+  elasticColors: Record<ElasticColorCode, string>;
+  insertTypes: Record<InsertType, string>;
+  leatherNames: Record<LeatherCode, string>;
+  angles: Record<Angle, string>;
 }

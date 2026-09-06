@@ -1,6 +1,6 @@
 // lib/data.ts
 // Single import point for all content data.
-// Components and lib functions import from here, never from content/* directly.
+// Components import from here, never from content/* directly.
 
 export { sizes, sizeList, DEFAULT_SIZE } from '@/content/sizes';
 export type { SizeDef } from '@/content/sizes';
@@ -11,26 +11,41 @@ export type { LeatherDef, HatchPattern } from '@/content/leathers';
 export { colors, colorList, DEFAULT_COLOR } from '@/content/colors';
 export type { ColorDef } from '@/content/colors';
 
-export { threads, threadList, DEFAULT_THREAD } from '@/content/threads';
+export { threads, threadList, DEFAULT_THREAD, THREAD_THICKNESS_MM, threadHex } from '@/content/threads';
 export type { ThreadDef } from '@/content/threads';
 
-export { cords, cordList, DEFAULT_CORD } from '@/content/cords';
-export type { CordDef } from '@/content/cords';
+export { elasticColors, elasticColorList, DEFAULT_ELASTIC_COLOR } from '@/content/elastic';
+export type { ElasticColorDef } from '@/content/elastic';
+
+export { closures, closureList, DEFAULT_CLOSURE, BRASS_HEX } from '@/content/closures';
+export type { ClosureDef } from '@/content/closures';
+
+export { penHolders, penHolderList, DEFAULT_PEN_HOLDER } from '@/content/pen-holders';
+export type { PenHolderDef } from '@/content/pen-holders';
 
 export { stock, stockKey, productionDays } from '@/content/availability';
 
 export {
   CURRENCY,
-  ENGRAVING_MINOR,
+  EMBOSSING_MINOR,
   GIFT_BOX_MINOR,
+  CARD_SLOTS_MINOR,
+  PEN_HOLDER_MINOR,
+  BUCKLE_MINOR,
   insertPriceMinor,
   insertNames,
   MAX_INSERTS_PER_TYPE,
-  MAX_ENGRAVING_LENGTH,
+  MAX_EMBOSSING_LENGTH,
+  MAX_CARD_SLOTS,
 } from '@/content/pricing';
 
-export { angleSpecs, angleList, globalShotRules, NOT_IN_FRAME } from '@/content/shots';
+export {
+  angleSpecs,
+  angleList,
+  schematicAngleList,
+  globalShotRules,
+  SCHEMATIC_NOTE,
+} from '@/content/shots';
 export type { AngleSpec } from '@/content/shots';
 
 export { sections } from '@/content/sections';
-export { copy } from '@/content/copy';

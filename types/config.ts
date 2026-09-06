@@ -2,31 +2,38 @@
 
 export type SizeCode = 'a6' | 'b6' | 'standard' | 'a5';
 
-export type LeatherCode = 'veg-tan' | 'crazy-horse' | 'pull-up';
+export type LeatherCode = 'smooth' | 'croc' | 'suede';
 
 export type ColorCode =
   | 'natural' | 'cognac' | 'chestnut'
-  | 'olive' | 'black' | 'navy' | 'burgundy';
+  | 'olive' | 'black' | 'navy' | 'burgundy'
+  | 'sand' | 'graphite';
 
-export type ThreadCode = 'natural' | 'tonal' | 'contrast';
+/** 'tonal' = the thread takes the leather colour. Everything else is a fixed thread colour. */
+export type ThreadCode = 'tonal' | 'linen' | 'cream' | 'black' | 'brown' | 'navy';
 
-export type CordCode = 'black' | 'brown' | 'olive' | 'burgundy';
+export type ClosureCode = 'elastic' | 'buckle' | 'none';
+
+export type ElasticColorCode = 'black' | 'brown' | 'olive' | 'burgundy';
+
+export type PenHolderCode = 'none' | 'slim' | 'wide';
 
 export type InsertType = 'plain' | 'ruled' | 'dot';
 
-export type EngravingFont = 'serif' | 'sans';
+export type EmbossingFont = 'serif' | 'sans';
 
-export type EngravingPosition = 'bottom-right' | 'spine';
+export type EmbossingPosition = 'bottom-right' | 'spine';
 
-export type Angle = 'front' | 'open' | 'detail';
+/** 'back' is schematic-only. The photo matrix uses front / open / detail. */
+export type Angle = 'front' | 'back' | 'open' | 'detail';
 
 export type StockStatus = 'in_stock' | 'made_to_order' | 'unavailable';
 
-export interface Engraving {
-  /** Trimmed, max 20 characters. Never contains only whitespace. */
+export interface Embossing {
+  /** 1–2 uppercase letters, Latin or Cyrillic. Never empty, never whitespace. */
   text: string;
-  font: EngravingFont;
-  position: EngravingPosition;
+  font: EmbossingFont;
+  position: EmbossingPosition;
 }
 
 export interface InsertSelection {
@@ -41,8 +48,13 @@ export interface Configuration {
   leather: LeatherCode;
   color: ColorCode;
   thread: ThreadCode;
-  cord: CordCode;
-  engraving: Engraving | null;
+  closure: ClosureCode;
+  /** Only meaningful when closure === 'elastic'. Always present to keep the type simple. */
+  elasticColor: ElasticColorCode;
+  penHolder: PenHolderCode;
+  /** 0..sizes[size].cardSlotsMax. The per-size limit is enforced in lib/availability.ts */
+  cardSlots: number;
+  embossing: Embossing | null;
   inserts: InsertSelection[];
   giftBox: boolean;
 }

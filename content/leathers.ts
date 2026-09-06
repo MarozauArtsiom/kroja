@@ -1,7 +1,7 @@
 // content/leathers.ts
 import type { LeatherCode, ColorCode, SizeCode } from '@/types/config';
 
-export type HatchPattern = 'diagonal-fine' | 'diagonal-coarse' | 'cross-hatch';
+export type HatchPattern = 'diagonal-fine' | 'croc-scale' | 'stipple';
 
 export interface LeatherDef {
   code: LeatherCode;
@@ -25,74 +25,84 @@ export interface LeatherDef {
   order: number;
 }
 
+/**
+ * "Everything is available" until the maker confirms real stock.
+ * To restrict a leather later, edit its availableColors / availableSizes — nothing else.
+ */
+const ALL_COLORS: ColorCode[] = [
+  'natural', 'cognac', 'chestnut', 'olive', 'black', 'navy', 'burgundy', 'sand', 'graphite',
+];
+const ALL_SIZES: SizeCode[] = ['a6', 'b6', 'standard', 'a5'];
+
+// DRAFT: origin, tanning, thickness and all texts are placeholders until the maker confirms them.
 export const leathers: Record<LeatherCode, LeatherDef> = {
-  'veg-tan': {
-    code: 'veg-tan',
-    name: 'Vegetable-tanned',
-    origin: 'Tuscany, Italy',
-    tanning: 'Vegetable, tannins from tree bark',
+  smooth: {
+    code: 'smooth',
+    name: 'Smooth leather',
+    origin: 'European tannery',
+    tanning: 'Vegetable-tanned',
     thicknessMm: 1.8,
     priceDeltaMinor: 0,
     schematicHatch: 'diagonal-fine',
-    character: 'Firm and smooth. Darkens with sunlight and use.',
+    character: 'Even, closed grain. Ages evenly.',
     description:
-      'Tanned the slow way, with tree bark rather than chemicals. It starts pale and firm, and darkens into a deep honey tone over the first year. The most alive of the three.',
+      'A clean, even surface with a fine natural grain. The most classic of the three: it takes embossing crisply and darkens evenly with use.',
     ageing: {
-      m6: 'Noticeably darker where hands touch it most',
-      m12: 'Even honey tone, first soft creases along the spine',
-      m36: 'Deep amber, fully broken in, holds its shape',
-    },
-    scratchResistance: 2,
-    patinaSpeed: 5,
-    softness: 2,
-    availableColors: ['natural', 'cognac', 'chestnut', 'black'],
-    availableSizes: ['a6', 'b6', 'standard', 'a5'],
-    order: 1,
-  },
-  'crazy-horse': {
-    code: 'crazy-horse',
-    name: 'Crazy Horse',
-    origin: 'Poland',
-    tanning: 'Chrome-free, wax-pulled surface',
-    thicknessMm: 2.0,
-    priceDeltaMinor: 3000,
-    schematicHatch: 'diagonal-coarse',
-    character: 'Waxed surface. Scratches lighten and rub back out.',
-    description:
-      'A waxed finish that lightens where it bends or scratches, then rubs back with a thumb. Every mark is temporary, which makes it the most forgiving of the three.',
-    ageing: {
-      m6: 'A map of light streaks where it flexes',
-      m12: 'Surface settles, wax evens out, marks less visible',
-      m36: 'Soft and dense, a worn-in look that reads as character',
-    },
-    scratchResistance: 4,
-    patinaSpeed: 3,
-    softness: 3,
-    availableColors: ['cognac', 'chestnut', 'olive', 'black', 'navy'],
-    availableSizes: ['a6', 'b6', 'standard', 'a5'],
-    order: 2,
-  },
-  'pull-up': {
-    code: 'pull-up',
-    name: 'Pull-up',
-    origin: 'Italy',
-    tanning: 'Oil-impregnated, aniline finish',
-    thicknessMm: 1.6,
-    priceDeltaMinor: 5000,
-    schematicHatch: 'cross-hatch',
-    character: 'Oil-rich and soft. Colour shifts where it bends.',
-    description:
-      'Saturated with oil, so the colour lifts wherever the leather bends. Softer than the others from day one, and mottled rather than uniform.',
-    ageing: {
-      m6: 'Bends already lighter than flat areas',
-      m12: 'Rich contrast between worn and untouched surfaces',
-      m36: 'Supple, slouched, deeply personal to its owner',
+      m6: 'Slightly darker where hands touch it most',
+      m12: 'Even, warmer tone, soft sheen on the edges',
+      m36: 'Deep, uniform patina; holds its shape',
     },
     scratchResistance: 3,
+    patinaSpeed: 3,
+    softness: 3,
+    availableColors: ALL_COLORS,
+    availableSizes: ALL_SIZES,
+    order: 1,
+  },
+  croc: {
+    code: 'croc',
+    name: 'Croc-embossed leather',
+    origin: 'European tannery',
+    tanning: 'Vegetable-tanned, plate-embossed',
+    thicknessMm: 1.8,
+    priceDeltaMinor: 1000,
+    schematicHatch: 'croc-scale',
+    character: 'Crocodile-pattern relief pressed into cowhide.',
+    description:
+      'Full-grain cowhide pressed with a crocodile-scale plate. The relief hides small scratches and gives the cover a formal, structured look. No exotic skins are used.',
+    ageing: {
+      m6: 'Scale tops polish slightly from handling',
+      m12: 'Contrast between raised and recessed areas grows',
+      m36: 'Glossy ridges, matte valleys — a deep two-tone relief',
+    },
+    scratchResistance: 4,
+    patinaSpeed: 2,
+    softness: 2,
+    availableColors: ALL_COLORS,
+    availableSizes: ALL_SIZES,
+    order: 2,
+  },
+  suede: {
+    code: 'suede',
+    name: 'Suede',
+    origin: 'European tannery',
+    tanning: 'Chrome-free split',
+    thicknessMm: 1.6,
+    priceDeltaMinor: 2000,
+    schematicHatch: 'stipple',
+    character: 'Soft, velvety nap. Warm to the touch.',
+    description:
+      'The flesh side of the hide, buffed to a fine velvet nap. The softest and warmest of the three. It marks easily and that is its character — brush it and the nap recovers.',
+    ageing: {
+      m6: 'Nap flattens where fingers rest',
+      m12: 'Colour deepens, surface becomes smoother',
+      m36: 'Worn-in, slightly glossy in high-touch areas',
+    },
+    scratchResistance: 2,
     patinaSpeed: 4,
     softness: 5,
-    availableColors: ['cognac', 'black', 'burgundy'],
-    availableSizes: ['b6', 'standard', 'a5'],
+    availableColors: ALL_COLORS,
+    availableSizes: ALL_SIZES,
     order: 3,
   },
 };
@@ -101,4 +111,4 @@ export const leatherList: LeatherDef[] = Object.values(leathers).sort(
   (a, b) => a.order - b.order,
 );
 
-export const DEFAULT_LEATHER: LeatherCode = 'veg-tan';
+export const DEFAULT_LEATHER: LeatherCode = 'smooth';

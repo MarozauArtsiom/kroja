@@ -23,12 +23,20 @@ export const angleSpecs: Record<Angle, AngleSpec> = {
     mustShow: ['Leather grain', 'Stitch line', 'Burnished edge', 'Overall silhouette'],
     framing: 'Closed cover, slight angle, whole object in frame',
   },
+  back: {
+    angle: 'back',
+    name: 'Back',
+    ratio: '4 / 5',
+    ratioValue: 0.8,
+    mustShow: ['Elastic knot and two holes', 'Strap anchor when a buckle is chosen', 'Pen loop on the spine'],
+    framing: 'Closed cover seen from the back, whole object in frame',
+  },
   open: {
     angle: 'open',
     name: 'Open',
     ratio: '4 / 3',
     ratioValue: 1.3333,
-    mustShow: ['How inserts attach', 'Inner side of the leather', 'Elastic retention'],
+    mustShow: ['How inserts attach', 'Inner side of the leather', 'Card slots when chosen'],
     framing: 'Cover opened flat, inserts in place, shot from above',
   },
   detail: {
@@ -41,15 +49,24 @@ export const angleSpecs: Record<Angle, AngleSpec> = {
   },
 };
 
+/** Photo-matrix angles. 'back' is schematic-only: the band and knot are drawn, nothing to photograph. */
 export const angleList: AngleSpec[] = [
   angleSpecs.front,
   angleSpecs.open,
   angleSpecs.detail,
 ];
 
-/** Rules that apply to every single product shot. Shown on /shotlist. */
+/** Tabs in the configurator preview. */
+export const schematicAngleList: AngleSpec[] = [
+  angleSpecs.front,
+  angleSpecs.back,
+  angleSpecs.open,
+  angleSpecs.detail,
+];
+
+/** Rules that apply to every single product shot. Kept for the future shoot. Shown on /shotlist. */
 export const globalShotRules: string[] = [
-  'No cord and no engraving in frame — both are composited in code',
+  'No elastic band, no embossing, no pen loop, no card slots and no buckle in frame — all are drawn by the site',
   'Identical angle, light, distance and background within one angle group',
   'One neutral background across the whole matrix',
   'At least 2400 px on the long side before compression',
@@ -59,4 +76,4 @@ export const globalShotRules: string[] = [
 ];
 
 /** Text shown on every schematic so it cannot be misread as a finished photo */
-export const NOT_IN_FRAME = 'NOT IN FRAME: cord, engraving, packaging, props';
+export const SCHEMATIC_NOTE = 'SCHEMATIC DRAWING — not a photograph. Colours are approximate.';
