@@ -373,6 +373,7 @@ export const uk: Dictionary = {
     colorGroup: "Колір",
     leatherTabs: "Види шкіри",
   },
+  units: { mm: "мм", g: "г" },
   colors: {
     natural: "Натуральний",
     cognac: "Коньяк",

@@ -355,6 +355,7 @@ export const de: Dictionary = {
     colorGroup: "Farbe",
     leatherTabs: "Lederarten",
   },
+  units: { mm: 'mm', g: 'g' },
   colors: {
     natural: "Natur",
     cognac: "Cognac",

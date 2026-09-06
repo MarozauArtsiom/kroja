@@ -50,7 +50,7 @@ export default function LeatherSelector({ config, onChange }: Props) {
           return {
             value: l.code,
             title: dict.leatherNames[l.code] || l.name,
-            meta: `${formatThickness(l.thicknessMm)} · ${localizedDesc?.character || l.character}`,
+            meta: `${formatThickness(l.thicknessMm, dict.units.mm)} · ${localizedDesc?.character || l.character}`,
             delta: formatDelta(l.priceDeltaMinor),
             visual: <HatchChip pattern={l.schematicHatch} />,
             disabled,

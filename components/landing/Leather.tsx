@@ -88,7 +88,7 @@ export default function Leather() {
               </div>
               <div className="flex justify-between">
                 <dt className="text-muted">{dict.leather.thickness}</dt>
-                <dd>{formatThickness(l.thicknessMm)}</dd>
+                <dd>{formatThickness(l.thicknessMm, dict.units.mm)}</dd>
               </div>
             </dl>
 

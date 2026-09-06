@@ -14,18 +14,18 @@ export function formatDelta(minor: number): string {
 }
 
 /** [148, 210] -> "148 × 210 mm" */
-export function formatDimensions([w, h]: [number, number]): string {
-  return `${w} × ${h} mm`;
+export function formatDimensions([w, h]: [number, number], unit = 'mm'): string {
+  return `${w} × ${h} ${unit}`;
 }
 
 /** 210 -> "210 g" */
-export function formatWeight(grams: number): string {
-  return `${grams} g`;
+export function formatWeight(grams: number, unit = 'g'): string {
+  return `${grams} ${unit}`;
 }
 
 /** 1.8 -> "1.8 mm" */
-export function formatThickness(mm: number): string {
-  return `${mm} mm`;
+export function formatThickness(mm: number, unit = 'mm'): string {
+  return `${mm} ${unit}`;
 }
 
 /**

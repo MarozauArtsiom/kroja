@@ -239,6 +239,11 @@ export interface Dictionary {
     colorGroup: string;
     leatherTabs: string;
   };
+  /** Measurement units. Latin for en/pl/de, Cyrillic for by/uk. */
+  units: {
+    mm: string;
+    g: string;
+  };
   colors: Record<ColorCode, string>;
   threads: Record<ThreadCode, string>;
   elasticColors: Record<ElasticColorCode, string>;

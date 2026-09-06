@@ -26,7 +26,7 @@ export default function SizeSelector({ config, onChange }: Props) {
         items={sizeList.map((s) => ({
           value: s.code,
           title: dict.sizes.names[s.code],
-          meta: `${formatDimensions(s.coverMm)} · ${s.insertCapacity} ${dict.sizes.inserts}`,
+          meta: `${formatDimensions(s.coverMm, dict.units.mm)} · ${s.insertCapacity} ${dict.sizes.inserts}`,
           delta: formatPrice(s.basePriceMinor),
         }))}
       />
