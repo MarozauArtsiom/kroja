@@ -17,9 +17,6 @@ export interface ProductShot {
 export interface StoryShot {
   index: number;
   id: string;
-  subject: string;
-  requirement: string;
-  why: string;
   ratio: string;
 }
 
@@ -54,19 +51,19 @@ export function getProductShots(): ProductShot[] {
   return shots;
 }
 
-/** Story shots for the landing page. Kept here so the list stays in one place. */
+/** Story shots for the landing page. Texts live in the dictionary, keyed by id. */
 export const storyShots: StoryShot[] = [
-  { index: 1, id: 'S1-hero', subject: 'Cover held in one hand or resting on a desk', requirement: 'Warm side light, horizontal frame with space for text', why: 'Hero image — the first thing anyone sees', ratio: '4 / 3' },
-  { index: 2, id: 'S2-stitch-macro', subject: 'Macro: saddle stitch on the cover edge', requirement: 'Side light to reveal thread relief, 4–5 stitches fill the frame', why: 'Proves the stitching is done by hand', ratio: '4 / 5' },
-  { index: 3, id: 'S2-grain-macro', subject: 'Macro: full-grain leather surface', requirement: 'At least 2000 px, no retouching of the texture', why: 'Shows what full-grain actually looks like', ratio: '4 / 5' },
-  { index: 4, id: 'S2-edge-macro', subject: 'Macro: burnished edge', requirement: 'Raking light along the edge', why: 'Edge finish is the clearest sign of skill', ratio: '4 / 5' },
-  { index: 5, id: 'S4-leather-smooth', subject: 'Macro: smooth leather grain', requirement: 'Flat even light, square frame', why: 'Leather comparison section', ratio: '1 / 1' },
-  { index: 6, id: 'S4-leather-croc', subject: 'Macro: croc-embossed relief, raking light', requirement: 'Flat even light plus one raking light, square frame, same distance as the others', why: 'Leather comparison section', ratio: '1 / 1' },
-  { index: 7, id: 'S4-leather-suede', subject: 'Macro: suede nap, brushed two ways', requirement: 'Flat even light, square frame, same distance as the others', why: 'Leather comparison section', ratio: '1 / 1' },
-  { index: 8, id: 'S4-not-defect', subject: 'Natural marks: scars, insect bites, uneven colour', requirement: 'Marks clearly visible, close crop', why: 'The "this is not a defect" block', ratio: '4 / 3' },
-  { index: 9, id: 'S6-hands', subject: 'Hands at work with a tool', requirement: 'Shot during real work, not staged afterwards', why: 'Proof the work is manual', ratio: '4 / 3' },
-  { index: 10, id: 'S6-portrait', subject: 'Portrait of the maker at the bench, face visible', requirement: 'Natural light, no posing', why: 'An anonymous "craftsman" does not build trust', ratio: '4 / 5' },
-  { index: 11, id: 'S7-kit', subject: 'Everything that ships, laid out flat', requirement: 'Top-down, even light, neutral surface', why: 'Sets expectations about what arrives', ratio: '4 / 3' },
+  { index: 1,  id: 'S1-hero',            ratio: '4 / 3' },
+  { index: 2,  id: 'S2-stitch-macro',    ratio: '4 / 5' },
+  { index: 3,  id: 'S2-grain-macro',     ratio: '4 / 5' },
+  { index: 4,  id: 'S2-edge-macro',      ratio: '4 / 5' },
+  { index: 5,  id: 'S4-leather-smooth',  ratio: '1 / 1' },
+  { index: 6,  id: 'S4-leather-croc',    ratio: '1 / 1' },
+  { index: 7,  id: 'S4-leather-suede',   ratio: '1 / 1' },
+  { index: 8,  id: 'S4-not-defect',      ratio: '4 / 3' },
+  { index: 9,  id: 'S6-hands',           ratio: '4 / 3' },
+  { index: 10, id: 'S6-portrait',        ratio: '4 / 5' },
+  { index: 11, id: 'S7-kit',             ratio: '4 / 3' },
 ];
 
 export function getShotCounts() {
@@ -100,7 +97,7 @@ export function toMarkdown(): string {
   lines.push('| # | Id | Subject | Requirement | Done |');
   lines.push('|---|---|---|---|---|');
   for (const s of storyShots) {
-    lines.push(`| ${s.index} | \`${s.id}\` | ${s.subject} | ${s.requirement} | ☐ |`);
+    lines.push(`| ${s.index} | \`${s.id}\` | ${s.id} | ${s.id} | ☐ |`);
   }
 
   return lines.join('\n');

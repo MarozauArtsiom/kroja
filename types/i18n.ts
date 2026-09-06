@@ -222,6 +222,10 @@ export interface Dictionary {
     rules: string[];
     /** What each angle must show. */
     angleMustShow: Record<Angle, string[]>;
+    /** Story shots, keyed by shot id. */
+    stories: Record<string, { subject: string; requirement: string; why: string }>;
+    /** {index} */
+    shotNumber: string;
   };
   footer: {
     line: string;
