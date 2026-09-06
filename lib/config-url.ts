@@ -1,12 +1,11 @@
-// lib/config-url.ts
 import type { Configuration, InsertSelection } from '@/types/config';
 import { parseConfig, DEFAULT_CONFIG } from './config-schema';
-import { resolveConfiguration } from './availability';
+import { resolveConfiguration, type ConfigChange } from './availability';
 
 export interface ParsedUrlConfig {
   config: Configuration;
   /** Messages about substitutions made because the URL asked for something impossible */
-  warnings: string[];
+  warnings: ConfigChange[];
 }
 
 /** Serialises inserts as `2:dot,1:ruled` */

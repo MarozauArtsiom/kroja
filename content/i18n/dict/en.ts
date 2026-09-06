@@ -356,6 +356,15 @@ export const en: Dictionary = {
     leatherTabs: 'Leather types',
   },
   units: { mm: 'mm', g: 'g' },
+  conflicts: {
+    leatherChanged: 'Leather changed to {to} — {from} is not made in this size',
+    colorChanged: 'Colour changed to {to} — {from} is not available in {leather}',
+    insertsReduced: 'Inserts reduced to {max} — {size} holds no more',
+    cardSlotsReduced: 'Card slots reduced to {max} — {size} holds no more',
+    colorNotInLeather: 'Not available in {leather}',
+    colorOutOfStock: 'Currently unavailable',
+    leatherNotInSize: 'Not available in this size',
+  },
   colors: {
     natural: 'Natural',
     cognac: 'Cognac',

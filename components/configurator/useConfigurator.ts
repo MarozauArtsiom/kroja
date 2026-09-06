@@ -9,6 +9,8 @@ import { resolveConfiguration, getStock, getProductionDays } from '@/lib/availab
 import { calculatePrice } from '@/lib/pricing';
 import { previewKey } from '@/lib/assets';
 import { useToast } from '@/components/ui/Toast';
+import { useI18n } from '@/components/i18n/I18nProvider';
+import { changeMessage } from './change-message';
 
 /** Changing these two axes writes a history entry. Everything else uses replace. */
 const HISTORY_KEYS: Array<keyof Configuration> = ['size', 'leather'];
@@ -18,6 +20,7 @@ export function useConfigurator() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const { showToast } = useToast();
+  const { dict } = useI18n();
 
   const { config, warnings } = useMemo(
     () => configFromSearchParams(new URLSearchParams(searchParams.toString())),
@@ -43,7 +46,7 @@ export function useConfigurator() {
       const candidate: Configuration = { ...config, ...patch };
       const { config: resolved, changes } = resolveConfiguration(candidate);
 
-      changes.forEach((message) => showToast(message));
+      changes.forEach((change) => showToast(changeMessage(change, dict)));
 
       const params = configToSearchParams(resolved);
       const url = `${pathname}?${params.toString()}`;
@@ -58,7 +61,7 @@ export function useConfigurator() {
         router.replace(url, { scroll: false });
       }
     },
-    [config, pathname, router, showToast],
+    [config, pathname, router, showToast, dict],
   );
 
   const reset = useCallback(() => {

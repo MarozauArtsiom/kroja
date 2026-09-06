@@ -374,6 +374,15 @@ export const by: Dictionary = {
     leatherTabs: "Віды скуры",
   },
   units: { mm: "мм", g: "г" },
+  conflicts: {
+    leatherChanged: "Скура зменена на {to} — {from} не робіцца ў гэтым памеры",
+    colorChanged: "Колер зменены на {to} — {from} недаступны ў скуры {leather}",
+    insertsReduced: "Колькасць укладак зменшана да {max} — у памеры {size} больш не змяшчаецца",
+    cardSlotsReduced: "Колькасць кішэняў зменшана да {max} — у памеры {size} больш не змяшчаецца",
+    colorNotInLeather: "Недаступны ў скуры {leather}",
+    colorOutOfStock: "Часова недаступны",
+    leatherNotInSize: "Недаступная ў гэтым памеры",
+  },
   colors: {
     natural: "Натуральны",
     cognac: "Каньяк",

@@ -4,13 +4,23 @@ import type {
 } from '@/types/config';
 import { sizes } from '@/content/sizes';
 import { leathers } from '@/content/leathers';
-import { colors, colorList } from '@/content/colors';
+import { colorList } from '@/content/colors';
 import { stock, stockKey, productionDays } from '@/content/availability';
 
 export type OptionState =
   | { kind: 'available'; status: 'in_stock' | 'made_to_order' }
-  | { kind: 'unavailable'; reason: string }
-  | { kind: 'not-in-leather'; reason: string };
+  | { kind: 'unavailable' }
+  | { kind: 'not-in-leather' };
+
+/**
+ * What the resolver changed, in codes. The wording lives in the dictionary:
+ * lib/ must not know which language the page is in.
+ */
+export type ConfigChange =
+  | { kind: 'leather'; to: LeatherCode; from: LeatherCode }
+  | { kind: 'color'; to: ColorCode; from: ColorCode; leather: LeatherCode }
+  | { kind: 'inserts'; max: number; size: SizeCode }
+  | { kind: 'cardSlots'; max: number; size: SizeCode };
 
 export function getStock(leather: LeatherCode, color: ColorCode): StockStatus {
   return stock[stockKey(leather, color)] ?? 'unavailable';
@@ -34,27 +44,15 @@ export function isColorInLeather(leather: LeatherCode, color: ColorCode): boolea
 
 /** Full UI state of a colour swatch for a given leather. */
 export function getColorState(leather: LeatherCode, color: ColorCode): OptionState {
-  if (!isColorInLeather(leather, color)) {
-    return {
-      kind: 'not-in-leather',
-      reason: `Not available in ${leathers[leather].name}`,
-    };
-  }
+  if (!isColorInLeather(leather, color)) return { kind: 'not-in-leather' };
   const s = getStock(leather, color);
-  if (s === 'unavailable') {
-    return { kind: 'unavailable', reason: 'Currently unavailable' };
-  }
+  if (s === 'unavailable') return { kind: 'unavailable' };
   return { kind: 'available', status: s };
 }
 
 /** Full UI state of a leather card for a given size. */
 export function getLeatherState(leather: LeatherCode, size: SizeCode): OptionState {
-  if (!isSizeAvailableInLeather(leather, size)) {
-    return {
-      kind: 'not-in-leather',
-      reason: `Not available in this size`,
-    };
-  }
+  if (!isSizeAvailableInLeather(leather, size)) return { kind: 'not-in-leather' };
   return { kind: 'available', status: 'in_stock' };
 }
 
@@ -89,8 +87,8 @@ function clampInserts(inserts: InsertSelection[], capacity: number): InsertSelec
 
 export interface ResolveResult {
   config: Configuration;
-  /** Human-readable messages about what was changed and why. Empty if nothing changed. */
-  changes: string[];
+  /** What was changed and why, in codes. Empty if nothing changed. */
+  changes: ConfigChange[];
 }
 
 /**
@@ -98,7 +96,7 @@ export interface ResolveResult {
  * NEVER throws. NEVER returns an invalid configuration.
  */
 export function resolveConfiguration(input: Configuration): ResolveResult {
-  const changes: string[] = [];
+  const changes: ConfigChange[] = [];
   let { leather, color, inserts, cardSlots } = input;
   const { size } = input;
 
@@ -109,9 +107,7 @@ export function resolveConfiguration(input: Configuration): ResolveResult {
       .sort((a, b) => a.order - b.order)
       .find((l) => l.availableSizes.includes(size));
     if (fallback) {
-      changes.push(
-        `Leather changed to ${fallback.name} — ${leathers[leather].name} is not made in this size`,
-      );
+      changes.push({ kind: 'leather', to: fallback.code, from: leather });
       leather = fallback.code;
     }
   }
@@ -120,9 +116,7 @@ export function resolveConfiguration(input: Configuration): ResolveResult {
   if (!isColorSelectable(leather, color)) {
     const replacement = findClosestColor(leather);
     if (replacement) {
-      changes.push(
-        `Colour changed to ${colors[replacement].name} — ${colors[color].name} is not available in ${leathers[leather].name}`,
-      );
+      changes.push({ kind: 'color', to: replacement, from: color, leather });
       color = replacement;
     }
   }
@@ -132,13 +126,13 @@ export function resolveConfiguration(input: Configuration): ResolveResult {
   const totalInserts = inserts.reduce((sum, i) => sum + i.qty, 0);
   if (totalInserts > capacity) {
     inserts = clampInserts(inserts, capacity);
-    changes.push(`Inserts reduced to ${capacity} — ${sizes[size].name} holds no more`);
+    changes.push({ kind: 'inserts', max: capacity, size });
   }
 
   // Rule 4: card slots cannot exceed what the size holds.
   const maxSlots = sizes[size].cardSlotsMax;
   if (cardSlots > maxSlots) {
-    changes.push(`Card slots reduced to ${maxSlots} — ${sizes[size].name} holds no more`);
+    changes.push({ kind: 'cardSlots', max: maxSlots, size });
     cardSlots = maxSlots;
   }
 

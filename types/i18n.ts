@@ -244,6 +244,21 @@ export interface Dictionary {
     mm: string;
     g: string;
   };
+  /** Messages the configurator shows when it changes the selection itself. */
+  conflicts: {
+    /** {to}, {from} */
+    leatherChanged: string;
+    /** {to}, {from}, {leather} */
+    colorChanged: string;
+    /** {max}, {size} */
+    insertsReduced: string;
+    /** {max}, {size} */
+    cardSlotsReduced: string;
+    /** {leather} */
+    colorNotInLeather: string;
+    colorOutOfStock: string;
+    leatherNotInSize: string;
+  };
   colors: Record<ColorCode, string>;
   threads: Record<ThreadCode, string>;
   elasticColors: Record<ElasticColorCode, string>;

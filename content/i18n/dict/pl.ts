@@ -356,6 +356,15 @@ export const pl: Dictionary = {
     leatherTabs: "Rodzaje skóry",
   },
   units: { mm: 'mm', g: 'g' },
+  conflicts: {
+    leatherChanged: "Skóra zmieniona na {to} — {from} nie jest wykonywana w tym rozmiarze",
+    colorChanged: "Kolor zmieniony na {to} — {from} nie jest dostępny w skórze {leather}",
+    insertsReduced: "Liczba wkładów zmniejszona do {max} — {size} nie pomieści więcej",
+    cardSlotsReduced: "Liczba kieszonek zmniejszona do {max} — {size} nie pomieści więcej",
+    colorNotInLeather: "Niedostępny w skórze {leather}",
+    colorOutOfStock: "Chwilowo niedostępny",
+    leatherNotInSize: "Niedostępna w tym rozmiarze",
+  },
   colors: {
     natural: "Naturalny",
     cognac: "Koniak",

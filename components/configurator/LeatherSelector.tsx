@@ -54,7 +54,7 @@ export default function LeatherSelector({ config, onChange }: Props) {
             delta: formatDelta(l.priceDeltaMinor),
             visual: <HatchChip pattern={l.schematicHatch} />,
             disabled,
-            disabledReason: disabled ? state.reason : undefined,
+            disabledReason: disabled ? dict.conflicts.leatherNotInSize : undefined,
           };
         })}
       />

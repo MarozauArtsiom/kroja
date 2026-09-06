@@ -6,6 +6,7 @@ import type { Configuration, ColorCode } from '@/types/config';
 import { colorList } from '@/lib/data';
 import { useI18n } from '@/components/i18n/I18nProvider';
 import { getColorState } from '@/lib/availability';
+import { fill } from '@/lib/format';
 import SwatchGroup from '@/components/ui/SwatchGroup';
 import NotifyStockForm from './NotifyStockForm';
 
@@ -35,7 +36,10 @@ export default function ColorSelector({ config, onChange }: Props) {
       label: localizedColorName,
       hex: c.hex,
       state: 'disabled' as const,
-      note: state.reason,
+      note:
+        state.kind === 'not-in-leather'
+          ? fill(dict.conflicts.colorNotInLeather, { leather: dict.leatherNames[config.leather] })
+          : dict.conflicts.colorOutOfStock,
     };
   });
 
