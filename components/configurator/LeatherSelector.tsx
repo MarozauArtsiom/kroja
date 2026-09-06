@@ -2,7 +2,7 @@
 'use client';
 
 import type { Configuration, LeatherCode } from '@/types/config';
-import { leatherList } from '@/content/leathers';
+import { leatherList } from '@/lib/data';
 import { useI18n } from '@/components/i18n/I18nProvider';
 import { formatDelta, formatThickness } from '@/lib/format';
 import { getLeatherState } from '@/lib/availability';

@@ -3,8 +3,7 @@
 
 import { useState } from 'react';
 import type { LeatherCode, ColorCode } from '@/types/config';
-import { leathers } from '@/content/leathers';
-import { colors } from '@/content/colors';
+import { leathers, colors } from '@/lib/data';
 import { useI18n } from '@/components/i18n/I18nProvider';
 import Modal from '@/components/ui/Modal';
 import Button from '@/components/ui/Button';

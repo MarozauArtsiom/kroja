@@ -2,7 +2,7 @@
 'use client';
 
 import type { Configuration, SizeCode } from '@/types/config';
-import { sizeList } from '@/content/sizes';
+import { sizeList } from '@/lib/data';
 import { useI18n } from '@/components/i18n/I18nProvider';
 import { formatDimensions, formatPrice } from '@/lib/format';
 import OptionCardGroup from '@/components/ui/OptionCardGroup';

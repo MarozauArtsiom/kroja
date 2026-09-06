@@ -3,7 +3,7 @@
 
 import { useState } from 'react';
 import type { Configuration, ColorCode } from '@/types/config';
-import { colorList } from '@/content/colors';
+import { colorList } from '@/lib/data';
 import { useI18n } from '@/components/i18n/I18nProvider';
 import { getColorState } from '@/lib/availability';
 import SwatchGroup from '@/components/ui/SwatchGroup';

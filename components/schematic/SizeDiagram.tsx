@@ -1,6 +1,6 @@
 // components/schematic/SizeDiagram.tsx
 import type { SizeCode } from '@/types/config';
-import { sizes, sizeList } from '@/content/sizes';
+import { sizes, sizeList } from '@/lib/data';
 import { formatDimensions } from '@/lib/format';
 import { INK, LINE, MUTED } from '@/lib/schematic-tokens';
 
