@@ -31,7 +31,7 @@
 | T-159 | Свотч «в тон» отличим от цвета нити | R-05 | ✅ | Antigravity | 2026-09-06 | `6932b2c` | Swatch dashed prop, ThreadSelector передает dashed для tonal |
 | T-160 | Разделить `SchematicCover` на четыре вида | R-07 | ✅ | Antigravity | 2026-09-06 | `4d35551` | SchematicCover разделен на schematic-parts + 4 вида (Front, Back, Open, Detail) |
 | T-161 | Общие названия вариантов в `dict.options` | R-11 | ✅ | Antigravity | 2026-09-06 | `fbb5ff6` | closures, penHolders, embossing, readyIn перенесены в dict.options во всех 5 словарях |
-| T-162 | Приёмка эпика | — | ✅ | Antigravity | 2026-09-06 | | Все проверки и тесты пройдены, 15 замечаний ревью закрыты |
+| T-162 | Приёмка эпика | — | ✅ | Antigravity | 2026-09-06 | `53411fb` | Все проверки и тесты пройдены, 15 замечаний ревью закрыты |
 
 **Следующая задача: все задачи выполнены (эпик 10 завершён)**
 
