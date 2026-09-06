@@ -44,9 +44,9 @@ export default function PenHolderSelector({ config, onChange }: Props) {
           onChange={(v) => onChange({ penHolder: v as PenHolderCode })}
           items={penHolderList.map((p) => ({
             value: p.code,
-            title: dict.configurator.penHolders[p.code].title,
-            meta: dict.configurator.penHolders[p.code].meta
-              ? fill(dict.configurator.penHolders[p.code].meta, { min: p.minMm, max: p.maxMm })
+            title: dict.options.penHolders[p.code].title,
+            meta: dict.options.penHolders[p.code].meta
+              ? fill(dict.options.penHolders[p.code].meta, { min: p.minMm, max: p.maxMm })
               : undefined,
             delta: p.priceMinor === 0 ? undefined : formatDelta(p.priceMinor),
             visual: <PenIcon code={p.code} />,

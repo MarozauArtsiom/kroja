@@ -19,19 +19,19 @@ function ItemRow({ item }: { item: CartItem }) {
 
   const closureName =
     c.closure === 'elastic'
-      ? `${dict.configurator.closures.elastic.title} · ${dict.elasticColors[c.elasticColor]}`
-      : dict.configurator.closures[c.closure].title;
+      ? `${dict.options.closures.elastic.title} · ${dict.elasticColors[c.elasticColor]}`
+      : dict.options.closures[c.closure].title;
 
   const lines = [
     `${sizes[c.size].name} · ${dict.leatherNames[c.leather]} · ${dict.colors[c.color]}`,
     `${dict.cart.thread}: ${dict.threads[c.thread]}`,
     `${dict.cart.closure}: ${closureName}`,
     c.penHolder !== 'none'
-      ? `${dict.cart.penHolder}: ${dict.configurator.penHolders[c.penHolder].title} (${dict.configurator.penHolders[c.penHolder].meta})`
+      ? `${dict.cart.penHolder}: ${dict.options.penHolders[c.penHolder].title}`
       : null,
     c.cardSlots > 0 ? `${dict.cart.cardSlots}: ${c.cardSlots}` : null,
     c.embossing
-      ? `${dict.cart.embossing}: “${c.embossing.text}” (${dict.configurator.embossingPositions[c.embossing.position]})`
+      ? `${dict.cart.embossing}: “${c.embossing.text}” (${dict.options.embossingPositions[c.embossing.position]})`
       : null,
     c.inserts.filter((i) => i.qty > 0).length > 0
       ? `${dict.cart.inserts}: ${c.inserts
@@ -40,7 +40,7 @@ function ItemRow({ item }: { item: CartItem }) {
           .join(', ')}`
       : null,
     c.giftBox ? dict.cart.giftBox : null,
-    `${dict.configurator.readyIn} ${c.productionDays} ${dict.configurator.workingDays}`,
+    `${dict.options.readyIn} ${c.productionDays} ${dict.options.workingDays}`,
   ].filter(Boolean) as string[];
 
   return (

@@ -133,15 +133,11 @@ export interface Dictionary {
     embossingNote: string;
     embossingPositionLabel: string;
     embossingFontLabel: string;
-    embossingPositions: Record<EmbossingPosition, string>;
-    embossingFonts: Record<EmbossingFont, string>;
     embossingConfirmTitle: string;
     embossingConfirmBody: string;
     embossingConfirmEdit: string;
     embossingConfirmOk: string;
-    closures: Record<ClosureCode, { title: string; note: string }>;
     elasticColor: string;
-    penHolders: Record<PenHolderCode, { title: string; meta: string }>;
     penHolderHelp: string;
     penHolderGuideLabel: string;
     /** Uses {max} and {count} */
@@ -156,8 +152,6 @@ export interface Dictionary {
     removeOne: string;
     giftBoxLabel: string;
     addToCart: string;
-    readyIn: string;
-    workingDays: string;
     madeToOrder: string;
     inStock: string;
     conflictBanner: string;
@@ -168,6 +162,15 @@ export interface Dictionary {
     notifySuccess: string;
     notifyPlaceholder: string;
     notifySubmit: string;
+  };
+  /** Names of the values a customer picks. Read by both the configurator and the cart. */
+  options: {
+    closures: Record<ClosureCode, { title: string; note: string }>;
+    penHolders: Record<PenHolderCode, { title: string; meta: string }>;
+    embossingFonts: Record<EmbossingFont, string>;
+    embossingPositions: Record<EmbossingPosition, string>;
+    readyIn: string;
+    workingDays: string;
   };
   cart: {
     title: string;

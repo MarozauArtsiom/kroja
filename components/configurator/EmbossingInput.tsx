@@ -91,7 +91,7 @@ export default function EmbossingInput({ config, onChange }: Props) {
                     config.embossing?.font === f ? 'border-ink bg-paper-2' : 'border-line',
                   )}
                 >
-                  {dict.configurator.embossingFonts[f]}
+                  {dict.options.embossingFonts[f]}
                 </button>
               ))}
             </div>
@@ -110,7 +110,7 @@ export default function EmbossingInput({ config, onChange }: Props) {
                     config.embossing?.position === p ? 'border-ink bg-paper-2' : 'border-line',
                   )}
                 >
-                  {dict.configurator.embossingPositions[p]}
+                  {dict.options.embossingPositions[p]}
                 </button>
               ))}
             </div>

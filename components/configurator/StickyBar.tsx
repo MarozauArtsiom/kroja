@@ -56,7 +56,7 @@ export default function StickyBar({ priced }: { priced: PricedConfiguration }) {
             </p>
             <p className="text-xs text-muted">
               {priced.stock === 'made_to_order' && `${dict.configurator.madeToOrder} · `}
-              {dict.configurator.readyIn} {priced.productionDays} {dict.configurator.workingDays}
+              {dict.options.readyIn} {priced.productionDays} {dict.options.workingDays}
             </p>
           </div>
 

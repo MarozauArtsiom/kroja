@@ -39,7 +39,7 @@ interface Props {
 
 export default function ClosureSelector({ config, onChange }: Props) {
   const { dict } = useI18n();
-  const current = dict.configurator.closures[config.closure];
+  const current = dict.options.closures[config.closure];
 
   return (
     <section className="space-y-5">
@@ -52,7 +52,7 @@ export default function ClosureSelector({ config, onChange }: Props) {
           onChange={(v) => onChange({ closure: v as ClosureCode })}
           items={closureList.map((c) => ({
             value: c.code,
-            title: dict.configurator.closures[c.code].title,
+            title: dict.options.closures[c.code].title,
             delta: formatDelta(c.priceMinor),
             visual: <ClosureIcon code={c.code} />,
           }))}
