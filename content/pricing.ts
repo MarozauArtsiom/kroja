@@ -19,12 +19,6 @@ export const insertPriceMinor: Record<InsertType, number> = {
   dot: 2500,
 };
 
-export const insertNames: Record<InsertType, string> = {
-  plain: 'Plain',
-  ruled: 'Ruled',
-  dot: 'Dot grid',
-};
-
 export const MAX_INSERTS_PER_TYPE = 4;
 export const MAX_EMBOSSING_LENGTH = 2;
 /** Absolute upper bound for the URL parser. The per-size limit is sizes[size].cardSlotsMax. */

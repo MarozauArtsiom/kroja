@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "next lint && npm run i18n",
     "i18n": "node scripts/check-i18n.mjs",
     "shotlist": "node scripts/generate-shotlist.mjs"
   },

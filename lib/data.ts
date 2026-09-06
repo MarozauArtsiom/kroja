@@ -33,7 +33,6 @@ export {
   PEN_HOLDER_MINOR,
   BUCKLE_MINOR,
   insertPriceMinor,
-  insertNames,
   MAX_INSERTS_PER_TYPE,
   MAX_EMBOSSING_LENGTH,
   MAX_CARD_SLOTS,

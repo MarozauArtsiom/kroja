@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import { Newsreader, Inter, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 
+import { en } from '@/content/i18n/dict/en';
+
 const display = Newsreader({
   subsets: ['latin'],
   weight: ['400', '500', '600'],
@@ -25,16 +27,15 @@ const mono = JetBrains_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL('https://nakedskin.vercel.app'),
   title: {
-    default: 'Naked Skin — Handmade leather notebook covers',
-    template: '%s — Naked Skin',
+    default: `${en.brand.name} — ${en.brand.tagline}`,
+    template: `%s — ${en.brand.name}`,
   },
-  description:
-    'Refillable full-grain leather notebook covers, hand-stitched in Kraków. Choose size, leather, colour, closure and embossing. Ships across the EU.',
+  description: en.meta.siteDescription,
   openGraph: {
     type: 'website',
-    siteName: 'Naked Skin',
-    title: 'Naked Skin — Handmade leather notebook covers',
-    description: 'Hand-stitched in Kraków. Built to your specification.',
+    siteName: en.brand.name,
+    title: `${en.brand.name} — ${en.brand.tagline}`,
+    description: en.meta.ogDescription,
     images: ['/illustrations/hero.svg'],
   },
   robots: { index: true, follow: true },

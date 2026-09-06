@@ -27,7 +27,12 @@ export type PreviewSource =
   | { kind: 'schematic'; config: Configuration; angle: Angle; filename: string }
   | { kind: 'photo'; src: string; alt: string };
 
-export function getPreview(config: Configuration, angle: Angle): PreviewSource {
+export function getPreview(
+  config: Configuration,
+  angle: Angle,
+  /** Localised alt text, supplied by the caller. Empty until photography arrives. */
+  photoAlt = '',
+): PreviewSource {
   const filename = previewFilename(config.leather, config.color, angle);
 
   // 'back' is never photographed: the elastic knot and the strap anchor are drawn
@@ -39,6 +44,6 @@ export function getPreview(config: Configuration, angle: Angle): PreviewSource {
   return {
     kind: 'photo',
     src: `/previews/${filename}`,
-    alt: `Naked Skin notebook cover, ${config.leather} leather, ${config.color}, ${angle} view`,
+    alt: photoAlt,
   };
 }
