@@ -8,7 +8,7 @@ import FlagIcon from './FlagIcon';
 import type { SupportedLocale } from '@/types/i18n';
 
 export default function LanguageSwitcher() {
-  const { locale, switchLocale } = useI18n();
+  const { locale, switchLocale, dict } = useI18n();
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -67,7 +67,7 @@ export default function LanguageSwitcher() {
       {isOpen && (
         <div
           role="listbox"
-          aria-label="Select language"
+          aria-label={dict.a11y.selectLanguage}
           className="absolute right-0 z-50 mt-1 w-44 rounded-sm border border-line bg-paper p-1 shadow-lg ring-1 ring-ink/5"
         >
           {SUPPORTED_LOCALES.map((l: SupportedLocale) => {

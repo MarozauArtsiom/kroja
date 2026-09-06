@@ -357,6 +357,16 @@ export const uk: Dictionary = {
     body: "Можливо, вона була переміщена або адреса введена неправильно.",
     back: "Повернутися на головну",
   },
+  a11y: {
+    selectLanguage: "Оберіть мову",
+    closeCart: "Закрити кошик",
+    emailField: "Адреса електронної пошти",
+    previewAngle: "Ракурс перегляду",
+    sizeGroup: "Розмір",
+    leatherGroup: "Шкіра",
+    colorGroup: "Колір",
+    leatherTabs: "Види шкіри",
+  },
   colors: {
     natural: "Натуральний",
     cognac: "Коньяк",

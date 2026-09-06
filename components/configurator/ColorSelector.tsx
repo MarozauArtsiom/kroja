@@ -27,6 +27,7 @@ export default function ColorSelector({ config, onChange }: Props) {
         label: localizedColorName,
         hex: c.hex,
         state: state.status === 'made_to_order' ? ('made-to-order' as const) : ('available' as const),
+        madeToOrderLabel: dict.configurator.madeToOrder,
       };
     }
     return {
@@ -53,7 +54,7 @@ export default function ColorSelector({ config, onChange }: Props) {
   return (
     <section>
       <h2 className="label mb-3">{dict.configurator.steps.color}</h2>
-      <SwatchGroup label="Colour" items={items} value={config.color} onChange={handleChange} />
+      <SwatchGroup label={dict.a11y.colorGroup} items={items} value={config.color} onChange={handleChange} />
       {notifyColor && (
         <NotifyStockForm
           leather={config.leather}

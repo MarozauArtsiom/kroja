@@ -124,7 +124,7 @@ export default function CartDrawer() {
           <button
             type="button"
             onClick={close}
-            aria-label="Close"
+            aria-label={dict.a11y.closeCart}
             className="h-11 w-11 text-2xl leading-none"
           >
             ×

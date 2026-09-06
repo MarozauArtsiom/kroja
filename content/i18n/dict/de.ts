@@ -339,6 +339,16 @@ export const de: Dictionary = {
     body: "Sie wurde möglicherweise verschoben oder der Link ist fehlerhaft.",
     back: "Zurück zum Start",
   },
+  a11y: {
+    selectLanguage: "Sprache wählen",
+    closeCart: "Warenkorb schließen",
+    emailField: "E-Mail-Adresse",
+    previewAngle: "Ansicht der Vorschau",
+    sizeGroup: "Größe",
+    leatherGroup: "Leder",
+    colorGroup: "Farbe",
+    leatherTabs: "Lederarten",
+  },
   colors: {
     natural: "Natur",
     cognac: "Cognac",

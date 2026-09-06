@@ -227,6 +227,17 @@ export interface Dictionary {
     body: string;
     back: string;
   };
+  /** Labels a screen reader announces. Not visible on screen, still user-facing. */
+  a11y: {
+    selectLanguage: string;
+    closeCart: string;
+    emailField: string;
+    previewAngle: string;
+    sizeGroup: string;
+    leatherGroup: string;
+    colorGroup: string;
+    leatherTabs: string;
+  };
   colors: Record<ColorCode, string>;
   threads: Record<ThreadCode, string>;
   elasticColors: Record<ElasticColorCode, string>;

@@ -39,7 +39,7 @@ export default function LeatherSelector({ config, onChange }: Props) {
     <section>
       <h2 className="label mb-3">{dict.configurator.steps.leather}</h2>
       <OptionCardGroup
-        label="Leather"
+        label={dict.a11y.leatherGroup}
         columns="grid-cols-1 sm:grid-cols-3"
         value={config.leather}
         onChange={(v) => onChange({ leather: v as LeatherCode })}

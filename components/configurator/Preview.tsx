@@ -27,7 +27,7 @@ export default function Preview({ config }: { config: Configuration }) {
       </div>
 
       {/* Angle tabs */}
-      <div className="flex gap-2" role="tablist" aria-label="Preview angle">
+      <div className="flex gap-2" role="tablist" aria-label={dict.a11y.previewAngle}>
         {schematicAngleList.map((a) => (
           <button
             key={a.angle}

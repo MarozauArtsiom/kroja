@@ -19,7 +19,7 @@ export default function SizeSelector({ config, onChange }: Props) {
     <section>
       <h2 className="label mb-3">{dict.configurator.steps.size}</h2>
       <OptionCardGroup
-        label="Size"
+        label={dict.a11y.sizeGroup}
         columns="grid-cols-2"
         value={config.size}
         onChange={(v) => onChange({ size: v as SizeCode })}

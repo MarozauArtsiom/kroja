@@ -339,6 +339,16 @@ export const en: Dictionary = {
     body: 'It may have moved, or the link may be wrong.',
     back: 'Back to the start',
   },
+  a11y: {
+    selectLanguage: 'Select language',
+    closeCart: 'Close cart',
+    emailField: 'Email address',
+    previewAngle: 'Preview angle',
+    sizeGroup: 'Size',
+    leatherGroup: 'Leather',
+    colorGroup: 'Colour',
+    leatherTabs: 'Leather types',
+  },
   colors: {
     natural: 'Natural',
     cognac: 'Cognac',

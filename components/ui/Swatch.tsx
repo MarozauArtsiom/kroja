@@ -14,11 +14,13 @@ export interface SwatchProps {
   note?: string;
   /** Dashed outline: this swatch has no colour of its own, it follows another axis. */
   dashed?: boolean;
+  /** Localised "made to order" caption. Shown when state is 'made-to-order'. */
+  madeToOrderLabel?: string;
   onSelect: (value: string) => void;
 }
 
 export default function Swatch({
-  value, label, hex, selected, state, note, dashed, onSelect,
+  value, label, hex, selected, state, note, dashed, madeToOrderLabel, onSelect,
 }: SwatchProps) {
   const disabled = state === 'disabled';
 
@@ -61,8 +63,8 @@ export default function Swatch({
 
       <span className="text-center text-[11px] leading-tight text-ink-soft">{label}</span>
 
-      {state === 'made-to-order' && (
-        <span className="text-center text-[10px] leading-tight text-muted">Made to order</span>
+      {state === 'made-to-order' && madeToOrderLabel && (
+        <span className="text-center text-[10px] leading-tight text-muted">{madeToOrderLabel}</span>
       )}
       {disabled && note && (
         <span className="text-center text-[10px] leading-tight text-muted">{note}</span>

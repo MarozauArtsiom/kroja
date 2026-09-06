@@ -357,6 +357,16 @@ export const by: Dictionary = {
     body: "Магчыма, яна была перамешчана альбо спасылка няправільная.",
     back: "Вярнуцца на галоўную",
   },
+  a11y: {
+    selectLanguage: "Выберыце мову",
+    closeCart: "Закрыць кошык",
+    emailField: "Адрас электроннай пошты",
+    previewAngle: "Ракурс перадпрагляду",
+    sizeGroup: "Памер",
+    leatherGroup: "Скура",
+    colorGroup: "Колер",
+    leatherTabs: "Віды скуры",
+  },
   colors: {
     natural: "Натуральны",
     cognac: "Каньяк",

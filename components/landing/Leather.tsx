@@ -41,7 +41,7 @@ export default function Leather() {
         <p className="mb-10 max-w-prose text-ink-soft">{dict.leather.subtitle}</p>
 
         {/* Tabs */}
-        <div role="tablist" aria-label="Leather types" className="mb-8 flex flex-wrap gap-2">
+        <div role="tablist" aria-label={dict.a11y.leatherTabs} className="mb-8 flex flex-wrap gap-2">
           {leatherList.map((item) => (
             <button
               key={item.code}

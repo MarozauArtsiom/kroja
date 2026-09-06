@@ -56,7 +56,7 @@ export default function ReserveBlock() {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           placeholder={dict.cart.reserveEmailPlaceholder}
-          aria-label="Email"
+          aria-label={dict.a11y.emailField}
           className="h-11 min-w-0 flex-1 rounded-sm border border-line bg-paper px-3 text-base"
         />
         <Button onClick={submit} disabled={status === 'sending'}>

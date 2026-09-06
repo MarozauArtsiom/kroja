@@ -339,6 +339,16 @@ export const pl: Dictionary = {
     body: "Mogła zostać przeniesiona lub podany adres jest nieprawidłowy.",
     back: "Powrót do strony głównej",
   },
+  a11y: {
+    selectLanguage: "Wybierz język",
+    closeCart: "Zamknij koszyk",
+    emailField: "Adres e-mail",
+    previewAngle: "Ujęcie podglądu",
+    sizeGroup: "Rozmiar",
+    leatherGroup: "Skóra",
+    colorGroup: "Kolor",
+    leatherTabs: "Rodzaje skóry",
+  },
   colors: {
     natural: "Naturalny",
     cognac: "Koniak",
