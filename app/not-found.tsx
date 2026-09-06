@@ -1,3 +1,6 @@
+// app/not-found.tsx
+// Fallback 404 for paths outside a locale, where no dictionary is available yet.
+// Localised 404 lives in app/[lang]/not-found.tsx.
 import Link from 'next/link';
 import Header from '@/components/landing/Header';
 import Footer from '@/components/landing/Footer';
