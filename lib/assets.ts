@@ -30,7 +30,9 @@ export type PreviewSource =
 export function getPreview(config: Configuration, angle: Angle): PreviewSource {
   const filename = previewFilename(config.leather, config.color, angle);
 
-  if (ASSET_MODE === 'schematic') {
+  // 'back' is never photographed: the elastic knot and the strap anchor are drawn
+  // by the site, so this angle stays schematic even after photography arrives.
+  if (ASSET_MODE === 'schematic' || angle === 'back') {
     return { kind: 'schematic', config, angle, filename };
   }
 
