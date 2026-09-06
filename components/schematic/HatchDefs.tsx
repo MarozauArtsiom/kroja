@@ -1,7 +1,6 @@
 // components/schematic/HatchDefs.tsx
 import type { HatchPattern } from '@/lib/data';
-
-const INK = '#1C1917';
+import { INK } from '@/lib/schematic-tokens';
 
 export const hatchId: Record<HatchPattern, string> = {
   'diagonal-fine': 'hatch-fine',

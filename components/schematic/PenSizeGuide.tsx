@@ -4,9 +4,7 @@
 import type { PenHolderCode } from '@/types/config';
 import { penHolders } from '@/lib/data';
 import { useI18n } from '@/components/i18n/I18nProvider';
-
-const INK = '#1C1917';
-const MUTED = '#8A7F72';
+import { INK, MUTED } from '@/lib/schematic-tokens';
 
 /**
  * Two circles in REAL millimetres: the inner diameter of the slim and the wide loop.

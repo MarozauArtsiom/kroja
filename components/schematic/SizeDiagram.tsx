@@ -2,6 +2,7 @@
 import type { SizeCode } from '@/types/config';
 import { sizes, sizeList } from '@/content/sizes';
 import { formatDimensions } from '@/lib/format';
+import { INK, LINE, MUTED } from '@/lib/schematic-tokens';
 
 interface Props {
   /** Highlighted size */
@@ -11,9 +12,6 @@ interface Props {
 }
 
 const PHONE_MM: [number, number] = [70, 150];
-const INK = '#1C1917';
-const LINE = '#DED5C7';
-const MUTED = '#8A7F72';
 
 export default function SizeDiagram({ active, mode = 'single' }: Props) {
   const shown = mode === 'compare' ? sizeList : [sizes[active]];

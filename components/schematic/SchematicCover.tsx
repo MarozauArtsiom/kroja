@@ -11,6 +11,7 @@ import {
 } from '@/lib/data';
 import { previewFilename } from '@/lib/assets';
 import HatchDefs, { hatchUrl } from './HatchDefs';
+import { INK, LINE, ALERT, MUTED, PAPER } from '@/lib/schematic-tokens';
 
 interface Props {
   config: Configuration;
@@ -18,12 +19,6 @@ interface Props {
   /** Small thumbnail: hide callouts, labels and file name */
   compact?: boolean;
 }
-
-const INK = '#1C1917';
-const LINE = '#DED5C7';
-const ALERT = '#A63D2F';
-const MUTED = '#8A7F72';
-const PAPER = '#FAF7F2';
 
 /** Pen radius in drawing units. The wide loop must be visibly bigger than the slim one. */
 const PEN_RADIUS = { slim: 7, wide: 9 } as const;

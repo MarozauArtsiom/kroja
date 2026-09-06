@@ -7,14 +7,12 @@ import { useI18n } from '@/components/i18n/I18nProvider';
 import { formatDelta } from '@/lib/format';
 import OptionCardGroup from '@/components/ui/OptionCardGroup';
 import PenSizeGuide from '@/components/schematic/PenSizeGuide';
+import { INK, LINE } from '@/lib/schematic-tokens';
 
 interface Props {
   config: Configuration;
   onChange: (patch: Partial<Configuration>) => void;
 }
-
-const INK = '#1C1917';
-const LINE = '#DED5C7';
 
 /** Pen cross-section: the wide loop is drawn at 13:10 of the slim one. */
 function PenIcon({ code }: { code: PenHolderCode }) {

@@ -8,14 +8,7 @@ import { useI18n } from '@/components/i18n/I18nProvider';
 import { formatDelta } from '@/lib/format';
 import OptionCardGroup from '@/components/ui/OptionCardGroup';
 import SwatchGroup from '@/components/ui/SwatchGroup';
-
-interface Props {
-  config: Configuration;
-  onChange: (patch: Partial<Configuration>) => void;
-}
-
-const INK = '#1C1917';
-const LINE = '#DED5C7';
+import { INK, LINE } from '@/lib/schematic-tokens';
 
 /** Tiny pictograms so the three closures are told apart at a glance. */
 function ClosureIcon({ code }: { code: ClosureCode }) {
@@ -37,6 +30,11 @@ function ClosureIcon({ code }: { code: ClosureCode }) {
       )}
     </svg>
   );
+}
+
+interface Props {
+  config: Configuration;
+  onChange: (patch: Partial<Configuration>) => void;
 }
 
 export default function ClosureSelector({ config, onChange }: Props) {
