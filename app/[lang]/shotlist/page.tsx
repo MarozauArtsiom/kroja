@@ -8,7 +8,7 @@ import { getDictionary } from '@/content/i18n';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Shot list — KROJA',
+  title: 'Shot list — Naked Skin',
   robots: { index: false, follow: false },
 };
 
@@ -32,6 +32,9 @@ export default async function LocalizedShotlistPage({
         <header className="mb-10 border-b border-line pb-8">
           <h1 className="mb-2">{dict.shotlist.title}</h1>
           <p className="mb-6 text-ink-soft">{dict.shotlist.subtitle}</p>
+          <p className="mb-6 rounded-sm border border-line bg-paper-2 p-3 text-xs text-ink-soft">
+            {dict.shotlist.postponedNote}
+          </p>
 
           <p className="font-display text-5xl text-ink">
             {counts.total}{' '}

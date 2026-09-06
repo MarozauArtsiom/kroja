@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     template: '%s — Naked Skin',
   },
   description:
-    'Refillable full-grain leather notebook covers, hand-stitched in Kraków. Choose size, leather, colour and engraving. Ships across the EU.',
+    'Refillable full-grain leather notebook covers, hand-stitched in Kraków. Choose size, leather, colour, closure and embossing. Ships across the EU.',
   openGraph: {
     type: 'website',
     siteName: 'Naked Skin',

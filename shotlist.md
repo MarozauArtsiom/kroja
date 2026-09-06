@@ -1,10 +1,10 @@
 # Naked Skin — Shot list
 
-Generated 2026-08-14. **44 shots total** — 33 product, 11 story.
+Generated 2026-09-06. **92 shots total** — 81 product, 11 story.
 
 ## Rules for every product shot
 
-- No cord and no engraving in frame — both are composited in code
+- No elastic band, no embossing, no pen loop, no card slots and no buckle in frame — all are drawn by the site
 - Identical angle, light, distance and background within one angle group
 - One neutral background across the whole matrix
 - At least 2400 px on the long side before compression
@@ -16,39 +16,87 @@ Generated 2026-08-14. **44 shots total** — 33 product, 11 story.
 
 | # | File | Leather | Colour | Angle | Done |
 |---|---|---|---|---|---|
-| 1 | `veg-tan_natural_front.webp` | Vegetable-tanned | Natural | Front | ☐ |
-| 2 | `veg-tan_cognac_front.webp` | Vegetable-tanned | Cognac | Front | ☐ |
-| 3 | `veg-tan_chestnut_front.webp` | Vegetable-tanned | Chestnut | Front | ☐ |
-| 4 | `veg-tan_black_front.webp` | Vegetable-tanned | Black | Front | ☐ |
-| 5 | `crazy-horse_cognac_front.webp` | Crazy Horse | Cognac | Front | ☐ |
-| 6 | `crazy-horse_chestnut_front.webp` | Crazy Horse | Chestnut | Front | ☐ |
-| 7 | `crazy-horse_olive_front.webp` | Crazy Horse | Olive | Front | ☐ |
-| 8 | `crazy-horse_black_front.webp` | Crazy Horse | Black | Front | ☐ |
-| 9 | `crazy-horse_navy_front.webp` | Crazy Horse | Navy | Front | ☐ |
-| 10 | `pull-up_cognac_front.webp` | Pull-up | Cognac | Front | ☐ |
-| 11 | `pull-up_black_front.webp` | Pull-up | Black | Front | ☐ |
-| 12 | `veg-tan_natural_open.webp` | Vegetable-tanned | Natural | Open | ☐ |
-| 13 | `veg-tan_cognac_open.webp` | Vegetable-tanned | Cognac | Open | ☐ |
-| 14 | `veg-tan_chestnut_open.webp` | Vegetable-tanned | Chestnut | Open | ☐ |
-| 15 | `veg-tan_black_open.webp` | Vegetable-tanned | Black | Open | ☐ |
-| 16 | `crazy-horse_cognac_open.webp` | Crazy Horse | Cognac | Open | ☐ |
-| 17 | `crazy-horse_chestnut_open.webp` | Crazy Horse | Chestnut | Open | ☐ |
-| 18 | `crazy-horse_olive_open.webp` | Crazy Horse | Olive | Open | ☐ |
-| 19 | `crazy-horse_black_open.webp` | Crazy Horse | Black | Open | ☐ |
-| 20 | `crazy-horse_navy_open.webp` | Crazy Horse | Navy | Open | ☐ |
-| 21 | `pull-up_cognac_open.webp` | Pull-up | Cognac | Open | ☐ |
-| 22 | `pull-up_black_open.webp` | Pull-up | Black | Open | ☐ |
-| 23 | `veg-tan_natural_detail.webp` | Vegetable-tanned | Natural | Detail | ☐ |
-| 24 | `veg-tan_cognac_detail.webp` | Vegetable-tanned | Cognac | Detail | ☐ |
-| 25 | `veg-tan_chestnut_detail.webp` | Vegetable-tanned | Chestnut | Detail | ☐ |
-| 26 | `veg-tan_black_detail.webp` | Vegetable-tanned | Black | Detail | ☐ |
-| 27 | `crazy-horse_cognac_detail.webp` | Crazy Horse | Cognac | Detail | ☐ |
-| 28 | `crazy-horse_chestnut_detail.webp` | Crazy Horse | Chestnut | Detail | ☐ |
-| 29 | `crazy-horse_olive_detail.webp` | Crazy Horse | Olive | Detail | ☐ |
-| 30 | `crazy-horse_black_detail.webp` | Crazy Horse | Black | Detail | ☐ |
-| 31 | `crazy-horse_navy_detail.webp` | Crazy Horse | Navy | Detail | ☐ |
-| 32 | `pull-up_cognac_detail.webp` | Pull-up | Cognac | Detail | ☐ |
-| 33 | `pull-up_black_detail.webp` | Pull-up | Black | Detail | ☐ |
+| 1 | `smooth_natural_front.webp` | Smooth leather | Natural | Front | ☐ |
+| 2 | `smooth_cognac_front.webp` | Smooth leather | Cognac | Front | ☐ |
+| 3 | `smooth_chestnut_front.webp` | Smooth leather | Chestnut | Front | ☐ |
+| 4 | `smooth_olive_front.webp` | Smooth leather | Olive | Front | ☐ |
+| 5 | `smooth_black_front.webp` | Smooth leather | Black | Front | ☐ |
+| 6 | `smooth_navy_front.webp` | Smooth leather | Navy | Front | ☐ |
+| 7 | `smooth_burgundy_front.webp` | Smooth leather | Burgundy | Front | ☐ |
+| 8 | `smooth_sand_front.webp` | Smooth leather | Sand | Front | ☐ |
+| 9 | `smooth_graphite_front.webp` | Smooth leather | Graphite | Front | ☐ |
+| 10 | `croc_natural_front.webp` | Croc-embossed leather | Natural | Front | ☐ |
+| 11 | `croc_cognac_front.webp` | Croc-embossed leather | Cognac | Front | ☐ |
+| 12 | `croc_chestnut_front.webp` | Croc-embossed leather | Chestnut | Front | ☐ |
+| 13 | `croc_olive_front.webp` | Croc-embossed leather | Olive | Front | ☐ |
+| 14 | `croc_black_front.webp` | Croc-embossed leather | Black | Front | ☐ |
+| 15 | `croc_navy_front.webp` | Croc-embossed leather | Navy | Front | ☐ |
+| 16 | `croc_burgundy_front.webp` | Croc-embossed leather | Burgundy | Front | ☐ |
+| 17 | `croc_sand_front.webp` | Croc-embossed leather | Sand | Front | ☐ |
+| 18 | `croc_graphite_front.webp` | Croc-embossed leather | Graphite | Front | ☐ |
+| 19 | `suede_natural_front.webp` | Suede | Natural | Front | ☐ |
+| 20 | `suede_cognac_front.webp` | Suede | Cognac | Front | ☐ |
+| 21 | `suede_chestnut_front.webp` | Suede | Chestnut | Front | ☐ |
+| 22 | `suede_olive_front.webp` | Suede | Olive | Front | ☐ |
+| 23 | `suede_black_front.webp` | Suede | Black | Front | ☐ |
+| 24 | `suede_navy_front.webp` | Suede | Navy | Front | ☐ |
+| 25 | `suede_burgundy_front.webp` | Suede | Burgundy | Front | ☐ |
+| 26 | `suede_sand_front.webp` | Suede | Sand | Front | ☐ |
+| 27 | `suede_graphite_front.webp` | Suede | Graphite | Front | ☐ |
+| 28 | `smooth_natural_open.webp` | Smooth leather | Natural | Open | ☐ |
+| 29 | `smooth_cognac_open.webp` | Smooth leather | Cognac | Open | ☐ |
+| 30 | `smooth_chestnut_open.webp` | Smooth leather | Chestnut | Open | ☐ |
+| 31 | `smooth_olive_open.webp` | Smooth leather | Olive | Open | ☐ |
+| 32 | `smooth_black_open.webp` | Smooth leather | Black | Open | ☐ |
+| 33 | `smooth_navy_open.webp` | Smooth leather | Navy | Open | ☐ |
+| 34 | `smooth_burgundy_open.webp` | Smooth leather | Burgundy | Open | ☐ |
+| 35 | `smooth_sand_open.webp` | Smooth leather | Sand | Open | ☐ |
+| 36 | `smooth_graphite_open.webp` | Smooth leather | Graphite | Open | ☐ |
+| 37 | `croc_natural_open.webp` | Croc-embossed leather | Natural | Open | ☐ |
+| 38 | `croc_cognac_open.webp` | Croc-embossed leather | Cognac | Open | ☐ |
+| 39 | `croc_chestnut_open.webp` | Croc-embossed leather | Chestnut | Open | ☐ |
+| 40 | `croc_olive_open.webp` | Croc-embossed leather | Olive | Open | ☐ |
+| 41 | `croc_black_open.webp` | Croc-embossed leather | Black | Open | ☐ |
+| 42 | `croc_navy_open.webp` | Croc-embossed leather | Navy | Open | ☐ |
+| 43 | `croc_burgundy_open.webp` | Croc-embossed leather | Burgundy | Open | ☐ |
+| 44 | `croc_sand_open.webp` | Croc-embossed leather | Sand | Open | ☐ |
+| 45 | `croc_graphite_open.webp` | Croc-embossed leather | Graphite | Open | ☐ |
+| 46 | `suede_natural_open.webp` | Suede | Natural | Open | ☐ |
+| 47 | `suede_cognac_open.webp` | Suede | Cognac | Open | ☐ |
+| 48 | `suede_chestnut_open.webp` | Suede | Chestnut | Open | ☐ |
+| 49 | `suede_olive_open.webp` | Suede | Olive | Open | ☐ |
+| 50 | `suede_black_open.webp` | Suede | Black | Open | ☐ |
+| 51 | `suede_navy_open.webp` | Suede | Navy | Open | ☐ |
+| 52 | `suede_burgundy_open.webp` | Suede | Burgundy | Open | ☐ |
+| 53 | `suede_sand_open.webp` | Suede | Sand | Open | ☐ |
+| 54 | `suede_graphite_open.webp` | Suede | Graphite | Open | ☐ |
+| 55 | `smooth_natural_detail.webp` | Smooth leather | Natural | Detail | ☐ |
+| 56 | `smooth_cognac_detail.webp` | Smooth leather | Cognac | Detail | ☐ |
+| 57 | `smooth_chestnut_detail.webp` | Smooth leather | Chestnut | Detail | ☐ |
+| 58 | `smooth_olive_detail.webp` | Smooth leather | Olive | Detail | ☐ |
+| 59 | `smooth_black_detail.webp` | Smooth leather | Black | Detail | ☐ |
+| 60 | `smooth_navy_detail.webp` | Smooth leather | Navy | Detail | ☐ |
+| 61 | `smooth_burgundy_detail.webp` | Smooth leather | Burgundy | Detail | ☐ |
+| 62 | `smooth_sand_detail.webp` | Smooth leather | Sand | Detail | ☐ |
+| 63 | `smooth_graphite_detail.webp` | Smooth leather | Graphite | Detail | ☐ |
+| 64 | `croc_natural_detail.webp` | Croc-embossed leather | Natural | Detail | ☐ |
+| 65 | `croc_cognac_detail.webp` | Croc-embossed leather | Cognac | Detail | ☐ |
+| 66 | `croc_chestnut_detail.webp` | Croc-embossed leather | Chestnut | Detail | ☐ |
+| 67 | `croc_olive_detail.webp` | Croc-embossed leather | Olive | Detail | ☐ |
+| 68 | `croc_black_detail.webp` | Croc-embossed leather | Black | Detail | ☐ |
+| 69 | `croc_navy_detail.webp` | Croc-embossed leather | Navy | Detail | ☐ |
+| 70 | `croc_burgundy_detail.webp` | Croc-embossed leather | Burgundy | Detail | ☐ |
+| 71 | `croc_sand_detail.webp` | Croc-embossed leather | Sand | Detail | ☐ |
+| 72 | `croc_graphite_detail.webp` | Croc-embossed leather | Graphite | Detail | ☐ |
+| 73 | `suede_natural_detail.webp` | Suede | Natural | Detail | ☐ |
+| 74 | `suede_cognac_detail.webp` | Suede | Cognac | Detail | ☐ |
+| 75 | `suede_chestnut_detail.webp` | Suede | Chestnut | Detail | ☐ |
+| 76 | `suede_olive_detail.webp` | Suede | Olive | Detail | ☐ |
+| 77 | `suede_black_detail.webp` | Suede | Black | Detail | ☐ |
+| 78 | `suede_navy_detail.webp` | Suede | Navy | Detail | ☐ |
+| 79 | `suede_burgundy_detail.webp` | Suede | Burgundy | Detail | ☐ |
+| 80 | `suede_sand_detail.webp` | Suede | Sand | Detail | ☐ |
+| 81 | `suede_graphite_detail.webp` | Suede | Graphite | Detail | ☐ |
 
 ## Story shots
 
@@ -58,9 +106,9 @@ Generated 2026-08-14. **44 shots total** — 33 product, 11 story.
 | 2 | `S2-stitch-macro` | Macro: saddle stitch on the cover edge | Side light to reveal thread relief, 4–5 stitches fill the frame | ☐ |
 | 3 | `S2-grain-macro` | Macro: full-grain leather surface | At least 2000 px, no retouching of the texture | ☐ |
 | 4 | `S2-edge-macro` | Macro: burnished edge | Raking light along the edge | ☐ |
-| 5 | `S4-leather-veg-tan` | Macro: vegetable-tanned grain | Flat even light, square frame | ☐ |
-| 6 | `S4-leather-crazy-horse` | Macro: Crazy Horse grain with pull marks | Flat even light, square frame, same distance as the others | ☐ |
-| 7 | `S4-leather-pull-up` | Macro: Pull-up grain, bend it to show colour lift | Flat even light, square frame, same distance as the others | ☐ |
+| 5 | `S4-leather-smooth` | Macro: smooth leather grain | Flat even light, square frame | ☐ |
+| 6 | `S4-leather-croc` | Macro: croc-embossed relief, raking light | Flat even light plus one raking light, square frame, same distance as the others | ☐ |
+| 7 | `S4-leather-suede` | Macro: suede nap, brushed two ways | Flat even light, square frame, same distance as the others | ☐ |
 | 8 | `S4-not-defect` | Natural marks: scars, insect bites, uneven colour | Marks clearly visible, close crop | ☐ |
 | 9 | `S6-hands` | Hands at work with a tool | Shot during real work, not staged afterwards | ☐ |
 | 10 | `S6-portrait` | Portrait of the maker at the bench, face visible | Natural light, no posing | ☐ |
