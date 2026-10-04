@@ -8,8 +8,7 @@ import { penHolders } from '@/content/pen-holders';
 import {
   EMBOSSING_MINOR,
   GIFT_BOX_MINOR,
-  cardSlotsPriceMinor,
-  insertPriceMinor,
+  insertsPriceMinor,
 } from '@/content/pricing';
 
 export interface PriceBreakdown {
@@ -18,7 +17,6 @@ export interface PriceBreakdown {
   threadMinor: number;
   closureMinor: number;
   penHolderMinor: number;
-  cardSlotsMinor: number;
   embossingMinor: number;
   insertsMinor: number;
   giftBoxMinor: number;
@@ -35,13 +33,10 @@ export function calculatePrice(config: Configuration): PriceBreakdown {
   const threadMinor = threads[config.thread].priceMinor;
   const closureMinor = closures[config.closure].priceMinor;
   const penHolderMinor = penHolders[config.penHolder].priceMinor;
-  const cardSlotsMinor = cardSlotsPriceMinor(config.cardSlots);
   const embossingMinor = hasEmbossing(config) ? EMBOSSING_MINOR : 0;
 
-  const insertsMinor = config.inserts.reduce(
-    (sum, item) => sum + insertPriceMinor[item.type] * item.qty,
-    0,
-  );
+  // Pockets are free and have no line here. The first insert is free too.
+  const insertsMinor = insertsPriceMinor(config.inserts);
 
   const giftBoxMinor = config.giftBox ? GIFT_BOX_MINOR : 0;
 
@@ -51,7 +46,6 @@ export function calculatePrice(config: Configuration): PriceBreakdown {
     threadMinor,
     closureMinor,
     penHolderMinor,
-    cardSlotsMinor,
     embossingMinor,
     insertsMinor,
     giftBoxMinor,
@@ -61,7 +55,6 @@ export function calculatePrice(config: Configuration): PriceBreakdown {
       threadMinor +
       closureMinor +
       penHolderMinor +
-      cardSlotsMinor +
       embossingMinor +
       insertsMinor +
       giftBoxMinor,

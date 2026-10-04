@@ -12,6 +12,8 @@
     "content/**/*.ts",
     "types/**/*.ts",
     "lib/availability.ts",
-    "lib/assets.ts"
+    "lib/assets.ts",
+    "lib/config-schema.ts",
+    "lib/pockets.ts"
   ]
 }

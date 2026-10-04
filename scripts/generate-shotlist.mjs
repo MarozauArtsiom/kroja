@@ -35,6 +35,10 @@ try {
           }
           return `from '${rel}.js'`;
         });
+        // Relative imports ('./pricing') need the extension too: Node ESM does not guess it.
+        content = content.replace(/from\s+['"](\.\.?\/[^'"]+)['"]/g, (match, target) =>
+          target.endsWith('.js') ? match : `from '${target}.js'`,
+        );
         writeFileSync(fullPath, content, 'utf8');
       }
     }

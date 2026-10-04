@@ -94,7 +94,7 @@ export default function ShotMatrix() {
                   // reference drawing — the shot rules above say exactly that.
                   closure: 'none',
                   penHolder: 'none',
-                  cardSlots: 0,
+                  pockets: { front: [], back: [] },
                   embossing: null,
                   inserts: [{ type: 'dot', qty: 2 }],
                 };

@@ -14,11 +14,30 @@ export type ThreadCode = 'tonal' | 'linen' | 'cream' | 'black' | 'brown' | 'navy
 
 export type ClosureCode = 'elastic' | 'buckle' | 'none';
 
-export type ElasticColorCode = 'black' | 'brown' | 'olive' | 'burgundy';
-
 export type PenHolderCode = 'none' | 'slim' | 'wide';
 
 export type InsertType = 'plain' | 'ruled' | 'dot';
+
+/**
+ * A pocket is one piece of leather folded up and stitched on three sides.
+ * The kinds differ only in how high the fold goes — that is, in what fits inside.
+ */
+export type PocketKind = 'deep' | 'medium' | 'card' | 'corner';
+
+/** Inner side of the cover. 'front' is the left half of the open spread, 'back' the right. */
+export type Flap = 'front' | 'back';
+
+export interface Pocket {
+  kind: PocketKind;
+  /** Stitched down the middle: two compartments from one piece. Never true for 'corner'. */
+  divided: boolean;
+}
+
+/** Pockets on each flap, listed bottom to top. Each one overlaps the one below. */
+export interface PocketLayout {
+  front: Pocket[];
+  back: Pocket[];
+}
 
 export type EmbossingFont = 'serif' | 'sans';
 
@@ -48,13 +67,13 @@ export interface Configuration {
   leather: LeatherCode;
   color: ColorCode;
   thread: ThreadCode;
+  /** Both bands — the closing one and the inner one that holds the inserts — are in the leather colour. */
   closure: ClosureCode;
-  /** Only meaningful when closure === 'elastic'. Always present to keep the type simple. */
-  elasticColor: ElasticColorCode;
   penHolder: PenHolderCode;
-  /** 0..sizes[size].cardSlotsMax. The per-size limit is enforced in lib/availability.ts */
-  cardSlots: number;
+  /** Free and always present. The per-size height budget is enforced in lib/availability.ts */
+  pockets: PocketLayout;
   embossing: Embossing | null;
+  /** At least one in total: the first insert is included in the price. */
   inserts: InsertSelection[];
   giftBox: boolean;
 }

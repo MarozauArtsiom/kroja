@@ -139,8 +139,9 @@ for (const file of files) {
       }
     }
 
-    // 2. JSX text nodes: >Some words<
-    const textNode = line.match(/>\s*([^<>{}\n][^<>{}]*?)\s*</g);
+    // 2. JSX text nodes: >Some words<. Only .tsx can hold JSX; in .ts an arrow `=>`
+    //    followed by a `<` comparison would otherwise look like a text node.
+    const textNode = file.endsWith('.tsx') ? line.match(/>\s*([^<>{}\n][^<>{}]*?)\s*</g) : null;
     if (textNode) {
       for (const t of textNode) report(t.slice(1, -1), 'jsx-text');
     }

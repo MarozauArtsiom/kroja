@@ -1,6 +1,7 @@
 import type { Configuration, InsertSelection } from '@/types/config';
 import { parseConfig, DEFAULT_CONFIG } from './config-schema';
 import { resolveConfiguration, type ConfigChange } from './availability';
+import { parsePockets, serialisePockets } from './pockets';
 
 export interface ParsedUrlConfig {
   config: Configuration;
@@ -44,7 +45,6 @@ export function configFromSearchParams(
   };
 
   const embossText = get('emboss');
-  const cardsRaw = get('cards');
 
   const raw = {
     size: get('size') ?? undefined,
@@ -52,9 +52,8 @@ export function configFromSearchParams(
     color: get('color') ?? undefined,
     thread: get('thread') ?? undefined,
     closure: get('closure') ?? undefined,
-    elasticColor: get('elastic') ?? undefined,
     penHolder: get('pen') ?? undefined,
-    cardSlots: cardsRaw ? Number.parseInt(cardsRaw, 10) : undefined,
+    pockets: parsePockets(get('pk')),
     embossing: embossText
       ? {
           text: embossText,
@@ -85,11 +84,9 @@ export function configToSearchParams(config: Configuration): URLSearchParams {
 
   if (config.thread !== DEFAULT_CONFIG.thread) p.set('thread', config.thread);
   if (config.closure !== DEFAULT_CONFIG.closure) p.set('closure', config.closure);
-  if (config.closure === 'elastic' && config.elasticColor !== DEFAULT_CONFIG.elasticColor) {
-    p.set('elastic', config.elasticColor);
-  }
   if (config.penHolder !== 'none') p.set('pen', config.penHolder);
-  if (config.cardSlots > 0) p.set('cards', String(config.cardSlots));
+  const pockets = serialisePockets(config.pockets);
+  if (pockets !== serialisePockets(DEFAULT_CONFIG.pockets)) p.set('pk', pockets);
 
   if (config.embossing && config.embossing.text.trim()) {
     p.set('emboss', config.embossing.text);

@@ -1,11 +1,14 @@
 // lib/availability.ts
 import type {
-  LeatherCode, ColorCode, SizeCode, StockStatus, Configuration, InsertSelection,
+  LeatherCode, ColorCode, SizeCode, StockStatus, Configuration, InsertSelection, Flap, PocketLayout,
 } from '@/types/config';
 import { sizes } from '@/content/sizes';
 import { leathers } from '@/content/leathers';
 import { colorList } from '@/content/colors';
 import { stock, stockKey, productionDays } from '@/content/availability';
+import { INCLUDED_INSERTS } from '@/content/pricing';
+import { DEFAULT_CONFIG } from '@/lib/config-schema';
+import { FLAPS, normaliseStack } from '@/lib/pockets';
 
 export type OptionState =
   | { kind: 'available'; status: 'in_stock' | 'made_to_order' }
@@ -20,7 +23,7 @@ export type ConfigChange =
   | { kind: 'leather'; to: LeatherCode; from: LeatherCode }
   | { kind: 'color'; to: ColorCode; from: ColorCode; leather: LeatherCode }
   | { kind: 'inserts'; max: number; size: SizeCode }
-  | { kind: 'cardSlots'; max: number; size: SizeCode };
+  | { kind: 'pockets'; flap: Flap; size: SizeCode };
 
 export function getStock(leather: LeatherCode, color: ColorCode): StockStatus {
   return stock[stockKey(leather, color)] ?? 'unavailable';
@@ -97,7 +100,7 @@ export interface ResolveResult {
  */
 export function resolveConfiguration(input: Configuration): ResolveResult {
   const changes: ConfigChange[] = [];
-  let { leather, color, inserts, cardSlots } = input;
+  let { leather, color, inserts, pockets } = input;
   const { size } = input;
 
   // Rule 1: size wins over leather.
@@ -129,12 +132,22 @@ export function resolveConfiguration(input: Configuration): ResolveResult {
     changes.push({ kind: 'inserts', max: capacity, size });
   }
 
-  // Rule 4: card slots cannot exceed what the size holds.
-  const maxSlots = sizes[size].cardSlotsMax;
-  if (cardSlots > maxSlots) {
-    changes.push({ kind: 'cardSlots', max: maxSlots, size });
-    cardSlots = maxSlots;
+  // Rule 4: the first insert is included, so there is always at least one.
+  // The configurator never lets the count reach zero; this only catches old links and carts.
+  if (inserts.reduce((sum, i) => sum + i.qty, 0) < INCLUDED_INSERTS) {
+    inserts = DEFAULT_CONFIG.inserts;
   }
 
-  return { config: { ...input, leather, color, inserts, cardSlots }, changes };
+  // Rule 5: pockets must fit each flap's height budget. Trimmed from the top.
+  const fixed: PocketLayout = { ...pockets };
+  for (const flap of FLAPS) {
+    const { stack, changed } = normaliseStack(pockets[flap], size);
+    if (changed) {
+      fixed[flap] = stack;
+      changes.push({ kind: 'pockets', flap, size });
+    }
+  }
+  pockets = fixed;
+
+  return { config: { ...input, leather, color, inserts, pockets }, changes };
 }

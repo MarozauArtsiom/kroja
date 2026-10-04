@@ -3,7 +3,7 @@
 
 import { useEffect } from 'react';
 import Link from 'next/link';
-import type { CartItem } from '@/types/config';
+import type { CartItem, Pocket } from '@/types/config';
 import { useI18n } from '@/components/i18n/I18nProvider';
 import { formatPrice } from '@/lib/format';
 import { configToQueryString } from '@/lib/config-url';
@@ -16,10 +16,21 @@ function ItemRow({ item }: { item: CartItem }) {
   const { dict, getLocalizedPath } = useI18n();
   const removeItem = useCartStore((s) => s.removeItem);
 
-  const closureName =
-    c.closure === 'elastic'
-      ? `${dict.options.closures.elastic.title} · ${dict.elasticColors[c.elasticColor]}`
-      : dict.options.closures[c.closure].title;
+  const closureName = dict.options.closures[c.closure].title;
+
+  // "Front flap: Deep, Card (split in two) · Back flap: Medium" — bottom to top, as on the cover.
+  const stackName = (stack: Pocket[]) =>
+    stack
+      .map((p) =>
+        p.divided
+          ? `${dict.options.pockets[p.kind].title} (${dict.configurator.pocketsDivide.toLowerCase()})`
+          : dict.options.pockets[p.kind].title,
+      )
+      .join(', ');
+  const pocketParts = (['front', 'back'] as const)
+    .filter((flap) => c.pockets[flap].length > 0)
+    .map((flap) => `${dict.options.flaps[flap]}: ${stackName(c.pockets[flap])}`);
+  const pocketsLine = pocketParts.length > 0 ? pocketParts.join(' · ') : dict.cart.pocketsNone;
 
   const lines = [
     `${dict.sizes.names[c.size]} · ${dict.leatherNames[c.leather]} · ${dict.colors[c.color]}`,
@@ -28,7 +39,7 @@ function ItemRow({ item }: { item: CartItem }) {
     c.penHolder !== 'none'
       ? `${dict.cart.penHolder}: ${dict.options.penHolders[c.penHolder].title}`
       : null,
-    c.cardSlots > 0 ? `${dict.cart.cardSlots}: ${c.cardSlots}` : null,
+    `${dict.cart.pockets}: ${pocketsLine}`,
     c.embossing
       ? `${dict.cart.embossing}: “${c.embossing.text}” (${dict.options.embossingPositions[c.embossing.position]})`
       : null,

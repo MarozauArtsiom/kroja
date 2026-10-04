@@ -2,7 +2,7 @@
 // Values and fragments shared by all four schematic views.
 // Geometry lives in the views; anything derived from the configuration lives here.
 import type { Configuration } from '@/types/config';
-import { leathers, colors, threadHex, elasticColors, penHolders } from '@/lib/data';
+import { leathers, colors, threadHex, penHolders } from '@/lib/data';
 import type { Dictionary } from '@/types/i18n';
 import { fill } from '@/lib/format';
 import { INK, MUTED, ALERT, PAPER } from '@/lib/schematic-tokens';
@@ -20,7 +20,7 @@ export interface SchematicParts {
   hatch: string;
   /** Stitch colour, already resolved for the 'tonal' thread */
   stitch: string;
-  /** Elastic band colour */
+  /** Both bands are in the leather colour; drawn with <Band> so they stay visible on it. */
   elastic: string;
   hasElastic: boolean;
   hasBuckle: boolean;
@@ -44,7 +44,7 @@ export function schematicParts(config: Configuration, dict: Dictionary): Schemat
     fill: color.hex,
     hatch: hatchUrl(leather.schematicHatch),
     stitch: threadHex(config.thread, color.hex),
-    elastic: elasticColors[config.elasticColor].hex,
+    elastic: color.hex,
     hasElastic: config.closure === 'elastic',
     hasBuckle: config.closure === 'buckle',
     hasPen: config.penHolder !== 'none',
@@ -91,16 +91,66 @@ export function Notes({ lines, note }: { lines: string[]; note: string }) {
   );
 }
 
-/** A pen sitting in its loop on a spine strip centred at x = cx. */
-export function PenLoop({ parts, cx }: { parts: SchematicParts; cx: number }) {
+/**
+ * A pen held by a leather loop, lying vertically with its axis at x = cx.
+ * Used on the open spread: the loop is stitched to the inside of the front flap.
+ */
+export function PenLoop({
+  parts,
+  cx,
+  top,
+  length,
+}: {
+  parts: SchematicParts;
+  cx: number;
+  top: number;
+  length: number;
+}) {
   const { penR, fill, hatch } = parts;
+  const keeperY = top + length / 2 - 10;
   return (
     <g>
-      <rect x={cx - penR} y="196" width={penR * 2} height="108" rx={penR}
-            fill={PAPER} stroke={INK} strokeWidth="1.2" />
-      <rect x={cx - penR - 4} y="238" width={penR * 2 + 8} height="20" rx="3"
-            fill={fill} stroke={INK} strokeWidth="1.2" />
-      <rect x={cx - penR - 4} y="238" width={penR * 2 + 8} height="20" rx="3" fill={hatch} />
+      <rect x={cx - penR} y={top} width={penR * 2} height={length} rx={penR}
+            fill={PAPER} stroke={INK} strokeWidth="1.1" />
+      <rect x={cx - penR - 4} y={keeperY} width={penR * 2 + 8} height="20" rx="3"
+            fill={fill} stroke={INK} strokeWidth="1.1" />
+      <rect x={cx - penR - 4} y={keeperY} width={penR * 2 + 8} height="20" rx="3" fill={hatch} />
     </g>
   );
 }
+
+/**
+ * An elastic band. It is the same colour as the leather, so it is drawn with an ink
+ * casing underneath — otherwise a cognac band on a cognac cover disappears.
+ */
+export function Band({
+  x1, y1, x2, y2, color, width = 3,
+}: {
+  x1: number; y1: number; x2: number; y2: number; color: string; width?: number;
+}) {
+  return (
+    <g>
+      <line x1={x1} y1={y1} x2={x2} y2={y2} stroke={INK} strokeWidth={width + 1.6}
+            strokeLinecap="round" />
+      <line x1={x1} y1={y1} x2={x2} y2={y2} stroke={color} strokeWidth={width}
+            strokeLinecap="round" />
+    </g>
+  );
+}
+
+/** A punched hole the band passes through. */
+export function Hole({ cx, cy, r = 3.2 }: { cx: number; cy: number; r?: number }) {
+  return <circle cx={cx} cy={cy} r={r} fill={PAPER} stroke={INK} strokeWidth="1" />;
+}
+
+/**
+ * Holes in the spine, shared by the front and back views. x values are for the front view;
+ * the back view mirrors them (400 − x). Two holes at mid-height for the closing band,
+ * two at the head and tail for the inner band that holds the inserts.
+ */
+export const SPINE = {
+  closeHoleX: 110,
+  closeHoleY: [244, 256] as const,
+  blockBandX: 122,
+  blockHoleY: [124, 376] as const,
+};

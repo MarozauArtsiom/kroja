@@ -1,7 +1,7 @@
 // components/configurator/Preview.tsx
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import clsx from 'clsx';
 import type { Configuration, Angle } from '@/types/config';
 import { schematicAngleList } from '@/lib/data';
@@ -9,11 +9,29 @@ import { useI18n } from '@/components/i18n/I18nProvider';
 import { getPreview, SHOW_SCHEMATIC_NOTES } from '@/lib/assets';
 import SchematicCover from '@/components/schematic/SchematicCover';
 import SizeDiagram from '@/components/schematic/SizeDiagram';
+import { serialisePockets } from '@/lib/pockets';
+
+/** Everything that is only visible on the open spread. A change here switches the view to it. */
+function insideKey(config: Configuration): string {
+  const inserts = config.inserts.reduce((sum, i) => sum + i.qty, 0);
+  return `${serialisePockets(config.pockets)}#${config.penHolder}#${inserts}`;
+}
 
 export default function Preview({ config }: { config: Configuration }) {
   const { dict } = useI18n();
   const [angle, setAngle] = useState<Angle>('front');
   const source = getPreview(config, angle);
+
+  // Pockets, the pen loop and the inserts live inside the cover. Without this the user
+  // presses "+" on the Front tab and nothing on the drawing changes.
+  const inside = insideKey(config);
+  const lastInside = useRef(inside);
+  useEffect(() => {
+    if (lastInside.current !== inside) {
+      lastInside.current = inside;
+      setAngle('open');
+    }
+  }, [inside]);
 
   return (
     <div className="flex flex-col gap-4">

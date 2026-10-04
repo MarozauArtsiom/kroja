@@ -51,10 +51,8 @@ export default function Sizes() {
                   <dd>{formatWeight(s.weightG, dict.units.g)}</dd>
                 </div>
                 <div className="flex justify-between">
-                  <dt>{dict.sizes.cardSlots}</dt>
-                  <dd>
-                    {dict.sizes.upTo} {s.cardSlotsMax}
-                  </dd>
+                  <dt>{dict.sizes.pockets}</dt>
+                  <dd>{dict.sizes.included}</dd>
                 </div>
               </dl>
               <p className="text-sm text-ink">

@@ -3,16 +3,16 @@ import { BRASS_HEX } from '@/lib/data';
 import { fill } from '@/lib/format';
 import { INK, LINE, MUTED } from '@/lib/schematic-tokens';
 import HatchDefs from '../HatchDefs';
-import { Labels, Notes, PenLoop, type ViewProps } from '../schematic-parts';
+import { Band, Hole, Labels, Notes, SPINE, type ViewProps } from '../schematic-parts';
 
 export default function FrontView({ config, compact, parts, dict }: ViewProps) {
-  const { fill: leatherFill, hatch, stitch, elastic, hasElastic, hasBuckle, hasPen, embossFont } = parts;
+  const { fill: leatherFill, hatch, stitch, elastic, hasElastic, hasBuckle, embossFont } = parts;
 
+  // The inner band is always there; the pen loop now lives inside and is drawn on the spread.
   const notes: string[] = [];
   if (hasElastic) notes.push(dict.schematic.elasticFront);
   if (hasBuckle) notes.push(dict.schematic.buckleFront);
-  if (hasPen) notes.push(parts.penLabel);
-  if (notes.length === 0) notes.push(...dict.shotlist.angleMustShow.front.slice(0, 3));
+  notes.push(dict.schematic.blockBand);
 
   return (
     <svg viewBox="0 0 400 500" className="block h-auto w-full" role="img"
@@ -31,31 +31,40 @@ export default function FrontView({ config, compact, parts, dict }: ViewProps) {
       <rect x="114" y="122" width="172" height="256" rx="3" fill="none"
             stroke={stitch} strokeWidth="1.4" strokeDasharray="4 4" />
 
-      {/* elastic band across the front */}
-      {hasElastic && (
-        <line x1="213" y1="110" x2="213" y2="390" stroke={elastic} strokeWidth="4"
-              strokeLinecap="round" />
-      )}
+      {/* inner band: runs along the spine between holes at the head and tail. Always there. */}
+      <Band x1={SPINE.blockBandX} y1={SPINE.blockHoleY[0]} x2={SPINE.blockBandX} y2={SPINE.blockHoleY[1]}
+            color={elastic} width={2.4} />
+      <Hole cx={SPINE.blockBandX} cy={SPINE.blockHoleY[0]} />
+      <Hole cx={SPINE.blockBandX} cy={SPINE.blockHoleY[1]} />
 
-      {/* buckle: strap comes around the fore-edge (right) and ends in a brass frame */}
-      {hasBuckle && (
+      {/* closing band: two strands across the cover, out of two holes in the spine at mid-height */}
+      {hasElastic && (
         <g>
-          <rect x="150" y="238" width="148" height="24" rx="3" fill={leatherFill}
-                stroke={INK} strokeWidth="1.2" />
-          <rect x="150" y="238" width="148" height="24" rx="3" fill={hatch} />
-          <line x1="172" y1="244" x2="292" y2="244" stroke={stitch} strokeWidth="1"
-                strokeDasharray="3 3" />
-          <line x1="172" y1="256" x2="292" y2="256" stroke={stitch} strokeWidth="1"
-                strokeDasharray="3 3" />
-          <rect x="144" y="230" width="26" height="40" rx="4" fill="none"
-                stroke={BRASS_HEX} strokeWidth="3.5" />
-          <line x1="157" y1="230" x2="157" y2="270" stroke={BRASS_HEX} strokeWidth="2.5"
-                strokeLinecap="round" />
+          {SPINE.closeHoleY.map((y) => (
+            <Band key={y} x1={SPINE.closeHoleX} y1={y} x2={298} y2={y} color={elastic} />
+          ))}
+          {SPINE.closeHoleY.map((y) => (
+            <Hole key={y} cx={SPINE.closeHoleX} cy={y} />
+          ))}
         </g>
       )}
 
-      {/* pen loop on the spine strip */}
-      {hasPen && <PenLoop parts={parts} cx={115} />}
+      {/* buckle: a short tongue, about 2.5 cm, out from behind the fore-edge; brass frame on its end */}
+      {hasBuckle && (
+        <g>
+          <rect x="266" y="238" width="32" height="24" rx="3" fill={leatherFill}
+                stroke={INK} strokeWidth="1.2" />
+          <rect x="266" y="238" width="32" height="24" rx="3" fill={hatch} />
+          <line x1="279" y1="244" x2="294" y2="244" stroke={stitch} strokeWidth="1"
+                strokeDasharray="3 3" />
+          <line x1="279" y1="256" x2="294" y2="256" stroke={stitch} strokeWidth="1"
+                strokeDasharray="3 3" />
+          <rect x="252" y="230" width="24" height="40" rx="4" fill="none"
+                stroke={BRASS_HEX} strokeWidth="3.5" />
+          <line x1="264" y1="230" x2="264" y2="270" stroke={BRASS_HEX} strokeWidth="2.5"
+                strokeLinecap="round" />
+        </g>
+      )}
 
       {/* embossing */}
       {config.embossing && config.embossing.position === 'bottom-right' && (
@@ -69,7 +78,7 @@ export default function FrontView({ config, compact, parts, dict }: ViewProps) {
         </g>
       )}
       {config.embossing && config.embossing.position === 'spine' && (
-        <text x="115" y="340" transform="rotate(-90 115 340)" textAnchor="middle"
+        <text x="113" y="330" transform="rotate(-90 113 330)" textAnchor="middle"
               fontSize="14" letterSpacing="2" fill={INK} opacity="0.75" fontFamily={embossFont}>
           {config.embossing.text}
         </text>

@@ -14,7 +14,7 @@ import ColorSelector from './ColorSelector';
 import ThreadSelector from './ThreadSelector';
 import ClosureSelector from './ClosureSelector';
 import PenHolderSelector from './PenHolderSelector';
-import CardSlotsSelector from './CardSlotsSelector';
+import PocketsSelector from './PocketsSelector';
 import InsertsSelector from './InsertsSelector';
 import EmbossingInput from './EmbossingInput';
 import StickyBar from './StickyBar';
@@ -64,7 +64,7 @@ function Inner() {
             <ThreadSelector config={config} onChange={update} />
             <ClosureSelector config={config} onChange={update} />
             <PenHolderSelector config={config} onChange={update} />
-            <CardSlotsSelector config={config} onChange={update} />
+            <PocketsSelector config={config} onChange={update} />
             <InsertsSelector config={config} onChange={update} />
             <EmbossingInput config={config} onChange={update} />
           </div>

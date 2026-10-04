@@ -23,9 +23,9 @@ export function changeMessage(change: ConfigChange, dict: Dictionary): string {
         max: change.max,
         size: dict.sizes.names[change.size],
       });
-    case 'cardSlots':
-      return fill(dict.conflicts.cardSlotsReduced, {
-        max: change.max,
+    case 'pockets':
+      return fill(dict.conflicts.pocketsReduced, {
+        flap: dict.options.flaps[change.flap],
         size: dict.sizes.names[change.size],
       });
   }

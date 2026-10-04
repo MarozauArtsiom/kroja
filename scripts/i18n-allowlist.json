@@ -19,7 +19,7 @@
     "| # | File | Leather | Colour | Angle | Done |",
     "| # | Id | Subject | Requirement | Done |"
   ],
-  "_files_comment": "content/*.ts — английские значения по умолчанию в данных о продукте. Их перекрывают Record-ключи словаря (dict.colors, dict.leatherNames, dict.threads, dict.elasticColors, dict.sizes.names), а полноту этих Record проверяет TypeScript: добавил цвет — пять словарей не компилируются, пока не переведёшь. Поэтому здесь детектор молчит. content/shots.ts в список НЕ входит: у его строк Record-перекрытия нет.",
+  "_files_comment": "content/*.ts — английские значения по умолчанию в данных о продукте. Их перекрывают Record-ключи словаря (dict.colors, dict.leatherNames, dict.threads, dict.sizes.names), а полноту этих Record проверяет TypeScript: добавил цвет — пять словарей не компилируются, пока не переведёшь. Поэтому здесь детектор молчит. content/shots.ts в список НЕ входит: у его строк Record-перекрытия нет.",
   "files": [
     "app/api/",
     "app/robots.ts",
@@ -27,7 +27,6 @@
     "content/colors.ts",
     "content/leathers.ts",
     "content/threads.ts",
-    "content/elastic.ts",
     "content/closures.ts",
     "content/pen-holders.ts",
     "content/sizes.ts"

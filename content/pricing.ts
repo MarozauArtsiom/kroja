@@ -1,13 +1,11 @@
 // content/pricing.ts
-import type { InsertType } from '@/types/config';
+import type { InsertSelection, InsertType } from '@/types/config';
 
 export const CURRENCY = 'PLN' as const;
 
 /** All amounts in minor units (grosz). 4000 === 40.00 zł */
 export const EMBOSSING_MINOR = 4000;
 export const GIFT_BOX_MINOR = 3500;
-/** Flat fee for having card slots at all. Count and notebook size do not change it. */
-export const CARD_SLOTS_MINOR = 1000;
 /** Flat fee for a pen loop, either loop size. */
 export const PEN_HOLDER_MINOR = 2000;
 /** Solid brass buckle instead of the elastic band. */
@@ -21,13 +19,18 @@ export const insertPriceMinor: Record<InsertType, number> = {
 
 export const MAX_INSERTS_PER_TYPE = 4;
 export const MAX_EMBOSSING_LENGTH = 2;
-/** Absolute upper bound for the URL parser. The per-size limit is sizes[size].cardSlotsMax. */
-export const MAX_CARD_SLOTS = 4;
+
+/** How many paper inserts come with every cover at no charge. */
+export const INCLUDED_INSERTS = 1;
 
 /**
- * Card slots are charged once, whatever the count and the notebook size.
- * Kept as a function so the rule lives next to the price, not inside calculatePrice.
+ * The included insert is free, whichever type it is; every further one is paid.
+ * Units are priced cheapest-first-free, so the rule holds even if types ever cost differently.
+ * Kept here so the rule lives next to the price, not inside calculatePrice.
  */
-export function cardSlotsPriceMinor(count: number): number {
-  return count > 0 ? CARD_SLOTS_MINOR : 0;
+export function insertsPriceMinor(inserts: InsertSelection[]): number {
+  const unitPrices = inserts
+    .flatMap((item) => Array.from({ length: Math.max(0, item.qty) }, () => insertPriceMinor[item.type]))
+    .sort((a, b) => a - b);
+  return unitPrices.slice(INCLUDED_INSERTS).reduce((sum, price) => sum + price, 0);
 }

@@ -4,6 +4,7 @@
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 import type { CartItem, PricedConfiguration, Configuration } from '@/types/config';
+import { serialisePockets } from '@/lib/pockets';
 
 /** Deterministic key for a configuration. Order of inserts must not matter. */
 export function configHash(config: Configuration): string {
@@ -17,17 +18,15 @@ export function configHash(config: Configuration): string {
     ? `${config.embossing.text.trim()}|${config.embossing.font}|${config.embossing.position}`
     : '';
 
-  // Band colour only matters when the band is actually there.
-  const closure = config.closure === 'elastic' ? `elastic:${config.elasticColor}` : config.closure;
-
   return [
     config.size,
     config.leather,
     config.color,
     config.thread,
-    closure,
+    config.closure,
     config.penHolder,
-    `cards:${config.cardSlots}`,
+    // Order matters: the same pockets stacked differently are a different cover.
+    `pk:${serialisePockets(config.pockets)}`,
     embossing,
     inserts,
     config.giftBox ? 'box' : '',
@@ -92,8 +91,9 @@ export const useCartStore = create<CartState>()(
     }),
     {
       name: 'nakedskin:cart',
-      // Version 1 stored configurations with leathers that no longer exist. Drop them.
-      version: 2,
+      // v1 stored leathers that no longer exist; v2 stored card slots and a band colour.
+      // Neither maps cleanly onto the current model, so old carts are dropped.
+      version: 3,
       migrate: () => ({ items: [] }) as unknown as CartState,
       // Do not persist UI state
       partialize: (state) => ({ items: state.items }) as CartState,

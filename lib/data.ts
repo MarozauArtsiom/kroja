@@ -14,8 +14,14 @@ export type { ColorDef } from '@/content/colors';
 export { threads, threadList, DEFAULT_THREAD, THREAD_THICKNESS_MM, threadHex } from '@/content/threads';
 export type { ThreadDef } from '@/content/threads';
 
-export { elasticColors, elasticColorList, DEFAULT_ELASTIC_COLOR } from '@/content/elastic';
-export type { ElasticColorDef } from '@/content/elastic';
+export {
+  pockets,
+  pocketList,
+  POCKET_OVERLAP_MM,
+  MAX_POCKETS_PER_FLAP,
+  DEFAULT_POCKETS,
+} from '@/content/pockets';
+export type { PocketDef } from '@/content/pockets';
 
 export { closures, closureList, DEFAULT_CLOSURE, BRASS_HEX } from '@/content/closures';
 export type { ClosureDef } from '@/content/closures';
@@ -29,14 +35,13 @@ export {
   CURRENCY,
   EMBOSSING_MINOR,
   GIFT_BOX_MINOR,
-  CARD_SLOTS_MINOR,
   PEN_HOLDER_MINOR,
   BUCKLE_MINOR,
   insertPriceMinor,
   MAX_INSERTS_PER_TYPE,
   MAX_EMBOSSING_LENGTH,
-  MAX_CARD_SLOTS,
-  cardSlotsPriceMinor,
+  INCLUDED_INSERTS,
+  insertsPriceMinor,
 } from '@/content/pricing';
 
 export {

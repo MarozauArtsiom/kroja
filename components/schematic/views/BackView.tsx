@@ -1,20 +1,22 @@
 // components/schematic/views/BackView.tsx
 import { fill } from '@/lib/format';
-import { INK, LINE, PAPER } from '@/lib/schematic-tokens';
+import { INK, LINE } from '@/lib/schematic-tokens';
 import HatchDefs from '../HatchDefs';
-import { Labels, Notes, PenLoop, type ViewProps } from '../schematic-parts';
+import { Band, Hole, Labels, Notes, SPINE, type ViewProps } from '../schematic-parts';
+
+/** The back view is the front mirrored: the spine is on the right. */
+const mirror = (x: number) => 400 - x;
 
 export default function BackView({ compact, parts, dict }: ViewProps) {
-  const { fill: leatherFill, hatch, stitch, elastic, hasElastic, hasBuckle, hasPen } = parts;
+  const { fill: leatherFill, hatch, stitch, elastic, hasElastic, hasBuckle } = parts;
 
   const notes: string[] = [];
-  if (hasElastic) {
-    notes.push(dict.schematic.elasticKnot);
-    notes.push(dict.schematic.elasticHoles);
-  }
-  if (hasBuckle) notes.push(dict.schematic.buckleBack);
-  if (hasPen) notes.push(parts.penLabel);
-  if (notes.length === 0) notes.push(dict.schematic.noClosure);
+  if (hasElastic) notes.push(dict.schematic.spineHoles);
+  if (hasBuckle) notes.push(dict.schematic.buckleBack, dict.schematic.blockBand);
+  if (!hasElastic && !hasBuckle) notes.push(dict.schematic.noClosure);
+
+  const closeX = mirror(SPINE.closeHoleX);
+  const blockX = mirror(SPINE.blockBandX);
 
   return (
     <svg viewBox="0 0 400 500" className="block h-auto w-full" role="img"
@@ -31,40 +33,38 @@ export default function BackView({ compact, parts, dict }: ViewProps) {
       <rect x="114" y="122" width="172" height="256" rx="3" fill="none"
             stroke={stitch} strokeWidth="1.4" strokeDasharray="4 4" />
 
-      {/* elastic: two holes, the band, the knot with two tails */}
+      {/* inner band along the spine, holes at the head and tail. Always there. */}
+      <Band x1={blockX} y1={SPINE.blockHoleY[0]} x2={blockX} y2={SPINE.blockHoleY[1]}
+            color={elastic} width={2.4} />
+      <Hole cx={blockX} cy={SPINE.blockHoleY[0]} />
+      <Hole cx={blockX} cy={SPINE.blockHoleY[1]} />
+
+      {/* closing band: from the two mid-height holes in the spine across to the fore-edge */}
       {hasElastic && (
         <g>
-          <line x1="187" y1="110" x2="187" y2="228" stroke={elastic} strokeWidth="4"
-                strokeLinecap="round" />
-          <line x1="187" y1="272" x2="187" y2="390" stroke={elastic} strokeWidth="4"
-                strokeLinecap="round" />
-          <circle cx="187" cy="232" r="4.5" fill={PAPER} stroke={INK} strokeWidth="1" />
-          <circle cx="187" cy="268" r="4.5" fill={PAPER} stroke={INK} strokeWidth="1" />
-          <line x1="187" y1="232" x2="187" y2="268" stroke={elastic} strokeWidth="4" />
-          <line x1="187" y1="250" x2="174" y2="262" stroke={elastic} strokeWidth="3"
-                strokeLinecap="round" />
-          <line x1="187" y1="250" x2="201" y2="261" stroke={elastic} strokeWidth="3"
-                strokeLinecap="round" />
-          <circle cx="187" cy="250" r="7" fill={elastic} stroke={INK} strokeWidth="1" />
+          {SPINE.closeHoleY.map((y) => (
+            <Band key={y} x1={102} y1={y} x2={closeX} y2={y} color={elastic} />
+          ))}
+          {SPINE.closeHoleY.map((y) => (
+            <Hole key={y} cx={closeX} cy={y} />
+          ))}
         </g>
       )}
 
-      {/* buckle: strap root, box-stitched near the spine, running to the fore-edge (left) */}
+      {/* buckle: the short strap is anchored at the fore-edge with a box stitch */}
       {hasBuckle && (
         <g>
-          <rect x="102" y="238" width="150" height="24" rx="3" fill={leatherFill}
+          <rect x="102" y="238" width="32" height="24" rx="3" fill={leatherFill}
                 stroke={INK} strokeWidth="1.2" />
-          <rect x="102" y="238" width="150" height="24" rx="3" fill={hatch} />
-          <line x1="108" y1="244" x2="230" y2="244" stroke={stitch} strokeWidth="1"
-                strokeDasharray="3 3" />
-          <line x1="108" y1="256" x2="230" y2="256" stroke={stitch} strokeWidth="1"
-                strokeDasharray="3 3" />
-          <rect x="232" y="240" width="18" height="20" fill="none" stroke={stitch}
+          <rect x="102" y="238" width="32" height="24" rx="3" fill={hatch} />
+          <rect x="110" y="241" width="18" height="18" fill="none" stroke={stitch}
                 strokeWidth="1.2" strokeDasharray="2 2" />
+          <line x1="110" y1="241" x2="128" y2="259" stroke={stitch} strokeWidth="1"
+                strokeDasharray="2 2" />
+          <line x1="128" y1="241" x2="110" y2="259" stroke={stitch} strokeWidth="1"
+                strokeDasharray="2 2" />
         </g>
       )}
-
-      {hasPen && <PenLoop parts={parts} cx={285} />}
 
       {!compact && <Labels parts={parts} />}
       {!compact && <Notes lines={notes} note={dict.schematic.note} />}

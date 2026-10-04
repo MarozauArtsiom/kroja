@@ -9,9 +9,8 @@ export interface SizeDef {
   /** Paper insert dimensions, [width, height] in mm */
   insertMm: [number, number];
   weightG: number;
+  /** Paper inserts in total, the included one counts. */
   insertCapacity: number;
-  /** Max card slots inside the front cover. See kroja-spec/17-axes-change.md §4 for the maths. */
-  cardSlotsMax: number;
   basePriceMinor: number;
   useCase: string;
   order: number;
@@ -25,7 +24,6 @@ export const sizes: Record<SizeCode, SizeDef> = {
     insertMm: [105, 148],
     weightG: 120,
     insertCapacity: 2,
-    cardSlotsMax: 2,
     basePriceMinor: 30000,
     useCase: 'Lists and quick notes on the move',
     order: 1,
@@ -37,7 +35,6 @@ export const sizes: Record<SizeCode, SizeDef> = {
     insertMm: [125, 176],
     weightG: 160,
     insertCapacity: 3,
-    cardSlotsMax: 3,
     basePriceMinor: 30000,
     useCase: 'Everyday carry, the middle ground',
     order: 2,
@@ -49,7 +46,6 @@ export const sizes: Record<SizeCode, SizeDef> = {
     insertMm: [110, 210],
     weightG: 180,
     insertCapacity: 4,
-    cardSlotsMax: 3,
     basePriceMinor: 30000,
     useCase: 'Travel notebook format, sketching on the go',
     order: 3,
@@ -61,7 +57,6 @@ export const sizes: Record<SizeCode, SizeDef> = {
     insertMm: [148, 210],
     weightG: 210,
     insertCapacity: 4,
-    cardSlotsMax: 4,
     basePriceMinor: 30000,
     useCase: 'Desk work, journaling, long-form notes',
     order: 4,

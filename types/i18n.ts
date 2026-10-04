@@ -3,12 +3,13 @@ import type {
   Angle,
   ClosureCode,
   ColorCode,
-  ElasticColorCode,
   EmbossingFont,
   EmbossingPosition,
+  Flap,
   InsertType,
   LeatherCode,
   PenHolderCode,
+  PocketKind,
   SizeCode,
   ThreadCode,
 } from '@/types/config';
@@ -63,8 +64,8 @@ export interface Dictionary {
     inserts: string;
     build: string;
     weight: string;
-    cardSlots: string;
-    upTo: string;
+    pockets: string;
+    included: string;
     useCases: Record<SizeCode, string>;
     names: Record<SizeCode, string>;
   };
@@ -121,7 +122,7 @@ export interface Dictionary {
       thread: string;
       closure: string;
       penHolder: string;
-      cardSlots: string;
+      pockets: string;
       embossing: string;
       inserts: string;
       giftBox: string;
@@ -138,15 +139,27 @@ export interface Dictionary {
     embossingConfirmBody: string;
     embossingConfirmEdit: string;
     embossingConfirmOk: string;
-    elasticColor: string;
     penHolderHelp: string;
     penHolderGuideLabel: string;
-    /** Uses {max} and {count} */
-    cardSlotsHint: string;
-    cardSlotsMeta: string;
-    cardSlotsInside: string;
+    /** Uses {price} */
+    insertsIncluded: string;
     /** Uses {max} and {count} */
     insertsHint: string;
+    pocketsIncluded: string;
+    pocketsHint: string;
+    /** Uses {used} and {budget} */
+    pocketsBudget: string;
+    pocketsEmpty: string;
+    pocketsAdd: string;
+    pocketsDivide: string;
+    /** Uses {name} */
+    pocketsMoveUp: string;
+    /** Uses {name} */
+    pocketsMoveDown: string;
+    /** Uses {name} */
+    pocketsRemove: string;
+    pocketsTop: string;
+    pocketsBottom: string;
     /** Uses {name} */
     addOne: string;
     /** Uses {name} */
@@ -168,6 +181,8 @@ export interface Dictionary {
   options: {
     closures: Record<ClosureCode, { title: string; note: string }>;
     penHolders: Record<PenHolderCode, { title: string; meta: string }>;
+    pockets: Record<PocketKind, { title: string; meta: string }>;
+    flaps: Record<Flap, string>;
     embossingFonts: Record<EmbossingFont, string>;
     embossingPositions: Record<EmbossingPosition, string>;
     readyIn: string;
@@ -184,7 +199,8 @@ export interface Dictionary {
     thread: string;
     closure: string;
     penHolder: string;
-    cardSlots: string;
+    pockets: string;
+    pocketsNone: string;
     embossing: string;
     inserts: string;
     giftBox: string;
@@ -272,8 +288,8 @@ export interface Dictionary {
     colorChanged: string;
     /** {max}, {size} */
     insertsReduced: string;
-    /** {max}, {size} */
-    cardSlotsReduced: string;
+    /** {flap}, {size} */
+    pocketsReduced: string;
     /** {leather} */
     colorNotInLeather: string;
     colorOutOfStock: string;
@@ -290,16 +306,16 @@ export interface Dictionary {
     detailAria: string;
     elasticFront: string;
     buckleFront: string;
-    elasticKnot: string;
-    elasticHoles: string;
+    spineHoles: string;
+    blockBand: string;
     buckleBack: string;
     noClosure: string;
     /** {max} */
     penLoopSlim: string;
     /** {min}, {max} */
     penLoopWide: string;
-    /** {count} */
-    cardSlots: string;
+    /** {flap}, {list} */
+    pocketsOn: string;
     burnishedEdge: string;
     /** {mm} */
     threadDetail: string;
@@ -310,7 +326,6 @@ export interface Dictionary {
   };
   colors: Record<ColorCode, string>;
   threads: Record<ThreadCode, string>;
-  elasticColors: Record<ElasticColorCode, string>;
   insertTypes: Record<InsertType, string>;
   leatherNames: Record<LeatherCode, string>;
   angles: Record<Angle, string>;

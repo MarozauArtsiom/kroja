@@ -1,10 +1,10 @@
 # Naked Skin — Workshop shot list
 
-Generated 2026-09-06. **92 shots total** — 81 + 11.
+Generated 2026-10-04. **92 shots total** — 81 + 11.
 
 ## Global Rules for Every Product Shot
 
-- No elastic band, no embossing, no pen loop, no card slots and no buckle in frame — all are drawn by the site
+- No elastic band, no embossing, no pen loop, no pockets and no buckle in frame — all are drawn by the site
 - Identical angle, light, distance and background within one angle group
 - One neutral background across the whole matrix
 - At least 2400 px on the long side before compression

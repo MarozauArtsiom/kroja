@@ -5,10 +5,10 @@ import { DEFAULT_SIZE } from '@/content/sizes';
 import { DEFAULT_LEATHER } from '@/content/leathers';
 import { DEFAULT_COLOR } from '@/content/colors';
 import { DEFAULT_THREAD } from '@/content/threads';
-import { DEFAULT_ELASTIC_COLOR } from '@/content/elastic';
 import { DEFAULT_CLOSURE } from '@/content/closures';
 import { DEFAULT_PEN_HOLDER } from '@/content/pen-holders';
-import { MAX_EMBOSSING_LENGTH, MAX_INSERTS_PER_TYPE, MAX_CARD_SLOTS } from '@/content/pricing';
+import { DEFAULT_POCKETS } from '@/content/pockets';
+import { MAX_EMBOSSING_LENGTH, MAX_INSERTS_PER_TYPE } from '@/content/pricing';
 
 /**
  * One uppercase letter: Latin A–Z, Polish diacritics, Cyrillic А–Я plus Ё and the
@@ -40,6 +40,25 @@ export const insertSchema = z.object({
   qty: z.number().int().min(0).max(MAX_INSERTS_PER_TYPE).catch(1),
 });
 
+export const pocketSchema = z.object({
+  kind: z.enum(['deep', 'medium', 'card', 'corner']),
+  divided: z.boolean().catch(false),
+});
+
+/** Bad entries are dropped one by one; a broken layout as a whole falls back to the default. */
+const pocketStackSchema = z
+  .array(z.unknown())
+  .transform((items) =>
+    items.flatMap((item) => {
+      const parsed = pocketSchema.safeParse(item);
+      return parsed.success ? [parsed.data] : [];
+    }),
+  );
+
+export const pocketLayoutSchema = z
+  .object({ front: pocketStackSchema, back: pocketStackSchema })
+  .catch(DEFAULT_POCKETS);
+
 export const configSchema = z.object({
   size: z.enum(['a6', 'b6', 'standard', 'a5']).catch(DEFAULT_SIZE),
   leather: z.enum(['smooth', 'croc', 'suede']).catch(DEFAULT_LEATHER),
@@ -48,9 +67,8 @@ export const configSchema = z.object({
     .catch(DEFAULT_COLOR),
   thread: z.enum(['tonal', 'linen', 'cream', 'black', 'brown', 'navy']).catch(DEFAULT_THREAD),
   closure: z.enum(['elastic', 'buckle', 'none']).catch(DEFAULT_CLOSURE),
-  elasticColor: z.enum(['black', 'brown', 'olive', 'burgundy']).catch(DEFAULT_ELASTIC_COLOR),
   penHolder: z.enum(['none', 'slim', 'wide']).catch(DEFAULT_PEN_HOLDER),
-  cardSlots: z.number().int().min(0).max(MAX_CARD_SLOTS).catch(0),
+  pockets: pocketLayoutSchema,
   embossing: embossingSchema,
   inserts: z.array(insertSchema).max(3).catch([{ type: 'dot', qty: 1 }]),
   giftBox: z.boolean().catch(false),
@@ -62,9 +80,8 @@ export const DEFAULT_CONFIG: Configuration = {
   color: DEFAULT_COLOR,
   thread: DEFAULT_THREAD,
   closure: DEFAULT_CLOSURE,
-  elasticColor: DEFAULT_ELASTIC_COLOR,
   penHolder: DEFAULT_PEN_HOLDER,
-  cardSlots: 0,
+  pockets: DEFAULT_POCKETS,
   embossing: null,
   inserts: [{ type: 'dot', qty: 1 }],
   giftBox: false,
