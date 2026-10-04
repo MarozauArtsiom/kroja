@@ -5,6 +5,7 @@ import { pl } from './dict/pl';
 import { de } from './dict/de';
 import { by } from './dict/by';
 import { uk } from './dict/uk';
+import { ru } from './dict/ru';
 import { DEFAULT_LOCALE, isValidLocale } from './locales';
 
 const dictionaries: Record<SupportedLocale, Dictionary> = {
@@ -13,6 +14,7 @@ const dictionaries: Record<SupportedLocale, Dictionary> = {
   de,
   by,
   uk,
+  ru,
 };
 
 export function getDictionary(locale?: string): Dictionary {

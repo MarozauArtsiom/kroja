@@ -14,13 +14,12 @@ import type {
   ThreadCode,
 } from '@/types/config';
 
-export type SupportedLocale = 'en' | 'pl' | 'de' | 'by' | 'uk';
+export type SupportedLocale = 'en' | 'pl' | 'de' | 'by' | 'uk' | 'ru';
 
 export interface LocaleInfo {
   code: SupportedLocale;
   name: string;
   nativeName: string;
-  flagId: string;
 }
 
 export interface LeatherCopy {
@@ -255,6 +254,12 @@ export interface Dictionary {
   /** Labels a screen reader announces. Not visible on screen, still user-facing. */
   a11y: {
     selectLanguage: string;
+    /** {language} — the native name of the current language */
+    currentLanguage: string;
+    /** {label}, {value} — a 1–5 rating read out by a screen reader */
+    ratingOutOf: string;
+    /** {slim}, {wide} — diameters with their unit, e.g. "10 mm" */
+    loopDiameters: string;
     closeCart: string;
     emailField: string;
     previewAngle: string;
@@ -265,9 +270,18 @@ export interface Dictionary {
   };
   /** Alt text of the landing illustrations. */
   illustrations: {
+    /** Alt text of each illustration; also its accessible name when drawn inline. */
     hero: string;
     stitch: string;
     refill: string;
+    /** Text drawn inside the stitch illustration */
+    stitchTitle: string;
+    stitchLine1: string;
+    stitchLine2: string;
+    stitchPoint: string;
+    /** Text drawn inside the refill illustration */
+    refillCover: string;
+    refillMany: string;
   };
   /** Page metadata: search results and link previews. */
   meta: {

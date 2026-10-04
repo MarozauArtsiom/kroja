@@ -393,6 +393,9 @@ export const pl: Dictionary = {
   },
   a11y: {
     selectLanguage: "Wybierz język",
+    currentLanguage: "Aktualny język: {language}. Kliknij, aby zmienić.",
+    ratingOutOf: "{label}: {value} na 5",
+    loopDiameters: "Średnice pętli: cienka {slim}, gruba {wide}, rozmiar rzeczywisty",
     closeCart: "Zamknij koszyk",
     emailField: "Adres e-mail",
     previewAngle: "Ujęcie podglądu",
@@ -405,6 +408,12 @@ export const pl: Dictionary = {
     hero: 'Skórzana okładka z papierowymi wkładami i elastyczną gumką',
     stitch: 'Jak ręczny szew siodłowy blokuje się samoczynnie',
     refill: 'Jedna okładka, wiele papierowych wkładów',
+    stitchTitle: "Dwie nici, jeden otwór",
+    stitchLine1: "Każdy ścieg blokuje następny.",
+    stitchLine2: "Przetnij nić pośrodku, a szew nadal trzyma.",
+    stitchPoint: "punkt przecięcia",
+    refillCover: "Jedna okładka",
+    refillMany: "Wiele wkładów",
   },
   meta: {
     siteDescription:

@@ -393,6 +393,9 @@ export const en: Dictionary = {
   },
   a11y: {
     selectLanguage: 'Select language',
+    currentLanguage: "Current language: {language}. Click to switch.",
+    ratingOutOf: "{label}: {value} out of 5",
+    loopDiameters: "Loop diameters: slim {slim}, wide {wide}, actual size",
     closeCart: 'Close cart',
     emailField: 'Email address',
     previewAngle: 'Preview angle',
@@ -405,6 +408,12 @@ export const en: Dictionary = {
     hero: 'A leather cover with paper inserts and an elastic band',
     stitch: 'How a hand saddle stitch locks against itself',
     refill: 'One cover, many paper refills',
+    stitchTitle: "Two threads, one hole",
+    stitchLine1: "Each stitch locks against the next.",
+    stitchLine2: "Cut the thread in the middle and the seam holds.",
+    stitchPoint: "crossing point",
+    refillCover: "One cover",
+    refillMany: "Many refills",
   },
   meta: {
     siteDescription:

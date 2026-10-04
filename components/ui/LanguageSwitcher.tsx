@@ -4,7 +4,7 @@
 import { useState, useRef, useEffect } from 'react';
 import { useI18n } from '@/components/i18n/I18nProvider';
 import { SUPPORTED_LOCALES, LOCALE_INFOS } from '@/content/i18n';
-import FlagIcon from './FlagIcon';
+import { fill } from '@/lib/format';
 import type { SupportedLocale } from '@/types/i18n';
 
 export default function LanguageSwitcher() {
@@ -46,9 +46,8 @@ export default function LanguageSwitcher() {
         className="flex h-10 items-center gap-2 rounded-sm border border-line bg-paper px-2.5 text-xs font-medium text-ink transition-colors hover:border-ink focus-visible:outline-accent"
         aria-haspopup="listbox"
         aria-expanded={isOpen}
-        aria-label={`Current language: ${currentInfo.nativeName}. Click to switch.`}
+        aria-label={fill(dict.a11y.currentLanguage, { language: currentInfo.nativeName })}
       >
-        <FlagIcon locale={locale} className="h-3.5 w-5" />
         <span className="uppercase tracking-wider">{locale}</span>
         <svg
           viewBox="0 0 20 20"
@@ -90,7 +89,7 @@ export default function LanguageSwitcher() {
                 }`}
               >
                 <div className="flex items-center gap-2.5">
-                  <FlagIcon locale={l} className="h-3.5 w-5" />
+                  <span className="w-5 font-mono text-[10px] uppercase text-muted">{l}</span>
                   <span>{info.nativeName}</span>
                 </div>
                 {isSelected && (

@@ -393,6 +393,9 @@ export const de: Dictionary = {
   },
   a11y: {
     selectLanguage: "Sprache wählen",
+    currentLanguage: "Aktuelle Sprache: {language}. Zum Wechseln klicken.",
+    ratingOutOf: "{label}: {value} von 5",
+    loopDiameters: "Schlaufendurchmesser: dünn {slim}, breit {wide}, tatsächliche Größe",
     closeCart: "Warenkorb schließen",
     emailField: "E-Mail-Adresse",
     previewAngle: "Ansicht der Vorschau",
@@ -405,6 +408,12 @@ export const de: Dictionary = {
     hero: 'Lederhülle mit Papiereinlagen und Gummiband',
     stitch: 'Wie sich eine handgenähte Sattlernaht selbst verriegelt',
     refill: 'Eine Hülle, viele Papiereinlagen',
+    stitchTitle: "Zwei Fäden, ein Loch",
+    stitchLine1: "Jeder Stich sichert den nächsten.",
+    stitchLine2: "Durchtrenne den Faden in der Mitte, die Naht hält.",
+    stitchPoint: "Kreuzungspunkt",
+    refillCover: "Eine Hülle",
+    refillMany: "Viele Hefte",
   },
   meta: {
     siteDescription:

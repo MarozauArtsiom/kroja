@@ -4,6 +4,7 @@
 import type { PenHolderCode } from '@/types/config';
 import { penHolders } from '@/lib/data';
 import { useI18n } from '@/components/i18n/I18nProvider';
+import { fill } from '@/lib/format';
 import { INK, MUTED } from '@/lib/schematic-tokens';
 
 /**
@@ -22,15 +23,18 @@ export default function PenSizeGuide({ active }: { active: PenHolderCode }) {
         height="17mm"
         viewBox="0 0 34 17"
         role="img"
-        aria-label={`Loop diameters: slim ${slim} mm, wide ${wide} mm, actual size`}
+        aria-label={fill(dict.a11y.loopDiameters, {
+          slim: `${slim} ${dict.units.mm}`,
+          wide: `${wide} ${dict.units.mm}`,
+        })}
         className="shrink-0"
       >
         <circle cx="8" cy="7.5" r={slim / 2} fill={active === 'slim' ? INK : 'none'}
                 stroke={INK} strokeWidth="0.35" />
         <circle cx="25" cy="7.5" r={wide / 2} fill={active === 'wide' ? INK : 'none'}
                 stroke={INK} strokeWidth="0.35" />
-        <text x="8" y="16" textAnchor="middle" fontSize="2" fill={MUTED}>{slim} mm</text>
-        <text x="25" y="16" textAnchor="middle" fontSize="2" fill={MUTED}>{wide} mm</text>
+        <text x="8" y="16" textAnchor="middle" fontSize="2" fill={MUTED}>{slim} {dict.units.mm}</text>
+        <text x="25" y="16" textAnchor="middle" fontSize="2" fill={MUTED}>{wide} {dict.units.mm}</text>
       </svg>
       <p className="max-w-[28ch] text-xs leading-relaxed text-muted">
         {dict.configurator.penHolderGuideLabel}

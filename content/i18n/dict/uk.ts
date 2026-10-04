@@ -411,6 +411,9 @@ export const uk: Dictionary = {
   },
   a11y: {
     selectLanguage: "Оберіть мову",
+    currentLanguage: "Поточна мова: {language}. Натисніть, щоб змінити.",
+    ratingOutOf: "{label}: {value} з 5",
+    loopDiameters: "Діаметри петлі: тонка {slim}, товста {wide}, реальний розмір",
     closeCart: "Закрити кошик",
     emailField: "Адреса електронної пошти",
     previewAngle: "Ракурс перегляду",
@@ -423,6 +426,12 @@ export const uk: Dictionary = {
     hero: 'Шкіряна обкладинка з паперовими вкладками та гумкою',
     stitch: 'Як ручний сідельний шов фіксується сам у собі',
     refill: 'Одна обкладинка, багато паперових вкладок',
+    stitchTitle: "Дві нитки, один отвір",
+    stitchLine1: "Кожен стібок замикається на наступному.",
+    stitchLine2: "Переріж нитку посередині — шов тримається.",
+    stitchPoint: "точка перетину",
+    refillCover: "Одна обкладинка",
+    refillMany: "Багато зошитів",
   },
   meta: {
     siteDescription:

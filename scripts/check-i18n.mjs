@@ -139,11 +139,41 @@ for (const file of files) {
       }
     }
 
+    // 1b. readable attributes written as expressions: aria-label={`Close ${name}`} or label={'Close'}.
+    //     The plain-text parts of a template are checked; ${…} holes are skipped.
+    for (const attr of TEXT_ATTRS) {
+      // \x60 is a backtick: written as an escape so it can sit inside this string.
+      const re = new RegExp(
+        '(?<![\\w-])' + attr + '=\\{(["\'\\x60])((?:\\\\.|(?!\\1)[^\\\\])*)\\1\\}',
+        'g',
+      );
+      let m;
+      while ((m = re.exec(line))) {
+        for (const part of m[2].split(/\$\{[^}]*\}/)) report(part, attr);
+      }
+    }
+
     // 2. JSX text nodes: >Some words<. Only .tsx can hold JSX; in .ts an arrow `=>`
     //    followed by a `<` comparison would otherwise look like a text node.
     const textNode = file.endsWith('.tsx') ? line.match(/>\s*([^<>{}\n][^<>{}]*?)\s*</g) : null;
     if (textNode) {
       for (const t of textNode) report(t.slice(1, -1), 'jsx-text');
+    }
+
+    // 2b. words next to an expression: <text>{slim} mm</text>, <span>Price: {total}</span>.
+    //     Anchored on a closing tag so arrow functions like `=> f({…})` are not mistaken for text.
+    //     Units like "mm" are too short for looksHuman(), so they are reported directly.
+    if (file.endsWith('.tsx')) {
+      const mixed = [
+        ...line.matchAll(/\}\s*([A-Za-z\u0400-\u04FF][^<>{}]*?)\s*<\//g),
+        ...line.matchAll(/>\s*([A-Za-z\u0400-\u04FF][^<>{}=()]*?)\s*\{[^}]*\}[^<]*<\//g),
+      ];
+      for (const m of mixed) {
+        const text = m[1].trim();
+        if (text.length >= 2 && !allowStrings.has(text)) {
+          hardcoded.push({ file, line: idx + 1, kind: 'jsx-text', text });
+        }
+      }
     }
 
     // 3. quoted strings and template literals in data and logic files

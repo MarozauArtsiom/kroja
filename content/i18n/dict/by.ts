@@ -411,6 +411,9 @@ export const by: Dictionary = {
   },
   a11y: {
     selectLanguage: "Выберыце мову",
+    currentLanguage: "Бягучая мова: {language}. Націсніце, каб змяніць.",
+    ratingOutOf: "{label}: {value} з 5",
+    loopDiameters: "Дыяметры пятлі: тонкая {slim}, тоўстая {wide}, рэальны памер",
     closeCart: "Закрыць кошык",
     emailField: "Адрас электроннай пошты",
     previewAngle: "Ракурс перадпрагляду",
@@ -423,6 +426,12 @@ export const by: Dictionary = {
     hero: 'Скураная вокладка з папяровымі ўкладкамі і гумкай',
     stitch: 'Як ручны сядзельны шво замыкаецца сам на сябе',
     refill: 'Адна вокладка, шмат папяровых укладак',
+    stitchTitle: "Дзве ніткі, адна адтуліна",
+    stitchLine1: "Кожны шывок замыкаецца на наступным.",
+    stitchLine2: "Перарэж нітку пасярэдзіне — шво трымаецца.",
+    stitchPoint: "кропка перасячэння",
+    refillCover: "Адна вокладка",
+    refillMany: "Шмат сшыткаў",
   },
   meta: {
     siteDescription:

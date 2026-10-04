@@ -8,15 +8,16 @@ import { leatherList, leathers } from '@/lib/data';
 import { useI18n } from '@/components/i18n/I18nProvider';
 import { DEFAULT_CONFIG } from '@/lib/config-schema';
 import SchematicCover from '@/components/schematic/SchematicCover';
-import { formatThickness } from '@/lib/format';
+import { fill, formatThickness } from '@/lib/format';
 import Accordion from '@/components/ui/Accordion';
 import clsx from 'clsx';
 
 function Scale({ value, label }: { value: number; label: string }) {
+  const { dict } = useI18n();
   return (
     <div className="flex items-center justify-between gap-4 py-1.5">
       <span className="text-sm text-ink-soft">{label}</span>
-      <span className="flex gap-1" aria-label={`${label}: ${value} out of 5`}>
+      <span className="flex gap-1" aria-label={fill(dict.a11y.ratingOutOf, { label, value })}>
         {[1, 2, 3, 4, 5].map((n) => (
           <span
             key={n}
