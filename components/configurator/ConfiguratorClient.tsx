@@ -50,7 +50,7 @@ function Inner() {
           </div>
         )}
 
-        <div className="grid gap-8 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] lg:gap-12">
+        <div className="grid grid-cols-[minmax(0,1fr)] gap-8 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] lg:gap-12">
           {/* Left: preview, sticky on desktop */}
           <div className="lg:sticky lg:top-24 lg:self-start">
             <Preview config={config} />

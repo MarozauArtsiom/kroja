@@ -44,7 +44,7 @@ export default function StickyBar({ priced }: { priced: PricedConfiguration }) {
     <>
       <div className="fixed inset-x-0 bottom-0 z-30 border-t border-line bg-paper/95 backdrop-blur">
         <div className="container-content flex h-[72px] items-center justify-between gap-4 pb-[env(safe-area-inset-bottom)]">
-          <div>
+          <div className="min-w-0">
             <p
               className={clsx(
                 'text-lg font-medium transition-colors duration-300',
@@ -60,7 +60,7 @@ export default function StickyBar({ priced }: { priced: PricedConfiguration }) {
             </p>
           </div>
 
-          <Button size="lg" onClick={handleAdd}>
+          <Button size="lg" onClick={handleAdd} className="shrink-0 !px-5 sm:!px-8">
             {dict.configurator.addToCart}
           </Button>
         </div>

@@ -45,7 +45,7 @@ export default function Preview({ config }: { config: Configuration }) {
       </div>
 
       {/* Angle tabs */}
-      <div className="flex gap-2" role="tablist" aria-label={dict.a11y.previewAngle}>
+      <div className="flex gap-1 overflow-x-auto" role="tablist" aria-label={dict.a11y.previewAngle}>
         {schematicAngleList.map((a) => (
           <button
             key={a.angle}
@@ -54,7 +54,7 @@ export default function Preview({ config }: { config: Configuration }) {
             aria-selected={angle === a.angle}
             onClick={() => setAngle(a.angle)}
             className={clsx(
-              'flex-1 rounded-sm border px-3 py-2 text-xs transition-colors duration-150',
+              'h-11 min-w-max flex-1 whitespace-nowrap rounded-sm border px-2 text-xs transition-colors duration-150',
               angle === a.angle
                 ? 'border-ink bg-paper-2 text-ink'
                 : 'border-line text-muted hover:border-ink-soft',
