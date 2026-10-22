@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { ToastProvider } from '@/components/ui/Toast';
 import { useI18n } from '@/components/i18n/I18nProvider';
 import { useConfigurator } from './useConfigurator';
+import { usePreviewAngle } from './usePreviewAngle';
 import Preview from './Preview';
 import SizeSelector from './SizeSelector';
 import LeatherSelector from './LeatherSelector';
@@ -24,6 +25,7 @@ function Inner() {
   const searchParams = useSearchParams();
   const { dict, getLocalizedPath } = useI18n();
   const { config, priced, warnings, update } = useConfigurator();
+  const { angle, setAngle } = usePreviewAngle(config);
 
   useEffect(() => {
     saveConfig(config);
@@ -53,7 +55,7 @@ function Inner() {
         <div className="grid grid-cols-[minmax(0,1fr)] gap-8 lg:grid-cols-[minmax(0,3fr)_minmax(0,2fr)] lg:gap-12">
           {/* Left: preview, sticky on desktop */}
           <div className="lg:sticky lg:top-24 lg:self-start">
-            <Preview config={config} />
+            <Preview config={config} angle={angle} onAngleChange={setAngle} />
           </div>
 
           {/* Right: options, from "what object" to "what is written on it" */}

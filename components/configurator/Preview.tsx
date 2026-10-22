@@ -1,7 +1,6 @@
 // components/configurator/Preview.tsx
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
 import clsx from 'clsx';
 import type { Configuration, Angle } from '@/types/config';
 import { schematicAngleList } from '@/lib/data';
@@ -9,29 +8,17 @@ import { useI18n } from '@/components/i18n/I18nProvider';
 import { getPreview } from '@/lib/assets';
 import SchematicCover from '@/components/schematic/SchematicCover';
 import SizeDiagram from '@/components/schematic/SizeDiagram';
-import { serialisePockets } from '@/lib/pockets';
 
-/** Everything that is only visible on the open spread. A change here switches the view to it. */
-function insideKey(config: Configuration): string {
-  const inserts = config.inserts.reduce((sum, i) => sum + i.qty, 0);
-  return `${serialisePockets(config.pockets)}#${config.penHolder}#${inserts}`;
+interface Props {
+  config: Configuration;
+  angle: Angle;
+  onAngleChange: (angle: Angle) => void;
 }
 
-export default function Preview({ config }: { config: Configuration }) {
+/** The angle lives in usePreviewAngle: the mobile preview and the option sections share it. */
+export default function Preview({ config, angle, onAngleChange }: Props) {
   const { dict } = useI18n();
-  const [angle, setAngle] = useState<Angle>('front');
   const source = getPreview(config, angle);
-
-  // Pockets, the pen loop and the inserts live inside the cover. Without this the user
-  // presses "+" on the Front tab and nothing on the drawing changes.
-  const inside = insideKey(config);
-  const lastInside = useRef(inside);
-  useEffect(() => {
-    if (lastInside.current !== inside) {
-      lastInside.current = inside;
-      setAngle('open');
-    }
-  }, [inside]);
 
   return (
     <div className="flex flex-col gap-4">
@@ -52,7 +39,7 @@ export default function Preview({ config }: { config: Configuration }) {
             type="button"
             role="tab"
             aria-selected={angle === a.angle}
-            onClick={() => setAngle(a.angle)}
+            onClick={() => onAngleChange(a.angle)}
             className={clsx(
               'h-11 min-w-max flex-1 whitespace-nowrap rounded-sm border px-2 text-xs transition-colors duration-150',
               angle === a.angle
