@@ -6,7 +6,7 @@ import clsx from 'clsx';
 import type { Configuration, Angle } from '@/types/config';
 import { schematicAngleList } from '@/lib/data';
 import { useI18n } from '@/components/i18n/I18nProvider';
-import { getPreview, SHOW_SCHEMATIC_NOTES } from '@/lib/assets';
+import { getPreview } from '@/lib/assets';
 import SchematicCover from '@/components/schematic/SchematicCover';
 import SizeDiagram from '@/components/schematic/SizeDiagram';
 import { serialisePockets } from '@/lib/pockets';
@@ -64,10 +64,6 @@ export default function Preview({ config }: { config: Configuration }) {
           </button>
         ))}
       </div>
-
-      {SHOW_SCHEMATIC_NOTES && (
-        <p className="text-xs leading-relaxed text-muted">{dict.leather.schematicNote}</p>
-      )}
 
       <div className="rounded-sm border border-line p-4">
         <SizeDiagram
