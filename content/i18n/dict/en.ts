@@ -268,6 +268,15 @@ export const en: Dictionary = {
     groupDetailsHint: "Already set up for you — open a line to change it.",
     pocketsSummary: "Front: {front} · Back: {back}",
     insertsSummary: "{qty} × {name}",
+    pocketsCustom: "Custom layout",
+    pocketsCustomMeta: "Set up below",
+    pocketsCustomize: "Set up by hand",
+    pocketsCustomizeHide: "Hide manual setup",
+    pocketsBlocked: {
+      max: "No more than four",
+      corner: "Only on an empty flap",
+      budget: "Not enough room",
+    },
     restorePrompt: 'You have a saved configuration from a previous visit.',
     restoreAction: 'Restore',
     notifyTitle: 'Out of stock in this colour',
@@ -303,6 +312,12 @@ export const en: Dictionary = {
       corner: { title: "Corner", meta: "Holds a sheet by its corner. Bottom only" },
     },
     flaps: { front: "Front flap", back: "Back flap" },
+    pocketPresets: {
+      none: { title: "No pockets", meta: "Clean leather inside" },
+      classic: { title: "For documents", meta: "One deep pocket: passport, folded A4" },
+      cards: { title: "For cards", meta: "Three card pockets in front" },
+      travel: { title: "Documents and cards", meta: "Deep and card in front, medium at the back" },
+    },
     embossingFonts: {
       serif: 'Serif',
       sans: 'Sans',

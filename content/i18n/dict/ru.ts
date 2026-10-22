@@ -269,6 +269,15 @@ export const ru: Dictionary = {
     groupDetailsHint: "Уже настроено за вас — откройте строку, чтобы изменить.",
     pocketsSummary: "Спереди: {front} · Сзади: {back}",
     insertsSummary: "{qty} × {name}",
+    pocketsCustom: "Своя раскладка",
+    pocketsCustomMeta: "Настроена ниже",
+    pocketsCustomize: "Настроить вручную",
+    pocketsCustomizeHide: "Скрыть ручную настройку",
+    pocketsBlocked: {
+      max: "Не больше четырёх",
+      corner: "Только на пустую створку",
+      budget: "Не хватает места",
+    },
     restorePrompt: 'У вас есть сохранённая конфигурация с прошлого визита.',
     restoreAction: 'Восстановить',
     notifyTitle: 'Нет в наличии в этом цвете',
@@ -304,6 +313,12 @@ export const ru: Dictionary = {
       corner: { title: 'Уголок', meta: 'Держит лист за угол. Только внизу' },
     },
     flaps: { front: 'Передняя створка', back: 'Задняя створка' },
+    pocketPresets: {
+      none: { title: "Без карманов", meta: "Чистая кожа внутри" },
+      classic: { title: "Для документов", meta: "Один глубокий: паспорт, сложенный A4" },
+      cards: { title: "Для карт", meta: "Три кармана для карт спереди" },
+      travel: { title: "Документы и карты", meta: "Глубокий и для карт спереди, средний сзади" },
+    },
     embossingFonts: {
       serif: 'С засечками',
       sans: 'Без засечек',

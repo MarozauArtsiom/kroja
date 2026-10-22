@@ -5,6 +5,7 @@ import type { Dictionary } from '@/types/i18n';
 import { PEN_HOLDER_MINOR } from '@/lib/data';
 import { calculatePrice } from '@/lib/pricing';
 import { fill, formatDelta } from '@/lib/format';
+import { matchPocketPreset } from '@/lib/pockets';
 
 export type DetailId = 'thread' | 'penHolder' | 'pockets' | 'inserts';
 
@@ -21,6 +22,7 @@ export function detailSummaries(
   dict: Dictionary,
 ): Record<DetailId, SectionSummary> {
   const price = calculatePrice(config);
+  const preset = matchPocketPreset(config.pockets);
 
   return {
     thread: {
@@ -34,10 +36,12 @@ export function detailSummaries(
       deltaActive: price.penHolderMinor > 0,
     },
     pockets: {
-      summary: fill(dict.configurator.pocketsSummary, {
-        front: config.pockets.front.length,
-        back: config.pockets.back.length,
-      }),
+      summary: preset
+        ? dict.options.pocketPresets[preset].title
+        : fill(dict.configurator.pocketsSummary, {
+            front: config.pockets.front.length,
+            back: config.pockets.back.length,
+          }),
       delta: dict.configurator.pocketsIncluded,
       deltaActive: false,
     },

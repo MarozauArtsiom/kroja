@@ -285,6 +285,15 @@ export const by: Dictionary = {
     groupDetailsHint: "Ужо наладжана за вас — адкрыйце радок, каб змяніць.",
     pocketsSummary: "Спераду: {front} · Ззаду: {back}",
     insertsSummary: "{qty} × {name}",
+    pocketsCustom: "Свая раскладка",
+    pocketsCustomMeta: "Наладжана ніжэй",
+    pocketsCustomize: "Наладзіць уручную",
+    pocketsCustomizeHide: "Схаваць ручную наладу",
+    pocketsBlocked: {
+      max: "Не больш за чатыры",
+      corner: "Толькі на пустую створку",
+      budget: "Не хапае месца",
+    },
     restorePrompt: "Знойдзена захаваная канфігурацыя з папярэдняга наведвання.",
     restoreAction: "Аднавіць",
     notifyTitle: "Няма ў наяўнасці ў гэтым колеры",
@@ -320,6 +329,12 @@ export const by: Dictionary = {
       corner: { title: "Куток", meta: "Трымае аркуш за вугал. Толькі ўнізе" },
     },
     flaps: { front: "Пярэдняя створка", back: "Задняя створка" },
+    pocketPresets: {
+      none: { title: "Без кішэняў", meta: "Чыстая скура ўнутры" },
+      classic: { title: "Для дакументаў", meta: "Адна глыбокая: пашпарт, складзены A4" },
+      cards: { title: "Для картак", meta: "Тры кішэні для картак спераду" },
+      travel: { title: "Дакументы і карткі", meta: "Глыбокая і для картак спераду, сярэдняя ззаду" },
+    },
     embossingFonts: {
       serif: "З засечкамі",
       sans: "Без засечак",

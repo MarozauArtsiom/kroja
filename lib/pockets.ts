@@ -1,7 +1,15 @@
 // lib/pockets.ts
 // Pure rules for the pocket layout: height budget, validity, URL format.
 // No React, no locale — the configurator, the resolver and the drawing all read from here.
-import type { Flap, Pocket, PocketKind, PocketLayout, SizeCode } from '@/types/config';
+import type {
+  AddPocketBlocker,
+  Flap,
+  Pocket,
+  PocketKind,
+  PocketLayout,
+  PocketPresetCode,
+  SizeCode,
+} from '@/types/config';
 import { sizes } from '@/content/sizes';
 import {
   pockets as pocketDefs,
@@ -9,6 +17,7 @@ import {
   MAX_POCKETS_PER_FLAP,
   FLAP_MARGIN_MM,
 } from '@/content/pockets';
+import { pocketPresetList } from '@/content/pocket-presets';
 
 export const FLAPS: Flap[] = ['front', 'back'];
 
@@ -39,12 +48,22 @@ export function pocketSpans(stack: Pocket[]): Array<{ bottomMm: number; topMm: n
   return spans;
 }
 
+/** Why a pocket of this kind cannot go on top of the stack, or null if it can. */
+export function addPocketBlocker(
+  stack: Pocket[],
+  kind: PocketKind,
+  size: SizeCode,
+): AddPocketBlocker | null {
+  if (stack.length >= MAX_POCKETS_PER_FLAP) return 'max';
+  // A corner holds a sheet by its corner: only at the very bottom, so only on an empty flap.
+  if (kind === 'corner' && stack.length > 0) return 'corner';
+  if (stackHeightMm([...stack, { kind, divided: false }]) > pocketBudgetMm(size)) return 'budget';
+  return null;
+}
+
 /** Can a pocket of this kind be added on top of the stack? */
 export function canAddPocket(stack: Pocket[], kind: PocketKind, size: SizeCode): boolean {
-  if (stack.length >= MAX_POCKETS_PER_FLAP) return false;
-  // A corner holds a sheet by its corner: only at the very bottom, so only on an empty flap.
-  if (kind === 'corner' && stack.length > 0) return false;
-  return stackHeightMm([...stack, { kind, divided: false }]) <= pocketBudgetMm(size);
+  return addPocketBlocker(stack, kind, size) === null;
 }
 
 /** Can the pocket at `index` swap places with its neighbour in `direction`? */
@@ -111,4 +130,10 @@ export function parsePockets(raw: string | null): PocketLayout | undefined {
   if (raw === null) return undefined;
   const [front = '', back = ''] = raw.split('|');
   return { front: parseStack(front), back: parseStack(back) };
+}
+
+/** The ready-made layout this one equals, or null for a custom layout. */
+export function matchPocketPreset(layout: PocketLayout): PocketPresetCode | null {
+  const key = serialisePockets(layout);
+  return pocketPresetList.find((p) => serialisePockets(p.layout) === key)?.code ?? null;
 }

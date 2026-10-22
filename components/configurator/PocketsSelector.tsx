@@ -1,15 +1,18 @@
 // components/configurator/PocketsSelector.tsx
 'use client';
 
+import { useEffect, useState } from 'react';
 import clsx from 'clsx';
-import type { Configuration, Flap, Pocket, PocketKind } from '@/types/config';
-import { pockets as pocketDefs, pocketList } from '@/lib/data';
+import type { Configuration, Flap, Pocket, PocketKind, PocketPresetCode } from '@/types/config';
+import { pockets as pocketDefs, pocketList, pocketPresets, pocketPresetList } from '@/lib/data';
 import { useI18n } from '@/components/i18n/I18nProvider';
 import { fill } from '@/lib/format';
+import OptionCardGroup from '@/components/ui/OptionCardGroup';
 import {
   FLAPS,
-  canAddPocket,
+  addPocketBlocker,
   canMovePocket,
+  matchPocketPreset,
   pocketBudgetMm,
   stackHeightMm,
 } from '@/lib/pockets';
@@ -36,7 +39,6 @@ function FlapEditor({
   const stack = config.pockets[flap];
   const used = stackHeightMm(stack);
   const budget = pocketBudgetMm(config.size);
-  const mm = dict.units.mm;
 
   function move(index: number, direction: 'up' | 'down') {
     const target = direction === 'up' ? index + 1 : index - 1;
@@ -86,12 +88,7 @@ function FlapEditor({
               const copy = dict.options.pockets[pocket.kind];
               return (
                 <li key={`${index}-${pocket.kind}`} className="rounded-sm bg-paper-2 p-3">
-                  <div className="flex items-baseline justify-between gap-3">
-                    <p className="text-sm text-ink">{copy.title}</p>
-                    <span className="shrink-0 font-mono text-[11px] text-muted">
-                      {def.heightMm} {mm}
-                    </span>
-                  </div>
+                  <p className="text-sm text-ink">{copy.title}</p>
                   <p className="text-xs text-muted">{copy.meta}</p>
 
                   <div className="mt-2 flex flex-wrap items-center justify-between gap-2">
@@ -149,22 +146,24 @@ function FlapEditor({
       <p className="label mb-2">{dict.configurator.pocketsAdd}</p>
       <div className="grid grid-cols-2 gap-2">
         {pocketList.map((def) => {
-          const allowed = canAddPocket(stack, def.code, config.size);
+          const blocker = addPocketBlocker(stack, def.code, config.size);
           return (
             <button
               key={def.code}
               type="button"
-              disabled={!allowed}
+              disabled={blocker !== null}
               onClick={() => add(def.code)}
               className={clsx(
-                'flex min-h-[44px] flex-col items-start rounded-sm border px-3 py-2 text-left transition-colors',
-                'border-line hover:border-ink disabled:cursor-not-allowed disabled:opacity-35 disabled:hover:border-line',
+                'group flex min-h-[44px] flex-col items-start rounded-sm border px-3 py-2 text-left transition-colors',
+                'border-line hover:border-ink disabled:cursor-not-allowed disabled:hover:border-line',
               )}
             >
-              <span className="text-sm leading-snug text-ink">+ {dict.options.pockets[def.code].title}</span>
-              <span className="font-mono text-[11px] text-muted">
-                {def.heightMm} {mm}
+              <span className="text-sm leading-snug text-ink group-disabled:text-muted">
+                + {dict.options.pockets[def.code].title}
               </span>
+              {blocker && (
+                <span className="text-[11px] text-ink-soft">{dict.configurator.pocketsBlocked[blocker]}</span>
+              )}
             </button>
           );
         })}
@@ -175,21 +174,55 @@ function FlapEditor({
 
 export default function PocketsSelector({ config, onChange }: Props) {
   const { dict } = useI18n();
+  const matched = matchPocketPreset(config.pockets);
+  const [manual, setManual] = useState(matched === null);
+  // A layout edited by hand that no longer matches a preset keeps the editor open.
+  useEffect(() => {
+    if (matched === null) setManual(true);
+  }, [matched]);
+
+  const presetItems = pocketPresetList.map((p) => ({
+    value: p.code,
+    title: dict.options.pocketPresets[p.code].title,
+    meta: dict.options.pocketPresets[p.code].meta,
+  }));
+  const items = matched
+    ? presetItems
+    : [...presetItems, { value: 'custom', title: dict.configurator.pocketsCustom, meta: dict.configurator.pocketsCustomMeta }];
 
   return (
     <div>
-      <p className="mb-4 text-xs leading-relaxed text-muted">{dict.configurator.pocketsHint}</p>
+      <OptionCardGroup
+        label={dict.configurator.steps.pockets}
+        columns="grid-cols-1 sm:grid-cols-2"
+        value={matched ?? 'custom'}
+        onChange={(v) => {
+          if (v !== 'custom') onChange({ pockets: pocketPresets[v as PocketPresetCode].layout });
+        }}
+        items={items}
+      />
+      <button
+        type="button"
+        aria-expanded={manual}
+        onClick={() => setManual((m) => !m)}
+        className="mt-3 min-h-11 text-sm text-ink-soft underline underline-offset-4 hover:text-ink"
+      >
+        {manual ? dict.configurator.pocketsCustomizeHide : dict.configurator.pocketsCustomize}
+      </button>
 
-      <div className="space-y-4">
-        {FLAPS.map((flap) => (
-          <FlapEditor
-            key={flap}
-            flap={flap}
-            config={config}
-            onStackChange={(stack) => onChange({ pockets: { ...config.pockets, [flap]: stack } })}
-          />
-        ))}
-      </div>
+      {manual && (
+        <div className="mt-4 space-y-4">
+          <p className="text-xs leading-relaxed text-muted">{dict.configurator.pocketsHint}</p>
+          {FLAPS.map((flap) => (
+            <FlapEditor
+              key={flap}
+              flap={flap}
+              config={config}
+              onStackChange={(stack) => onChange({ pockets: { ...config.pockets, [flap]: stack } })}
+            />
+          ))}
+        </div>
+      )}
     </div>
   );
 }

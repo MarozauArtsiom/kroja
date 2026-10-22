@@ -285,6 +285,15 @@ export const uk: Dictionary = {
     groupDetailsHint: "Вже налаштовано за вас — відкрийте рядок, щоб змінити.",
     pocketsSummary: "Спереду: {front} · Ззаду: {back}",
     insertsSummary: "{qty} × {name}",
+    pocketsCustom: "Власне розміщення",
+    pocketsCustomMeta: "Налаштовано нижче",
+    pocketsCustomize: "Налаштувати вручну",
+    pocketsCustomizeHide: "Сховати ручне налаштування",
+    pocketsBlocked: {
+      max: "Не більше чотирьох",
+      corner: "Лише на порожню стулку",
+      budget: "Не вистачає місця",
+    },
     restorePrompt: "Знайдено збережену конфігурацію з попереднього візиту.",
     restoreAction: "Відновити",
     notifyTitle: "Немає в наявності у цьому кольорі",
@@ -320,6 +329,12 @@ export const uk: Dictionary = {
       corner: { title: "Куточок", meta: "Тримає аркуш за кут. Лише внизу" },
     },
     flaps: { front: "Передня стулка", back: "Задня стулка" },
+    pocketPresets: {
+      none: { title: "Без кишень", meta: "Чиста шкіра всередині" },
+      classic: { title: "Для документів", meta: "Одна глибока: паспорт, складений A4" },
+      cards: { title: "Для карток", meta: "Три кишені для карток спереду" },
+      travel: { title: "Документи й картки", meta: "Глибока й для карток спереду, середня ззаду" },
+    },
     embossingFonts: {
       serif: "Із зарубками",
       sans: "Без зарубок",

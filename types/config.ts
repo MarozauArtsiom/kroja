@@ -39,6 +39,12 @@ export interface PocketLayout {
   back: Pocket[];
 }
 
+/** A ready-made pocket layout. Never stored: it is computed from the layout itself. */
+export type PocketPresetCode = 'none' | 'classic' | 'cards' | 'travel';
+
+/** Why a pocket cannot be added on top of a stack. */
+export type AddPocketBlocker = 'max' | 'corner' | 'budget';
+
 export type EmbossingFont = 'serif' | 'sans';
 
 export type EmbossingPosition = 'bottom-right' | 'spine';

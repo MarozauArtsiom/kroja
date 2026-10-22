@@ -268,6 +268,15 @@ export const de: Dictionary = {
     groupDetailsHint: "Bereits für Sie eingestellt — öffnen Sie eine Zeile, um sie zu ändern.",
     pocketsSummary: "Vorne: {front} · Hinten: {back}",
     insertsSummary: "{qty} × {name}",
+    pocketsCustom: "Eigene Aufteilung",
+    pocketsCustomMeta: "Unten eingestellt",
+    pocketsCustomize: "Selbst einstellen",
+    pocketsCustomizeHide: "Manuelle Einstellung ausblenden",
+    pocketsBlocked: {
+      max: "Höchstens vier",
+      corner: "Nur auf eine leere Innenseite",
+      budget: "Nicht genug Platz",
+    },
     restorePrompt: "Sie haben eine gespeicherte Konfiguration aus einem früheren Besuch.",
     restoreAction: "Wiederherstellen",
     notifyTitle: "In dieser Farbe vergriffen",
@@ -303,6 +312,12 @@ export const de: Dictionary = {
       corner: { title: "Eckfach", meta: "Hält ein Blatt an der Ecke. Nur ganz unten" },
     },
     flaps: { front: "Vordere Innenseite", back: "Hintere Innenseite" },
+    pocketPresets: {
+      none: { title: "Ohne Taschen", meta: "Innen reines Leder" },
+      classic: { title: "Für Dokumente", meta: "Eine tiefe Tasche: Reisepass, gefaltetes A4" },
+      cards: { title: "Für Karten", meta: "Drei Kartenfächer vorne" },
+      travel: { title: "Dokumente und Karten", meta: "Tief und Karten vorne, mittel hinten" },
+    },
     embossingFonts: {
       serif: "Serif",
       sans: "Sans",

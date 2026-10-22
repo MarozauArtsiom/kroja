@@ -268,6 +268,15 @@ export const pl: Dictionary = {
     groupDetailsHint: "Już ustawione za Ciebie — otwórz wiersz, aby zmienić.",
     pocketsSummary: "Przód: {front} · Tył: {back}",
     insertsSummary: "{qty} × {name}",
+    pocketsCustom: "Własny układ",
+    pocketsCustomMeta: "Ustawiony poniżej",
+    pocketsCustomize: "Ustaw ręcznie",
+    pocketsCustomizeHide: "Ukryj ręczne ustawienia",
+    pocketsBlocked: {
+      max: "Nie więcej niż cztery",
+      corner: "Tylko na pustą stronę",
+      budget: "Za mało miejsca",
+    },
     restorePrompt: "Masz zapisaną konfigurację z poprzedniej wizyty.",
     restoreAction: "Przywróć",
     notifyTitle: "Brak koloru w magazynie",
@@ -303,6 +312,12 @@ export const pl: Dictionary = {
       corner: { title: "Narożnik", meta: "Trzyma kartkę za róg. Tylko na dole" },
     },
     flaps: { front: "Przednia strona", back: "Tylna strona" },
+    pocketPresets: {
+      none: { title: "Bez kieszeni", meta: "Czysta skóra w środku" },
+      classic: { title: "Na dokumenty", meta: "Jedna głęboka: paszport, złożona kartka A4" },
+      cards: { title: "Na karty", meta: "Trzy kieszenie na karty z przodu" },
+      travel: { title: "Dokumenty i karty", meta: "Głęboka i na karty z przodu, średnia z tyłu" },
+    },
     embossingFonts: {
       serif: "Szeryfowy",
       sans: "Bezszeryfowy",

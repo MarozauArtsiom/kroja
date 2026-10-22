@@ -9,7 +9,9 @@ import type {
   InsertType,
   LeatherCode,
   PenHolderCode,
+  AddPocketBlocker,
   PocketKind,
+  PocketPresetCode,
   SizeCode,
   ThreadCode,
 } from '@/types/config';
@@ -179,6 +181,11 @@ export interface Dictionary {
     pocketsSummary: string;
     /** Uses {qty} and {name} */
     insertsSummary: string;
+    pocketsCustom: string;
+    pocketsCustomMeta: string;
+    pocketsCustomize: string;
+    pocketsCustomizeHide: string;
+    pocketsBlocked: Record<AddPocketBlocker, string>;
     restorePrompt: string;
     restoreAction: string;
     notifyTitle: string;
@@ -193,6 +200,7 @@ export interface Dictionary {
     penHolders: Record<PenHolderCode, { title: string; meta: string }>;
     pockets: Record<PocketKind, { title: string; meta: string }>;
     flaps: Record<Flap, string>;
+    pocketPresets: Record<PocketPresetCode, { title: string; meta: string }>;
     embossingFonts: Record<EmbossingFont, string>;
     embossingPositions: Record<EmbossingPosition, string>;
     readyIn: string;

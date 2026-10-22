@@ -23,6 +23,9 @@ export {
 } from '@/content/pockets';
 export type { PocketDef } from '@/content/pockets';
 
+export { pocketPresets, pocketPresetList } from '@/content/pocket-presets';
+export type { PocketPresetDef } from '@/content/pocket-presets';
+
 export { closures, closureList, DEFAULT_CLOSURE, BRASS_HEX } from '@/content/closures';
 export type { ClosureDef } from '@/content/closures';
 
