@@ -170,6 +170,9 @@ export interface Dictionary {
     conflictBanner: string;
     sizeCompareShow: string;
     sizeCompareHide: string;
+    previewTitle: string;
+    previewExpand: string;
+    previewClose: string;
     restorePrompt: string;
     restoreAction: string;
     notifyTitle: string;
