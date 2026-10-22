@@ -237,7 +237,8 @@ export const de: Dictionary = {
     embossingConfirmEdit: "Buchstaben ändern",
     embossingConfirmOk: "Ja, das stimmt so",
     penHolderHelp:
-      "Kugelschreiber, Gelschreiber oder Bleistift – schlank. Metallgehäuse, Füllfederhalter oder dicker Marker – breit. Unsicher? Dickste Stelle des Schafts messen und mit den Kreisen abgleichen.",
+      "Kugelschreiber, Gelschreiber oder Bleistift – schlank. Metallgehäuse, Füllfederhalter oder dicker Marker – breit.",
+    penHolderMeasure: "Unsicher? Dickste Stelle des Schafts messen und mit den Kreisen abgleichen.",
     penHolderGuideLabel: "Schlaufeninnendurchmesser, annähernd Originalgröße auf Desktop-Bildschirmen.",
     insertsIncluded: "Das erste Heft ist inklusive. Jedes weitere kostet {price}.",
     insertsHint: "Bis zu {max} Hefte in dieser Größe. {count} ausgewählt.",

@@ -141,6 +141,7 @@ export interface Dictionary {
     embossingConfirmEdit: string;
     embossingConfirmOk: string;
     penHolderHelp: string;
+    penHolderMeasure: string;
     penHolderGuideLabel: string;
     /** Uses {price} */
     insertsIncluded: string;

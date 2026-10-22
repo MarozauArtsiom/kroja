@@ -237,7 +237,8 @@ export const pl: Dictionary = {
     embossingConfirmEdit: "Popraw litery",
     embossingConfirmOk: "Tak, wszystko się zgadza",
     penHolderHelp:
-      "Długopis kulkowy, żelowy lub cienki ołówek — cienki. Metalowy korpus, pióro wieczne lub gruby marker — gruby. Nie masz pewności? Zmierz najgrubsze miejsce korpusu i porównaj z kółkami.",
+      "Długopis kulkowy, żelowy lub cienki ołówek — cienki. Metalowy korpus, pióro wieczne lub gruby marker — gruby.",
+    penHolderMeasure: "Nie masz pewności? Zmierz najgrubsze miejsce korpusu i porównaj z kółkami.",
     penHolderGuideLabel: "Wewnętrzna średnica pętli, w przybliżeniu rzeczywisty rozmiar na ekranie monitora.",
     insertsIncluded: "Pierwszy wkład jest w cenie. Każdy kolejny kosztuje {price}.",
     insertsHint: "Do {max} wkładów w tym rozmiarze. Wybrano: {count}.",

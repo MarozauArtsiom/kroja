@@ -237,7 +237,8 @@ export const en: Dictionary = {
     embossingConfirmEdit: 'Edit letters',
     embossingConfirmOk: 'Yes, it is correct',
     penHolderHelp:
-      'Ballpoint, gel pen or a thin pencil — slim. Metal body, fountain pen or thick marker — wide. Not sure? Measure the widest part of the barrel and compare with the circles.',
+      'Ballpoint, gel pen or a thin pencil — slim. Metal body, fountain pen or thick marker — wide.',
+    penHolderMeasure: 'Not sure? Measure the widest part of the barrel and compare with the circles.',
     penHolderGuideLabel: 'Loop inner diameter, roughly actual size on a desktop screen.',
     insertsIncluded: "The first insert is included. Each extra one is {price}.",
     insertsHint: 'Up to {max} inserts in this size. {count} selected.',

@@ -48,7 +48,11 @@ export default function PenHolderSelector({ config, onChange }: Props) {
         />
       </div>
       <p className="text-xs leading-relaxed text-ink-soft">{dict.configurator.penHolderHelp}</p>
-      <PenSizeGuide active={config.penHolder} />
+      {/* The circles are drawn to screen millimetres: only meaningful on a larger screen. */}
+      <div className="hidden space-y-2 md:block">
+        <p className="text-xs leading-relaxed text-ink-soft">{dict.configurator.penHolderMeasure}</p>
+        <PenSizeGuide active={config.penHolder} />
+      </div>
     </div>
   );
 }
