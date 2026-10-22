@@ -17,8 +17,7 @@ export default function ThreadSelector({ config, onChange }: Props) {
   const leatherHex = colors[config.color].hex;
 
   return (
-    <section>
-      <h2 className="label mb-1">{dict.configurator.steps.thread}</h2>
+    <div>
       <p className="mb-3 text-xs text-muted">
         {fill(dict.configurator.threadThickness, { mm: THREAD_THICKNESS_MM })}
       </p>
@@ -36,6 +35,6 @@ export default function ThreadSelector({ config, onChange }: Props) {
           state: 'available' as const,
         }))}
       />
-    </section>
+    </div>
   );
 }

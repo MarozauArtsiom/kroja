@@ -30,9 +30,8 @@ export default function InsertsSelector({ config, onChange }: Props) {
   }
 
   return (
-    <section className="space-y-6">
+    <div className="space-y-6">
       <div>
-        <h2 className="label mb-1">{dict.configurator.steps.inserts}</h2>
         <p className="text-xs text-muted">
           {fill(dict.configurator.insertsHint, { max: capacity, count: totalQty })}
         </p>
@@ -79,6 +78,6 @@ export default function InsertsSelector({ config, onChange }: Props) {
           className="h-5 w-5 accent-[#8B4A2B]"
         />
       </label>
-    </section>
+    </div>
   );
 }

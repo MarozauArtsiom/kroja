@@ -45,8 +45,7 @@ export default function ClosureSelector({ config, onChange }: Props) {
   const current = dict.options.closures[config.closure];
 
   return (
-    <section>
-      <h2 className="label mb-3">{dict.configurator.steps.closure}</h2>
+    <div>
       <OptionCardGroup
         label={dict.configurator.steps.closure}
         columns="grid-cols-1 sm:grid-cols-3"
@@ -68,6 +67,6 @@ export default function ClosureSelector({ config, onChange }: Props) {
       >
         {current.note}
       </p>
-    </section>
+    </div>
   );
 }

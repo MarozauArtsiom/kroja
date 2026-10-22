@@ -42,14 +42,7 @@ export default function EmbossingInput({ config, onChange }: Props) {
   }
 
   return (
-    <section>
-      <h2 className="label mb-3">
-        {dict.configurator.steps.embossing}
-        <span className="ml-2 normal-case tracking-normal text-accent">
-          {formatDelta(EMBOSSING_MINOR)}
-        </span>
-      </h2>
-
+    <div>
       <div className="flex items-center gap-4">
         <input
           type="text"
@@ -68,6 +61,7 @@ export default function EmbossingInput({ config, onChange }: Props) {
         />
         <span className="font-mono text-xs text-muted">
           {text.length} / {MAX_EMBOSSING_LENGTH}
+          <span className="font-sans text-xs text-accent"> · {formatDelta(EMBOSSING_MINOR)}</span>
         </span>
       </div>
 
@@ -117,6 +111,6 @@ export default function EmbossingInput({ config, onChange }: Props) {
           </div>
         </div>
       )}
-    </section>
+    </div>
   );
 }

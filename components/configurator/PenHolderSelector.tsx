@@ -2,7 +2,7 @@
 'use client';
 
 import type { Configuration, PenHolderCode } from '@/types/config';
-import { penHolderList, PEN_HOLDER_MINOR } from '@/lib/data';
+import { penHolderList } from '@/lib/data';
 import { useI18n } from '@/components/i18n/I18nProvider';
 import { fill, formatDelta } from '@/lib/format';
 import OptionCardGroup from '@/components/ui/OptionCardGroup';
@@ -29,14 +29,8 @@ export default function PenHolderSelector({ config, onChange }: Props) {
   const { dict } = useI18n();
 
   return (
-    <section className="space-y-4">
+    <div className="space-y-4">
       <div>
-        <h2 className="label mb-3">
-          {dict.configurator.steps.penHolder}
-          <span className="ml-2 normal-case tracking-normal text-accent">
-            {formatDelta(PEN_HOLDER_MINOR)}
-          </span>
-        </h2>
         <OptionCardGroup
           label={dict.configurator.steps.penHolder}
           columns="grid-cols-1 sm:grid-cols-3"
@@ -55,6 +49,6 @@ export default function PenHolderSelector({ config, onChange }: Props) {
       </div>
       <p className="text-xs leading-relaxed text-ink-soft">{dict.configurator.penHolderHelp}</p>
       <PenSizeGuide active={config.penHolder} />
-    </section>
+    </div>
   );
 }

@@ -63,7 +63,7 @@ function FlapEditor({
   return (
     <div className="rounded-sm border border-line p-4">
       <div className="mb-2 flex items-baseline justify-between gap-3">
-        <h3 className="text-sm font-medium text-ink">{dict.options.flaps[flap]}</h3>
+        <h4 className="text-sm font-medium text-ink">{dict.options.flaps[flap]}</h4>
         <span className="font-mono text-[11px] text-muted">
           {fill(dict.configurator.pocketsBudget, { used, budget })}
         </span>
@@ -177,13 +177,7 @@ export default function PocketsSelector({ config, onChange }: Props) {
   const { dict } = useI18n();
 
   return (
-    <section>
-      <h2 className="label mb-1">
-        {dict.configurator.steps.pockets}
-        <span className="ml-2 normal-case tracking-normal text-accent">
-          {dict.configurator.pocketsIncluded}
-        </span>
-      </h2>
+    <div>
       <p className="mb-4 text-xs leading-relaxed text-muted">{dict.configurator.pocketsHint}</p>
 
       <div className="space-y-4">
@@ -196,6 +190,6 @@ export default function PocketsSelector({ config, onChange }: Props) {
           />
         ))}
       </div>
-    </section>
+    </div>
   );
 }

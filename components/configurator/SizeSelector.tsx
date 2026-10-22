@@ -20,8 +20,7 @@ export default function SizeSelector({ config, onChange }: Props) {
   const panelId = useId();
 
   return (
-    <section>
-      <h2 className="label mb-3">{dict.configurator.steps.size}</h2>
+    <div>
       <OptionCardGroup
         label={dict.a11y.sizeGroup}
         columns="grid-cols-2"
@@ -57,6 +56,6 @@ export default function SizeSelector({ config, onChange }: Props) {
           />
         </div>
       </div>
-    </section>
+    </div>
   );
 }

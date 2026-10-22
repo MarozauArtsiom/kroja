@@ -56,8 +56,7 @@ export default function ColorSelector({ config, onChange }: Props) {
   }
 
   return (
-    <section>
-      <h2 className="label mb-3">{dict.configurator.steps.color}</h2>
+    <div>
       <SwatchGroup label={dict.a11y.colorGroup} items={items} value={config.color} onChange={handleChange} />
       {notifyColor && (
         <NotifyStockForm
@@ -66,6 +65,6 @@ export default function ColorSelector({ config, onChange }: Props) {
           onClose={() => setNotifyColor(null)}
         />
       )}
-    </section>
+    </div>
   );
 }

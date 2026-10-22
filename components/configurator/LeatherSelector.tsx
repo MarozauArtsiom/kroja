@@ -36,8 +36,7 @@ export default function LeatherSelector({ config, onChange }: Props) {
   const { dict } = useI18n();
 
   return (
-    <section>
-      <h2 className="label mb-3">{dict.configurator.steps.leather}</h2>
+    <div>
       <OptionCardGroup
         label={dict.a11y.leatherGroup}
         columns="grid-cols-1 sm:grid-cols-3"
@@ -58,6 +57,6 @@ export default function LeatherSelector({ config, onChange }: Props) {
           };
         })}
       />
-    </section>
+    </div>
   );
 }
