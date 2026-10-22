@@ -8,7 +8,7 @@
 | 10 — Исправления по ревью | T-149 … T-162 | `TASKS-7-review-fixes.md` | ✅ завершён, все проверки пройдены 06.09.2026 |
 | 11 — Пропущенные переводы | T-170 … T-182 | `TASKS-8-i18n-gaps.md` | ✅ завершён, все проверки пройдены 06.09.2026 |
 | 13 — Языки: русский, без флагов, иллюстрации | — | `docs/04-i18n.md`, `docs/06-decisions.md` D-22…D-25 | ✅ реализован 04.10.2026 |
-| 12 — Начинка обложки и две резинки | — | `kroja-spec/18-configurator-fixes.md` | ✅ реализован 04.10.2026, коммит `802ca24` |
+| 12 — Начинка обложки и две резинки | — | `kroja-spec/18-configurator-fixes.md` | ✅ реализован 04.10.2026 |
 | 14 — Конструктор на телефоне | T-190 … T-204 | `TASKS-9-mobile-ux.md` | ⬜ запланирован 05.10.2026, проблемы — `kroja-spec/19-mobile-ux-issues.md` |
 
 ---
@@ -25,24 +25,24 @@
 
 **Стоп после T-199:** проверка на 5 людях (сценарий — в том же файле, раздел «Проверка на людях»). T-200 — только после записи итога сюда.
 
-| ID | Задача | Проблема | Статус | Агент | Дата | Коммит | Заметки |
-|---|---|---|---|---|---|---|---|
-| T-190 | Убрать горизонтальную прокрутку | U-1 | ⬜ | | | | |
-| T-191 | Убрать служебный текст с превью | U-10 | ⬜ | | | | |
-| T-192 | Зоны нажатия ≥ 44px | U-12 | ⬜ | | | | |
-| T-193 | Контраст и размер мелкого текста | U-11 | ⬜ | | | | |
-| T-194 | Схема размеров — в секцию «Размер» | U-4 | ⬜ | | | | |
-| T-195 | Шапка на странице конструктора | U-9 | ⬜ | | | | |
-| T-196 | Ракурс превью — состояние страницы | U-2 | ⬜ | | | | |
-| T-197 | Закреплённое мини-превью на телефоне | U-2 | ⬜ | | | | |
-| T-198 | Сворачиваемая секция и сводки | U-3, U-13 | ⬜ | | | | |
-| T-199 | Группы «Основное» и «Детали» | U-3, U-13 | ⬜ | | | | |
-| ⏸ | Проверка на 5 людях (заказчик) | все | ⬜ | | | | итог: … |
-| T-200 | Карманы: готовые раскладки | U-5 | ⬜ | | | | |
-| T-201 | Петля: круги только на большом экране | U-6 | ⬜ | | | | |
-| T-202 | Карточки-строки на узком экране | U-8 | ⬜ | | | | |
-| T-203 | Подарочная коробка отдельной строкой | U-7 | ⬜ | | | | |
-| T-204 | Приёмка эпика и документация | все | ⬜ | | | | |
+| ID | Задача | Проблема | Статус | Агент | Дата | Заметки |
+|---|---|---|---|---|---|---|
+| T-190 | Убрать горизонтальную прокрутку | U-1 | ⬜ | | | |
+| T-191 | Убрать служебный текст с превью | U-10 | ⬜ | | | |
+| T-192 | Зоны нажатия ≥ 44px | U-12 | ⬜ | | | |
+| T-193 | Контраст и размер мелкого текста | U-11 | ⬜ | | | |
+| T-194 | Схема размеров — в секцию «Размер» | U-4 | ⬜ | | | |
+| T-195 | Шапка на странице конструктора | U-9 | ⬜ | | | |
+| T-196 | Ракурс превью — состояние страницы | U-2 | ⬜ | | | |
+| T-197 | Закреплённое мини-превью на телефоне | U-2 | ⬜ | | | |
+| T-198 | Сворачиваемая секция и сводки | U-3, U-13 | ⬜ | | | |
+| T-199 | Группы «Основное» и «Детали» | U-3, U-13 | ⬜ | | | |
+| ⏸ | Проверка на 5 людях (заказчик) | все | ⬜ | | | итог: … |
+| T-200 | Карманы: готовые раскладки | U-5 | ⬜ | | | |
+| T-201 | Петля: круги только на большом экране | U-6 | ⬜ | | | |
+| T-202 | Карточки-строки на узком экране | U-8 | ⬜ | | | |
+| T-203 | Подарочная коробка отдельной строкой | U-7 | ⬜ | | | |
+| T-204 | Приёмка эпика и документация | все | ⬜ | | | |
 
 ### Расхождения с требованиями — эпик 14
 
@@ -89,7 +89,7 @@
 
 # Эпик 12 — Начинка обложки и две резинки
 
-Требования — `kroja-spec/18-configurator-fixes.md`. Реализован одним проходом по прямому запросу заказчика, без задачного файла. Коммит `802ca24`. Документация системы — `docs/`.
+Требования — `kroja-spec/18-configurator-fixes.md`. Реализован одним проходом по прямому запросу заказчика, без задачного файла. Документация системы — `docs/`.
 
 | Что | Где |
 |---|---|
@@ -123,21 +123,21 @@
 
 **Правила эпика:** по порядку номеров, один агент. После каждой задачи `npx tsc --noEmit && npm run build` — зелёные. Один коммит на задачу, сразу. Инструмент проверки — `npm run i18n`.
 
-| ID | Задача | Строк | Статус | Агент | Дата | Коммит | Заметки |
-|---|---|---|---|---|---|---|---|
-| T-170 | Детектор пропущенных переводов | — | ✅ | Antigravity | 2026-09-06 | `1ae0d66` | npm run i18n добавлен в package.json, стартовое состояние 3 / 105 зафиксировано |
-| T-171 | Лейблы для скринридера | 9 | ✅ | Antigravity | 2026-09-06 | `e6d51f3` | Добавлен dict.a11y в 5 словарей, переведены aria-label и Swatch made-to-order |
-| T-172 | Названия размеров | 4 | ✅ | Antigravity | 2026-09-06 | `f99d22d` | Добавлен dict.sizes.names в 5 словарей, переведены названия в селекторе, корзине, карточках и схеме |
-| T-173 | Единицы измерения | 2 | ✅ | Antigravity | 2026-09-06 | `3385fad` | Добавлен dict.units (mm, g) в 5 словарей, локализованы форматирующие функции и вызовы |
-| T-174 | Тосты и причины недоступности | 7 | ✅ | Antigravity | 2026-09-06 | `4e27105` | Добавлен dict.conflicts в 5 словарей, lib/availability возвращает ConfigChange, change-message форматирует тосты |
-| T-175 | Подписи на чертеже | 20 | ✅ | Antigravity | 2026-09-06 | `05c1794` | Добавлен dict.schematic в 5 словарей, выноски и aria-label видов и SizeDiagram локализованы |
-| T-176 | Alt-тексты иллюстраций | 3 | ✅ | Antigravity | 2026-09-06 | `9e700ac` | Добавлен dict.illustrations в 5 словарей, alt в Illustration.tsx берется из словаря |
-| T-177 | Страница 404 на языке пользователя | 3 | ✅ | Antigravity | 2026-09-06 | `f03bb0f` | Создан app/[lang]/not-found.tsx с useI18n, неиспользованных ключей стало 0 |
-| T-178 | Метаданные по локали | 3 | ✅ | Antigravity | 2026-09-06 | `b941bbc` | Добавлен dict.meta в 5 словарей, generateMetadata в app/[lang]/layout.tsx и shotlist/page.tsx |
-| T-179 | Список кадров: правила и ракурсы | 21 | ✅ | Antigravity | 2026-09-06 | `1db844e` | rules и angleMustShow вынесены в 5 словарей, shots.ts очищен, ShotMatrix/FrontView/OpenView переведены |
-| T-180 | Список кадров: сюжетные кадры | 34 | ✅ | Antigravity | 2026-09-06 | `4733fc6` | stories и shotNumber вынесены в 5 словарей, StoryShot очищен, StorySlots.tsx локализован |
-| T-181 | Экспорт списка кадров на языке страницы | — | ✅ | Antigravity | 2026-09-06 | `310b1be` | toMarkdown и toCsv принимают dict, ExportButtons передает dict, generate-shotlist.mjs использует en |
-| T-182 | Мёртвый код и приёмка эпика | — | ✅ | Antigravity | 2026-09-06 | `4854af2` | Удален неиспользуемый insertNames, getPreview alt параметризован, npm run lint дополнен npm run i18n, 0 gaps |
+| ID | Задача | Строк | Статус | Агент | Дата | Заметки |
+|---|---|---|---|---|---|---|
+| T-170 | Детектор пропущенных переводов | — | ✅ | Antigravity | 2026-09-06 | npm run i18n добавлен в package.json, стартовое состояние 3 / 105 зафиксировано |
+| T-171 | Лейблы для скринридера | 9 | ✅ | Antigravity | 2026-09-06 | Добавлен dict.a11y в 5 словарей, переведены aria-label и Swatch made-to-order |
+| T-172 | Названия размеров | 4 | ✅ | Antigravity | 2026-09-06 | Добавлен dict.sizes.names в 5 словарей, переведены названия в селекторе, корзине, карточках и схеме |
+| T-173 | Единицы измерения | 2 | ✅ | Antigravity | 2026-09-06 | Добавлен dict.units (mm, g) в 5 словарей, локализованы форматирующие функции и вызовы |
+| T-174 | Тосты и причины недоступности | 7 | ✅ | Antigravity | 2026-09-06 | Добавлен dict.conflicts в 5 словарей, lib/availability возвращает ConfigChange, change-message форматирует тосты |
+| T-175 | Подписи на чертеже | 20 | ✅ | Antigravity | 2026-09-06 | Добавлен dict.schematic в 5 словарей, выноски и aria-label видов и SizeDiagram локализованы |
+| T-176 | Alt-тексты иллюстраций | 3 | ✅ | Antigravity | 2026-09-06 | Добавлен dict.illustrations в 5 словарей, alt в Illustration.tsx берется из словаря |
+| T-177 | Страница 404 на языке пользователя | 3 | ✅ | Antigravity | 2026-09-06 | Создан app/[lang]/not-found.tsx с useI18n, неиспользованных ключей стало 0 |
+| T-178 | Метаданные по локали | 3 | ✅ | Antigravity | 2026-09-06 | Добавлен dict.meta в 5 словарей, generateMetadata в app/[lang]/layout.tsx и shotlist/page.tsx |
+| T-179 | Список кадров: правила и ракурсы | 21 | ✅ | Antigravity | 2026-09-06 | rules и angleMustShow вынесены в 5 словарей, shots.ts очищен, ShotMatrix/FrontView/OpenView переведены |
+| T-180 | Список кадров: сюжетные кадры | 34 | ✅ | Antigravity | 2026-09-06 | stories и shotNumber вынесены в 5 словарей, StoryShot очищен, StorySlots.tsx локализован |
+| T-181 | Экспорт списка кадров на языке страницы | — | ✅ | Antigravity | 2026-09-06 | toMarkdown и toCsv принимают dict, ExportButtons передает dict, generate-shotlist.mjs использует en |
+| T-182 | Мёртвый код и приёмка эпика | — | ✅ | Antigravity | 2026-09-06 | Удален неиспользуемый insertNames, getPreview alt параметризован, npm run lint дополнен npm run i18n, 0 gaps |
 
 **Все задачи эпика 11 выполнены.**
 
@@ -156,22 +156,22 @@
 
 **Правила эпика:** по порядку номеров, один агент. После **каждой** задачи `npx tsc --noEmit && npm run build` — зелёные. Один коммит на задачу, сразу. Красной зоны нет.
 
-| ID | Задача | Замечание | Статус | Агент | Дата | Коммит | Заметки |
-|---|---|---|---|---|---|---|---|
-| T-149 | Разложить эпик 9 на коммиты | R-14, R-15 | ✅ | Antigravity | 2026-09-06 | `7abd2c3` | Эпик 9 разложен на 3 коммита по волнам, расхождения записаны |
-| T-150 | Токены чертежей одним файлом | R-08 | ✅ | Antigravity | 2026-09-06 | `5f26c71` | lib/schematic-tokens.ts создан, 6 компонентов переведены на импорт |
-| T-151 | Пять импортов на фасад данных | R-12 | ✅ | Antigravity | 2026-09-06 | `fb7e6b9` | LeatherSelector, ColorSelector, SizeSelector, NotifyStockForm, SizeDiagram переведены на @/lib/data |
-| T-152 | Ракурс `back` всегда схематический | R-04 | ✅ | Antigravity | 2026-09-06 | `c0b0d9a` | getPreview возвращает schematic для angle === 'back' |
-| T-153 | Убрать фурнитуру с чертежей списка кадров | R-01 | ✅ | Antigravity | 2026-09-06 | `7b05e4e` | ShotMatrix config сброшен: closure/penHolder none, cards 0, emboss null |
-| T-154 | Подпись карманов выносится из-под обложки | R-02 | ✅ | Antigravity | 2026-09-06 | `6935a1e` | Подпись card slots перенесена вниз под обложку к выноскам |
-| T-155 | Диаметры петель одним источником | R-03 | ✅ | Antigravity | 2026-09-06 | `61bf0bd` | penHolders meta шаблонизированы ({min}/{max}), SchematicCover читает penHolders |
-| T-156 | Цена принадлежит данным во всех осях | R-09 | ✅ | Antigravity | 2026-09-06 | `25eccd0` | penHolders.priceMinor, cardSlotsPriceMinor, calculatePrice без тернарников цен |
-| T-157 | Счётчик количества одним компонентом | R-10 | ✅ | Antigravity | 2026-09-06 | `8feb9c1` | QuantityStepper вынесен в components/ui, использован в CardSlots и Inserts |
-| T-158 | Заголовки страниц не задваивают бренд | R-06 | ✅ | Antigravity | 2026-09-06 | `5080ce3` | Title очищены от дублирования бренда (absolute на главной, без постфикса на страницах) |
-| T-159 | Свотч «в тон» отличим от цвета нити | R-05 | ✅ | Antigravity | 2026-09-06 | `6932b2c` | Swatch dashed prop, ThreadSelector передает dashed для tonal |
-| T-160 | Разделить `SchematicCover` на четыре вида | R-07 | ✅ | Antigravity | 2026-09-06 | `4d35551` | SchematicCover разделен на schematic-parts + 4 вида (Front, Back, Open, Detail) |
-| T-161 | Общие названия вариантов в `dict.options` | R-11 | ✅ | Antigravity | 2026-09-06 | `fbb5ff6` | closures, penHolders, embossing, readyIn перенесены в dict.options во всех 5 словарях |
-| T-162 | Приёмка эпика | — | ✅ | Antigravity | 2026-09-06 | `53411fb` | Все проверки и тесты пройдены, 15 замечаний ревью закрыты |
+| ID | Задача | Замечание | Статус | Агент | Дата | Заметки |
+|---|---|---|---|---|---|---|
+| T-149 | Разложить эпик 9 на коммиты | R-14, R-15 | ✅ | Antigravity | 2026-09-06 | Эпик 9 разложен на 3 коммита по волнам, расхождения записаны |
+| T-150 | Токены чертежей одним файлом | R-08 | ✅ | Antigravity | 2026-09-06 | lib/schematic-tokens.ts создан, 6 компонентов переведены на импорт |
+| T-151 | Пять импортов на фасад данных | R-12 | ✅ | Antigravity | 2026-09-06 | LeatherSelector, ColorSelector, SizeSelector, NotifyStockForm, SizeDiagram переведены на @/lib/data |
+| T-152 | Ракурс `back` всегда схематический | R-04 | ✅ | Antigravity | 2026-09-06 | getPreview возвращает schematic для angle === 'back' |
+| T-153 | Убрать фурнитуру с чертежей списка кадров | R-01 | ✅ | Antigravity | 2026-09-06 | ShotMatrix config сброшен: closure/penHolder none, cards 0, emboss null |
+| T-154 | Подпись карманов выносится из-под обложки | R-02 | ✅ | Antigravity | 2026-09-06 | Подпись card slots перенесена вниз под обложку к выноскам |
+| T-155 | Диаметры петель одним источником | R-03 | ✅ | Antigravity | 2026-09-06 | penHolders meta шаблонизированы ({min}/{max}), SchematicCover читает penHolders |
+| T-156 | Цена принадлежит данным во всех осях | R-09 | ✅ | Antigravity | 2026-09-06 | penHolders.priceMinor, cardSlotsPriceMinor, calculatePrice без тернарников цен |
+| T-157 | Счётчик количества одним компонентом | R-10 | ✅ | Antigravity | 2026-09-06 | QuantityStepper вынесен в components/ui, использован в CardSlots и Inserts |
+| T-158 | Заголовки страниц не задваивают бренд | R-06 | ✅ | Antigravity | 2026-09-06 | Title очищены от дублирования бренда (absolute на главной, без постфикса на страницах) |
+| T-159 | Свотч «в тон» отличим от цвета нити | R-05 | ✅ | Antigravity | 2026-09-06 | Swatch dashed prop, ThreadSelector передает dashed для tonal |
+| T-160 | Разделить `SchematicCover` на четыре вида | R-07 | ✅ | Antigravity | 2026-09-06 | SchematicCover разделен на schematic-parts + 4 вида (Front, Back, Open, Detail) |
+| T-161 | Общие названия вариантов в `dict.options` | R-11 | ✅ | Antigravity | 2026-09-06 | closures, penHolders, embossing, readyIn перенесены в dict.options во всех 5 словарях |
+| T-162 | Приёмка эпика | — | ✅ | Antigravity | 2026-09-06 | Все проверки и тесты пройдены, 15 замечаний ревью закрыты |
 
 **Следующая задача: все задачи выполнены (эпик 10 завершён)**
 
@@ -206,7 +206,7 @@
 2. Задача не 🔧 у другого агента. Если 🔧 — взять следующую подходящую по волне.
 3. Поставить 🔧, своё имя, дату. Для волны B — можно в том же коммите, что и код.
 
-**После задачи:** ✅, хеш коммита, одна строка заметки. В том же коммите, что и код.
+**После задачи:** ✅, одна строка заметки. В том же коммите, что и код.
 
 **Любое отклонение от `TASKS-6`** — строка в разделе «Расхождения» в том же коммите. Отклонение без записи = задача выполнена неправильно.
 
@@ -234,33 +234,33 @@ npx tsc --noEmit --pretty false 2>&1 | grep "<путь/к/файлу/задач�
 
 ## Задачи
 
-| ID | Задача | Волна | Статус | Агент | Дата | Коммит | Заметки |
-|---|---|---|---|---|---|---|---|
-| T-120 | Типы конфигурации | A | ✅ | Antigravity | 2026-09-06 | `dfb00da` | Заменены типы: LeatherCode, ThreadCode, ClosureCode, ElasticColorCode, PenHolderCode, Embossing |
-| T-121 | Данные: размеры, цвета, кожи | A | ✅ | Antigravity | 2026-09-06 | `dfb00da` | cardSlotsMax в sizes, sand/graphite в colors, smooth/croc/suede в leathers |
-| T-122 | Данные: нить, резинка, застёжка, держатель, цены | A | ✅ | Antigravity | 2026-09-06 | `dfb00da` | threads (tonal), elastic (4 цвета), closures (elastic/buckle/none), pen-holders (slim/wide), pricing (embossing/cards/pen/buckle), cords.ts удалён |
-| T-123 | Данные: наличие и ракурсы | A | ✅ | Antigravity | 2026-09-06 | `dfb00da` | stock (27 пар in_stock), shots (back в angleSpecs и schematicAngleList, SCHEMATIC_NOTE) |
-| T-124 | Фасад данных и `fill()` | A | ✅ | Antigravity | 2026-09-06 | `dfb00da` | lib/data.ts обновлён, fill() добавлен в lib/format.ts, copy.ts удалён |
-| T-125 | Расчёт цены | A | ✅ | Antigravity | 2026-09-06 | `dfb00da` | calculatePrice c thread, closure, penHolder, cardSlots, embossing |
-| T-126 | Zod-схема и санитайзер тиснения | A | ✅ | Antigravity | 2026-09-06 | `dfb00da` | sanitizeEmbossing (A-Z + PL + Cyrillic), configSchema с новыми осями |
-| T-127 | Совместимость и разрешение конфликтов | A | ✅ | Antigravity | 2026-09-06 | `dfb00da` | resolveConfiguration с clampInserts и cardSlotsMax |
-| T-128 | Состояние в URL | A | ✅ | Antigravity | 2026-09-06 | `dfb00da` | configFromSearchParams и configToSearchParams с новыми параметрами |
-| T-129 | Стор корзины | A | ✅ | Antigravity | 2026-09-06 | `dfb00da` | nakedskin:cart v2, configHash с closure, penHolder, cards, embossing |
-| T-130 | Словарь: тип и английский | A | ✅ | Antigravity | 2026-09-06 | `dfb00da` | Dictionary интерфейс с новыми осями и плейсхолдерами, en.ts |
-| T-131 | Словари: pl, de, by, uk | A | ✅ | Antigravity | 2026-09-06 | `dfb00da` | Словари pl, de, by, uk приведены к интерфейсу Dictionary, новая терминология |
-| T-132 | Штриховки и чертёж: четыре ракурса | B | ✅ | Antigravity | 2026-09-06 | `7a3c857` | HatchDefs и SchematicCover с 4 ракурсами (front/back/open/detail) и всеми осями |
-| T-133 | Превью с четырьмя ракурсами и линейка ручки | B | ✅ | Antigravity | 2026-09-06 | `7a3c857` | Preview с 4 ракурсами, PenSizeGuide с размерами в мм |
-| T-134 | Селектор нити | B | ✅ | Antigravity | 2026-09-06 | `7a3c857` | ThreadSelector с 6 свотчами, tonal в цвет кожи, толщина 0.5 мм |
-| T-135 | Селектор застёжки | B | ✅ | Antigravity | 2026-09-06 | `7a3c857` | ClosureSelector с 3 карточками (elastic/buckle/none), пиктограммами и свотчами резинки |
-| T-136 | Селектор держателя ручки | B | ✅ | Antigravity | 2026-09-06 | `7a3c857` | PenHolderSelector с карточками none/slim/wide (+20 zł), PenIcon и PenSizeGuide |
-| T-137 | Селектор карманов, вкладыши без хардкода | B | ✅ | Antigravity | 2026-09-06 | `7a3c857` | CardSlotsSelector с лимитом cardSlotsMax, InsertsSelector без хардкодных строк |
-| T-138 | Поле тиснения и модалка | B | ✅ | Antigravity | 2026-09-06 | `7a3c857` | EmbossingInput с санитайзером и EmbossingConfirmModal созданы, Engraving* удалены |
-| T-139 | Sticky-панель | B | ✅ | Antigravity | 2026-09-06 | `7a3c857` | StickyBar с EmbossingConfirmModal и новой ценой |
-| T-140 | Корзина: строки позиции | B | ✅ | Antigravity | 2026-09-06 | `7a3c857` | CartDrawer ItemRow с новыми осями (closure/penHolder/cardSlots/embossing), ReserveBlock dict.cart.reserveError |
-| T-141 | Лендинг и метаданные | B | ✅ | Antigravity | 2026-09-06 | `7a3c857` | Leather smooth дефолт, Sizes cardSlotsMax, layout closure/embossing, shotlist Naked Skin и postponedNote |
-| T-142 | Список кадров: согласованность | B | ✅ | Antigravity | 2026-09-06 | `7a3c857` | S4-leather кадры в lib/shotlist.ts, DEFAULT_CONFIG в ShotMatrix.tsx |
-| T-143 | Сборка конструктора | C | ✅ | Antigravity | 2026-09-06 | `8537dcd` | ConfiguratorClient с 9 осями, RestoreBanner nakedskin key, DetailsSelector удалён, npm run build зелёная |
-| T-144 | Чистка и приёмка эпика | C | ✅ | Antigravity | 2026-09-06 | `8537dcd` | Все 5 grep чистые, npm run lint и build зелёные, shotlist.md пересобран, приемка пройдена |
+| ID | Задача | Волна | Статус | Агент | Дата | Заметки |
+|---|---|---|---|---|---|---|
+| T-120 | Типы конфигурации | A | ✅ | Antigravity | 2026-09-06 | Заменены типы: LeatherCode, ThreadCode, ClosureCode, ElasticColorCode, PenHolderCode, Embossing |
+| T-121 | Данные: размеры, цвета, кожи | A | ✅ | Antigravity | 2026-09-06 | cardSlotsMax в sizes, sand/graphite в colors, smooth/croc/suede в leathers |
+| T-122 | Данные: нить, резинка, застёжка, держатель, цены | A | ✅ | Antigravity | 2026-09-06 | threads (tonal), elastic (4 цвета), closures (elastic/buckle/none), pen-holders (slim/wide), pricing (embossing/cards/pen/buckle), cords.ts удалён |
+| T-123 | Данные: наличие и ракурсы | A | ✅ | Antigravity | 2026-09-06 | stock (27 пар in_stock), shots (back в angleSpecs и schematicAngleList, SCHEMATIC_NOTE) |
+| T-124 | Фасад данных и `fill()` | A | ✅ | Antigravity | 2026-09-06 | lib/data.ts обновлён, fill() добавлен в lib/format.ts, copy.ts удалён |
+| T-125 | Расчёт цены | A | ✅ | Antigravity | 2026-09-06 | calculatePrice c thread, closure, penHolder, cardSlots, embossing |
+| T-126 | Zod-схема и санитайзер тиснения | A | ✅ | Antigravity | 2026-09-06 | sanitizeEmbossing (A-Z + PL + Cyrillic), configSchema с новыми осями |
+| T-127 | Совместимость и разрешение конфликтов | A | ✅ | Antigravity | 2026-09-06 | resolveConfiguration с clampInserts и cardSlotsMax |
+| T-128 | Состояние в URL | A | ✅ | Antigravity | 2026-09-06 | configFromSearchParams и configToSearchParams с новыми параметрами |
+| T-129 | Стор корзины | A | ✅ | Antigravity | 2026-09-06 | nakedskin:cart v2, configHash с closure, penHolder, cards, embossing |
+| T-130 | Словарь: тип и английский | A | ✅ | Antigravity | 2026-09-06 | Dictionary интерфейс с новыми осями и плейсхолдерами, en.ts |
+| T-131 | Словари: pl, de, by, uk | A | ✅ | Antigravity | 2026-09-06 | Словари pl, de, by, uk приведены к интерфейсу Dictionary, новая терминология |
+| T-132 | Штриховки и чертёж: четыре ракурса | B | ✅ | Antigravity | 2026-09-06 | HatchDefs и SchematicCover с 4 ракурсами (front/back/open/detail) и всеми осями |
+| T-133 | Превью с четырьмя ракурсами и линейка ручки | B | ✅ | Antigravity | 2026-09-06 | Preview с 4 ракурсами, PenSizeGuide с размерами в мм |
+| T-134 | Селектор нити | B | ✅ | Antigravity | 2026-09-06 | ThreadSelector с 6 свотчами, tonal в цвет кожи, толщина 0.5 мм |
+| T-135 | Селектор застёжки | B | ✅ | Antigravity | 2026-09-06 | ClosureSelector с 3 карточками (elastic/buckle/none), пиктограммами и свотчами резинки |
+| T-136 | Селектор держателя ручки | B | ✅ | Antigravity | 2026-09-06 | PenHolderSelector с карточками none/slim/wide (+20 zł), PenIcon и PenSizeGuide |
+| T-137 | Селектор карманов, вкладыши без хардкода | B | ✅ | Antigravity | 2026-09-06 | CardSlotsSelector с лимитом cardSlotsMax, InsertsSelector без хардкодных строк |
+| T-138 | Поле тиснения и модалка | B | ✅ | Antigravity | 2026-09-06 | EmbossingInput с санитайзером и EmbossingConfirmModal созданы, Engraving* удалены |
+| T-139 | Sticky-панель | B | ✅ | Antigravity | 2026-09-06 | StickyBar с EmbossingConfirmModal и новой ценой |
+| T-140 | Корзина: строки позиции | B | ✅ | Antigravity | 2026-09-06 | CartDrawer ItemRow с новыми осями (closure/penHolder/cardSlots/embossing), ReserveBlock dict.cart.reserveError |
+| T-141 | Лендинг и метаданные | B | ✅ | Antigravity | 2026-09-06 | Leather smooth дефолт, Sizes cardSlotsMax, layout closure/embossing, shotlist Naked Skin и postponedNote |
+| T-142 | Список кадров: согласованность | B | ✅ | Antigravity | 2026-09-06 | S4-leather кадры в lib/shotlist.ts, DEFAULT_CONFIG в ShotMatrix.tsx |
+| T-143 | Сборка конструктора | C | ✅ | Antigravity | 2026-09-06 | ConfiguratorClient с 9 осями, RestoreBanner nakedskin key, DetailsSelector удалён, npm run build зелёная |
+| T-144 | Чистка и приёмка эпика | C | ✅ | Antigravity | 2026-09-06 | Все 5 grep чистые, npm run lint и build зелёные, shotlist.md пересобран, приемка пройдена |
 
 **Следующая задача: все задачи выполнены (эпик 9 завершён)**
 
