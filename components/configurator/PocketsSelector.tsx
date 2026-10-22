@@ -79,7 +79,7 @@ function FlapEditor({
         <p className="mb-4 text-xs text-muted">{dict.configurator.pocketsEmpty}</p>
       ) : (
         <div className="mb-4">
-          <p className="label mb-1 text-[10px]">{dict.configurator.pocketsTop}</p>
+          <p className="label mb-1">{dict.configurator.pocketsTop}</p>
           <ul className="space-y-2">
             {rows.map(({ pocket, index }) => {
               const def = pocketDefs[pocket.kind];
@@ -142,11 +142,11 @@ function FlapEditor({
               );
             })}
           </ul>
-          <p className="label mt-1 text-[10px]">{dict.configurator.pocketsBottom}</p>
+          <p className="label mt-1">{dict.configurator.pocketsBottom}</p>
         </div>
       )}
 
-      <p className="label mb-2 text-[10px]">{dict.configurator.pocketsAdd}</p>
+      <p className="label mb-2">{dict.configurator.pocketsAdd}</p>
       <div className="grid grid-cols-2 gap-2">
         {pocketList.map((def) => {
           const allowed = canAddPocket(stack, def.code, config.size);

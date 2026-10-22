@@ -5,7 +5,7 @@
 
 export const INK = '#1C1917';
 export const INK_SOFT = '#57534E';
-export const MUTED = '#8A7F72';
+export const MUTED = '#73695D';
 export const LINE = '#DED5C7';
 export const PAPER = '#FAF7F2';
 export const PAPER_2 = '#F2EDE4';

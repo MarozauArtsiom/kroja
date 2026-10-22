@@ -34,7 +34,7 @@ export default function Swatch({
       tabIndex={selected ? 0 : -1}
       onClick={() => onSelect(value)}
       className={clsx(
-        'group flex w-[72px] flex-col items-center gap-1.5 rounded-sm p-1',
+        'group flex w-[76px] flex-col items-center gap-1.5 rounded-sm p-1',
         'transition-opacity duration-150',
         disabled && 'opacity-40',
       )}
@@ -61,13 +61,13 @@ export default function Swatch({
         )}
       </span>
 
-      <span className="text-center text-[11px] leading-tight text-ink-soft">{label}</span>
+      <span className="text-center text-xs leading-tight tracking-tight text-ink-soft">{label}</span>
 
       {state === 'made-to-order' && madeToOrderLabel && (
-        <span className="text-center text-[10px] leading-tight text-muted">{madeToOrderLabel}</span>
+        <span className="text-center text-[11px] leading-tight text-muted">{madeToOrderLabel}</span>
       )}
       {disabled && note && (
-        <span className="text-center text-[10px] leading-tight text-muted">{note}</span>
+        <span className="text-center text-[11px] leading-tight text-muted">{note}</span>
       )}
     </button>
   );
