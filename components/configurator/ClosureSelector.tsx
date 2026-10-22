@@ -47,6 +47,7 @@ export default function ClosureSelector({ config, onChange }: Props) {
   return (
     <div>
       <OptionCardGroup
+        rowOnMobile
         label={dict.configurator.steps.closure}
         columns="grid-cols-1 sm:grid-cols-3"
         value={config.closure}

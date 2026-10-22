@@ -38,6 +38,7 @@ export default function LeatherSelector({ config, onChange }: Props) {
   return (
     <div>
       <OptionCardGroup
+        rowOnMobile
         label={dict.a11y.leatherGroup}
         columns="grid-cols-1 sm:grid-cols-3"
         value={config.leather}

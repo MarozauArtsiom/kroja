@@ -32,6 +32,7 @@ export default function PenHolderSelector({ config, onChange }: Props) {
     <div className="space-y-4">
       <div>
         <OptionCardGroup
+          rowOnMobile
           label={dict.configurator.steps.penHolder}
           columns="grid-cols-1 sm:grid-cols-3"
           value={config.penHolder}
