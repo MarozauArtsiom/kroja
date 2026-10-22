@@ -173,6 +173,12 @@ export interface Dictionary {
     previewTitle: string;
     previewExpand: string;
     previewClose: string;
+    groupDetails: string;
+    groupDetailsHint: string;
+    /** Uses {front} and {back} */
+    pocketsSummary: string;
+    /** Uses {qty} and {name} */
+    insertsSummary: string;
     restorePrompt: string;
     restoreAction: string;
     notifyTitle: string;
