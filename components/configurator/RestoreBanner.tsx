@@ -43,11 +43,11 @@ export default function RestoreBanner({ isFreshVisit, onRestore }: Props) {
     <div className="mb-6 flex flex-wrap items-center justify-between gap-3 rounded-sm border border-line bg-paper-2 p-4">
       <p className="text-sm text-ink">{dict.configurator.restorePrompt}</p>
       <div className="flex gap-2">
-        <Button size="sm" variant="secondary" onClick={() => setSaved(null)}>
+        <Button size="md" variant="secondary" onClick={() => setSaved(null)}>
           ✕
         </Button>
         <Button
-          size="sm"
+          size="md"
           onClick={() => {
             onRestore(saved);
             setSaved(null);

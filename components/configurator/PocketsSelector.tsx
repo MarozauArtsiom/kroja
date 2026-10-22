@@ -20,7 +20,7 @@ interface Props {
 }
 
 const ICON_BUTTON =
-  'h-9 w-9 shrink-0 rounded-sm border border-line text-sm text-ink transition-colors hover:border-ink disabled:opacity-30 disabled:hover:border-line';
+  'h-11 w-11 shrink-0 rounded-sm border border-line text-sm text-ink transition-colors hover:border-ink disabled:opacity-30 disabled:hover:border-line';
 
 /** One flap: a budget bar, the stack drawn top to bottom as on the cover, and add buttons. */
 function FlapEditor({
@@ -94,14 +94,14 @@ function FlapEditor({
                   </div>
                   <p className="text-xs text-muted">{copy.meta}</p>
 
-                  <div className="mt-2 flex items-center justify-between gap-2">
+                  <div className="mt-2 flex flex-wrap items-center justify-between gap-2">
                     {def.canDivide ? (
-                      <label className="flex cursor-pointer items-center gap-2 text-xs text-ink-soft">
+                      <label className="flex min-h-11 cursor-pointer items-center gap-2 pr-2 text-xs text-ink-soft">
                         <input
                           type="checkbox"
                           checked={pocket.divided}
                           onChange={() => toggleDivided(index)}
-                          className="h-4 w-4 accent-[#8B4A2B]"
+                          className="h-5 w-5 accent-[#8B4A2B]"
                         />
                         {dict.configurator.pocketsDivide}
                       </label>

@@ -87,7 +87,7 @@ export default function EmbossingInput({ config, onChange }: Props) {
                   type="button"
                   onClick={() => commit({ font: f })}
                   className={clsx(
-                    'h-9 flex-1 rounded-sm border text-sm transition-colors duration-150',
+                    'h-11 flex-1 rounded-sm border text-sm transition-colors duration-150',
                     config.embossing?.font === f ? 'border-ink bg-paper-2' : 'border-line',
                   )}
                 >
@@ -106,7 +106,7 @@ export default function EmbossingInput({ config, onChange }: Props) {
                   type="button"
                   onClick={() => commit({ position: p })}
                   className={clsx(
-                    'h-9 flex-1 rounded-sm border text-xs transition-colors duration-150',
+                    'h-11 flex-1 rounded-sm border text-xs transition-colors duration-150',
                     config.embossing?.position === p ? 'border-ink bg-paper-2' : 'border-line',
                   )}
                 >
