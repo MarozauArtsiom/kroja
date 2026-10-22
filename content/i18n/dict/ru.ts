@@ -260,6 +260,8 @@ export const ru: Dictionary = {
     madeToOrder: 'Под заказ',
     inStock: 'В наличии',
     conflictBanner: 'Ваш предыдущий выбор был скорректирован с учётом наличия.',
+    sizeCompareShow: "Сравнить с телефоном",
+    sizeCompareHide: "Скрыть сравнение",
     restorePrompt: 'У вас есть сохранённая конфигурация с прошлого визита.',
     restoreAction: 'Восстановить',
     notifyTitle: 'Нет в наличии в этом цвете',

@@ -65,7 +65,7 @@ export default function Preview({ config }: { config: Configuration }) {
         ))}
       </div>
 
-      <div className="rounded-sm border border-line p-4">
+      <div className="hidden rounded-sm border border-line p-4 lg:block">
         <SizeDiagram
           active={config.size}
           mode="single"

@@ -276,6 +276,8 @@ export const uk: Dictionary = {
     madeToOrder: "Під замовлення",
     inStock: "У наявності",
     conflictBanner: "Ваш попередній вибір було скориговано відповідно до наявності матеріалу.",
+    sizeCompareShow: "Порівняти з телефоном",
+    sizeCompareHide: "Сховати порівняння",
     restorePrompt: "Знайдено збережену конфігурацію з попереднього візиту.",
     restoreAction: "Відновити",
     notifyTitle: "Немає в наявності у цьому кольорі",

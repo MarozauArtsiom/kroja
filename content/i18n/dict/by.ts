@@ -276,6 +276,8 @@ export const by: Dictionary = {
     madeToOrder: "Пад замову",
     inStock: "У наяўнасці",
     conflictBanner: "Ваш папярэдні выбар быў скарэктаваны ў залежнасці ад наяўнасці матэрыялу.",
+    sizeCompareShow: "Параўнаць з тэлефонам",
+    sizeCompareHide: "Схаваць параўнанне",
     restorePrompt: "Знойдзена захаваная канфігурацыя з папярэдняга наведвання.",
     restoreAction: "Аднавіць",
     notifyTitle: "Няма ў наяўнасці ў гэтым колеры",

@@ -168,6 +168,8 @@ export interface Dictionary {
     madeToOrder: string;
     inStock: string;
     conflictBanner: string;
+    sizeCompareShow: string;
+    sizeCompareHide: string;
     restorePrompt: string;
     restoreAction: string;
     notifyTitle: string;

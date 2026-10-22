@@ -259,6 +259,8 @@ export const pl: Dictionary = {
     madeToOrder: "Na zamówienie",
     inStock: "W magazynie",
     conflictBanner: "Twój poprzedni wybór został dopasowany do dostępności.",
+    sizeCompareShow: "Porównaj z telefonem",
+    sizeCompareHide: "Ukryj porównanie",
     restorePrompt: "Masz zapisaną konfigurację z poprzedniej wizyty.",
     restoreAction: "Przywróć",
     notifyTitle: "Brak koloru w magazynie",
