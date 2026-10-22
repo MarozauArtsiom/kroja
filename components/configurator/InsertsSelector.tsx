@@ -2,9 +2,9 @@
 'use client';
 
 import type { Configuration, InsertType } from '@/types/config';
-import { sizes, insertPriceMinor, GIFT_BOX_MINOR, INCLUDED_INSERTS } from '@/lib/data';
+import { sizes, insertPriceMinor, INCLUDED_INSERTS } from '@/lib/data';
 import { useI18n } from '@/components/i18n/I18nProvider';
-import { fill, formatDelta, formatPrice } from '@/lib/format';
+import { fill, formatPrice } from '@/lib/format';
 import QuantityStepper from '@/components/ui/QuantityStepper';
 
 interface Props {
@@ -65,19 +65,6 @@ export default function InsertsSelector({ config, onChange }: Props) {
           })}
         </div>
       </div>
-
-      <label className="flex cursor-pointer items-center justify-between rounded-sm border border-line p-3">
-        <span className="text-sm text-ink">
-          {dict.configurator.giftBoxLabel}
-          <span className="ml-2 text-xs text-accent">{formatDelta(GIFT_BOX_MINOR)}</span>
-        </span>
-        <input
-          type="checkbox"
-          checked={config.giftBox}
-          onChange={(e) => onChange({ giftBox: e.target.checked })}
-          className="h-5 w-5 accent-[#8B4A2B]"
-        />
-      </label>
     </div>
   );
 }

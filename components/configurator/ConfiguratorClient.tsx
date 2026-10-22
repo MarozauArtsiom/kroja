@@ -20,6 +20,7 @@ import PocketsSelector from './PocketsSelector';
 import InsertsSelector from './InsertsSelector';
 import EmbossingInput from './EmbossingInput';
 import StickyBar from './StickyBar';
+import GiftBoxToggle from './GiftBoxToggle';
 import RestoreBanner, { saveConfig } from './RestoreBanner';
 import OptionSection from './OptionSection';
 import { DETAIL_IDS, detailSummaries, type DetailId } from './summary';
@@ -133,6 +134,8 @@ function Inner() {
                 <EmbossingInput config={config} onChange={update} />
               </OptionSection>
             </div>
+
+            <GiftBoxToggle config={config} onChange={update} />
           </div>
         </div>
       </main>
