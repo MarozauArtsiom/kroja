@@ -43,7 +43,7 @@ export default function LanguageSwitcher() {
       <button
         type="button"
         onClick={() => setIsOpen((prev) => !prev)}
-        className="flex h-10 items-center gap-2 rounded-sm border border-line bg-paper px-2.5 text-xs font-medium text-ink transition-colors hover:border-ink focus-visible:outline-accent"
+        className="flex h-10 min-w-11 items-center justify-center gap-2 rounded-sm border border-line bg-paper px-2.5 text-xs font-medium text-ink transition-colors hover:border-ink focus-visible:outline-accent"
         aria-haspopup="listbox"
         aria-expanded={isOpen}
         aria-label={fill(dict.a11y.currentLanguage, { language: currentInfo.nativeName })}
@@ -52,7 +52,7 @@ export default function LanguageSwitcher() {
         <svg
           viewBox="0 0 20 20"
           fill="currentColor"
-          className={`h-3.5 w-3.5 text-muted transition-transform duration-150 ${isOpen ? 'rotate-180' : ''}`}
+          className={`hidden h-3.5 w-3.5 text-muted transition-transform sm:block duration-150 ${isOpen ? 'rotate-180' : ''}`}
           aria-hidden="true"
         >
           <path
